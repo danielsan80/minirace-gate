@@ -1,6 +1,6 @@
 
 
-module rule(x=0, y=0, z=0) {
+module ruler(x=0, y=0, z=0) {
     function xx() = x ? x : 10;
     function yy() = y ? y : 10;
     function zz() = z ? z : 10;

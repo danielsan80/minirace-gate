@@ -1,4 +1,4 @@
-include <vendor/rule/rule.scad>
+include <vendor/ruler/ruler.scad>
 
 module upright() {
     translate([63.15,26.7,0])
@@ -113,7 +113,7 @@ module gate_150() {
     cars(5);
 
     translate([22.2,-20,0])
-    rule(x=150);
+    ruler(x=150);
 }
 
 
@@ -131,6 +131,7 @@ module gate_186() {
     rule(x=181.5);
 }
 
+
 //translate([0,120,0])
 //gate_150();
 
@@ -142,6 +143,17 @@ module gate_186() {
 //upright();
 
 
+
+pylon_base_w = 20;
+pylon_base_l = 40;
+pylon_base_h = 2.5;
+
+pylon_side = 13;
+
+bar_w = 4;
+
+
+function hp(l) = pow(pow(l,2) + pow(l,2),1/2);
 
 module profile(width = 10) {
     w = 20;
@@ -209,112 +221,171 @@ module profile(width = 10) {
     
 }
 
-module bar(length = 50) {
-    linear_extrude(length)
-    profile(width=6);
+module bar(l = 50, w = bar_w) {
+    linear_extrude(l)
+    profile(width=w);
 }
 
-module pylon(side = 20, length=100, offset = 0) {
-    
-    function hp(l) = pow(pow(l,2) + pow(l,2),1/2);
+function bar_cut_offset(w = bar_w) = bar_w*2/6;
+
+module bar_L_cut(side, offset = 0) {
+    a_lot = 1000;
+    difference() {
+        children();
+        translate([-a_lot+offset,-a_lot/2,-a_lot/2])
+        cube([a_lot,a_lot,a_lot]);
+    }
+}
+
+module bar_R_cut(side, offset = 0) {
+    a_lot = 1000;
+    difference() {
+        children();
+        translate([side-offset,-a_lot/2,-a_lot/2])
+            cube([a_lot,a_lot,a_lot]);
+    }
+}
+
+
+module reinforcement(side=pylon_side, w=bar_w) {
+    offset = bar_cut_offset(w=w);
+
+    intersection() {
+        rotate([0,45,0])
+        bar(l=hp(side), w=w);
+
+        translate([offset,-side/2,-side*2])
+            cube([side-offset*2,side,side*4]);
+    }
+}
+
+module pylon(side = pylon_side, l=100, gap = 0, bar_w = bar_w) {
+
     module main() {
-        bar(length=length);
+        bar(l=l, w=bar_w);
         
         translate([side,0,0])
-        bar(length=length);
+        bar(l=l, w=bar_w);
         
         translate([0,side,0])
-        bar(length=length);
+        bar(l=l, w=bar_w);
         
         translate([side,side,0])
-        bar(length=length);
+        bar(l=l, w=bar_w);
     }
-    
-    module traverse() {
-        offset = 2;
+
+    module reinforcementsR() {
         
-        intersection() {
-            rotate([0,45,0])        
-            bar(length=hp(side));
-            
-            translate([offset,-side/2,-side*2])
-            cube([side-offset*2,side,side*4]);
-        }
-    }
-    
-    
-    module traversesR() {
-        
-        traverse();
+        reinforcement();
 
         rotate([0,0,90])
-        traverse();        
+        reinforcement();
 
         
         translate([side,side,0])
         rotate([0,0,180])
-        traverse();
+        reinforcement();
         
         translate([side,side,0])
         rotate([0,0,-90])
-        traverse();
+        reinforcement();
     }
     
-    module traversesL() {
+    module reinforcementsL() {
         translate([side,0,0])
         rotate([0,0,180])
-        traverse();
+        reinforcement();
         
         translate([0,side,0])        
         rotate([0,0,-90])
-        traverse();
+        reinforcement();
         
         translate([side,0,0])
         rotate([0,0,90])
-        traverse();
+        reinforcement();
         
         translate([0,side,0])
         rotate([0,0,0])
-        traverse();
+        reinforcement();
     }
     
     difference() {
         union() {
             main();
-            for(i=[0:length/side/2]) {
-                translate([0,0,(side+offset)*i*2])
-                traversesL();
-                translate([0,0,(side+offset)+(side+offset)*i*2])
-                traversesR();
+            for(i=[0:l/side/2]) {
+                translate([0,0,(side+gap)*i*2])
+                reinforcementsL();
+                translate([0,0,(side+gap)+(side+gap)*i*2])
+                reinforcementsR();
             }
         }
         translate([-side*2,-side*2,-side])
         cube([side*4,side*4,side]);
-        translate([-side*2,-side*2,length])
-        cube([side*4,side*4,length*10]);
+        translate([-side*2,-side*2,l])
+        cube([side*4,side*4,l*10]);
     }
     
 }
 
-//pylon(side=20, length=150, offset=8);
+module pylon_base() {
+    w = pylon_base_w;
+    l = pylon_base_l;
+    h = pylon_base_h;
+    $fn=100;
+    fix = 0.01;
 
-difference() {
-    pylon(side=20, length=170, offset=8);
-    
-    translate([0,0,150])
-    rotate([0,45,0])
-    translate([-500,-500,0])
-    cube([1000,1000,100]);
+    r = 2;
+    translate([-w/2,-l/2,0])
+    minkowski() {
+        cube([w, l, h]);
+        cylinder(r=r, h= fix);
+    }
 }
 
-translate([0,0,150])
-difference() {
-    translate([-10,0,0])
-    rotate([0,90,0])
-    pylon(side=20, length=170, offset=8);
-    
-    
-    rotate([0,45,0])
-    translate([-500,-500,-1000])
-    cube([1000,1000,100]);
+module new_gate() {
+    gap = 4;
+
+    pylon_base();
+
+    translate([-pylon_side/2,-pylon_side-pylon_side/2,pylon_base_h])
+    rotate([-45,0,0])
+    bar(l=hp(pylon_side));
+
+    translate([-pylon_side/2,-pylon_side/2,pylon_base_h])
+    pylon(side=pylon_side, l=150, gap=gap, bar_w=bar_w);
 }
+
+translate([11,90,0])
+new_gate();
+
+
+//difference() {
+    translate([0,120,0])
+    gate_150();
+//
+//    translate([-500,-500,50])
+//    cube([1000,1000,1000]);
+//}
+
+
+
+//difference() {
+//    pylon(side=20, length=170, offset=8);
+//    
+//    translate([0,0,150])
+//    rotate([0,45,0])
+//    translate([-500,-500,0])
+//    cube([1000,1000,1000]);
+//}
+//
+//translate([0,0,150])
+//difference() {
+//    translate([-10,0,0])
+//    rotate([0,90,0])
+//    pylon(side=20, length=170, offset=8);
+//    
+//    
+//    rotate([0,45,0])
+//    translate([-500,-500,-1000])
+//    cube([1000,1000,1000]);
+//}
