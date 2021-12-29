@@ -244,6 +244,25 @@ module bar_ext(l = 50, w = bar_w) {
         profile(width=w);
 }
 
+module joint(h=10,void=false) {
+    function p() = void?0.2:0;
+    w1=1;
+    w2=1.6;
+    l=1.6;
+    minkowski() {
+        linear_extrude(h)
+        polygon([
+                [0,-w1/2],
+                [0,w1/2],
+                [l,w2/2],
+                [l,-w2/2],
+                [0,-w1/2]
+        ]);
+
+        cylinder(r=p(), h=fix);
+    }
+}
+
 function bar_cut_offset(w = bar_w) = w*2/6;
 
 module bar_top_cut(l, angle=45, offset = 0) {
@@ -493,6 +512,15 @@ module angle() {
             }
 
             traverse_plate();
+
+
+            union() {
+                translate([-fix,-pylon_side/2,0])
+                joint(h=a_lot,void=true);
+
+                translate([-fix,pylon_side/2,0])
+                joint(h=a_lot,void=true);
+            }
         }
     }
 
@@ -523,10 +551,27 @@ module angle() {
             bottom_cut();
         }
         traverse_cut();
+
+
     }
-    translate([10,0,10])
+
+    traverse_cut_translate()
+    union() {
+        translate([-fix,-pylon_side/2,0])
+            joint(h=pylon_side+bar_w);
+
+        translate([-fix,pylon_side/2,0])
+            joint(h=pylon_side+bar_w);
+    }
+
+//    translate([10,0,10])
     traverse();
+
+
+
 }
+
+
 
 module new_gate() {
     gap = reinforcement_gap;
