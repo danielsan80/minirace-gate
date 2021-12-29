@@ -144,6 +144,14 @@ module gate_186() {
 
 
 
+
+$fn=100;
+fix = 0.01;
+a_lot = 1000;
+play = 0.25;
+
+base_curvature_r = 2;
+
 pylon_base_w = 20;
 pylon_base_l = 47;
 pylon_base_h = 2.5;
@@ -157,8 +165,6 @@ angle_base_l = 25;
 angle_base_h = 2.5;
 
 reinforcement_gap = 4;
-
-
 
 function hp(l) = pow(pow(l,2) + pow(l,2),1/2);
 
@@ -225,7 +231,6 @@ module profile(width = 10) {
             [-x1,y1],
         [-x0,y0],
     ]);
-
 }
 
 module bar(l = 50, w = bar_w) {
@@ -239,13 +244,12 @@ module bar_ext(l = 50, w = bar_w) {
         profile(width=w);
 }
 
-function bar_cut_offset(w = bar_w) = bar_w*2/6;
+function bar_cut_offset(w = bar_w) = w*2/6;
 
 module bar_top_cut(l, angle=45, offset = 0) {
     a_lot = 1000;
     intersection() {
         children();
-
 
         translate([0,0,l-offset])
         rotate([0,angle,0])
@@ -278,63 +282,72 @@ module reinforcement(side=pylon_side, w=bar_w) {
 
 }
 
-module reinforcementsR(side=pylon_side, w=bar_w) {
+module reinforcementsR() {
+    side = pylon_side;
 
-    reinforcement(side=side, w=w);
+    reinforcement();
 
     rotate([0,0,90])
-    reinforcement(side=side, w=w);
+    reinforcement();
 
     translate([side,side,0])
     rotate([0,0,180])
-    reinforcement(side=side, w=w);
+    reinforcement();
 
     translate([side,side,0])
     rotate([0,0,-90])
-    reinforcement(side=side, w=w);
+    reinforcement();
 }
 
-module reinforcementsL(side=pylon_side, w=bar_w) {
-    translate([side,0,0])
-        rotate([0,0,180])
-            reinforcement(side=side, w=w);
-
-    translate([0,side,0])
-        rotate([0,0,-90])
-            reinforcement(side=side, w=w);
+module reinforcementsL() {
+    side = pylon_side;
 
     translate([side,0,0])
-        rotate([0,0,90])
-            reinforcement(side=side, w=w);
+    rotate([0,0,180])
+    reinforcement();
 
     translate([0,side,0])
-        rotate([0,0,0])
-            reinforcement(side=side, w=w);
+    rotate([0,0,-90])
+    reinforcement();
+
+    translate([side,0,0])
+    rotate([0,0,90])
+    reinforcement();
+
+    translate([0,side,0])
+    rotate([0,0,0])
+    reinforcement();
 }
 
 
-module pylon_main(side = pylon_side, l=100, gap = 0, bar_w = bar_w) {
-    bar(l=l, w=bar_w);
+module pylon_main(l=100) {
+    side = pylon_side;
+
+    bar(l=l);
 
     translate([side,0,0])
-    bar(l=l, w=bar_w);
+    bar(l=l);
 
     translate([0,side,0])
-    bar(l=l, w=bar_w);
+    bar(l=l);
 
     translate([side,side,0])
-    bar(l=l, w=bar_w);
+    bar(l=l);
 }
 
-module pylon(side = pylon_side, l=100, gap = 0, bar_w = bar_w) {
+module pylon(l=100) {
+    side = pylon_side;
+    gap = reinforcement_gap;
+    step = side+gap;
+
     render()
     intersection() {
         union() {
             pylon_main(l=l);
-            for(i=[0:l/side/2]) {
-                translate([0,0,(side+gap)*i*2])
+            for(i=[0:l/step]) {
+                translate([0,0,step*i*2])
                 reinforcementsL();
-                translate([0,0,(side+gap)+(side+gap)*i*2])
+                translate([0,0,step+step*i*2])
                 reinforcementsR();
             }
         }
@@ -359,24 +372,26 @@ module pylon_base() {
     }
 }
 
+
+
 module angle_base() {
     w = angle_base_w;
     l = angle_base_l;
     h = angle_base_h;
-    r=2;
-    $fn=100;
-    fix = 0.01;
-    a_lot = 1000;
-    gap = reinforcement_gap;
 
-
-    module base() {
-        translate([-w/2,-w/2,0])
-        minkowski() {
-            cube([l, w, h]);
-            cylinder(r=r, h=fix);
-        }
+    translate([-w/2,-w/2,0])
+    minkowski() {
+        cube([l, w, h]);
+        cylinder(r=base_curvature_r, h=fix);
     }
+}
+
+module angle() {
+    w = angle_base_w;
+    l = angle_base_l;
+    h = angle_base_h;
+
+    gap = reinforcement_gap;
 
     module main() {
         translate([0,0,-pylon_side-gap])
@@ -423,7 +438,7 @@ module angle_base() {
 
 
     module bottom_cut() {
-        translate([-angle_base_w/2-r,-a_lot/2,0])
+        translate([-angle_base_w/2-base_curvature_r,-a_lot/2,0])
         cube([a_lot,a_lot,a_lot]);
     }
 
@@ -481,7 +496,7 @@ module angle_base() {
         }
     }
 
-    base();
+    angle_base();
 
 //    traverse_cut_translate()
 //    traverse_plate();
@@ -547,11 +562,11 @@ module new_gate() {
 //    pylon_base();
 //
 //    translate([-pylon_side/2,-pylon_side/2,pylon_base_h])
-//    pylon(side=pylon_side, l=150, gap=gap, bar_w=bar_w);
+//    pylon(l=150);
 //
 //    counterforts();
 
-    angle_base();
+    angle();
 
 //    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
 //    rotate([0,90,0])
