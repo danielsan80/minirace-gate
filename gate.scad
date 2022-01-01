@@ -1,154 +1,10 @@
-include <vendor/ruler/ruler.scad>
-
-module upright() {
-    translate([63.15,26.7,0])
-    import("vendor/gate/Gaslands_Gate_Tower_Scafflod_Tall_v1.stl");
-}
-
-module angle_L() {
-    translate([-241.37,-47.87,0])
-    import("vendor/gate/Gaslands_Gate_-_Span_Angle_L.stl");
-}
-
-module traverse150() {
-        translate([-285.45,2.52,0])
-    import("vendor/gate/Gaslands_Gate_-_Span_for_150mm_gate_v2.stl");
-}
-
-module traverse186() {
-    translate([-270.83,-3.18,0])
-    import("vendor/gate/Gaslands_Gate_-_Span_for_186mm_gate_v2.stl");
-}
-
-module angle_R() {
-    translate([-465.52,-47.87,0])
-    import("vendor/gate/Gaslands_Gate_-_Span_Angle_R.stl");
-}
-
-module car() {
-    translate([-4.5,0,0])
-    import("vendor/cars/Subaru2.stl");
-}
-
-module car1() {
-    translate([35,26,0])
-    car();
-}
-
-module cars(n) {
-    for(i=[0:n-1]) {
-        translate([i*29,0,0])
-        car1();
-    }
-}
-
-module upright_L_150() {
-    upright();
-}
-
-module upright_R_150() {
-    translate([172.65,0,0])
-    upright();
-}
-
-
-module angle_L_150() {
-    translate([1,16.7,77.6])
-    angle_L();
-}
-
-
-
-module traverse150_150() {
-    translate([28.68,17.52,88.11])
-    traverse150();
-}
-
-
-module angle_R_150() {
-    translate([193.64,16.7,77.6])
-    angle_R();
-}
-
-
-
-module upright_L_186() {
-    upright();
-}
-
-module upright_R_186() {
-    translate([203.85,0,0])
-    upright();
-}
-
-
-module angle_L_186() {
-    translate([1,16.7,77.6])
-    angle_L();
-}
-
-
-
-module traverse186_186() {
-    translate([28.68,17.52,88.11])
-    traverse186();
-}
-
-
-module angle_R_186() {
-    translate([224.9,16.7,77.6])
-    angle_R();
-}
-
-
-module gate_150() {
-
-
-    upright_L_150();
-    angle_L_150();
-    traverse150_150();
-    angle_R_150();
-    upright_R_150();
-
-    cars(5);
-
-    translate([22.2,-20,0])
-    ruler(x=150);
-}
-
-
-module gate_186() {
-
-    upright_L_186();
-    angle_L_186();
-    traverse186_186();
-    angle_R_186();
-    upright_R_186();
-
-    cars(6);
-
-    translate([22.2,-20,0])
-    rule(x=181.5);
-}
-
-
-//translate([0,120,0])
-//gate_150();
-
-//gate_186();
-
-//projection(cut = true)
-//translate([0,0,-15])
-//rotate([0,45,0])
-//upright();
-
-
-
-
 $fn=100;
 fix = 0.01;
 a_lot = 1000;
 play = 0.25;
+
+profile_w = 20;
+profile_h = 2;
 
 base_curvature_r = 2;
 
@@ -156,22 +12,27 @@ pylon_base_w = 20;
 pylon_base_l = 47;
 pylon_base_h = 2.5;
 
-pylon_side = 13;
-
-bar_w = 4;
-
 angle_base_w = 20;
 angle_base_l = 25;
 angle_base_h = 2.5;
+
+pylon_side = 13;
+
+bar_w = 4;
 
 reinforcement_gap = 4;
 
 function hp(l) = pow(pow(l,2) + pow(l,2),1/2);
 
+
+function profile_outer_width(width=10) = width/profile_w*profile_h*2+width;
+function profile_inner_width(width=10) = width;
+function profile_width_diff(width=10) = profile_outer_width(width)-profile_inner_width(width);
+
 module profile(width = 10) {
-    w = 20;
+    w = profile_w;
     s = 6;
-    h = 2;
+    h = profile_h;
     a = 50;
     k = 2.5;
 
@@ -189,7 +50,6 @@ module profile(width = 10) {
 
     x3 = w2/2;
     y3 = w2/2;
-
 
 
     scale([width/w, width/w])
@@ -232,6 +92,10 @@ module profile(width = 10) {
         [-x0,y0],
     ]);
 }
+
+echo (profile_outer_width(width=bar_w));
+echo (profile_inner_width(width=bar_w));
+echo (profile_width_diff(width=bar_w));
 
 module bar(l = 50, w = bar_w) {
     linear_extrude(l)
@@ -629,14 +493,19 @@ module new_gate() {
 new_gate();
 
 
-//difference() {
-    translate([0,120,0])
-    gate_150();
-//
-//    translate([-500,-500,50])
-//    cube([1000,1000,1000]);
-//}
+module old_gate() {
+    include <src/gaslands_gate/gaslands_gate.scad>
+    vendor_dir = "vendor";
 
+//    difference() {
+        translate([0,120,0])
+        gate_150();
+
+//        translate([-500,-500,50])
+//        cube([1000,1000,1000]);
+//    }
+}
+//old_gate();
 
 
 //difference() {
