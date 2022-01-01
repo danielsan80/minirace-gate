@@ -248,7 +248,7 @@ module joint(h=10,void=false) {
     function p() = void?0.2:0;
     w1=1;
     w2=1.6;
-    l=1.6;
+    l=1.2;
     minkowski() {
         linear_extrude(h)
         polygon([
@@ -499,11 +499,14 @@ module angle() {
                 pylon(l=150);
                 difference() {
                     rotate([0,90,0])
-                    translate([0,0,bar_cut_offset()])
                     union() {
-                        bar(l=pylon_side-bar_cut_offset()*2);
+                        c=1.2;
+                        translate([0,0,-bar_w*c/2])
+                        bar(l=pylon_side+bar_w*c);
+
                         translate([0,pylon_side,0])
-                        bar(l=pylon_side-bar_cut_offset()*2);
+                        translate([0,0,-bar_w*c/2])
+                        bar(l=pylon_side+bar_w*c);
                     }
 
                     translate([-a_lot/2,-a_lot/2,-a_lot])
@@ -534,6 +537,7 @@ module angle() {
 //    %translate([-pylon_side/2,-pylon_side/2,0])
 //    main();
 
+    render()
     difference() {
 
         intersection() {
@@ -557,11 +561,12 @@ module angle() {
 
     traverse_cut_translate()
     union() {
+        c=1.1;
         translate([-fix,-pylon_side/2,0])
-            joint(h=pylon_side+bar_w);
+            joint(h=pylon_side+bar_w*c);
 
         translate([-fix,pylon_side/2,0])
-            joint(h=pylon_side+bar_w);
+            joint(h=pylon_side+bar_w*c);
     }
 
 //    translate([10,0,10])
