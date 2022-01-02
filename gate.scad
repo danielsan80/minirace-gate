@@ -8,9 +8,9 @@ profile_h = 2;
 
 base_curvature_r = 2;
 
-pylon_base_w = 20;
-pylon_base_l = 47;
-pylon_base_h = 2.5;
+upright_base_w = 20;
+upright_base_l = 47;
+upright_base_h = 2.5;
 
 angle_base_w = 20;
 angle_base_l = 25;
@@ -25,12 +25,12 @@ reinforcement_gap = 4;
 function hp(l) = pow(pow(l,2) + pow(l,2),1/2);
 
 
-function profile_outer_width(width=10) = width/profile_w*profile_h*2+width;
-function profile_inner_width(width=10) = width;
-function profile_width_diff(width=10) = profile_outer_width(width)-profile_inner_width(width);
+function profile_outer_w(w=bar_w) = w/profile_w*profile_h*2+w;
+function profile_inner_w(w=bar_w) = w;
+function profile_w_diff(w=bar_w) = profile_outer_w(w)-profile_inner_w(w);
 
-module profile(width = 10) {
-    w = profile_w;
+module profile(w = bar_w) {
+    w1 = profile_w;
     s = 6;
     h = profile_h;
     a = 50;
@@ -40,19 +40,19 @@ module profile(width = 10) {
 
 
     x0 = s/2;
-    y0 = w/2;
+    y0 = w1/2;
 
     x1 = s/2+cos(a)*h;
-    y1 = w/2+h;
+    y1 = w1/2+h;
 
     x2 = s/2+cos(a)*h+k;
-    y2 = w/2+h;
+    y2 = w1/2+h;
 
     x3 = w2/2;
     y3 = w2/2;
 
 
-    scale([width/w, width/w])
+    scale([w/w1, w/w1])
     polygon([
         [x0,y0],
             [x1,y1],
@@ -93,19 +93,15 @@ module profile(width = 10) {
     ]);
 }
 
-echo (profile_outer_width(width=bar_w));
-echo (profile_inner_width(width=bar_w));
-echo (profile_width_diff(width=bar_w));
-
 module bar(l = 50, w = bar_w) {
     linear_extrude(l)
-    profile(width=w);
+    profile(w=w);
 }
 
 module bar_ext(l = 50, w = bar_w) {
     translate([0,0,-l])
     linear_extrude(l*3)
-        profile(width=w);
+        profile(w=w);
 }
 
 module joint(h=10,void=false) {
@@ -165,57 +161,81 @@ module reinforcement(side=pylon_side, w=bar_w) {
 
 }
 
-module reinforcementsR() {
+module reinforcementsR(show=[1,1,1,1]) {
     side = pylon_side;
 
-    reinforcement();
+    if (show[0]==1) {
+        reinforcement();
+    }
 
-    rotate([0,0,90])
-    reinforcement();
+    if (show[1]==1) {
+        rotate([0, 0, 90])
+            reinforcement();
+    }
 
-    translate([side,side,0])
-    rotate([0,0,180])
-    reinforcement();
+    if (show[2]==1) {
+        translate([side, side, 0])
+            rotate([0, 0, 180])
+                reinforcement();
+    }
 
-    translate([side,side,0])
-    rotate([0,0,-90])
-    reinforcement();
+    if (show[3]==1) {
+        translate([side, side, 0])
+        rotate([0, 0, - 90])
+        reinforcement();
+    }
 }
 
-module reinforcementsL() {
+module reinforcementsL(show=[1,1,1,1]) {
     side = pylon_side;
 
-    translate([side,0,0])
-    rotate([0,0,180])
-    reinforcement();
+    if (show[0]==1) {
+        translate([side, 0, 0])
+        rotate([0, 0, 180])
+        reinforcement();
+    }
 
-    translate([0,side,0])
-    rotate([0,0,-90])
-    reinforcement();
+    if (show[1]==1) {
+        translate([0, side, 0])
+        rotate([0, 0, -90])
+        reinforcement();
+    }
 
-    translate([side,0,0])
-    rotate([0,0,90])
-    reinforcement();
+    if (show[2]==1) {
+        translate([side, 0, 0])
+        rotate([0, 0, 90])
+        reinforcement();
+    }
 
-    translate([0,side,0])
-    rotate([0,0,0])
-    reinforcement();
+    if (show[3]==1) {
+        translate([0, side, 0])
+        rotate([0, 0, 0])
+        reinforcement();
+    }
 }
 
 
-module pylon_main(l=100) {
+module pylon_main(l=100, show=[1,1,1,1]) {
     side = pylon_side;
 
-    bar(l=l);
+    if (show[0]==1) {
+        bar(l = l);
+    }
 
-    translate([side,0,0])
-    bar(l=l);
+    if (show[1]==1) {
+        translate([side, 0, 0])
+        bar(l = l);
+    }
 
-    translate([0,side,0])
-    bar(l=l);
+    if (show[2]==1) {
+        translate([0, side, 0])
+        bar(l = l);
+    }
 
-    translate([side,side,0])
-    bar(l=l);
+    if (show[3]==1) {
+        translate([side, side, 0])
+        bar(l = l);
+    }
 }
 
 module pylon(l=100) {
@@ -240,10 +260,10 @@ module pylon(l=100) {
 
 }
 
-module pylon_base() {
-    w = pylon_base_w;
-    l = pylon_base_l;
-    h = pylon_base_h;
+module upright_base() {
+    w = upright_base_w;
+    l = upright_base_l;
+    h = upright_base_h;
     $fn=100;
     fix = 0.01;
 
@@ -253,6 +273,41 @@ module pylon_base() {
         cube([w, l, h]);
         cylinder(r=r, h= fix);
     }
+}
+
+module upright_counterfort(flip = false) {
+    render()
+    translate([-pylon_side/2,-pylon_side-pylon_side/2,upright_base_h])
+    rotate([0,0,flip?180:0])
+    rotate([-45,0,0])
+    rotate([0,0,90])
+    bar_bottom_cut(l=hp(pylon_side), angle=-45)
+    bar_top_cut(l=hp(pylon_side), offset=bar_cut_offset(w=bar_w))
+    bar_ext(l=hp(pylon_side));
+}
+
+module upright_counterforts() {
+    upright_counterfort();
+
+    translate([pylon_side,0,0])
+    upright_counterfort();
+
+    translate([0,pylon_side*3])
+    union() {
+        upright_counterfort(flip=true);
+
+        translate([pylon_side,0,0])
+        upright_counterfort(flip=true);
+    }
+}
+
+module upright() {
+    upright_base();
+
+    translate([-pylon_side/2,-pylon_side/2,upright_base_h])
+    pylon(l=150);
+
+    upright_counterforts();
 }
 
 
@@ -332,7 +387,7 @@ module angle() {
         translate([0,0,z_offset])
         translate([0,0,traverse_cut_z_offset])
         translate([-pylon_side/2,0,0])
-        translate([0,0,pylon_base_h])
+        translate([0,0,angle_base_h])
         rotate([0,45,0])
         translate([pylon_side,0,pylon_side+gap])
         rotate([0,-45,0])
@@ -407,7 +462,7 @@ module angle() {
         intersection() {
 
             translate([-pylon_side/2,-pylon_side/2,0])
-            translate([0,0,pylon_base_h])
+            translate([0,0,angle_base_h])
             rotate([0,45,0])
             union() {
                 main();
@@ -445,42 +500,11 @@ module angle() {
 module new_gate() {
     gap = reinforcement_gap;
 
-    module counterfort(flip = false) {
-        render()
-        translate([-pylon_side/2,-pylon_side-pylon_side/2,pylon_base_h])
-        rotate([0,0,flip?180:0])
-        rotate([-45,0,0])
-        rotate([0,0,90])
-        bar_bottom_cut(l=hp(pylon_side), angle=-45)
-        bar_top_cut(l=hp(pylon_side), offset=bar_cut_offset(w=bar_w))
-        bar_ext(l=hp(pylon_side));
-    }
-
-    module counterforts() {
-        counterfort();
-
-        translate([pylon_side,0,0])
-        counterfort();
-
-        translate([0,pylon_side*3])
-        union() {
-            counterfort(flip=true);
-
-            translate([pylon_side,0,0])
-            counterfort(flip=true);
-        }
-
-    }
 
 
-//    pylon_base();
-//
-//    translate([-pylon_side/2,-pylon_side/2,pylon_base_h])
-//    pylon(l=150);
-//
-//    counterforts();
+    upright();
 
-    angle();
+//    angle();
 
 //    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
 //    rotate([0,90,0])
