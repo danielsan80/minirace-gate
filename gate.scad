@@ -533,10 +533,13 @@ module angle() {
 
 module new_gate() {
 
-//    upright();
+    upright();
 
-    translate([0,0,upright_h]);
+    translate([0,0,upright_h])
     angle();
+
+    translate([0,0,upright_h])
+    traverse();
 
 //    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
 //    rotate([0,90,0])
