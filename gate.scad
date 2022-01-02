@@ -22,6 +22,9 @@ bar_w = 4;
 
 reinforcement_gap = 4;
 
+upright_h = 150;
+traverse_l = 150;
+
 function hp(l) = pow(pow(l,2) + pow(l,2),1/2);
 
 
@@ -305,7 +308,7 @@ module upright() {
     upright_base();
 
     translate([-pylon_side/2,-pylon_side/2,upright_base_h])
-    pylon(l=150);
+    pylon(l=upright_h-upright_base_h);
 
     upright_counterforts();
 }
@@ -324,6 +327,167 @@ module angle_base() {
     }
 }
 
+module angle_pylon_main() {
+    translate([0,0,-pylon_side-reinforcement_gap])
+    pylon_main(l=80);
+}
+
+module angle_reinforcements1() {
+    rotate([0,0,90])
+    reinforcement();
+
+    translate([pylon_side,0,0])
+    rotate([0,0,180])
+    reinforcement();
+
+    translate([pylon_side,pylon_side,0])
+    rotate([0,0,180])
+    reinforcement();
+}
+
+
+
+module angle_reinforcements2() {
+    side = pylon_side;
+    gap = reinforcement_gap;
+    translate([0,0,side+gap])
+    union() {
+        translate([0,side,0])
+        rotate([0,0,-90])
+        reinforcement();
+
+        translate([side,side,0])
+        rotate([0,0,180])
+        reinforcement();
+
+        translate([side,0,0])
+        rotate([0,0,180])
+        reinforcement();
+
+        translate([side,0,0])
+        rotate([0,0,90])
+        reinforcement();
+
+        translate([side,side,0])
+        rotate([0,0,-90])
+        reinforcement();
+    }
+}
+
+module angle_pylon() {
+    angle_pylon_main();
+    angle_reinforcements1();
+    angle_reinforcements2();
+}
+
+
+module angle_bottom_cut() {
+    translate([-angle_base_w/2-base_curvature_r,-a_lot/2,0])
+    cube([a_lot,a_lot,a_lot]);
+}
+
+traverse_angle_cut_z_offset = hp(bar_w)/2+hp(pylon_side)-pylon_side-bar_w;
+
+
+module angle_traverse_cut_translate() {
+    z_offset = -profile_w_diff()/2;
+    gap = reinforcement_gap;
+
+    translate([0,0,z_offset])
+    translate([0,0,traverse_angle_cut_z_offset])
+    translate([-pylon_side/2,0,0])
+    translate([0,0,angle_base_h])
+    rotate([0,45,0])
+    translate([pylon_side,0,pylon_side+gap])
+    rotate([0,-45,0])
+    children();
+}
+
+module angle_traverse_cut() {
+    angle_traverse_cut_translate()
+    translate([0,-a_lot/2,0])
+        cube([a_lot,a_lot,a_lot]);
+}
+
+
+module traverse_plate_cut() {
+    x_fix = hp(profile_w_diff());
+    x_offset = hp(traverse_angle_cut_z_offset+x_fix);
+
+    translate([x_offset,0,0])
+    translate([-a_lot,-a_lot/2,-a_lot])
+    cube([a_lot, a_lot, a_lot]);
+}
+
+
+module traverse_transform() {
+    rotate([0,90,0])
+    translate([-pylon_side-bar_w/2,-pylon_side/2,play])
+    children();
+}
+
+module traverse_pylon() {
+    traverse_transform()
+    pylon(l=traverse_l);
+}
+
+module traverse_v_bar() {
+    traverse_transform()
+    translate([0,0,-profile_outer_w()/2])
+    bar(l=pylon_side+profile_outer_w());
+}
+
+module traverse_v_bars() {
+    difference() {
+        union() {
+            traverse_v_bar();
+
+            translate([0,pylon_side,0])
+                traverse_v_bar();
+        }
+
+        translate([-a_lot+play,-a_lot/2,-a_lot/2])
+        cube([a_lot, a_lot, a_lot]);
+    }
+}
+
+module traverse_joints_void() {
+    translate([-fix,-pylon_side/2,0])
+    joint(h=a_lot,void=true);
+
+    translate([-fix,pylon_side/2,0])
+    joint(h=a_lot,void=true);
+}
+
+module traverse_main() {
+    traverse_pylon();
+    traverse_v_bars();
+}
+
+
+module traverse() {
+    render()
+    angle_traverse_cut_translate()
+    difference() {
+        traverse_main();
+
+        traverse_plate_cut();
+        traverse_joints_void();
+    }
+}
+
+
+module angle_joints() {
+
+    c=1.1;
+    translate([-fix,-pylon_side/2,0])
+    joint(h=pylon_side+bar_w*c);
+
+    translate([-fix,pylon_side/2,0])
+    joint(h=pylon_side+bar_w*c);
+
+}
+
 module angle() {
     w = angle_base_w;
     l = angle_base_l;
@@ -331,164 +495,34 @@ module angle() {
 
     gap = reinforcement_gap;
 
-    module main() {
-        translate([0,0,-pylon_side-gap])
-        pylon_main(l=80);
-    }
-
-    module reinforcements1() {
-        rotate([0,0,90])
-        reinforcement();
-
-        translate([pylon_side,0,0])
-        rotate([0,0,180])
-        reinforcement();
-
-        translate([pylon_side,pylon_side,0])
-        rotate([0,0,180])
-        reinforcement();
-    }
-
-    module reinforcements2() {
-        translate([0,0,pylon_side+gap])
-        union() {
-            translate([0,pylon_side,0])
-            rotate([0,0,-90])
-            reinforcement(side=pylon_side, w=bar_w);
-
-            translate([pylon_side,pylon_side,0])
-            rotate([0,0,180])
-            reinforcement(side=pylon_side, w=bar_w);
-
-            translate([pylon_side,0,0])
-            rotate([0,0,180])
-            reinforcement(side=pylon_side, w=bar_w);
-
-            translate([pylon_side,0,0])
-            rotate([0,0,90])
-            reinforcement(side=pylon_side, w=bar_w);
-
-            translate([pylon_side,pylon_side,0])
-            rotate([0,0,-90])
-            reinforcement(side=pylon_side, w=bar_w);
-        }
-    }
-
-
-    module bottom_cut() {
-        translate([-angle_base_w/2-base_curvature_r,-a_lot/2,0])
-        cube([a_lot,a_lot,a_lot]);
-    }
-
-    traverse_cut_z_offset = hp(bar_w)/2+hp(pylon_side)-pylon_side-bar_w;
-
-    module traverse_cut_translate() {
-        z_offset = -bar_w*0.10;
-        translate([0,0,z_offset])
-        translate([0,0,traverse_cut_z_offset])
-        translate([-pylon_side/2,0,0])
-        translate([0,0,angle_base_h])
-        rotate([0,45,0])
-        translate([pylon_side,0,pylon_side+gap])
-        rotate([0,-45,0])
-        children();
-    }
-
-    module traverse_cut() {
-        traverse_cut_translate()
-        translate([0,-a_lot/2,0])
-        cube([a_lot,a_lot,a_lot]);
-    }
-
-    module traverse_plate() {
-        x_fix = bar_w*0.27;
-        x_offset = hp(traverse_cut_z_offset+x_fix);
-        translate([x_offset,0,0])
-        translate([-a_lot,-a_lot/2,-a_lot])
-        cube([a_lot, a_lot, a_lot]);
-    }
-
-    module traverse() {
-        render()
-        traverse_cut_translate()
-        difference() {
-            rotate([0,90,0])
-            translate([-pylon_side-bar_w/2,-pylon_side/2])
-            union() {
-                pylon(l=150);
-                difference() {
-                    rotate([0,90,0])
-                    union() {
-                        c=1.2;
-                        translate([0,0,-bar_w*c/2])
-                        bar(l=pylon_side+bar_w*c);
-
-                        translate([0,pylon_side,0])
-                        translate([0,0,-bar_w*c/2])
-                        bar(l=pylon_side+bar_w*c);
-                    }
-
-                    translate([-a_lot/2,-a_lot/2,-a_lot])
-                    cube([a_lot, a_lot, a_lot]);
-                }
-            }
-
-            traverse_plate();
-
-
-            union() {
-                translate([-fix,-pylon_side/2,0])
-                joint(h=a_lot,void=true);
-
-                translate([-fix,pylon_side/2,0])
-                joint(h=a_lot,void=true);
-            }
-        }
-    }
-
     angle_base();
 
-//    traverse_cut_translate()
-//    traverse_plate();
+//    angle_traverse_cut_translate()
+//    #traverse_plate_cut();
 
-//    #traverse_cut();
+//    #angle_traverse_cut();
 
 //    %translate([-pylon_side/2,-pylon_side/2,0])
 //    main();
 
     render()
     difference() {
-
         intersection() {
 
             translate([-pylon_side/2,-pylon_side/2,0])
             translate([0,0,angle_base_h])
             rotate([0,45,0])
-            union() {
-                main();
-                reinforcements1();
-                reinforcements2();
-            }
+            angle_pylon();
 
-
-            bottom_cut();
+            angle_bottom_cut();
         }
-        traverse_cut();
-
-
+        angle_traverse_cut();
     }
 
-    traverse_cut_translate()
-    union() {
-        c=1.1;
-        translate([-fix,-pylon_side/2,0])
-            joint(h=pylon_side+bar_w*c);
+    angle_traverse_cut_translate()
+    angle_joints()
 
-        translate([-fix,pylon_side/2,0])
-            joint(h=pylon_side+bar_w*c);
-    }
-
-//    translate([10,0,10])
+    translate([10,0,10])
     traverse();
 
 
@@ -498,13 +532,11 @@ module angle() {
 
 
 module new_gate() {
-    gap = reinforcement_gap;
 
+//    upright();
 
-
-    upright();
-
-//    angle();
+    translate([0,0,upright_h]);
+    angle();
 
 //    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
 //    rotate([0,90,0])
