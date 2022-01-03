@@ -5,13 +5,13 @@ module new_gate() {
     include <src/gate/parts/angle.scad>
     include <src/gate/parts/traverse.scad>
 
-    upright();
+//    upright();
 
     translate([0,0,upright_h])
     angle();
 
-//    translate([0,0,upright_h])
-//    traverse();
+    translate([0,0,upright_h])
+    traverse();
 
 //    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
 //    rotate([0,90,0])
@@ -21,10 +21,11 @@ module new_gate() {
 }
 
 //translate([11,90,0])
-new_gate();
+//render()
+//new_gate();
 
 
-module tests() {
+module button_joint_tests() {
     include <src/gate/parameters.scad>
     include <src/gate/functions.scad>
     include <src/gate/parts/upright.scad>
@@ -70,9 +71,58 @@ module tests() {
 //        }
 //    }
 
+}
+//button_joint_tests();
+
+module slide_joint_tests() {
+    include <src/gate/parameters.scad>
+    include <src/gate/functions.scad>
+    include <src/gate/parts/upright.scad>
+    include <src/gate/parts/angle.scad>
+
+    difference() {
+        intersection() {
+            angle();
+
+            translate([10,-a_lot/2,0])
+            cube([a_lot,a_lot, a_lot]);
+        }
+
+        translate([0,-10,15])
+        cube([12.3,20,15]);
+
+        translate([5,-4.08,15])
+        cube([12.3,8,15]);
+
+        translate([0,-15,0])
+        cube([30,30,7]);
+
+    }
+}
+slide_joint_tests();
+
+
+module traverse_tests() {
+    include <src/gate/parameters.scad>
+    include <src/gate/functions.scad>
+    include <src/gate/parts/traverse.scad>
+    traverse_l = 3;
+
+//    render()
+    traverse();
+
+    translate([2.3,-pylon_side/2-bar_w/2,0])
+    angle_traverse_cut_translate()
+    cube([1,pylon_side+bar_w,bar_w]);
+
+    translate([2.3,-pylon_side/2-bar_w/2,pylon_side])
+    angle_traverse_cut_translate()
+    cube([1,pylon_side+bar_w,bar_w]);
 
 }
-//tests();
+
+//traverse_tests();
+
 
 
 module old_gate() {

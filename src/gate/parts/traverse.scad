@@ -1,4 +1,7 @@
-
+include <../parameters.scad>
+include <../modules/bar.scad>
+include <../modules/pylon.scad>
+include <../joints/angle-traverse.scad>
 
 
 module traverse_transform() {
@@ -14,11 +17,13 @@ module traverse_pylon() {
 
 module traverse_v_bar() {
     traverse_transform()
+    rotate([0,90,0])
     translate([0,0,-profile_outer_w()/2])
-        bar(l=pylon_side+profile_outer_w());
+    bar(l=pylon_side+profile_outer_w());
 }
 
 module traverse_v_bars() {
+    p = 0.15;
     difference() {
         union() {
             traverse_v_bar();
@@ -27,7 +32,7 @@ module traverse_v_bars() {
                 traverse_v_bar();
         }
 
-        translate([-a_lot+play,-a_lot/2,-a_lot/2])
+        translate([-a_lot+p,-a_lot/2,-a_lot/2])
             cube([a_lot, a_lot, a_lot]);
     }
 }
@@ -39,12 +44,12 @@ module traverse_main() {
 }
 
 module traverse() {
-    render()
-        angle_traverse_cut_translate()
-        difference() {
-            traverse_main();
 
-            traverse_plate_cut();
-            traverse_angle_joints_void();
-        }
+    angle_traverse_cut_translate()
+    difference() {
+        traverse_main();
+
+        traverse_plate_cut();
+        traverse_angle_joints_void();
+    }
 }

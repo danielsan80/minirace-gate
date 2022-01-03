@@ -1,10 +1,10 @@
 include <../parameters.scad>
 
 module slide_joint(h=10,void=false) {
-    function p() = void?0.2:0;
+    function p() = void?0.15:0;
     w1=1;
-    w2=1.6;
-    l=1.2;
+    w2=2.0;
+    l=1.5;
     minkowski() {
         linear_extrude(h)
             polygon([
@@ -17,8 +17,4 @@ module slide_joint(h=10,void=false) {
 
         cylinder(r=p(), h=fix);
     }
-}
-
-module joint(h=10,void=false) {
-    slide_joint(h=h, void=void);
 }
