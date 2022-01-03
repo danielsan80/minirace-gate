@@ -47,7 +47,12 @@ module upright() {
     upright_base();
 
     translate([-pylon_side/2,-pylon_side/2,upright_base_h])
-        pylon(l=upright_h-upright_base_h);
+    pylon(l=upright_h-upright_base_h);
 
     upright_counterforts();
+
+    translate([0,0,upright_h])
+    translate([-pylon_side/2,-pylon_side/2,0])
+    upright_angle_joints();
+
 }

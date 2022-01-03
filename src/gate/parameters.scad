@@ -14,7 +14,9 @@ upright_base_h = 2.5;
 
 angle_base_w = 20;
 angle_base_l = 25;
-angle_base_h = 2.5;
+angle_base_h = 3.5; //2.5;
+
+upright_angle_joint_h = 3;
 
 pylon_side = 13;
 

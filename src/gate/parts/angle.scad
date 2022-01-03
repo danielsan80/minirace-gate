@@ -71,7 +71,7 @@ module angle_pylon() {
 
 
 module angle_bottom_cut() {
-    translate([-angle_base_w/2-base_curvature_r,-a_lot/2,0])
+    translate([-angle_base_w/2-base_curvature_r,-a_lot/2,angle_base_h])
         cube([a_lot,a_lot,a_lot]);
 }
 
@@ -84,36 +84,47 @@ module angle() {
 
     gap = reinforcement_gap;
 
-    angle_base();
-
-    //    angle_traverse_cut_translate()
-    //    #traverse_plate_cut();
-
-    //    #angle_traverse_cut();
-
-    //    %translate([-pylon_side/2,-pylon_side/2,0])
-    //    main();
 
     render()
+    union() {
+        difference() {
+            angle_base();
+
+            translate([- pylon_side / 2, - pylon_side / 2, - fix])
+            upright_angle_joints_void();
+        }
+
+        //    angle_traverse_cut_translate()
+        //    #traverse_plate_cut();
+
+        //    #angle_traverse_cut();
+
+        //    %translate([-pylon_side/2,-pylon_side/2,0])
+        //    main();
+
+
         difference() {
             intersection() {
-
                 translate([-pylon_side/2,-pylon_side/2,0])
-                    translate([0,0,angle_base_h])
-                        rotate([0,45,0])
-                            angle_pylon();
+                translate([0,0,angle_base_h])
+                rotate([0,45,0])
+                angle_pylon();
 
                 angle_bottom_cut();
             }
             angle_traverse_cut();
         }
-
-    angle_traverse_cut_translate()
-    angle_traverse_joints()
-
-    translate([10,0,10])
-        traverse();
+        
+        angle_traverse_cut_translate()
+        angle_traverse_joints();
+    }
 
 
+
+
+
+
+//    translate([10,0,10])
+//    traverse();
 
 }
