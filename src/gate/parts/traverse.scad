@@ -6,13 +6,26 @@ include <../joints/angle-traverse.scad>
 
 module traverse_transform() {
     rotate([0,90,0])
-        translate([-pylon_side-bar_w/2,-pylon_side/2,play])
-            children();
+    translate([-pylon_side-bar_w/2,-pylon_side/2,play2])
+    children();
 }
 
+
 module traverse_pylon() {
+    step = pylon_side+reinforcement_gap;
+    l_ext = step*ceil(traverse_l/step)+pylon_side;
+    l = traverse_l-play2*2;
+    offset = (l_ext-l)/2;
+
+
     traverse_transform()
-    pylon(l=traverse_l);
+    intersection() {
+        translate([0,0,-offset])
+        pylon(l=l_ext);
+
+        translate([-a_lot/2,-a_lot/2,0])
+        cube([a_lot,a_lot,l]);
+    }
 }
 
 module traverse_v_bar() {
@@ -22,34 +35,42 @@ module traverse_v_bar() {
     bar(l=pylon_side+profile_outer_w());
 }
 
-module traverse_v_bars() {
-    p = 0.15;
-    difference() {
-        union() {
-            traverse_v_bar();
-
-            translate([0,pylon_side,0])
+module traverse_v_bars(side="left") {
+    module body() {
+        difference() {
+            union() {
                 traverse_v_bar();
-        }
 
-        translate([-a_lot+p,-a_lot/2,-a_lot/2])
+                translate([0,pylon_side,0])
+                    traverse_v_bar();
+            }
+
+            translate([-a_lot+play2,-a_lot/2,-a_lot/2])
             cube([a_lot, a_lot, a_lot]);
+        }
     }
+
+    traverse_side_transform(side=side)
+    body();
 }
 
 
 module traverse_main() {
     traverse_pylon();
-    traverse_v_bars();
+    traverse_v_bars(side="left");
+    traverse_v_bars(side="right");
 }
 
 module traverse() {
 
-    angle_traverse_cut_translate()
+//    angle_traverse_cut_translate()
     difference() {
         traverse_main();
 
-        traverse_plate_cut();
-        traverse_angle_joints_void();
+        traverse_plate_cut(side="left");
+        traverse_plate_cut(side="right");
+
+        traverse_angle_joints_void(side="left");
+        traverse_angle_joints_void(side="right");
     }
 }

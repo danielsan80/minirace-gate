@@ -23,15 +23,15 @@ module angle_pylon_main() {
 
 module angle_reinforcements1() {
     rotate([0,0,90])
-        reinforcement();
+    reinforcement();
 
     translate([pylon_side,0,0])
-        rotate([0,0,180])
-            reinforcement();
+    rotate([0,0,180])
+    reinforcement();
 
     translate([pylon_side,pylon_side,0])
-        rotate([0,0,180])
-            reinforcement();
+    rotate([0,0,180])
+        reinforcement();
 }
 
 
@@ -42,24 +42,24 @@ module angle_reinforcements2() {
     translate([0,0,side+gap])
         union() {
             translate([0,side,0])
-                rotate([0,0,-90])
-                    reinforcement();
+            rotate([0,0,-90])
+            reinforcement();
 
             translate([side,side,0])
-                rotate([0,0,180])
-                    reinforcement();
+            rotate([0,0,180])
+            reinforcement();
 
             translate([side,0,0])
-                rotate([0,0,180])
-                    reinforcement();
+            rotate([0,0,180])
+            reinforcement();
 
             translate([side,0,0])
-                rotate([0,0,90])
-                    reinforcement();
+            rotate([0,0,90])
+            reinforcement();
 
             translate([side,side,0])
-                rotate([0,0,-90])
-                    reinforcement();
+            rotate([0,0,-90])
+            reinforcement();
         }
 }
 

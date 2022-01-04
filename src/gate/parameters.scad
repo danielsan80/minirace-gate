@@ -2,6 +2,7 @@ $fn=100;
 fix = 0.01;
 a_lot = 1000;
 play = 0.25;
+play2 = 0.15;
 
 profile_w = 20;
 profile_h = 2;

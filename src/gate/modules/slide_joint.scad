@@ -1,7 +1,7 @@
 include <../parameters.scad>
 
 module slide_joint(h=10,void=false) {
-    function p() = void?0.15:0;
+    function p() = void?play2:0;
     w1=1;
     w2=2.0;
     l=1.5;
