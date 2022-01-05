@@ -63,7 +63,8 @@ module traverse_main() {
 
 module traverse() {
 
-//    angle_traverse_cut_translate()
+//    render()
+    angle_traverse_cut_translate()
     difference() {
         traverse_main();
 

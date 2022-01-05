@@ -9,11 +9,45 @@ module angle_base() {
     l = angle_base_l;
     h = angle_base_h;
 
-    translate([-w/2,-w/2,0])
+    c=0.5;
+    h2 = h*c;
+
+    margin = 1;
+
+    hole_w= pylon_side-base_curvature_r*2-profile_outer_w()-margin;
+    hole_l= pylon_side-bar_w-h;
+
+    module hole_profile() {
         minkowski() {
-            cube([l, w, h]);
+            cube([hole_l, hole_w, fix]);
             cylinder(r=base_curvature_r, h=fix);
         }
+    }
+
+    difference() {
+        union() {
+            translate([-w/2,-w/2,0])
+            minkowski() {
+                cube([l, w, h]);
+                cylinder(r=base_curvature_r, h=fix);
+            }
+
+            translate([-w/2+h2,-w/2+h2,h])
+            minkowski() {
+                cube([l-h2*2, w-h2*2, h2]);
+                cylinder(r=base_curvature_r, h=fix);
+            }
+        }
+
+        translate([-hole_l/2,-hole_w/2,-fix])
+        hull() {
+            translate([h+h2+fix,0,h+h2+fix])
+            hole_profile();
+            hole_profile();
+        }
+    }
+
+
 }
 
 module angle_pylon_main() {
@@ -114,17 +148,8 @@ module angle() {
             }
             angle_traverse_cut();
         }
-        
+
         angle_traverse_cut_translate()
         angle_traverse_joints();
     }
-
-
-
-
-
-
-//    translate([10,0,10])
-//    traverse();
-
 }

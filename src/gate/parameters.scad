@@ -15,7 +15,7 @@ upright_base_h = 2.5;
 
 angle_base_w = 20;
 angle_base_l = 25;
-angle_base_h = 3.5; //2.5;
+angle_base_h = 2.5;
 
 upright_angle_joint_h = 3;
 
@@ -23,7 +23,10 @@ pylon_side = 13;
 
 bar_w = 4;
 
+bolt_d=6;
+bolt_h=4;
+
 reinforcement_gap = 4;
 
-upright_h = 150;
-traverse_l = 150;
+upright_h = 50;
+traverse_l = 50;

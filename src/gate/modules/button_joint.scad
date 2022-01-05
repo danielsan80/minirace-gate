@@ -81,11 +81,11 @@ module button_joint_void(r=3, h=6) {
     ring_r = 0.3;
 
     fillet_r = 0.5;
-    play = 0.15;
+    p = play2;
 
-    cylinder(r=r+play, h=h+play);
-    button_joint_ring(r+play, h+play, ring_r+play);
-    button_joint_outer_fillet(r+play-fix, fillet_r+play);
+    cylinder(r=r+p, h=h+p);
+    button_joint_ring(r+p, h+p, ring_r+p);
+    button_joint_outer_fillet(r+p-fix, fillet_r+p);
 }
 
 //difference() {

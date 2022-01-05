@@ -1,17 +1,20 @@
 module new_gate() {
     include <src/gate/parameters.scad>
     include <src/gate/functions.scad>
+    include <src/gate/parts/ground.scad>
     include <src/gate/parts/upright.scad>
     include <src/gate/parts/angle.scad>
     include <src/gate/parts/traverse.scad>
 
-//    upright();
+    ground();
+
+    upright();
 
 //    translate([0,0,upright_h])
 //    angle();
 
-    translate([0,0,upright_h])
-    traverse();
+//    translate([0,0,upright_h])
+//    traverse();
 
 //    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
 //    rotate([0,90,0])
@@ -21,7 +24,7 @@ module new_gate() {
 }
 
 //translate([11,90,0])
-render()
+//render()
 new_gate();
 
 

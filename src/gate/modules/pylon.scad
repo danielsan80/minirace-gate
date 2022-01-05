@@ -94,19 +94,18 @@ module pylon(l=100) {
     gap = reinforcement_gap;
     step = side+gap;
 
-    render()
-        intersection() {
-            union() {
-                pylon_main(l=l);
-                for(i=[0:l/step]) {
-                    translate([0,0,step*i*2])
-                        reinforcementsL();
-                    translate([0,0,step+step*i*2])
-                        reinforcementsR();
-                }
+    intersection() {
+        union() {
+            pylon_main(l=l);
+            for(i=[0:l/step]) {
+                translate([0,0,step*i*2])
+                    reinforcementsL();
+                translate([0,0,step+step*i*2])
+                    reinforcementsR();
             }
-            translate([-side*2,-side*2,0])
-                cube([side*4,side*4,l]);
         }
+        translate([-side*2,-side*2,0])
+            cube([side*4,side*4,l]);
+    }
 
 }
