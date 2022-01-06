@@ -2,6 +2,16 @@ include <../modules/slide_joint.scad>
 
 traverse_angle_cut_z_offset = hp(bar_w)/2+hp(pylon_side)-pylon_side-bar_w;
 
+function angle_traverse_cut_x_offset() =
+    let(gap = reinforcement_gap)
+    let(x=pylon_side)
+    let(z=pylon_side+gap)
+    let(hypo = hp2(x, z))
+    let(alpha=asin(z/hypo)-45)
+    -pylon_side/2+cos(alpha)*hypo;
+
+traverse_l = uprights_distance- angle_traverse_cut_x_offset()*2;
+
 module traverse_side_transform(side="left") {
     if (side=="left") {
         children();
@@ -13,15 +23,7 @@ module traverse_side_transform(side="left") {
 }
 
 module angle_traverse_cut_x_translate() {
-    gap = reinforcement_gap;
-
-    x=pylon_side;
-    z=pylon_side+gap;
-    hypo = hp2(x, z);
-    alpha=asin(z/hypo)-45;
-
-    translate([-pylon_side/2,0,0])
-    translate([cos(alpha)*hypo,0,0])
+    translate([angle_traverse_cut_x_offset(),0,0])
     children();
 }
 

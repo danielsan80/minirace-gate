@@ -2,3 +2,6 @@ mkdir vendor 2> /dev/null
 
 unlink vendor/ruler 2> /dev/null
 ln -sfr ../ruler/ vendor/ruler
+
+unlink vendor/startlights 2> /dev/null
+ln -sfr ../startlights/ vendor/startlights

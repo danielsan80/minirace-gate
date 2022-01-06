@@ -6,6 +6,9 @@ module new_gate() {
     include <src/gate/parts/angle.scad>
     include <src/gate/parts/traverse.scad>
 
+    include <vendor/startlights/src/startlights/parts/startlight.scad>
+    include <vendor/startlights/src/startlights/parts/led.scad>
+
     sim_ground_L();
     sim_upright_L();
     sim_angle_L();
@@ -16,11 +19,20 @@ module new_gate() {
     sim_upright_R();
     sim_ground_R();
 
+    translate([0,0,upright_h-13])
+    translate([(uprights_distance-startlights_length)/2,0,0])
+    rotate([90,0,0])
+    union() {
+        sim_startlights();
+        sim_leds();
+    }
+
 }
 
 //translate([11,90,0])
 //render()
 new_gate();
+
 
 
 module old_gate() {

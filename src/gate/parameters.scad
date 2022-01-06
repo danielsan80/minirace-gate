@@ -28,5 +28,8 @@ bolt_h=4;
 
 reinforcement_gap = 4;
 
+intra_uprights_space_l = 80;
+uprights_distance = intra_uprights_space_l + upright_base_w;
+
 upright_h = 50;
 traverse_l = 50;

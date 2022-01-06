@@ -10,7 +10,6 @@ module traverse_transform() {
     children();
 }
 
-
 module traverse_pylon() {
     step = pylon_side+reinforcement_gap;
     l_ext = step*ceil(traverse_l/step)+pylon_side;
