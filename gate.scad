@@ -26,6 +26,7 @@ new_gate();
 module old_gate() {
     include <src/gaslands_gate/gaslands_gate.scad>
     vendor_dir = "vendor";
+    lib_dir = "lib";
 
 //    difference() {
     translate([0,120,0])

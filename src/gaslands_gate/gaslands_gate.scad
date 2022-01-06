@@ -1,6 +1,7 @@
 vendor_dir = "../../vendor";
-gaslands_gate_dir = str(vendor_dir, "/gaslands_gate");
-cars_dir = str(vendor_dir, "/cars");
+lib_dir = "../../lib";
+gaslands_gate_dir = str(lib_dir, "/gaslands_gate");
+cars_dir = str(lib_dir, "/cars");
 
 module upright() {
     translate([63.15,26.7,0])
