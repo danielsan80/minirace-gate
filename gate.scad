@@ -6,20 +6,15 @@ module new_gate() {
     include <src/gate/parts/angle.scad>
     include <src/gate/parts/traverse.scad>
 
-    ground();
+    sim_ground_L();
+    sim_upright_L();
+    sim_angle_L();
 
-    upright();
+    sim_traverse();
 
-//    translate([0,0,upright_h])
-//    angle();
-
-//    translate([0,0,upright_h])
-//    traverse();
-
-//    translate([pylon_side-0.5,0,angle_base_h+pylon_side])
-//    rotate([0,90,0])
-//    translate([-pylon_side/2,-pylon_side/2,0])
-//    pylon(side=pylon_side, l=150, gap=gap, bar_w=bar_w);
+    sim_angle_R();
+    sim_upright_R();
+    sim_ground_R();
 
 }
 

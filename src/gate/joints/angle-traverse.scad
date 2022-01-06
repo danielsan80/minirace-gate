@@ -12,17 +12,38 @@ module traverse_side_transform(side="left") {
     }
 }
 
-module angle_traverse_cut_translate() {
+module angle_traverse_cut_x_translate() {
+    gap = reinforcement_gap;
+
+    x=pylon_side;
+    z=pylon_side+gap;
+    hypo = hp2(x, z);
+    alpha=asin(z/hypo)-45;
+
+    translate([-pylon_side/2,0,0])
+    translate([cos(alpha)*hypo,0,0])
+    children();
+}
+
+module angle_traverse_cut_z_translate() {
     z_offset = -profile_w_diff()/2;
     gap = reinforcement_gap;
 
+    x=pylon_side;
+    z=pylon_side+gap;
+    hypo = hp2(x, z);
+    alpha=asin(z/hypo)-45;
+
     translate([0,0,z_offset])
-    translate([0,0,traverse_angle_cut_z_offset])
-    translate([-pylon_side/2,0,0])
     translate([0,0,angle_base_h])
-    rotate([0,45,0])
-    translate([pylon_side,0,pylon_side+gap])
-    rotate([0,-45,0])
+    translate([0,0,traverse_angle_cut_z_offset])
+    translate([0,0,sin(alpha)*hypo])
+    children();
+}
+
+module angle_traverse_cut_translate() {
+    angle_traverse_cut_x_translate()
+    angle_traverse_cut_z_translate()
     children();
 }
 

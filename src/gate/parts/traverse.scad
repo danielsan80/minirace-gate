@@ -75,3 +75,8 @@ module traverse() {
         traverse_angle_joints_void(side="right");
     }
 }
+
+module sim_traverse() {
+    translate([0,0,upright_h])
+    traverse();
+}
