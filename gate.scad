@@ -10,6 +10,9 @@ module new_gate() {
     include <vendor/startlights/src/startlights/parts/led.scad>
     include <vendor/startlights/src/startlights/parts/board.scad>
 
+    include <vendor/ruler/ruler.scad>
+
+
 //    sim_ground_L();
 //    sim_upright_L();
 //    sim_angle_L();
@@ -31,7 +34,22 @@ module new_gate() {
         sim_board();
     }
 
+//    module cars() {
+//        include <src/gaslands_gate/gaslands_gate.scad>
+//        lib_dir="lib";
+//        translate([-5,-30,0])
+//        cars(5);
+//    }
+//    cars();
+//
+//    translate([upright_base_w/2,-70,0])
+//    ruler(x=intra_uprights_space_l);
+//
+//    translate([-40,0,0])
+//    ruler(z=upright_h);
+
 }
+
 
 //translate([11,90,0])
 //render()
