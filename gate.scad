@@ -8,23 +8,27 @@ module new_gate() {
 
     include <vendor/startlights/src/startlights/parts/startlight.scad>
     include <vendor/startlights/src/startlights/parts/led.scad>
+    include <vendor/startlights/src/startlights/parts/board.scad>
 
-    sim_ground_L();
-    sim_upright_L();
-    sim_angle_L();
+//    sim_ground_L();
+//    sim_upright_L();
+//    sim_angle_L();
 
     sim_traverse();
 
-    sim_angle_R();
-    sim_upright_R();
-    sim_ground_R();
+//    sim_angle_R();
+//    sim_upright_R();
+//    sim_ground_R();
 
-    translate([0,0,upright_h-13])
+    translate([0,-board_thick-board_startlights_gap,0])
+    translate([0,-pylon_side/2-profile_outer_w()/2,0])
+    translate([0,0,upright_h+angle_traverse_pos_z_offset()-startlights_height])
     translate([(uprights_distance-startlights_length)/2,0,0])
     rotate([90,0,0])
     union() {
         sim_startlights();
         sim_leds();
+        sim_board();
     }
 
 }
