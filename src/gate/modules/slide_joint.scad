@@ -7,13 +7,13 @@ module slide_joint(h=10,void=false) {
     l=1.5;
     minkowski() {
         linear_extrude(h)
-            polygon([
-                    [0,-w1/2],
-                    [0,w1/2],
-                    [l,w2/2],
-                    [l,-w2/2],
-                    [0,-w1/2]
-                ]);
+        polygon([
+                [0,-w1/2],
+                [0,w1/2],
+                [l,w2/2],
+                [l,-w2/2],
+                [0,-w1/2]
+            ]);
 
         cylinder(r=p(), h=fix);
     }
