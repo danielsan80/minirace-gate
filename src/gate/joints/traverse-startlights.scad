@@ -46,20 +46,25 @@ module bar_c_stick_hook(d, l, with_supports=false) {
     }
 
     if (with_supports) {
-        translate([c_joint_profile_side+layer_w,0,-layer_w/2])
-        cube([
-            l+sin(angle)*(r+d/2)- layer_w,
-            c_joint_profile_side/2-d/2+((r+d/2)-cos(angle)*(r+d/2)),
-            layer_w
-        ]);
+        difference() {
+            union() {
+                translate([c_joint_profile_side+layer_w,0,-layer_w/2])
+                cube([
+                    l+sin(angle)*(r+d/2)- layer_w,
+                    c_joint_profile_side/2-d/2+((r+d/2)-cos(angle)*(r+d/2)),
+                    layer_w
+                ]);
 
-        translate([c_joint_profile_side+layer_w,0,-6/2])
-        cube([
-            l+sin(angle)*(r+d/2)- layer_w,
-            layer_h,
-            6
-        ]);
+                translate([c_joint_profile_side+layer_w,0,-6/2])
+                cube([
+                    l+sin(angle)*(r+d/2)- layer_w,
+                    layer_h,
+                    6
+                ]);
 
+            }
+            bar_c_stick_hook(d=d+layer_h*2,l=l);
+        }
     }
 }
 

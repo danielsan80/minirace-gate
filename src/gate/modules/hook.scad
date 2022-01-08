@@ -58,17 +58,13 @@ module c_joint_inner_supports(l) {
     x = side/4;
     y = side/5;
 
-    translate([x,0,0])
-    cube([x,y-fix,layer_w]);
 
-    translate([x,0,l-layer_w])
-    cube([x,y-fix,layer_w]);
 
     translate([x,0,0])
-    cube([layer_w,y-fix,l]);
+    cube([layer_w,y-layer_h,l]);
 
     translate([x*2-layer_w,0,0])
-    cube([layer_w,y-fix,l]);
+    cube([layer_w,y-layer_h,l]);
 
     translate([x,0,0])
     cube([x*2-layer_w,layer_h,l]);
@@ -80,7 +76,7 @@ module c_joint_outer_profile() {
     side = c_joint_profile_side;
     x = side/4;
     y = side/5;
-    p = play2;
+    p = play3;
 
     difference() {
         square([x*4,y*5]);
