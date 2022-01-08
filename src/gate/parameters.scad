@@ -3,6 +3,9 @@ fix = 0.01;
 a_lot = 1000;
 play = 0.25;
 play2 = 0.15;
+layer_h = 0.2;
+layer_w = 0.45;
+min_space = 0.198;
 
 profile_w = 20;
 profile_h = 2;

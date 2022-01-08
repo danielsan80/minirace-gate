@@ -103,8 +103,8 @@ module sim_traverse_c_hook() {
     bar_c_hook(l=bar_wrapper_l);
 }
 
-module traverse_c_stick() {
-    bar_c_stick(l=board_l, hook_offset=board_hole_x_offset, hook_d=board_hole_d);
+module traverse_c_stick(with_supports=false) {
+    bar_c_stick(l=board_l, hook_offset=board_hole_x_offset, hook_d=board_hole_d, with_supports=with_supports);
 }
 
 module sim_traverse_c_hooks() {
@@ -128,9 +128,6 @@ module sim_traverse_c_stick() {
     translate([traverse_l/2,0,0])
     angle_traverse_cut_translate()
     translate([0,0,upright_h])
-    rotate([90,0,0])
-    rotate([0,-90,0])
-    translate([0,0,-board_l/2])
     traverse_c_stick();
 }
 

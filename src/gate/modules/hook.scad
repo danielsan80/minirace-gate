@@ -53,6 +53,28 @@ module c_joint_inner_profile() {
     ]);
 }
 
+module c_joint_inner_supports(l) {
+    side = c_joint_profile_side;
+    x = side/4;
+    y = side/5;
+
+    translate([x,0,0])
+    cube([x,y-fix,layer_w]);
+
+    translate([x,0,l-layer_w])
+    cube([x,y-fix,layer_w]);
+
+    translate([x,0,0])
+    cube([layer_w,y-fix,l]);
+
+    translate([x*2-layer_w,0,0])
+    cube([layer_w,y-fix,l]);
+
+    translate([x,0,0])
+    cube([x*2-layer_w,layer_h,l]);
+
+}
+
 module c_joint_outer_profile() {
 
     side = c_joint_profile_side;
@@ -72,9 +94,13 @@ module c_joint_outer_profile() {
     }
 }
 
-module c_joint_inner(l) {
+module c_joint_inner(l, with_supports=false) {
     linear_extrude(l)
     c_joint_inner_profile();
+
+    if (with_supports) {
+        c_joint_inner_supports(l=l);
+    }
 };
 
 module c_joint_outer(l) {

@@ -23,11 +23,14 @@ module bar_c_hook(l=bar_wrapper_l) {
 
 }
 
-module bar_c_stick_hook(d, l) {
+module bar_c_stick_hook(d, l, with_supports=false) {
     r=6;
     angle=30;
     w = 2;
 
+    translate([c_joint_profile_side,c_joint_profile_side/2,0])
+    rotate([-90,0,0])
+    rotate([0,90,0])
     intersection() {
         union() {
             cylinder(d=d, h=l);
@@ -41,28 +44,43 @@ module bar_c_stick_hook(d, l) {
         translate([-a_lot/2,-w/2,-a_lot/2])
         cube([a_lot,w,a_lot]);
     }
+
+    if (with_supports) {
+        translate([c_joint_profile_side+layer_w,0,-layer_w/2])
+        cube([
+            l+sin(angle)*(r+d/2)- layer_w,
+            c_joint_profile_side/2-d/2+((r+d/2)-cos(angle)*(r+d/2)),
+            layer_w
+        ]);
+
+        translate([c_joint_profile_side+layer_w,0,-6/2])
+        cube([
+            l+sin(angle)*(r+d/2)- layer_w,
+            layer_h,
+            6
+        ]);
+
+    }
 }
 
-module bar_c_stick(l, hook_offset, hook_d) {
-    junction_l = 4;
-    junction_w = 2;
+module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
+    junction_l = bar_c_junction_l;
+    junction_w = bar_c_junction_w;
     p = play2;
 
 
+    rotate([90,0,0])
+    rotate([0,-90,0])
+    translate([0,0,-board_l/2])
     translate([-c_joint_profile_side/2,-c_joint_profile_side-profile_outer_w()/2-p-junction_l,0])
     union() {
-        c_joint_inner(l=l);
+        c_joint_inner(l=l, with_supports=with_supports);
 
-        translate([c_joint_profile_side,c_joint_profile_side/2,hook_offset])
-        rotate([-90,0,0])
-        rotate([0,90,0])
-        bar_c_stick_hook(d=3-play2*2, l=5);
+        translate([0,0,hook_offset])
+        bar_c_stick_hook(d=3-play2*2, l=5, with_supports=with_supports);
 
-        translate([c_joint_profile_side,c_joint_profile_side/2,l-hook_offset])
-        rotate([-90,0,0])
-        rotate([0,90,0])
-        bar_c_stick_hook(d=3-play2*2, l=5);
-
+        translate([0,0,l-hook_offset])
+        bar_c_stick_hook(d=3-play2*2, l=5, with_supports=with_supports);
     }
 
 }
