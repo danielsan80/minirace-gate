@@ -13,8 +13,8 @@ module traverse_transform() {
 }
 
 module traverse_pylon() {
-    step = pylon_side+reinforcement_gap;
-    l_ext = step*ceil(traverse_l/step)+pylon_side;
+    step = pylon_side*2+reinforcement_gap*2;
+    l_ext = step*ceil(traverse_l/step)+pylon_side+reinforcement_gap+pylon_side;
     l = traverse_l-play2*2;
     offset = (l_ext-l)/2;
 

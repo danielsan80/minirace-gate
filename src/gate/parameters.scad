@@ -20,6 +20,7 @@ upright_base_h = 2.5;
 angle_base_w = 20;
 angle_base_l = 25;
 angle_base_h = 2.5;
+angle_base_h2_c = 0.5;
 
 upright_angle_joint_h = 3;
 
@@ -31,11 +32,12 @@ bolt_d=6;
 bolt_h=4;
 
 reinforcement_gap = 5;
+//reinforcement_gap = -5;
 
-intra_uprights_space_l = 160;
+intra_uprights_space_l = 80; //80; //160;
 uprights_distance = intra_uprights_space_l + upright_base_w;
 
-upright_h = 90;
+upright_h = 40; //40; //90;
 //traverse_l = 50;
 
 traverse_hook_l = 8;

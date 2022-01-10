@@ -8,9 +8,7 @@ module angle_base() {
     w = angle_base_w;
     l = angle_base_l;
     h = angle_base_h;
-
-    c=0.5;
-    h2 = h*c;
+    h2 = h*angle_base_h2_c;
 
     margin = 1;
 
@@ -122,7 +120,22 @@ module angle() {
 //    render()
     union() {
         difference() {
-            angle_base();
+            union() {
+                angle_base();
+
+                difference() {
+                    intersection() {
+                        translate([-pylon_side/2,-pylon_side/2,0])
+                        translate([0,0,angle_base_h])
+                        rotate([0,45,0])
+                        angle_pylon();
+
+                        angle_bottom_cut();
+                    }
+                    angle_traverse_cut();
+                }
+
+            }
 
             translate([- pylon_side / 2, - pylon_side / 2, - fix])
             upright_angle_joints_void();
@@ -135,19 +148,6 @@ module angle() {
 
         //    %translate([-pylon_side/2,-pylon_side/2,0])
         //    main();
-
-
-        difference() {
-            intersection() {
-                translate([-pylon_side/2,-pylon_side/2,0])
-                translate([0,0,angle_base_h])
-                rotate([0,45,0])
-                angle_pylon();
-
-                angle_bottom_cut();
-            }
-            angle_traverse_cut();
-        }
 
         angle_traverse_cut_translate()
         angle_traverse_joints();
@@ -166,4 +166,21 @@ module sim_angle_R() {
     translate([0,0,upright_h])
     rotate([0,0,180])
     angle();
+}
+
+module test_angle() {
+    difference() {
+        intersection() {
+            angle();
+
+            translate([pylon_side/2+bar_w/2,-a_lot/2,angle_traverse_pos_z_offset()-angle_base_h])
+            cube([a_lot, a_lot, a_lot]);
+        }
+        translate([angle_traverse_pos_x_offset()-a_lot-profile_outer_w()/2,-a_lot/2,angle_traverse_pos_z_offset()])
+        cube([a_lot, a_lot, a_lot]);
+
+        translate([0,-pylon_side/2+profile_outer_w()/2,angle_traverse_pos_z_offset()])
+        cube([a_lot,pylon_side-profile_outer_w(),a_lot]);
+
+    }
 }

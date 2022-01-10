@@ -1,8 +1,8 @@
 include <../parameters.scad>
 
 module slide_joint(h=10,void=false) {
-    function p() = void?play2:0;
-    w1=1;
+    p = void?play2:0;
+    w1=0.7;
     w2=2.0;
     l=1.5;
     minkowski() {
@@ -15,6 +15,6 @@ module slide_joint(h=10,void=false) {
                 [0,-w1/2]
             ]);
 
-        cylinder(r=p(), h=fix);
+        cylinder(r=p, h=fix);
     }
 }
