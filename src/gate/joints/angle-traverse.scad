@@ -1,29 +1,23 @@
 include <../modules/slide_joint.scad>
 
-traverse_angle_cut_z_offset = hp(bar_w)/2+hp(pylon_side)-pylon_side-bar_w;
+traverse_angle_align_offset = pylon_side + bar_w + profile_w_diff()/2;
 
 function angle_traverse_pos_x_offset() =
-    let(gap = reinforcement_gap)
-    let(x=pylon_side)
-    let(z=pylon_side+gap)
-    let(hypo = hp2(x, z))
-    let(alpha=asin(z/hypo)-45)
-    -pylon_side/2+cos(alpha)*hypo;
+        let(gap = reinforcement_gap)
+        let(side=pylon_side)
+        let(r=side+gap+side)
+        cos(45)*r-side/2
+;
 
 function angle_traverse_pos_z_offset() =
-    let(profile_plate_cut_offset = -profile_w_diff()/2)
     let(gap = reinforcement_gap)
-    let(x=pylon_side)
-    let(z=pylon_side+gap)
-    let(hypo = hp2(x, z))
-    let(alpha=asin(z/hypo)-45)
-    sin(alpha)*hypo
-        + traverse_angle_cut_z_offset
-        + angle_base_h
-        + profile_plate_cut_offset
-    ;
+    let(side=pylon_side)
+    let(base_h=angle_base_h)
+    let(r=side+gap+side)
+    sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset
+;
 
-traverse_l = uprights_distance- angle_traverse_pos_x_offset()*2;
+traverse_l = uprights_distance - angle_traverse_pos_x_offset()*2;
 
 module traverse_side_transform(side="left") {
     if (side=="left") {
@@ -59,8 +53,7 @@ module angle_traverse_cut() {
 
 module traverse_plate_cut(side="left") {
     module body() {
-        x_fix = hp(profile_w_diff());
-        x_offset = hp(traverse_angle_cut_z_offset+x_fix);
+        x_offset = hp(profile_outer_w()+pylon_side) - traverse_angle_align_offset;
 
         translate([x_offset,0,0])
         translate([-a_lot,-a_lot/2,-a_lot])

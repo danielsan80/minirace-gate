@@ -57,7 +57,7 @@ module new_gate() {
 
 //    bar_c_hook();
 //    traverse_c_stick(with_supports=true);
-    grount_upright_joint();
+//    grount_upright_joint();
 
 //    test_angle();
 

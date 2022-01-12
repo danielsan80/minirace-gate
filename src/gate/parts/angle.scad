@@ -44,8 +44,6 @@ module angle_base() {
             hole_profile();
         }
     }
-
-
 }
 
 module angle_pylon_main() {
