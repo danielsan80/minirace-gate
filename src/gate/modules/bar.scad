@@ -1,4 +1,5 @@
-include <profile.scad>
+include <../parameters.scad>
+use <profile.scad>
 
 module bar(l = 50, w = bar_w) {
     linear_extrude(l)

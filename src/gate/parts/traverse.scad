@@ -1,9 +1,10 @@
 include <../parameters.scad>
-include <../modules/bar.scad>
-include <../modules/pylon.scad>
-include <../joints/angle-traverse.scad>
-include <../joints/traverse-startlights.scad>
-include <../modules/hook.scad>
+use <../modules/profile.scad>
+use <../modules/bar.scad>
+use <../modules/pylon.scad>
+use <../joints/angle-traverse.scad>
+use <../joints/traverse-startlights.scad>
+use <../modules/hook.scad>
 
 
 module traverse_transform() {
@@ -14,8 +15,8 @@ module traverse_transform() {
 
 module traverse_pylon() {
     step = pylon_side*2+reinforcement_gap*2;
-    l_ext = step*ceil(traverse_l/step)+pylon_side+reinforcement_gap+pylon_side;
-    l = traverse_l-play2*2;
+    l_ext = step*ceil(traverse_l()/step)+pylon_side+reinforcement_gap+pylon_side;
+    l = traverse_l()-play2*2;
     offset = (l_ext-l)/2;
 
 
@@ -57,12 +58,12 @@ module traverse_v_bars(side="left") {
 
 module traverse_hooks(side="left") {
     module body() {
-        translate([traverse_l/2-traverse_hooks_intra_space_l/2,0,0])
+        translate([traverse_l()/2-traverse_hooks_intra_space_l/2,0,0])
         translate([0,-pylon_side/2-profile_outer_w()/2,0])
         translate([-traverse_hook_l,-traverse_hook_w-traverse_hook_thick,0])
         traverse_hook();
 
-        translate([traverse_l/2+traverse_hooks_intra_space_l/2,0,0])
+        translate([traverse_l()/2+traverse_hooks_intra_space_l/2,0,0])
         translate([0,-pylon_side/2-profile_outer_w()/2,0])
         translate([0,-traverse_hook_w-traverse_hook_thick,0])
         traverse_hook();
@@ -95,43 +96,4 @@ module traverse() {
     }
 
 
-}
-
-module sim_traverse_c_hook() {
-    rotate([90,0,-90])
-    translate([0,0,-bar_wrapper_l/2])
-    bar_c_hook(l=bar_wrapper_l);
-}
-
-module traverse_c_stick(with_supports=false) {
-    bar_c_stick(l=board_l, hook_offset=board_hole_x_offset, hook_d=board_hole_d, with_supports=with_supports);
-}
-
-module sim_traverse_c_hooks() {
-
-    translate([0,0,bar_w/2])
-    translate([0,-pylon_side/2,0])
-    translate([traverse_l/2,0,0])
-    angle_traverse_cut_translate()
-    translate([0,0,upright_h])
-    union() {
-        translate([pylon_side+reinforcement_gap,0,0])
-        sim_traverse_c_hook();
-        translate([-pylon_side-reinforcement_gap,0,0])
-        sim_traverse_c_hook();
-    }
-}
-
-module sim_traverse_c_stick() {
-    translate([0,0,bar_w/2])
-    translate([0,-pylon_side/2,0])
-    translate([traverse_l/2,0,0])
-    angle_traverse_cut_translate()
-    translate([0,0,upright_h])
-    traverse_c_stick();
-}
-
-module sim_traverse() {
-    translate([0,0,upright_h])
-    traverse();
 }

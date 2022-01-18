@@ -1,5 +1,5 @@
 include <../parameters.scad>
-include <../modules/bolt_joint.scad>
+use <../modules/bolt_joint.scad>
 
 module grount_upright_joint() {
     bolt_joint(side=bolt_d/2, h=upright_base_h+bolt_h, void=false);

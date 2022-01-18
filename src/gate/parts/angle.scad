@@ -1,8 +1,9 @@
 include <../parameters.scad>
-include <../modules/bar.scad>
-include <../modules/pylon.scad>
-include <../joints/angle-traverse.scad>
-include <../joints/upright-angle.scad>
+use <../modules/profile.scad>
+use <../modules/bar.scad>
+use <../modules/pylon.scad>
+use <../joints/angle-traverse.scad>
+use <../joints/upright-angle.scad>
 
 module angle_base() {
     w = angle_base_w;
@@ -152,19 +153,6 @@ module angle() {
     }
 }
 
-module sim_angle_L() {
-    translate([0,0,upright_h])
-    angle();
-}
-
-module sim_angle_R() {
-    translate([traverse_l,0,0])
-    angle_traverse_cut_x_translate()
-    angle_traverse_cut_x_translate()
-    translate([0,0,upright_h])
-    rotate([0,0,180])
-    angle();
-}
 
 module test_angle() {
     difference() {

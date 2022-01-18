@@ -1,6 +1,6 @@
 include <../parameters.scad>
-include <../modules/profile.scad>
-include <../modules/hook.scad>
+use <../modules/profile.scad>
+use <../modules/hook.scad>
 
 module bar_c_junction(thick,w,l) {
     p=play2;

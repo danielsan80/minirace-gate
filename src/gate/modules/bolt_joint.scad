@@ -1,4 +1,4 @@
-
+include <../parameters.scad>
 
 module bolt_joint(side=3, h=10, void=false) {
     p = void?play2:0;

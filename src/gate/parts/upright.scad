@@ -1,9 +1,11 @@
 include <../parameters.scad>
-include <../modules/bar.scad>
-include <../modules/pylon.scad>
-include <../joints/ground-upright.scad>
-include <../joints/upright-angle.scad>
-include <../joints/angle-traverse.scad>
+use <../functions.scad>
+use <../modules/profile.scad>
+use <../modules/bar.scad>
+use <../modules/pylon.scad>
+use <../joints/ground-upright.scad>
+use <../joints/upright-angle.scad>
+use <../joints/angle-traverse.scad>
 
 
 module upright_base() {
@@ -91,13 +93,3 @@ module upright() {
     }
 }
 
-module sim_upright_L() {
-    upright();
-}
-
-module sim_upright_R() {
-    angle_traverse_cut_x_translate()
-    translate([traverse_l,0,0])
-    angle_traverse_cut_x_translate()
-    upright();
-}

@@ -1,5 +1,5 @@
 include <../parameters.scad>
-include <../modules/bar.scad>
+use <../modules/bar.scad>
 
 module traverse_hook(l=traverse_hook_l, w=traverse_hook_w, thick=traverse_hook_thick) {
 

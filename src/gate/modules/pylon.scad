@@ -1,4 +1,6 @@
-include <bar.scad>
+include <../parameters.scad>
+use <../functions.scad>
+use <bar.scad>
 
 module reinforcement(side=pylon_side, w=bar_w) {
     l=hp(side);
