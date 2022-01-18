@@ -1,5 +1,8 @@
-include <../../src/gate/parameters.scad>
-use <../../src/gate/parts/traverse.scad>
+include <../../parameters.scad>
+use <../../parts/traverse.scad>
+use <../../interparts/angle-traverse.scad>
+use <../../interparts/traverse-startlights.scad>
+use <../../startlights/values.scad>
 
 module sim_traverse() {
     translate([0,0,upright_h])
@@ -15,7 +18,7 @@ module sim_traverse_c_hook() {
 }
 
 module traverse_c_stick(with_supports=false) {
-    bar_c_stick(l=board_l, hook_offset=board_hole_x_offset, hook_d=board_hole_d, with_supports=with_supports);
+    bar_c_stick(l=startlights_board_l(), hook_offset=startlights_board_hole_x_offset(), hook_d=startlights_board_hole_d(), with_supports=with_supports);
 }
 
 module sim_traverse_c_hooks() {

@@ -2,9 +2,9 @@ include <../parameters.scad>
 use <../modules/profile.scad>
 use <../modules/bar.scad>
 use <../modules/pylon.scad>
-use <../joints/angle-traverse.scad>
-use <../joints/traverse-startlights.scad>
-use <../modules/hook.scad>
+use <../interparts/angle-traverse.scad>
+use <../interparts/traverse-startlights.scad>
+use <../joints/hook.scad>
 
 
 module traverse_transform() {

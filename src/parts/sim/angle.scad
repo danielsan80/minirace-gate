@@ -1,6 +1,6 @@
-include <../../src/gate/parameters.scad>
-use <../../src/gate/parts/angle.scad>
-use <../../src/gate/joints/angle-traverse.scad>
+include <../../parameters.scad>
+use <../../parts/angle.scad>
+use <../../interparts/angle-traverse.scad>
 
 module sim_angle_L() {
     translate([0,0,upright_h])

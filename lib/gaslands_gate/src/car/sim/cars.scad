@@ -1,4 +1,4 @@
-use <../src/modules/car.scad>
+use <../../car/car.scad>
 
 module sim_car1() {
     translate([35,26,0])

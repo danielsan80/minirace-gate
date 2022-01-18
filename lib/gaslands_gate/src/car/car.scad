@@ -1,4 +1,4 @@
-stl_dir = "../../stl/car";
+stl_dir = "../car/stl";
 
 module car() {
     translate([-4.5,0,0])

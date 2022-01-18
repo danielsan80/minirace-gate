@@ -1,5 +1,5 @@
-use <../../src/gate/parts/ground.scad>
-use <../../src/gate/joints/angle-traverse.scad>
+use <../../parts/ground.scad>
+use <../../interparts/angle-traverse.scad>
 
 module sim_ground_L() {
     ground();

@@ -1,6 +1,7 @@
 include <../parameters.scad>
 use <../modules/profile.scad>
-use <../modules/hook.scad>
+use <../joints/hook.scad>
+use <../startlights/values.scad>
 
 module bar_c_junction(thick,w,l) {
     p=play2;
@@ -76,7 +77,7 @@ module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
 
     rotate([90,0,0])
     rotate([0,-90,0])
-    translate([0,0,-board_l/2])
+    translate([0,0,-startlights_board_l()/2])
     translate([-c_joint_profile_side/2,-c_joint_profile_side-profile_outer_w()/2-p-junction_l,0])
     union() {
         c_joint_inner(l=l, with_supports=with_supports);

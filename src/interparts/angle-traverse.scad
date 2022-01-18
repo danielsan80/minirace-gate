@@ -1,7 +1,7 @@
 include <../parameters.scad>
 use <../functions.scad>
 use <../modules/profile.scad>
-use <../modules/slide_joint.scad>
+use <../joints/slide_joint.scad>
 
 traverse_angle_align_offset = pylon_side + bar_w + profile_w_diff()/2;
 

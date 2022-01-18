@@ -1,5 +1,5 @@
 include <../parameters.scad>
-use <../modules/button_joint.scad>
+use <../joints/button_joint.scad>
 
 
 module upright_angle_joint(void=false) {

@@ -3,9 +3,9 @@ use <../functions.scad>
 use <../modules/profile.scad>
 use <../modules/bar.scad>
 use <../modules/pylon.scad>
-use <../joints/ground-upright.scad>
-use <../joints/upright-angle.scad>
-use <../joints/angle-traverse.scad>
+use <../interparts/ground-upright.scad>
+use <../interparts/upright-angle.scad>
+use <../interparts/angle-traverse.scad>
 
 
 module upright_base() {

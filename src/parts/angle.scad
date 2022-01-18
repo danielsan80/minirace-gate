@@ -2,8 +2,9 @@ include <../parameters.scad>
 use <../modules/profile.scad>
 use <../modules/bar.scad>
 use <../modules/pylon.scad>
-use <../joints/angle-traverse.scad>
-use <../joints/upright-angle.scad>
+use <../interparts/angle-traverse.scad>
+use <../interparts/upright-angle.scad>
+use <../parts/angle.scad>
 
 module angle_base() {
     w = angle_base_w;

@@ -1,7 +1,7 @@
-include <../../src/gate/parameters.scad>
+include <../../parameters.scad>
 
-use <../../src/gate/parts/upright.scad>
-use <../../src/gate/joints/angle-traverse.scad>
+use <../../parts/upright.scad>
+use <../../interparts/angle-traverse.scad>
 
 module sim_upright_L() {
     upright();
