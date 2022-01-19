@@ -16,8 +16,7 @@ use <../../startlights/sim/board.scad>
 
 use <../../../lib/gaslands_gate/src/car/sim/cars.scad>
 use <../../../vendor/ruler/ruler.scad>
-use <../../parts/angle.scad>
-use <../../parts/test/angle.scad>
+
 
 
 module sim_new_gate() {
@@ -57,11 +56,5 @@ module sim_new_gate() {
 
     translate([-40,0,0])
     ruler(z=upright_h);
-
-    bar_c_hook();
-    traverse_c_stick(with_supports=true);
-    ground_upright_joint();
-
-    test_angle();
 
 }
