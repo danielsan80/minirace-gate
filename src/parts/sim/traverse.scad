@@ -1,4 +1,5 @@
 include <../../parameters.scad>
+use <../../modules/profile.scad>
 use <../../parts/traverse.scad>
 use <../../interparts/angle-traverse.scad>
 use <../../interparts/traverse-startlights.scad>
@@ -6,6 +7,7 @@ use <../../startlights/values.scad>
 
 module sim_traverse() {
     translate([0,0,upright_h])
+        angle_traverse_cut_translate()
         traverse();
 }
 
@@ -35,11 +37,15 @@ module sim_traverse_c_hooks() {
 }
 
 module sim_traverse_c_stick() {
+    p = play2;
+
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
             translate([traverse_l()/2,0,0])
                 angle_traverse_cut_translate()
                 translate([0,0,upright_h])
-                    traverse_c_stick();
+                    translate([0,c_joint_profile_side/2,0])
+                    translate([0,0,-c_joint_profile_side-profile_outer_w()/2-p-bar_c_junction_l])
+                            traverse_c_stick();
 }
 

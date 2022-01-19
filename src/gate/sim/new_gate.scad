@@ -22,13 +22,13 @@ use <../../../vendor/ruler/ruler.scad>
 module sim_new_gate() {
 
     sim_ground_L();
-    sim_upright_L();
-    sim_angle_L();
+//    sim_upright_L();
+//    sim_angle_L();
 
     sim_traverse();
 
-    sim_angle_R();
-    sim_upright_R();
+//    sim_angle_R();
+//    sim_upright_R();
     sim_ground_R();
 
     translate([0,0,-profile_w_diff()/2-play2-bar_c_junction_l-c_joint_profile_side/2])
@@ -48,13 +48,13 @@ module sim_new_gate() {
     sim_traverse_c_stick();
 
 
-    translate([-5,-30,0])
-    sim_cars(5);
-
-    translate([upright_base_w/2,-70,0])
-    ruler(x=intra_uprights_space_l);
-
-    translate([-40,0,0])
-    ruler(z=upright_h);
+//    translate([-5,-30,0])
+//    sim_cars(5);
+//
+//    translate([upright_base_w/2,-70,0])
+//    ruler(x=intra_uprights_space_l);
+//
+//    translate([-40,0,0])
+//    ruler(z=upright_h);
 
 }

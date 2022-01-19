@@ -9,8 +9,9 @@ use <src/parts/sim/traverse.scad>
 use <src/interparts/ground-upright.scad>
 use <src/interparts/print/bar_c_hook.scad>
 use <src/interparts/print/traverse_c_stick.scad>
+use <src/gate/print/gate.scad>
 
-//sim_new_gate();
+sim_new_gate();
 //sim_old_gate();
 
 //test_button_joint();
@@ -21,5 +22,7 @@ use <src/interparts/print/traverse_c_stick.scad>
 //test_angle(); // duplicated?
 //test_ground_upright_bolt();
 
-print_traverse_c_stick();
-print_bar_c_hook();
+//print_traverse_c_stick();
+//print_bar_c_hook();
+
+print_gate();
