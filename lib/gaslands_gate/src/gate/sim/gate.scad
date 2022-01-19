@@ -1,6 +1,6 @@
-use <parts.scad>
-use <cars.scad>
-use <../vendor/ruler/ruler.scad>
+use <../../parts/sim/parts.scad>
+use <../../car/sim/cars.scad>
+use <../../../vendor/ruler/ruler.scad>
 
 module sim_gate_150() {
     sim_upright_150_L();

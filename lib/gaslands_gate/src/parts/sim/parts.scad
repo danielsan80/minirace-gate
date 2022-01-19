@@ -1,4 +1,4 @@
-use <../src/modules/parts.scad>
+use <../../parts/parts.scad>
 
 module sim_upright_150_L() {
     upright();

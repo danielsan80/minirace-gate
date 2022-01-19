@@ -3,7 +3,7 @@ use <../functions.scad>
 use <../modules/profile.scad>
 use <../joints/slide_joint.scad>
 
-traverse_angle_align_offset = pylon_side + bar_w + profile_w_diff()/2;
+function traverse_angle_align_offset() = pylon_side + bar_w + profile_w_diff()/2;
 
 function angle_traverse_pos_x_offset() =
         let(gap = reinforcement_gap)
@@ -17,16 +17,16 @@ function angle_traverse_pos_z_offset() =
     let(side=pylon_side)
     let(base_h=angle_base_h)
     let(r=side+gap+side)
-    sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset
+    sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset()
 ;
 
 function traverse_l() = uprights_distance - angle_traverse_pos_x_offset()*2;
 
-module traverse_side_transform(side="left") {
+module traverse_side_transform(side="left", traverse_l=traverse_l()) {
     if (side=="left") {
         children();
     } else if (side=="right"){
-        translate([traverse_l(),0,0])
+        translate([traverse_l,0,0])
             rotate([0,0,180])
                 children();
     }
@@ -54,20 +54,20 @@ module angle_traverse_cut() {
     cube([a_lot,a_lot,a_lot]);
 }
 
-module traverse_plate_cut(side="left") {
+module traverse_plate_cut(side="left", traverse_l=traverse_l()) {
     module body() {
-        x_offset = hp(profile_outer_w()+pylon_side) - traverse_angle_align_offset;
+        x_offset = hp(profile_outer_w()+pylon_side) - traverse_angle_align_offset();
 
         translate([x_offset,0,0])
         translate([-a_lot,-a_lot/2,-a_lot])
         cube([a_lot, a_lot, a_lot]);
     }
 
-    traverse_side_transform(side=side)
+    traverse_side_transform(side=side, traverse_l=traverse_l)
     body();
 }
 
-module traverse_angle_joints_void(side="left") {
+module traverse_angle_joints_void(side="left", traverse_l=traverse_l()) {
     module body() {
         translate([-fix,-pylon_side/2,-a_lot/2])
         slide_joint(h=a_lot,void=true);
@@ -76,7 +76,7 @@ module traverse_angle_joints_void(side="left") {
         slide_joint(h=a_lot,void=true);
     }
 
-    traverse_side_transform(side=side)
+    traverse_side_transform(side=side, traverse_l=traverse_l)
     body();
 }
 

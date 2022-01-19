@@ -9,8 +9,6 @@ module sim_traverse() {
         traverse();
 }
 
-
-
 module sim_traverse_c_hook() {
     rotate([90,0,-90])
         translate([0,0,-bar_wrapper_l/2])

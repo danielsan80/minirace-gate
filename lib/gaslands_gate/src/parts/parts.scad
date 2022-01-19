@@ -1,4 +1,4 @@
-stl_dir = "../../stl/gate";
+stl_dir = "../parts/stl";
 
 module upright() {
     translate([63.15,26.7,0])
