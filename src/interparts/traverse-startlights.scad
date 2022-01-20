@@ -82,10 +82,10 @@ module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
         c_joint_inner(l=l, with_supports=with_supports);
 
         translate([0,0,hook_offset])
-        bar_c_stick_hook(d=3-play2*2, l=5, with_supports=with_supports);
+        bar_c_stick_hook(d=startlights_board_hole_d()-play2*2, l=5, with_supports=with_supports);
 
         translate([0,0,l-hook_offset])
-        bar_c_stick_hook(d=3-play2*2, l=5, with_supports=with_supports);
+        bar_c_stick_hook(d=startlights_board_hole_d()-play2*2, l=5, with_supports=with_supports);
     }
 
 }

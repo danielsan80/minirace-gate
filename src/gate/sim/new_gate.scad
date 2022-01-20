@@ -21,7 +21,7 @@ use <../../../vendor/ruler/ruler.scad>
 
 module sim_new_gate() {
 
-    sim_ground_L();
+//    sim_ground_L();
 //    sim_upright_L();
 //    sim_angle_L();
 
@@ -29,7 +29,7 @@ module sim_new_gate() {
 
 //    sim_angle_R();
 //    sim_upright_R();
-    sim_ground_R();
+//    sim_ground_R();
 
     translate([0,0,-profile_w_diff()/2-play2-bar_c_junction_l-c_joint_profile_side/2])
     translate([0,0,startlights_board_margin()+startlights_board_hole_y_offset()])
