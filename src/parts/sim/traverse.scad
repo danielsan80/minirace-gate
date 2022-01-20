@@ -44,8 +44,8 @@ module sim_traverse_c_stick() {
     translate([traverse_l()/2,0,0])
     angle_traverse_cut_translate()
     translate([0,0,upright_h])
-    translate([0,c_joint_profile_side/2,0])
-    translate([0,0,-c_joint_profile_side-profile_outer_w()/2-p-bar_c_junction_l])
+    translate([0,ct_slide_side/2,0])
+    translate([0,0,-ct_slide_side-profile_outer_w()/2-p-bar_c_junction_l])
     traverse_c_stick();
 }
 

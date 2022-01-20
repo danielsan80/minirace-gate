@@ -2,6 +2,8 @@ use <src/gate/sim/new_gate.scad>
 use <src/gate/sim/old_gate.scad>
 use <src/joints/test/button_joint.scad>
 use <src/joints/test/slide_joint.scad>
+use <src/joints/bar_wrapper.scad>
+use <src/joints/ct_slide.scad>
 
 use <src/parts/test/angle.scad>
 use <src/interparts/test/ground-upright.scad>
@@ -25,4 +27,7 @@ sim_new_gate();
 //print_traverse_c_stick();
 //print_bar_c_hook();
 
-print_gate();
+//print_gate();
+
+
+//bar_wrapper();

@@ -1,6 +1,7 @@
 $fn=100;
 fix = 0.01;
 a_lot = 1000;
+a_few = 10;
 play = 0.25;
 play2 = 0.15;
 play3 = 0.20;
@@ -47,11 +48,16 @@ traverse_hooks_intra_space_l = 30;
 
 bar_wrapper_l = 3;
 bar_wrapper_thick = 1.2;
+bar_wrapper_play = play2;
+
 traverse_bar_wrappers_intra_space_l = (reinforcement_gap+pylon_side)*2;
 
-c_joint_profile_side = 7;
+ct_slide_side = 7;
+ct_slide_play = play3;
+
 bar_c_junction_w = 2;
 bar_c_junction_l = 4;
+
 
 
 
