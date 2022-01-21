@@ -6,7 +6,7 @@ use <../../parts/traverse.scad>
 use <../../interparts/upright-angle.scad>
 use <../../interparts/angle-traverse.scad>
 
-module test_slide_joint_m() {
+module test_v_slide_m() {
 
     difference() {
         intersection() {
@@ -27,20 +27,21 @@ module test_slide_joint_m() {
     }
 }
 
-module test_slide_joint_f() {
+module test_v_slide_f() {
+
+    angle_traverse_cut_translate()
     intersection() {
         traverse();
 
-        angle_traverse_cut_translate()
         translate([0,-a_lot/2,-a_lot/2])
         cube([3,a_lot,a_lot]);
     }
 
-    translate([2.3,-pylon_side/2-bar_w/2,0])
+    translate([2,-pylon_side/2-bar_w/2,0])
     angle_traverse_cut_translate()
     cube([1,pylon_side+bar_w,bar_w]);
 
-    translate([2.3,-pylon_side/2-bar_w/2,pylon_side])
+    translate([2,-pylon_side/2-bar_w/2,pylon_side])
     angle_traverse_cut_translate()
     cube([1,pylon_side+bar_w,bar_w]);
 }

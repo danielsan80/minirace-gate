@@ -1,7 +1,7 @@
 include <../parameters.scad>
 
-module slide_joint(h=10,void=false) {
-    p = void?play2:0;
+module v_slide(h=10,void=false) {
+    p = void?v_slide_play:0;
     w1=0.7;
     w2=2.0;
     l=1.5;

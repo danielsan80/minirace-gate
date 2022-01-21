@@ -55,8 +55,12 @@ traverse_bar_wrappers_intra_space_l = (reinforcement_gap+pylon_side)*2;
 ct_slide_side = 7;
 ct_slide_play = play3;
 
+v_slide_play = play2;
+
 bar_c_junction_w = 2;
 bar_c_junction_l = 4;
+
+hanger_rod_hook_play = play2;
 
 
 

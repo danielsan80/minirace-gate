@@ -1,7 +1,7 @@
 use <src/gate/sim/new_gate.scad>
 use <src/gate/sim/old_gate.scad>
 use <src/joints/test/button_joint.scad>
-use <src/joints/test/slide_joint.scad>
+use <src/joints/test/v_slide.scad>
 use <src/joints/bar_wrapper.scad>
 use <src/joints/ct_slide.scad>
 
@@ -13,12 +13,13 @@ use <src/interparts/print/bar_c_hook.scad>
 use <src/interparts/print/traverse_c_stick.scad>
 use <src/gate/print/gate.scad>
 
-sim_new_gate();
+//sim_new_gate();
 //sim_old_gate();
 
 //test_button_joint();
-//test_slide_joint_m();
-//test_slide_joint_f();
+
+//test_v_slide_m();
+//test_v_slide_f();
 
 
 //test_angle(); // duplicated?
@@ -30,4 +31,4 @@ sim_new_gate();
 //print_gate();
 
 
-//bar_wrapper();
+bar_wrapper();

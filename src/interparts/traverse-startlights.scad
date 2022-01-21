@@ -1,6 +1,7 @@
 include <../parameters.scad>
 use <../modules/profile.scad>
 use <../joints/ct_slide.scad>
+use <../joints/print/ct_slide.scad>
 use <../joints/bar_wrapper.scad>
 use <../startlights/values.scad>
 
@@ -73,7 +74,7 @@ module bar_c_stick_hook(d, l, with_supports=false) {
 module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
     junction_l = bar_c_junction_l;
     junction_w = bar_c_junction_w;
-    p = play2;
+    p = hanger_rod_hook_play;
 
 
     translate([startlights_board_l()/2,0,0])
@@ -87,10 +88,10 @@ module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
         }
 
         translate([0,0,hook_offset])
-        bar_c_stick_hook(d=startlights_board_hole_d()-play2*2, l=5, with_supports=with_supports);
+        bar_c_stick_hook(d=startlights_board_hole_d()-p*2, l=5, with_supports=with_supports);
 
         translate([0,0,l-hook_offset])
-        bar_c_stick_hook(d=startlights_board_hole_d()-play2*2, l=5, with_supports=with_supports);
+        bar_c_stick_hook(d=startlights_board_hole_d()-p*2, l=5, with_supports=with_supports);
     }
 
 }

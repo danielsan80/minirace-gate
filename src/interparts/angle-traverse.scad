@@ -1,7 +1,7 @@
 include <../parameters.scad>
 use <../functions.scad>
 use <../modules/profile.scad>
-use <../joints/slide_joint.scad>
+use <../joints/v_slide.scad>
 
 function traverse_angle_align_offset() = pylon_side + bar_w + profile_w_diff()/2;
 
@@ -70,10 +70,10 @@ module traverse_plate_cut(side="left", traverse_l=traverse_l()) {
 module traverse_angle_joints_void(side="left", traverse_l=traverse_l()) {
     module body() {
         translate([-fix,-pylon_side/2,-a_lot/2])
-        slide_joint(h=a_lot,void=true);
+        v_slide(h=a_lot,void=true);
 
         translate([-fix,pylon_side/2,-a_lot/2])
-        slide_joint(h=a_lot,void=true);
+        v_slide(h=a_lot,void=true);
     }
 
     traverse_side_transform(side=side, traverse_l=traverse_l)
@@ -84,8 +84,8 @@ module traverse_angle_joints_void(side="left", traverse_l=traverse_l()) {
 module angle_traverse_joints() {
     c=1.1;
     translate([-fix,-pylon_side/2,0])
-    slide_joint(h=pylon_side+bar_w*c);
+    v_slide(h=pylon_side+bar_w*c);
 
     translate([-fix,pylon_side/2,0])
-    slide_joint(h=pylon_side+bar_w*c);
+    v_slide(h=pylon_side+bar_w*c);
 }
