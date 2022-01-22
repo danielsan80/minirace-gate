@@ -3,8 +3,8 @@ use <../../interparts/print/ground-upright.scad>
 use <../../parts/print/upright.scad>
 use <../../parts/print/angle.scad>
 use <../../parts/print/traverse.scad>
-use <../../interparts/print/hanger_clip.scad>
-use <../../interparts/print/hanger_rod.scad>
+use <../../parts/print/hanger_clip.scad>
+use <../../parts/print/hanger_rod.scad>
 
 
 

@@ -9,8 +9,8 @@ use <src/parts/test/angle.scad>
 use <src/interparts/test/ground-upright.scad>
 use <src/parts/sim/traverse.scad>
 use <src/interparts/ground-upright.scad>
-use <src/interparts/print/hanger_clip.scad>
-use <src/interparts/print/hanger_rod.scad>
+use <src/parts/print/hanger_clip.scad>
+use <src/parts/print/hanger_rod.scad>
 use <src/gate/print/gate.scad>
 
 use <src/parts/hanger.scad>
