@@ -39,6 +39,5 @@ sim_new_gate();
 //sim_hanger_clip();
 //hanger_clip();
 //print_hanger_rod();
-//hanger_rod_hook(with_supports=true);
 
 //sim_hanger_rod();
