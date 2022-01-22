@@ -39,26 +39,21 @@ function hanger_clip_ct_slide_pos_y_offset() =
 ;
 
 
-module hanger_rod(with_supports=false) {
+module hanger_rod() {
 
     l=startlights_board_l();
     hook_offset = l/2-startlights_board_hole_x_offset();
 
-    if (with_supports) {
-        hanger_rod_ct_slide_transform()
-        print_ct_slide_t(l=l);
-    } else {
-        hanger_rod_ct_slide_transform()
-        ct_slide_t(l=l);
-    }
+    hanger_rod_ct_slide_transform()
+    ct_slide_t(l=l);
 
     translate([hook_offset,0,0])
     translate([0,-ct_slide_side,0])
-    hanger_rod_hook(with_supports=with_supports);
+    hanger_rod_hook();
 
     translate([-hook_offset,0,0])
     translate([0,-ct_slide_side,0])
-    hanger_rod_hook(with_supports=with_supports);
+    hanger_rod_hook();
 
 }
 
@@ -71,16 +66,12 @@ module hanger_rod_ct_slide_transform() {
 
 module hanger_rod_hook(
     d=hanger_rod_hook_d(),
-    l=hanger_rod_hook_l,
-    with_supports=false
+    l=hanger_rod_hook_l
 ) {
-    r=6;
-    angle=30;
-    w = 2;
+    r=hanger_rod_hook_r;
+    angle=hanger_rod_hook_angle;
+    w = hanger_rod_hook_w;
 
-//    translate([ct_slide_side,ct_slide_side/2,0])
-//        rotate([-90,0,0])
-//            rotate([0,90,0])
     translate([0,0,ct_slide_side/2])
     rotate([90,0,0])
     intersection() {
@@ -97,30 +88,37 @@ module hanger_rod_hook(
         translate([-w/2, -a_lot/2,-a_lot/2])
         cube([w,a_lot,a_lot]);
     }
+}
 
-    if (with_supports) {
-        support_l = l+sin(angle)*(r+d/2);
-        difference() {
-            union() {
-                translate([0,-support_l,0])
-                translate([-layer_w/2,0,0])
-                    cube([
-                        layer_w,
-                        support_l-layer_w,
-                        ct_slide_side/2-d/2+((r+d/2)-cos(angle)*(r+d/2))
-                    ]);
+module hanger_rod_hook_support(
+    d=hanger_rod_hook_d(),
+    l=hanger_rod_hook_l
+) {
+    r=hanger_rod_hook_r;
+    angle=hanger_rod_hook_angle;
+    w = hanger_rod_hook_w;
 
-                translate([0,-support_l])
-                translate([-6/2,0,0])
-                    cube([
-                        6,
-                        l+sin(angle)*(r+d/2)- layer_w,
-                        layer_h
-                    ]);
+    support_l = l+sin(angle)*(r+d/2);
+    difference() {
+        union() {
+            translate([0,-support_l,0])
+            translate([-layer_w/2,0,0])
+            cube([
+                layer_w,
+                support_l-layer_w,
+                ct_slide_side/2-d/2+((r+d/2)-cos(angle)*(r+d/2))
+            ]);
 
-            }
-            hanger_rod_hook(d=d+layer_h*2,l=l);
+            translate([0,-support_l])
+            translate([-6/2,0,0])
+            cube([
+                6,
+                l+sin(angle)*(r+d/2)- layer_w,
+                layer_h
+            ]);
+
         }
+        hanger_rod_hook(d=d+layer_h*2,l=l);
     }
 }
 

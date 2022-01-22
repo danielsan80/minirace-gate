@@ -62,6 +62,9 @@ hanger_clip_junction_l = 4;
 
 hanger_rod_hook_play = play2;
 hanger_rod_hook_l = 5;
+hanger_rod_hook_r = 6;
+hanger_rod_hook_angle = 30;
+hanger_rod_hook_w = 2;
 
 
 
