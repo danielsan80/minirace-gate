@@ -31,7 +31,7 @@ module sim_new_gate() {
     sim_upright_R();
     sim_ground_R();
 
-    translate([0,0,-profile_w_diff()/2-play2-bar_c_junction_l-ct_slide_side/2])
+    translate([0,0,-profile_w_diff()/2-play2-hanger_clip_junction_l-ct_slide_side/2])
     translate([0,0,startlights_board_margin()+startlights_board_hole_y_offset()])
     translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
     translate([0,-pylon_side/2-ct_slide_side/2,0])
@@ -44,8 +44,8 @@ module sim_new_gate() {
         sim_startlights_board();
     }
 
-    sim_traverse_c_hooks();
-    sim_traverse_c_stick();
+    sim_hanger_clips();
+    sim_hanger_rod();
 
 
 //    translate([-5,-30,0])

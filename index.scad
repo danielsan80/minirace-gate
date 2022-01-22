@@ -9,11 +9,13 @@ use <src/parts/test/angle.scad>
 use <src/interparts/test/ground-upright.scad>
 use <src/parts/sim/traverse.scad>
 use <src/interparts/ground-upright.scad>
-use <src/interparts/print/bar_c_hook.scad>
-use <src/interparts/print/traverse_c_stick.scad>
+use <src/interparts/print/hanger_clip.scad>
+use <src/interparts/print/hanger_rod.scad>
 use <src/gate/print/gate.scad>
 
-//sim_new_gate();
+use <src/interparts/traverse-startlights.scad>
+
+sim_new_gate();
 //sim_old_gate();
 
 //test_button_joint();
@@ -25,10 +27,15 @@ use <src/gate/print/gate.scad>
 //test_angle(); // duplicated?
 //test_ground_upright_bolt();
 
-//print_traverse_c_stick();
-//print_bar_c_hook();
+//print_hanger_rod();
+//print_hanger_clip();
 
 //print_gate();
 
 
-bar_wrapper();
+//bar_wrapper();
+
+//sim_hanger_clip();
+//hanger_clip();
+
+//sim_hanger_rod();

@@ -5,28 +5,39 @@ use <../joints/print/ct_slide.scad>
 use <../joints/bar_wrapper.scad>
 use <../startlights/values.scad>
 
-module bar_c_junction(thick,w,l) {
+module hanger_clip_junction(thick,w,l) {
     p=play2;
     translate([-w/2,-l-profile_outer_w()/2-p,0])
     cube([w,l,thick]);
 }
 
-module bar_c_hook(l=bar_wrapper_l) {
-    junction_l = bar_c_junction_l;
-    junction_w = bar_c_junction_w;
-    p = play2;
+function hanger_clip_ct_slide_pos_y_offset() =
+    -ct_slide_side
+    -profile_outer_w()/2
+    -bar_wrapper_play
+    -hanger_clip_junction_l
+;
 
+function hanger_clip_ct_slide_pos_x_offset() =
+    -ct_slide_side/2
+;
+
+module hanger_clip(l=bar_wrapper_l) {
     bar_wrapper();
 
-    bar_c_junction(thick=l, w=junction_w, l=junction_l);
+    hanger_clip_junction(thick=l, w=hanger_clip_junction_w, l=hanger_clip_junction_l);
 
-
-    translate([-ct_slide_side/2,-ct_slide_side-profile_outer_w()/2-p-junction_l,0])
+    translate([
+        hanger_clip_ct_slide_pos_x_offset(),
+        hanger_clip_ct_slide_pos_y_offset(),
+        0
+    ])
     ct_slide_c(l=l);
-
 }
 
-module bar_c_stick_hook(d, l, with_supports=false) {
+function hanger_rod_hook_d() = startlights_board_hole_d()-hanger_rod_hook_play*2;
+
+module hanger_rod_hook(d=hanger_rod_hook_d(), l=hanger_rod_hook_l, with_supports=false) {
     r=6;
     angle=30;
     w = 2;
@@ -66,16 +77,12 @@ module bar_c_stick_hook(d, l, with_supports=false) {
                 ]);
 
             }
-            bar_c_stick_hook(d=d+layer_h*2,l=l);
+            hanger_rod_hook(d=d+layer_h*2,l=l);
         }
     }
 }
 
-module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
-    junction_l = bar_c_junction_l;
-    junction_w = bar_c_junction_w;
-    p = hanger_rod_hook_play;
-
+module hanger_rod(l=startlights_board_l(), hook_offset=startlights_board_hole_x_offset(), hook_d=startlights_board_hole_d(), with_supports=false) {
 
     translate([startlights_board_l()/2,0,0])
     rotate([0,0,-90])
@@ -88,10 +95,10 @@ module bar_c_stick(l, hook_offset, hook_d, with_supports=false) {
         }
 
         translate([0,0,hook_offset])
-        bar_c_stick_hook(d=startlights_board_hole_d()-p*2, l=5, with_supports=with_supports);
+        hanger_rod_hook(with_supports=with_supports);
 
         translate([0,0,l-hook_offset])
-        bar_c_stick_hook(d=startlights_board_hole_d()-p*2, l=5, with_supports=with_supports);
+        hanger_rod_hook(with_supports=with_supports);
     }
 
 }

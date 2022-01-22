@@ -57,10 +57,11 @@ ct_slide_play = play3;
 
 v_slide_play = play2;
 
-bar_c_junction_w = 2;
-bar_c_junction_l = 4;
+hanger_clip_junction_w = 2;
+hanger_clip_junction_l = 4;
 
 hanger_rod_hook_play = play2;
+hanger_rod_hook_l = 5;
 
 
 
