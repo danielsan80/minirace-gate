@@ -2,13 +2,13 @@ include <../../parameters.scad>
 use <../../modules/profile.scad>
 use <../../startlights/values.scad>
 use <../../interparts/angle-traverse.scad>
-use <../../interparts/traverse-startlights.scad>
 use <../../interparts/ground-upright.scad>
 
 use <../../parts/sim/ground.scad>
 use <../../parts/sim/upright.scad>
 use <../../parts/sim/angle.scad>
 use <../../parts/sim/traverse.scad>
+use <../../parts/sim/hanger.scad>
 
 use <../../startlights/sim/startlights.scad>
 use <../../startlights/sim/leds.scad>

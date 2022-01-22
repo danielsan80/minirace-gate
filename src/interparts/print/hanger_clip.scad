@@ -1,4 +1,4 @@
-use <../../interparts/traverse-startlights.scad>
+use <../../parts/hanger.scad>
 
 module print_hanger_clip() {
     hanger_clip();

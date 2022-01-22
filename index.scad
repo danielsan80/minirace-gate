@@ -13,7 +13,8 @@ use <src/interparts/print/hanger_clip.scad>
 use <src/interparts/print/hanger_rod.scad>
 use <src/gate/print/gate.scad>
 
-use <src/interparts/traverse-startlights.scad>
+use <src/parts/hanger.scad>
+use <src/parts/sim/hanger.scad>
 
 sim_new_gate();
 //sim_old_gate();

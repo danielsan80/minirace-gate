@@ -3,7 +3,6 @@ use <../modules/profile.scad>
 use <../modules/bar.scad>
 use <../modules/pylon.scad>
 use <../interparts/angle-traverse.scad>
-use <../interparts/traverse-startlights.scad>
 use <../joints/ct_slide.scad>
 
 
