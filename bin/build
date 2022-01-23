@@ -1,0 +1,36 @@
+START_TIME=$SECONDS
+
+echo "upright..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/upright.stl print/upright.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo "angle..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/angle.stl print/angle.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo "traverse..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/traverse.stl print/traverse.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo "hanger clip..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/hanger_clip.stl print/hanger_clip.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo "hanger rod..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/hanger_rod.stl print/hanger_rod.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo "startlights front..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/startlights_front.stl print/startlights.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo ""
+echo "DONE"
+echo "   in $(($SECONDS - $START_TIME)) secs"
+echo ""
