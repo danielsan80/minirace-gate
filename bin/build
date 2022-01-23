@@ -1,4 +1,5 @@
 START_TIME=$SECONDS
+echo ""
 
 echo "upright..."
 LAST_LAP=$SECONDS
