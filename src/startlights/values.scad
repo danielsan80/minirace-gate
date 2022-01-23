@@ -1,4 +1,4 @@
-include <../../vendor/startlights/src/startlights/parameters.scad>
+include <../../vendor/startlights/src/parameters.scad>
 
 function startlights_board_hole_y_offset() = board_hole_y_offset;
 function startlights_board_hole_x_offset() = board_hole_x_offset;

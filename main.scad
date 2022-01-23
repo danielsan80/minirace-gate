@@ -16,7 +16,7 @@ use <src/gate/print/gate.scad>
 use <src/parts/hanger.scad>
 use <src/parts/sim/hanger.scad>
 
-//sim_new_gate();
+sim_new_gate();
 //sim_old_gate();
 
 //test_button_joint();
@@ -37,7 +37,7 @@ use <src/parts/sim/hanger.scad>
 //bar_wrapper();
 
 //sim_hanger_clip();
-hanger_clip();
+//hanger_clip();
 //print_hanger_rod();
 
 //sim_hanger_rod();

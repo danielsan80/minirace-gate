@@ -1,4 +1,4 @@
-use <../../../vendor/startlights/src/startlights/parts/startlights.scad>
+use <../../../vendor/startlights/src/parts/sim/startlights.scad>
 
 module sim_startlights_front() {
     sim_startlights();
