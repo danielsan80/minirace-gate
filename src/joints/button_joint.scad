@@ -54,10 +54,10 @@ module button_joint_channel(w, offset) {
 module button_joint(r=3, h=6) {
     ring_r = 0.3;
     w = 0.5;
-    t = 1.2;
-    channel_offset = 1;
+    t = 1.5;
+    channel_offset = 0;
 
-    fillet_r = 0.5;
+    fillet_r = 0.3;
 
     difference() {
         union() {
@@ -81,7 +81,7 @@ module button_joint_void(r=3, h=6) {
     ring_r = 0.3;
 
     fillet_r = 0.5;
-    p = play2;
+    p = button_joint_play;
 
     cylinder(r=r+p, h=h+p);
     button_joint_ring(r+p, h+p, ring_r+p);
