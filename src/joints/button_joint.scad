@@ -69,7 +69,7 @@ module button_joint(r=3, h=6) {
             button_joint_inner_fillet(r, t, fillet_r);
         }
 
-        button_joint_channel(w, channel_offset);
+//        button_joint_channel(w, channel_offset);
 
 //        rotate([0,0,90])
 //        button_joint_channel(w, channel_offset);

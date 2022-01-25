@@ -3,12 +3,12 @@ use <../joints/button_joint.scad>
 
 
 module upright_angle_joint(void=false) {
-    c=0.2;
+    r=upright_angle_joint_r;
     h=upright_angle_joint_h;
     if (void) {
-        button_joint_void(r=bar_w/2-c, h=h);
+        button_joint_void(r=r, h=h);
     } else {
-        button_joint(r=bar_w/2-c, h=h);
+        button_joint(r=r, h=h);
     }
 }
 
