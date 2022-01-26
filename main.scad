@@ -21,8 +21,8 @@ use <src/interparts/test/upright-angle.scad>
 //sim_new_gate();
 //sim_old_gate();
 
-test_upright_angle_joints();
-//test_button_joint();
+//test_upright_angle_joints();
+test_button_joint();
 
 //test_v_slide_m();
 //test_v_slide_f();
