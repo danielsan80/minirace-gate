@@ -52,7 +52,7 @@ module button_joint_channel(w, offset) {
 }
 
 module button_joint(r=3, h=6) {
-    ring_r = 0.25;
+    ring_r = 0.28;
     w = 0.5;
     t = 1.5;
     channel_offset = 0;
