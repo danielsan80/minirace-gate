@@ -12,7 +12,7 @@ module angle_base() {
     h = angle_base_h;
     h2 = h*angle_base_h2_c;
 
-    margin = 1;
+    margin = 0.3;
 
     hole_w= pylon_side-base_curvature_r*2-profile_outer_w()-margin;
     hole_l= pylon_side-bar_w-h;

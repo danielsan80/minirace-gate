@@ -18,11 +18,11 @@ use <src/parts/sim/hanger.scad>
 use <src/interparts/test/upright-angle.scad>
 
 
-//sim_new_gate();
+sim_new_gate();
 //sim_old_gate();
 
 //test_upright_angle_joints();
-test_button_joint();
+//test_button_joint();
 
 //test_v_slide_m();
 //test_v_slide_f();
@@ -30,6 +30,7 @@ test_button_joint();
 
 //test_angle(); // duplicated?
 //test_ground_upright_bolt();
+//test_ground_upright_bolts();
 
 //print_hanger_rod();
 //print_hanger_clip();

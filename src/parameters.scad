@@ -61,7 +61,7 @@ v_slide_play = play2;
 hanger_clip_junction_w = 2;
 hanger_clip_junction_l = 4;
 
-hanger_rod_hook_play = play2;
+hanger_rod_hook_play = 0.15;
 hanger_rod_hook_l = 5;
 hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
@@ -69,6 +69,7 @@ hanger_rod_hook_w = 2;
 
 
 button_joint_play = 0.15;
+bolt_joint_play = 0.15;
 
 
 

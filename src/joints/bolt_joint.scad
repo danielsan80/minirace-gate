@@ -1,7 +1,7 @@
 include <../parameters.scad>
 
 module bolt_joint(side=3, h=10, void=false) {
-    p = void?play2:0;
+    p = void?bolt_joint_play:0;
     s = side+p;
 
     linear_extrude(h)
