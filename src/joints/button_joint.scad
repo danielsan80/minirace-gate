@@ -52,7 +52,7 @@ module button_joint_channel(w, offset) {
 }
 
 module button_joint(r=3, h=6) {
-    ring_r = 0.28;
+    ring_r = 0.01;
     w = 0.5;
     t = 1.5;
     channel_offset = 0;
@@ -66,7 +66,7 @@ module button_joint(r=3, h=6) {
                 button_joint_hole(r, h, t, fillet_r);
             }
 
-            button_joint_inner_fillet(r, t, fillet_r);
+//            button_joint_inner_fillet(r, t, fillet_r);
         }
 
 //        button_joint_channel(w, channel_offset);
@@ -78,7 +78,7 @@ module button_joint(r=3, h=6) {
 
 
 module button_joint_void(r=3, h=6) {
-    ring_r = 0.3;
+    ring_r = 0.1;
 
     fillet_r = 0.5;
     p = button_joint_play;
