@@ -23,9 +23,9 @@ module sim_new_gate() {
 
 //    sim_ground_L();
 //    sim_upright_L();
-    sim_angle_L();
+//    sim_angle_L();
 
-//    sim_traverse();
+    sim_traverse();
 //
 //    sim_angle_R();
 //    sim_upright_R();

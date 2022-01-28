@@ -71,5 +71,12 @@ hanger_rod_hook_w = 2;
 button_joint_play = 0.15;
 bolt_joint_play = 0.15;
 
+toothpick_l = 20;
+toothpick_voild_l_margin = 1;
+toothpick_void_l = toothpick_l + toothpick_voild_l_margin*2;
+toothpick_d = 2;
+toothpick_play = 0.15;
+
+
 
 

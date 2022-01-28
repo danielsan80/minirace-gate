@@ -16,6 +16,16 @@ LAST_LAP=$SECONDS
 openscad -o build/stl/traverse.stl print/traverse.scad
 echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
 
+echo "traverse split left..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/traverse_split_L.stl print/traverse_split_L.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
+echo "traverse split right..."
+LAST_LAP=$SECONDS
+openscad -o build/stl/traverse_split_R.stl print/traverse_split_R.scad
+echo "   $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+
 echo "hanger clip..."
 LAST_LAP=$SECONDS
 openscad -o build/stl/hanger_clip.stl print/hanger_clip.scad
