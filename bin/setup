@@ -7,8 +7,8 @@ ln -sfr ../ruler/ vendor/ruler
 unlink vendor/startlights 2> /dev/null
 ln -sfr ../startlights/ vendor/startlights
 
-unlink vendor/controller_box 2> /dev/null
-ln -sfr ../controller_box/ vendor/controller_box
+unlink vendor/controller-box 2> /dev/null
+ln -sfr ../controller-box/ vendor/controller-box
 
 unlink vendor/startlights 2> /dev/null
 ln -sfr ../startlights/ vendor/startlights

@@ -6,6 +6,7 @@ use <../modules/pylon.scad>
 use <../interparts/ground-upright.scad>
 use <../interparts/upright-angle.scad>
 use <../interparts/angle-traverse.scad>
+use <../interparts/upright_base_hole.scad>
 
 
 module upright_base() {
@@ -16,16 +17,6 @@ module upright_base() {
     c=0.5;
     h2 = h*c;
 
-    margin = 1;
-
-    hole_side= pylon_side-base_curvature_r*2-profile_outer_w()-margin;
-
-    module hole_profile() {
-        minkowski() {
-            cube([hole_side, hole_side, fix]);
-            cylinder(r=base_curvature_r, h=fix);
-        }
-    }
     difference() {
         union() {
             translate([-w/2, -l/2, 0])
@@ -41,12 +32,7 @@ module upright_base() {
             }
         }
 
-        translate([-hole_side/2,-hole_side/2,-fix])
-        minkowski() {
-            cube([hole_side, hole_side, a_lot]);
-            cylinder(r=base_curvature_r, h=fix);
-        }
-
+        upright_base_hole();
         upright_ground_joints_void();
     }
 

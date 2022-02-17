@@ -1,5 +1,6 @@
 $fn=100;
 fix = 0.01;
+fix2 = 0.1;
 a_lot = 1000;
 a_few = 10;
 play = 0.25;
@@ -22,6 +23,8 @@ angle_base_w = 20;
 angle_base_l = 25;
 angle_base_h = 2.5;
 angle_base_h2_c = 0.5;
+
+base_hole_margin = 0.3;
 
 pylon_side = 13;
 
@@ -76,6 +79,9 @@ toothpick_voild_l_margin = 1;
 toothpick_void_l = toothpick_l + toothpick_voild_l_margin*2;
 toothpick_d = 2;
 toothpick_play = 0.15;
+
+
+ground_thick = 0.5;
 
 
 
