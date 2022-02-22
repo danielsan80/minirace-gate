@@ -2,6 +2,7 @@ include <../parameters.scad>
 use <../functions.scad>
 use <../modules/profile.scad>
 use <../joints/v_slide.scad>
+use <../interparts/upright-upright.scad>
 
 function traverse_angle_align_offset() = pylon_side + bar_w + profile_w_diff()/2;
 
@@ -20,7 +21,7 @@ function angle_traverse_pos_z_offset() =
     sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset()
 ;
 
-function traverse_l() = uprights_distance - angle_traverse_pos_x_offset()*2;
+function traverse_l() = uprights_distance() - angle_traverse_pos_x_offset()*2;
 
 module traverse_side_transform(side="left", traverse_l=traverse_l()) {
     if (side=="left") {

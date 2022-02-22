@@ -8,7 +8,9 @@ use <src/joints/ct_slide.scad>
 use <src/parts/test/angle.scad>
 use <src/interparts/test/ground-upright.scad>
 use <src/parts/sim/traverse.scad>
+use <src/parts/upright.scad>
 use <src/interparts/ground-upright.scad>
+use <src/interparts/upright-upright.scad>
 use <src/parts/print/hanger_clip.scad>
 use <src/parts/print/hanger_rod.scad>
 use <src/gate/print/gate.scad>
@@ -17,9 +19,10 @@ use <src/parts/hanger.scad>
 use <src/parts/sim/hanger.scad>
 use <src/interparts/test/upright-angle.scad>
 
-//$vpt = [ 40,0,0 ];
-//$vpr = [ 60,0,-20 ];
-//$vpd = 400;
+$vpt = [ uprights_distance()/2, 0, upright_h()/2];
+$vpr = [ 60,0,-20 ];
+$vpd = 400;
+
 
 sim_new_gate();
 //sim_old_gate();

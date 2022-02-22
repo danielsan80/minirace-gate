@@ -44,7 +44,7 @@ reinforcement_gap = 5;
 //reinforcement_gap = -5;
 
 intra_uprights_space_l = 80; //80; //160;
-uprights_distance = intra_uprights_space_l + upright_base_w;
+intra_uprights_space_l_mode = "ground"; // "ground"|"box"
 
 upright_h = 40; //40; //90;
 //traverse_l = 50;

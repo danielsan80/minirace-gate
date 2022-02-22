@@ -63,6 +63,8 @@ module upright_counterforts() {
         }
 }
 
+function upright_h() = upright_h;
+
 module upright() {
 //    render()
     union() {
