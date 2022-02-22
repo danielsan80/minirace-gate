@@ -17,6 +17,9 @@ use <src/parts/hanger.scad>
 use <src/parts/sim/hanger.scad>
 use <src/interparts/test/upright-angle.scad>
 
+//$vpt = [ 40,0,0 ];
+//$vpr = [ 60,0,-20 ];
+//$vpd = 400;
 
 sim_new_gate();
 //sim_old_gate();
