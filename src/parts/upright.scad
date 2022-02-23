@@ -7,6 +7,7 @@ use <../interparts/ground-upright.scad>
 use <../interparts/upright-angle.scad>
 use <../interparts/angle-traverse.scad>
 use <../interparts/upright_base_hole.scad>
+use <../interparts/upright_base_level1.scad>
 
 
 module upright_base() {
@@ -19,11 +20,7 @@ module upright_base() {
 
     difference() {
         union() {
-            translate([-w/2, -l/2, 0])
-            minkowski() {
-                cube([w, l, h]);
-                cylinder(r = base_curvature_r, h = fix);
-            }
+            upright_base_level1();
 
             translate([-w/2 + h2, -l/2 + h2, h])
             minkowski() {

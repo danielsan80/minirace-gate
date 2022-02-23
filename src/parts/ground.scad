@@ -1,7 +1,7 @@
 include <../parameters.scad>
 use <../interparts/ground-upright.scad>
 use <../interparts/angle-traverse.scad>
-use <../interparts/basement-ground.scad>
+use <../interparts/ground_base.scad>
 use <../interparts/upright_base_hole.scad>
 
 module ground() {
