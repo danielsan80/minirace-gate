@@ -10,7 +10,7 @@ use <src/interparts/test/ground-upright.scad>
 use <src/parts/sim/traverse.scad>
 use <src/parts/upright.scad>
 use <src/interparts/ground-upright.scad>
-use <src/interparts/upright-upright.scad>
+use <src/interparts/uprights_distance.scad>
 use <src/parts/print/hanger_clip.scad>
 use <src/parts/print/hanger_rod.scad>
 use <src/gate/print/gate.scad>
@@ -19,13 +19,13 @@ use <src/parts/hanger.scad>
 use <src/parts/sim/hanger.scad>
 use <src/interparts/test/upright-angle.scad>
 
-//$vpt = [ uprights_distance()/2, 0, upright_h()/2];
-//$vpr = [ 60,0,-20 ];
-//$vpd = 400;
+$vpt = [ uprights_distance()/2, 0, upright_h()/2];
+$vpr = [ 60,0,-20 ];
+$vpd = 400;
 
-$vpt = [ 0, 0, 0];
-$vpr = [ 0,0,0];
-$vpd = 200;
+//$vpt = [ 0, 0, 0];
+//$vpr = [ 0,0,0];
+//$vpd = 200;
 
 
 sim_new_gate();
