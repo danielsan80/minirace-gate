@@ -51,14 +51,14 @@ process "basement/variant/basement_box_top_without_hole.scad"
 echo ""
 echo "# GROUND"
 
-process "ground/ground_basement_block.scad"
-process "ground/ground_basement_box.scad"
+process "ground/ground_block.scad"
+process "ground/ground_box.scad"
 
 echo ""
 echo "## Variant"
 
-process "ground/variant/ground_basement_block_with_hole.scad"
-process "ground/variant/ground_basement_box_without_hole.scad"
+process "ground/variant/ground_block_with_hole.scad"
+process "ground/variant/ground_box_without_hole.scad"
 process "ground/variant/ground_upright_with_hole.scad"
 process "ground/variant/ground_upright_without_hole.scad"
 

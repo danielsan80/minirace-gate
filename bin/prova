@@ -1,0 +1,41 @@
+
+START_TIME=$SECONDS
+
+build () {
+    echo "  $1..."
+    LAST_LAP=$SECONDS
+    openscad -o build/stl/$2.stl print/$2.scad
+    echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+}
+
+FILES=()
+while IFS=  read -r -d $'\0'; do
+    FILES+=($REPLY)
+
+    VALUE=$REPLY
+    VALUE=${VALUE/#print\//}
+    VALUE=${VALUE/%.scad/}
+done < <(find print/ -name "*.scad" -print0)
+
+
+for f in ${FILES[@]}; do
+    echo "  $1..."
+    LAST_LAP=$SECONDS
+    openscad -o build/stl/$2.stl print/$2.scad
+    echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+    echo $f
+done
+
+
+
+echo ""
+echo "# GATE"
+
+build "upright" "gate/upright"
+build "angle" "gate/angle"
+
+
+echo ""
+echo "DONE"
+echo "   in $(($SECONDS - $START_TIME)) secs"
+echo ""

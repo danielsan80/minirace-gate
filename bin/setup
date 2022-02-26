@@ -1,3 +1,4 @@
+#!/bin/bash
 
 mkdir vendor 2> /dev/null
 
