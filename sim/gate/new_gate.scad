@@ -1,25 +1,25 @@
-include <../../parameters.scad>
-use <../../modules/profile.scad>
-use <../../startlights/values.scad>
-use <../../interparts/angle-traverse.scad>
-use <../../interparts/ground-upright.scad>
-use <../../interparts/uprights_distance.scad>
+include <../../src/parameters.scad>
+use <../../src/modules/profile.scad>
+use <../../src/startlights/values.scad>
+use <../../src/interparts/angle-traverse.scad>
+use <../../src/interparts/ground-upright.scad>
+use <../../src/interparts/uprights_distance.scad>
 
-use <../../basement/values.scad>
-use <../../basement/sim/basement_box.scad>
-use <../../basement/sim/basement_block.scad>
-use <../../parts/sim/ground.scad>
-use <../../parts/sim/upright.scad>
-use <../../parts/sim/angle.scad>
-use <../../parts/sim/traverse.scad>
-use <../../parts/sim/hanger.scad>
+use <../../src/basement/values.scad>
+use <../../src/basement/sim/basement_box.scad>
+use <../../src/basement/sim/basement_block.scad>
+use <../../src/parts/sim/ground.scad>
+use <../../src/parts/sim/upright.scad>
+use <../../src/parts/sim/angle.scad>
+use <../../src/parts/sim/traverse.scad>
+use <../../src/parts/sim/hanger.scad>
 
-use <../../startlights/sim/startlights.scad>
-use <../../startlights/sim/leds.scad>
-use <../../startlights/sim/board.scad>
+use <../../src/startlights/sim/startlights.scad>
+use <../../src/startlights/sim/leds.scad>
+use <../../src/startlights/sim/board.scad>
 
-use <../../../lib/gaslands_gate/src/car/sim/cars.scad>
-use <../../../vendor/ruler/ruler.scad>
+use <../../lib/gaslands_gate/src/car/sim/cars.scad>
+use <../../vendor/ruler/ruler.scad>
 
 
 

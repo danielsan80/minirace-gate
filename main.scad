@@ -1,5 +1,5 @@
-use <src/gate/sim/new_gate.scad>
-use <src/gate/sim/old_gate.scad>
+use <sim/gate/new_gate.scad>
+use <sim/gate/old_gate.scad>
 use <src/joints/test/button_joint.scad>
 use <src/joints/test/v_slide.scad>
 use <src/joints/bar_wrapper.scad>
