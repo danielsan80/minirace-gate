@@ -1,7 +1,7 @@
 include <../../parameters.scad>
 use <../../basement/values.scad>
 use <../../basement/basement_box.scad>
-use <../../interparts/angle-traverse.scad>
+use <../../gate/interparts/angle-traverse.scad>
 
 module sim_basement_box_R() {
 

@@ -1,3 +1,3 @@
-use <../../src/parts/print/upright.scad>
+use <../../src/gate/parts/print/upright.scad>
 
 print_upright();

@@ -1,18 +1,18 @@
 include <../../src/parameters.scad>
-use <../../src/modules/profile.scad>
+use <../../src/gate/modules/profile.scad>
 use <../../src/startlights/values.scad>
-use <../../src/interparts/angle-traverse.scad>
-use <../../src/interparts/ground-upright.scad>
-use <../../src/interparts/uprights_distance.scad>
+use <../../src/gate/interparts/angle-traverse.scad>
+use <../../src/gate/interparts/ground-upright.scad>
+use <../../src/gate/interparts/uprights_distance.scad>
 
 use <../../src/basement/values.scad>
 use <../../src/basement/sim/basement_box.scad>
 use <../../src/basement/sim/basement_block.scad>
-use <../../src/parts/sim/ground.scad>
-use <../../src/parts/sim/upright.scad>
-use <../../src/parts/sim/angle.scad>
-use <../../src/parts/sim/traverse.scad>
-use <../../src/parts/sim/hanger.scad>
+use <../../src/gate/parts/sim/ground.scad>
+use <../../src/gate/parts/sim/upright.scad>
+use <../../src/gate/parts/sim/angle.scad>
+use <../../src/gate/parts/sim/traverse.scad>
+use <../../src/gate/parts/sim/hanger.scad>
 
 use <../../src/startlights/sim/startlights.scad>
 use <../../src/startlights/sim/leds.scad>

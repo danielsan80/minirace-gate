@@ -1,23 +1,22 @@
 use <sim/gate/new_gate.scad>
 use <sim/gate/old_gate.scad>
-use <src/joints/test/button_joint.scad>
-use <src/joints/test/v_slide.scad>
-use <src/joints/bar_wrapper.scad>
-use <src/joints/ct_slide.scad>
+use <src/gate/joints/test/button_joint.scad>
+use <src/gate/joints/test/v_slide.scad>
+use <src/gate/joints/bar_wrapper.scad>
+use <src/gate/joints/ct_slide.scad>
 
-use <src/parts/test/angle.scad>
-use <src/interparts/test/ground-upright.scad>
-use <src/parts/sim/traverse.scad>
-use <src/parts/upright.scad>
-use <src/interparts/ground-upright.scad>
-use <src/interparts/uprights_distance.scad>
-use <src/parts/print/hanger_clip.scad>
-use <src/parts/print/hanger_rod.scad>
-use <src/gate/print/gate.scad>
+use <src/gate/parts/test/angle.scad>
+use <src/gate/interparts/test/ground-upright.scad>
+use <src/gate/parts/sim/traverse.scad>
+use <src/gate/parts/upright.scad>
+use <src/gate/interparts/ground-upright.scad>
+use <src/gate/interparts/uprights_distance.scad>
+use <src/gate/parts/print/hanger_clip.scad>
+use <src/gate/parts/print/hanger_rod.scad>
 
-use <src/parts/hanger.scad>
-use <src/parts/sim/hanger.scad>
-use <src/interparts/test/upright-angle.scad>
+use <src/gate/parts/hanger.scad>
+use <src/gate/parts/sim/hanger.scad>
+use <src/gate/interparts/test/upright-angle.scad>
 
 $vpt = [ uprights_distance()/2, 0, upright_h()/2];
 $vpr = [ 60,0,-20 ];

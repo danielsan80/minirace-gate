@@ -1,6 +1,6 @@
 include <../parameters.scad>
 use <../basement/values.scad>
-use <../interparts/upright_base_hole.scad>
+use <../gate/interparts/upright_base_hole.scad>
 use <../../vendor/controller-box/src/parts/box_block.scad>
 
 module basement_block(with_hole=false) {
