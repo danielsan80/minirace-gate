@@ -8,7 +8,7 @@ module sim_angle_L() {
 }
 
 module sim_angle_R() {
-    translate([traverse_l(),0,0])
+    translate([traverse_l(mode="basement"),0,0])
         angle_traverse_cut_x_translate()
         angle_traverse_cut_x_translate()
         translate([0,0,upright_h])

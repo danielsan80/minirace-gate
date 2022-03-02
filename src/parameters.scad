@@ -44,10 +44,10 @@ reinforcement_gap = 5;
 //reinforcement_gap = -5;
 
 intra_uprights_space_l = 80; //80; //160;
-intra_uprights_space_l_mode = "basement"; // "ground"|"basement"
 
 upright_h = 40; //40; //90;
-//traverse_l = 50;
+
+traverse_play = play2;
 
 traverse_hook_l = 8;
 traverse_hook_w = 2;

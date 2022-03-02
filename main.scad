@@ -18,13 +18,21 @@ use <src/gate/parts/hanger.scad>
 use <src/gate/parts/sim/hanger.scad>
 use <src/gate/interparts/test/upright-angle.scad>
 
-$vpt = [ uprights_distance()/2, 0, upright_h()/2];
+use <src/basement/values.scad>
+
+
+
+$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2];
 $vpr = [ 60,0,-20 ];
 $vpd = 400;
 
 //$vpt = [ 0, 0, 0];
 //$vpr = [ 0,0,0];
 //$vpd = 200;
+
+//color("red")
+//translate($vpt)
+//sphere(d=5);
 
 
 sim_new_gate();

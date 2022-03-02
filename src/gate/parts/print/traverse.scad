@@ -45,10 +45,10 @@ module print_traverse_split_L() {
     difference() {
         translate([-pylon_side/2-bar_w/2,0,0])
         rotate([0,90,0])
-        translate([-traverse_l()/2,0,0])
+        translate([-traverse_l(mode="basement")/2,0,0])
         intersection() {
             traverse();
-            translate([-a_lot+traverse_l()/2,-a_lot/2,-a_lot/2])
+            translate([-a_lot+traverse_l(mode="basement")/2,-a_lot/2,-a_lot/2])
                 cube([a_lot,a_lot, a_lot]);
         }
 
@@ -61,10 +61,10 @@ module print_traverse_split_R() {
     difference() {
         translate([pylon_side/2+bar_w/2,0,0])
         rotate([0,-90,0])
-        translate([-traverse_l()/2,0,0])
+        translate([-traverse_l(mode="basement")/2,0,0])
         intersection() {
             traverse();
-            translate([traverse_l()/2,-a_lot/2,-a_lot/2])
+            translate([traverse_l(mode="basement")/2,-a_lot/2,-a_lot/2])
             cube([a_lot,a_lot, a_lot]);
         }
         _toothpick_voids();

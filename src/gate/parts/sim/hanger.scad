@@ -12,7 +12,7 @@ module sim_hanger_clips() {
 
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
-            translate([traverse_l()/2,0,0])
+            translate([traverse_l(mode="basement")/2,0,0])
                 angle_traverse_cut_translate()
                 translate([0,0,upright_h])
                     union() {
@@ -27,7 +27,7 @@ module sim_hanger_clips() {
 module sim_hanger_rod() {
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
-            translate([traverse_l()/2,0,0])
+            translate([traverse_l(mode="basement")/2,0,0])
                 angle_traverse_cut_translate()
                 translate([0,0,upright_h])
                     translate([0,0,hanger_clip_ct_slide_pos_y_offset()])

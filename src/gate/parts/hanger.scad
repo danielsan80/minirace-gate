@@ -19,9 +19,8 @@ module hanger_clip(l=bar_wrapper_l) {
         ct_slide_c(l=l);
 }
 
-
 module hanger_clip_junction(thick,w,l) {
-    p=play2;
+    p=bar_wrapper_play;
     translate([-w/2,-l-profile_outer_w()/2-p,0])
     cube([w,l,thick]);
 }

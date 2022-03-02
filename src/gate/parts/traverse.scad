@@ -8,14 +8,18 @@ use <../../gate/joints/ct_slide.scad>
 
 module traverse_transform() {
     rotate([0,90,0])
-    translate([-pylon_side-bar_w/2,-pylon_side/2,play2])
+    translate([-pylon_side-bar_w/2,-pylon_side/2,traverse_play])
     children();
 }
 
-module traverse_pylon(traverse_l=traverse_l()) {
+
+
+// mode="basement"|"upright"|"center"
+module traverse_pylon(mode="basement") {
+    traverse_l = traverse_l(mode=mode);
     step = pylon_side*2+reinforcement_gap*2;
     l_ext = step*ceil(traverse_l/step)+pylon_side+reinforcement_gap+pylon_side;
-    l = traverse_l-play2*2;
+    l = traverse_l-traverse_play*2;
     offset = (l_ext-l)/2;
 
 
@@ -36,7 +40,8 @@ module traverse_v_bar() {
     bar(l=pylon_side+profile_outer_w());
 }
 
-module traverse_v_bars(side="left", traverse_l=traverse_l()) {
+// mode="basement"|"upright"|"center"
+module traverse_v_bars(side="left", mode="basement") {
     module body() {
         difference() {
             union() {
@@ -46,16 +51,17 @@ module traverse_v_bars(side="left", traverse_l=traverse_l()) {
                     traverse_v_bar();
             }
 
-            translate([-a_lot+play2,-a_lot/2,-a_lot/2])
+            translate([-a_lot+traverse_play,-a_lot/2,-a_lot/2])
             cube([a_lot, a_lot, a_lot]);
         }
     }
 
-    traverse_side_transform(side=side, traverse_l=traverse_l)
+    traverse_side_transform(side=side, mode=mode)
     body();
 }
 
-module traverse_hooks(side="left", traverse_l=traverse_l()) {
+module traverse_hooks(side="left", mode="basement") {
+    traverse_l = traverse_l(mode=mode);
     module body() {
         translate([traverse_l/2-traverse_hooks_intra_space_l/2,0,0])
         translate([0,-pylon_side/2-profile_outer_w()/2,0])
@@ -68,30 +74,28 @@ module traverse_hooks(side="left", traverse_l=traverse_l()) {
         traverse_hook();
     }
 
-    traverse_side_transform(side=side, traverse_l=traverse_l)
+    traverse_side_transform(side=side, mode=mode)
     body();
 }
 
-module traverse_main(traverse_l=traverse_l()) {
-    traverse_pylon(traverse_l=traverse_l);
-    traverse_v_bars(side="left", traverse_l=traverse_l);
-    traverse_v_bars(side="right", traverse_l=traverse_l);
-//    traverse_hooks(side="left", traverse_l=traverse_l);
-//    traverse_hooks(side="right", traverse_l=traverse_l);
+module traverse_main(mode="basement") {
+
+    traverse_pylon(mode=mode);
+    traverse_v_bars(side="left", mode=mode);
+    traverse_v_bars(side="right", mode=mode);
+//    traverse_hooks(side="left", mode=mode);
+//    traverse_hooks(side="right", mode=mode);
 }
 
-module traverse(traverse_l=traverse_l()) {
-
-//    render()
-
+module traverse(mode="basement") {
     difference() {
-        traverse_main(traverse_l=traverse_l);
+        traverse_main(mode=mode);
 
-        traverse_plate_cut(side="left", traverse_l=traverse_l);
-        traverse_plate_cut(side="right", traverse_l=traverse_l);
+        traverse_plate_cut(side="left", mode=mode);
+        traverse_plate_cut(side="right", mode=mode);
 
-        traverse_angle_joints_void(side="left", traverse_l=traverse_l);
-        traverse_angle_joints_void(side="right", traverse_l=traverse_l);
+        traverse_angle_joints_void(side="left", mode=mode);
+        traverse_angle_joints_void(side="right", mode=mode);
     }
 
 }

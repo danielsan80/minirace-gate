@@ -21,9 +21,13 @@ function angle_traverse_pos_z_offset() =
     sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset()
 ;
 
-function traverse_l() = uprights_distance() - angle_traverse_pos_x_offset()*2;
+// mode="basement"|"upright"|"center"
+function traverse_l(mode="basement") = uprights_distance(mode=mode) - angle_traverse_pos_x_offset()*2;
 
-module traverse_side_transform(side="left", traverse_l=traverse_l()) {
+// mode="basement"|"upright"|"center"
+module traverse_side_transform(side="left", mode="basement") {
+    traverse_l = traverse_l(mode=mode);
+
     if (side=="left") {
         children();
     } else if (side=="right"){
@@ -55,7 +59,8 @@ module angle_traverse_cut() {
     cube([a_lot,a_lot,a_lot]);
 }
 
-module traverse_plate_cut(side="left", traverse_l=traverse_l()) {
+// mode="basement"|"upright"|"center"
+module traverse_plate_cut(side="left", mode="basement") {
     module body() {
         x_offset = hp(profile_outer_w()+pylon_side) - traverse_angle_align_offset();
 
@@ -64,11 +69,13 @@ module traverse_plate_cut(side="left", traverse_l=traverse_l()) {
         cube([a_lot, a_lot, a_lot]);
     }
 
-    traverse_side_transform(side=side, traverse_l=traverse_l)
+    traverse_side_transform(side=side, mode=mode)
     body();
 }
 
-module traverse_angle_joints_void(side="left", traverse_l=traverse_l()) {
+// mode="basement"|"upright"|"center"
+module traverse_angle_joints_void(side="left", mode="basement") {
+    traverse_l=traverse_l(mode=mode);
     module body() {
         translate([-fix,-pylon_side/2,-a_lot/2])
         v_slide(h=a_lot,void=true);
@@ -77,7 +84,7 @@ module traverse_angle_joints_void(side="left", traverse_l=traverse_l()) {
         v_slide(h=a_lot,void=true);
     }
 
-    traverse_side_transform(side=side, traverse_l=traverse_l)
+    traverse_side_transform(side=side, mode=mode)
     body();
 }
 
