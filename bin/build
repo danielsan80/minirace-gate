@@ -30,7 +30,10 @@ echo "## Variant"
 process "gate/variant/traverse_split_L.scad"
 process "gate/variant/traverse_split_R.scad"
 
-
+echo ""
+process "gate/variant/traverse_without_basement.scad"
+process "gate/variant/traverse_without_basement_split_L.scad"
+process "gate/variant/traverse_without_basement_split_R.scad"
 
 echo ""
 echo "# BASEMENT"

@@ -3,11 +3,11 @@ use <../../../gate/parts/traverse.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
 
-module print_traverse() {
+// mode="basement"|"upright"|"center"
+module print_traverse(mode="basement") {
     rotate([0,-90,0])
-    traverse();
+    traverse(mode=mode);
 }
-
 
 module _toothpick() {
     l=toothpick_l;
@@ -40,15 +40,16 @@ module _toothpick_voids() {
 }
 
 
-module print_traverse_split_L() {
+// mode="basement"|"upright"|"center"
+module print_traverse_split_L(mode="basement") {
 
     difference() {
         translate([-pylon_side/2-bar_w/2,0,0])
         rotate([0,90,0])
-        translate([-traverse_l(mode="basement")/2,0,0])
+        translate([-traverse_l(mode=mode)/2,0,0])
         intersection() {
-            traverse();
-            translate([-a_lot+traverse_l(mode="basement")/2,-a_lot/2,-a_lot/2])
+            traverse(mode=mode);
+            translate([-a_lot+traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
                 cube([a_lot,a_lot, a_lot]);
         }
 
@@ -56,15 +57,16 @@ module print_traverse_split_L() {
     }
 }
 
-module print_traverse_split_R() {
+// mode="basement"|"upright"|"center"
+module print_traverse_split_R(mode="basement") {
 
     difference() {
         translate([pylon_side/2+bar_w/2,0,0])
         rotate([0,-90,0])
-        translate([-traverse_l(mode="basement")/2,0,0])
+        translate([-traverse_l(mode=mode)/2,0,0])
         intersection() {
-            traverse();
-            translate([traverse_l(mode="basement")/2,-a_lot/2,-a_lot/2])
+            traverse(mode=mode);
+            translate([traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
             cube([a_lot,a_lot, a_lot]);
         }
         _toothpick_voids();
