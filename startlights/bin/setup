@@ -1,0 +1,4 @@
+mkdir vendor 2> /dev/null
+
+unlink vendor/ruler 2> /dev/null
+ln -sfr ../ruler/ vendor/ruler
