@@ -53,8 +53,8 @@ module sim_new_gate() {
     sim_hanger_clips();
     sim_hanger_rod();
 
-//    translate([-5,-30,0])
-//    sim_cars(5);
+    translate([-5,-30,0])
+    sim_cars(5);
 
     translate([basement_w()/2, -70, 0])
     ruler(x=intra_uprights_space_l);

@@ -22,9 +22,9 @@ use <src/basement/values.scad>
 
 
 
-$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2];
+$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
 $vpr = [ 60,0,-20 ];
-$vpd = 400;
+$vpd = 500;
 
 //$vpt = [ 0, 0, 0];
 //$vpr = [ 0,0,0];
