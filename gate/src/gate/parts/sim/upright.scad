@@ -7,9 +7,9 @@ module sim_upright_L() {
     upright();
 }
 
-module sim_upright_R() {
+module sim_upright_R(mode="basement") {
     angle_traverse_cut_x_translate()
-    translate([traverse_l(mode="basement"),0,0])
+    translate([traverse_l(mode=mode),0,0])
         angle_traverse_cut_x_translate()
         upright();
 }
