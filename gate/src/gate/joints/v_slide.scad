@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 
 module v_slide(h=10,void=false) {
     p = void?v_slide_play:0;

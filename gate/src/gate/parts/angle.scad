@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../gate/modules/profile.scad>
 use <../../gate/modules/bar.scad>
 use <../../gate/modules/pylon.scad>

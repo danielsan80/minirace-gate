@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../gate/joints/bolt_joint.scad>
 
 module ground_upright_joint() {

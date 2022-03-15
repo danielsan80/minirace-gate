@@ -1,4 +1,4 @@
-include <../../../parameters.scad>
+include <../../../../config/parameters.scad>
 use <../../../functions.scad>
 use <../../../gate/parts/upright.scad>
 use <../../../gate/parts/angle.scad>

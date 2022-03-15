@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 
 module button_joint_ring(r, h, ring_r) {
     translate([0,0,h-ring_r])

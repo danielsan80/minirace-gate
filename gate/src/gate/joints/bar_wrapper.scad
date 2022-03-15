@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../gate/modules/bar.scad>
 
 module bar_wrapper(l=bar_wrapper_l, thick=bar_wrapper_thick) {

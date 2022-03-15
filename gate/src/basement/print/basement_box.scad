@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../basement/values.scad>
 use <../../basement/basement_box.scad>
 

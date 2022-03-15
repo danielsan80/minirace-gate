@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 use <../basement/values.scad>
 use <../gate/interparts/upright_base_hole.scad>
 use <../../vendor/controller-box/src/parts/box_block.scad>

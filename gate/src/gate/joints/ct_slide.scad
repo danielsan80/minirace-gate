@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 
 module ct_slide_t_profile() {
     side = ct_slide_side;

@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 
 function profile_outer_w(w=bar_w) = w/profile_w*profile_h*2+w;
 function profile_inner_w(w=bar_w) = w;

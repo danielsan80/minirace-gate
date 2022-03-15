@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../gate/interparts/ground-upright.scad>
 use <../../gate/interparts/angle-traverse.scad>
 use <../../gate/interparts/ground_base.scad>

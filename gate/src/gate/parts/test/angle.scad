@@ -1,4 +1,4 @@
-include <../../../parameters.scad>
+include <../../../../config/parameters.scad>
 use <../../../gate/modules/profile.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 use <../../../gate/parts/angle.scad>

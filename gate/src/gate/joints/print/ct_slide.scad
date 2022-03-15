@@ -1,4 +1,4 @@
-include <../../../parameters.scad>
+include <../../../../config/parameters.scad>
 use <../../../gate/joints/ct_slide.scad>
 
 

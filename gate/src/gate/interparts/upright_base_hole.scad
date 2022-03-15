@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../gate/modules/profile.scad>
 
 module upright_base_hole() {

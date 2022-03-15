@@ -1,4 +1,4 @@
-use <../../lib/gaslands_gate/src/gate/sim/gate.scad>
+use <../lib/gaslands_gate/src/gate/sim/gate.scad>
 
 module sim_old_gate() {
 
