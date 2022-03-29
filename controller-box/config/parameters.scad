@@ -13,18 +13,32 @@ box_top_base_thick = 1;
 
 box_joint_h = 4;
 
-card_w = 44.5;
-card_l = 91.5;
+card_w = 36.5;
+card_l = 83.5;
 card_thick = 0.6;
 card_z_offset = 2;
 card_play = play1;
+card_overhang_l = 8;
+card_overhang_offset = 4.5;
+card_overhang_w = 31;
 
-antenna_w = 35;
-antenna_thick = 1.5;
-antenna_side_margin = 3.5;
+chip_x = card_overhang_l+4;
+chip_y = -8;
+chip_l = 44+(chip_y*-1);
+chip_w = 28;
+chip_thick = 3;
+chip_play = 1;
 
-box_inner_w = card_w+card_play*2;
-box_inner_l = card_l+card_play*2;
+antenna_w = card_overhang_w;
+antenna_thick = 0.5;
+antenna_thick_void = 1.5;
+antenna_side_margin = card_overhang_offset;
+antenna_start_margin = 10;
+antenna_end_l = 15;
+antenna_l = 198-antenna_end_l;
+
+box_inner_w = card_w+card_overhang_l+antenna_start_margin+card_play*2;
+box_inner_l = card_l+(chip_y*-1)+card_play+chip_play;
 box_inner_h = 10;
 //box_inner_w = 4;
 //box_inner_l = 30;
@@ -48,9 +62,12 @@ nail_groove_margin = 6;
 nail_groove_l = box_inner_w - nail_groove_margin*2 ;
 nail_groove_r = 0.5;
 
-rail_bottom_w = 1;
-rail_top_right_r = 0.4;
-rail_top_left_r = 0.15;
+keep_w = 1;
+keep_wall_thick=1;
+keep_h = card_z_offset;
+keep_card_thick = card_thick;
+keep_hold_r = 0.4;
+
 
 
 

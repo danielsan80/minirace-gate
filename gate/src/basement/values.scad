@@ -1,4 +1,4 @@
-include <../../vendor/controller-box/src/parameters.scad>
+include <../../vendor/controller-box/config/parameters.scad>
 
 function basement_w() = box_outer_w;
 function basement_l() = box_outer_l;

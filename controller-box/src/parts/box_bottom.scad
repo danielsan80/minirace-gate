@@ -1,6 +1,7 @@
 include <../parameters.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
+use <../joints/keep.scad>
 use <../interparts/box_bottom-box_top.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
 
@@ -35,54 +36,83 @@ module _box_bottom_nail_groove() {
     nail_groove();
 }
 
-module _box_bottom_rail() {
-    translate([0,0,-rail_bottom_w])
-    hull() {
-        translate([0,0,rail_bottom_w])
-        cube([box_inner_w, rail_bottom_w, fix]);
-        cube([box_inner_w, fix, fix]);
-    }
+module _box_left_keep() {
+    keep_l = card_w+card_play*2;
+
+    translate([
+        box_inner_w-keep_l,
+        box_inner_l,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    mirror([0,1,0])
+    keep(l=keep_l, with_wall=false);
 }
 
-module _box_bottom_rails() {
+module _box_right_back_keep() {
+    keep_l = (card_w-chip_w)/2-chip_play;
 
-    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick+card_z_offset])
-    union() {
-        translate([0,box_inner_l,0])
-        mirror([0,1,0])
-        _box_bottom_rail();
-
-        _box_bottom_rail();
-    }
+    translate([
+        box_inner_w-keep_l,
+        box_inner_l-card_l-card_play*2,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    keep(l=keep_l, with_wall=true);
 }
 
-module _box_top_rail() {
+module _box_right_front_keep() {
+    keep_l = (card_w-chip_w)/2-chip_play;
 
-    translate([rail_top_left_r,box_inner_l,0])
-    minkowski() {
-        cube([box_inner_w-rail_top_left_r*2, fix, fix]);
-        sphere(r=rail_top_left_r);
-    }
-
-
-    translate([rail_top_right_r,0,0])
-    minkowski() {
-        cube([box_inner_w-rail_top_right_r*2, fix, fix]);
-        sphere(r=rail_top_right_r);
-    }
+    translate([
+        box_inner_w-card_w-card_play*2,
+        box_inner_l-card_l-card_play*2,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    keep(l=keep_l, with_wall=true);
 }
 
-module _box_top_rails() {
+module _box_front_right_keep() {
+    keep_l = (card_w-chip_w)/2-chip_play + keep_wall_thick;
 
-    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick+card_z_offset+card_thick+card_play*2])
-    _box_top_rail();
+    translate([
+        box_inner_w-card_w-card_play*2,
+        box_inner_l-card_l-card_play*2,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    translate([0,keep_l-keep_wall_thick,0])
+    rotate([0,0,-90])
+    keep(l=keep_l, with_wall=true, with_hold=false);
+}
+
+module _box_front_left_keep() {
+    keep_l = (card_w-chip_w)/2-chip_play;
+
+    translate([
+        box_inner_w-card_w-card_play*2,
+        box_inner_l,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    rotate([0,0,-90])
+    keep(l=keep_l, with_wall=true, with_hold=false);
+}
+
+module _box_keeps() {
+    _box_left_keep();
+    _box_right_back_keep();
+    _box_right_front_keep();
+    _box_front_right_keep();
+    _box_front_left_keep();
 }
 
 module _box_bottom_antenna_hole() {
     translate([0,-antenna_w + box_wall_thick + box_inner_l-antenna_side_margin,0])
     rotate([0,-45,0])
-    translate([-a_lot/2,0,-antenna_thick/2])
-    cube([a_lot,antenna_w,antenna_thick]);
+    translate([-a_lot/2,0,-antenna_thick_void/2])
+    cube([a_lot,antenna_w,antenna_thick_void]);
 }
 
 module box_bottom_complete() {
@@ -95,8 +125,7 @@ module box_bottom_complete() {
             }
             _box_bottom_cylinder_joints();
 
-            _box_bottom_rails();
-            _box_top_rails();
+            _box_keeps();
         }
         _box_bottom_antenna_hole();
     }
