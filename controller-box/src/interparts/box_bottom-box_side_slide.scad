@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 
 module _box_side_slide_shape_profile() {
     half_thick = box_wall_half_thick+fix2;

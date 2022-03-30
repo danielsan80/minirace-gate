@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 
 module cylinder_joint(void=false) {
     l = cylinder_joint_l;

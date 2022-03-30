@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 
 module keep(l, with_wall=true, with_hold=true) {
 

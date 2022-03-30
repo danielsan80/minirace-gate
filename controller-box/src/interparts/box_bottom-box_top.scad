@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 
 
 module dock_shape(part="bottom") {

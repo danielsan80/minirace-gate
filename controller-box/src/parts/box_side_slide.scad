@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
 use <../parts/box_bottom.scad>
 

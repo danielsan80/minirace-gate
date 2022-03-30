@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../joints/keep.scad>

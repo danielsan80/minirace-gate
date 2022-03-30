@@ -1,4 +1,4 @@
-include <../parameters.scad>
+include <../../config/parameters.scad>
 
 module nail_groove() {
     l = nail_groove_l;

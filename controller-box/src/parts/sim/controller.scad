@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 
 module _sim_card_hole() {
     translate([0,0,-card_thick])

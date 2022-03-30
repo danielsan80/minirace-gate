@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../parts/box_top.scad>
 
 module sim_box_top() {
