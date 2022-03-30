@@ -144,6 +144,21 @@ module _box_bottom_chip_connector_hole() {
     ]);
 }
 
+module _box_bottom_chip_connector_niche() {
+    color("blue")
+    translate([
+        box_wall_thick+antenna_start_margin+card_play+chip_x+chip_w/2,
+        0,
+        box_bottom_base_thick+card_z_offset+card_thick+chip_thick+chip_connector_h/2,
+    ])
+    translate([-chip_connector_niche_w/2,-a_few+chip_connector_niche_offset, -chip_connector_niche_h/2])
+    cube([
+        chip_connector_niche_w,
+        a_few,
+        chip_connector_niche_h
+    ]);
+}
+
 module box_bottom_complete() {
     difference() {
         union() {
@@ -159,6 +174,7 @@ module box_bottom_complete() {
         _box_bottom_antenna_hole();
         _box_bottom_cylinder_joints_void();
         _box_bottom_chip_connector_hole();
+        _box_bottom_chip_connector_niche();
     }
 }
 

@@ -2,6 +2,7 @@ $fn = 100;
 fix = 0.01;
 fix2 = 0.1;
 a_lot = 1000;
+a_few = 10;
 play1 = 0.15;
 play2 = 0.20;
 play3 = 0.25;
@@ -29,16 +30,25 @@ chip_y = -8;
 chip_l = 44+(chip_y*-1);
 chip_w = 28;
 chip_thick = 3.8;
-chip_play = 0.5;
+chip_play = 0.3;
 
 chip_connector_w = 7.5;
 chip_connector_l = 5;
 chip_connector_h = 2.8;
-chip_connector_hole_frame_thick = 1;
 chip_connector_plugin_w = 10;
 chip_connector_plugin_h = 7;
-chip_connector_hole_margin_w = (chip_connector_plugin_w-chip_connector_w)/2+0.5;
-chip_connector_hole_margin_h = (chip_connector_plugin_h-chip_connector_h)/2+0.5;
+
+chip_connector_hole_frame_thick = 2.5;
+chip_connector_hole_margin_w = 0.3;
+chip_connector_hole_margin_h = 0.3;
+chip_connector_hole_w = chip_connector_w+chip_connector_hole_margin_w*2;
+chip_connector_hole_h = chip_connector_h+chip_connector_hole_margin_h*2;
+
+chip_connector_niche_margin_w = 0.3;
+chip_connector_niche_margin_h = 0.3;
+chip_connector_niche_w = chip_connector_plugin_w+chip_connector_niche_margin_w*2;
+chip_connector_niche_h = chip_connector_plugin_h+chip_connector_niche_margin_h*2;
+chip_connector_niche_offset = chip_play+box_wall_thick-1.8;
 
 chip_processor_w = 20;
 chip_processor_l = 20;
