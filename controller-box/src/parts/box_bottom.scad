@@ -109,10 +109,26 @@ module _box_keeps() {
 }
 
 module _box_bottom_antenna_hole() {
+    color("blue")
     translate([0,-antenna_w + box_wall_thick + box_inner_l-antenna_side_margin,0])
     rotate([0,-45,0])
     translate([-a_lot/2,0,-antenna_thick_void/2])
     cube([a_lot,antenna_w,antenna_thick_void]);
+}
+
+module _box_bottom_chip_connector_hole() {
+    color("blue")
+    translate([
+        box_wall_thick+antenna_start_margin+card_play+chip_x+(chip_w-chip_connector_w)/2,
+        0,
+        box_bottom_base_thick+card_z_offset+card_thick+chip_thick,
+    ])
+    translate([-chip_connector_hole_margin,-fix, -chip_connector_hole_margin])
+    cube([
+        chip_connector_w+chip_connector_hole_margin*2,
+        box_wall_thick+fix*2,
+        chip_connector_h+chip_connector_hole_margin*2
+    ]);
 }
 
 module box_bottom_complete() {
@@ -128,6 +144,7 @@ module box_bottom_complete() {
             _box_keeps();
         }
         _box_bottom_antenna_hole();
+        _box_bottom_chip_connector_hole();
     }
 }
 

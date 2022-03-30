@@ -50,6 +50,18 @@ module sim_antenna() {
     cube([antenna_end_l, antenna_w, card_thick]);
 }
 
+module sim_chip_processor() {
+    color("#9999aa")
+    translate([chip_x+(chip_w-chip_processor_w)/2, chip_y+chip_l-chip_processor_margin-chip_processor_l, card_thick+chip_thick])
+    cube([chip_processor_w, chip_processor_l, chip_processor_thick]);
+}
+
+module sim_chip_connector() {
+    color("silver")
+    translate([chip_x+(chip_w-chip_connector_w)/2, chip_y, card_thick+chip_thick])
+    cube([chip_connector_w, chip_connector_l, chip_connector_h]);
+}
+
 module sim_chip() {
     color("#333333")
     translate([chip_x, chip_y, card_thick])
@@ -60,4 +72,6 @@ module sim_controller() {
     sim_card();
     sim_antenna();
     sim_chip();
+    sim_chip_connector();
+    sim_chip_processor();
 }

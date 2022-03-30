@@ -24,6 +24,10 @@ union() {
 //translate([-box_outer_w-20,0,0])
 //box_block();
 
-translate([box_wall_thick+antenna_start_margin+card_play, box_wall_thick+(chip_y*-1)+chip_play, box_bottom_base_thick+card_z_offset])
+translate([
+    box_wall_thick+antenna_start_margin+card_play,
+    box_wall_thick+(chip_y*-1)+chip_play,
+    box_bottom_base_thick+card_z_offset
+])
 translate([100,0,0])
 sim_controller();

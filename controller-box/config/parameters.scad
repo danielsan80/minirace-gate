@@ -26,8 +26,19 @@ chip_x = card_overhang_l+4;
 chip_y = -8;
 chip_l = 44+(chip_y*-1);
 chip_w = 28;
-chip_thick = 3;
+chip_thick = 3.8;
 chip_play = 1;
+
+chip_connector_w = 7.5;
+chip_connector_l = 5;
+chip_connector_h = 2.8;
+chip_connector_hole_frame_thick = 1;
+chip_connector_hole_margin = 1;
+
+chip_processor_w = 20;
+chip_processor_l = 20;
+chip_processor_thick = 7-chip_thick;
+chip_processor_margin = 5;
 
 antenna_w = card_overhang_w;
 antenna_thick = 0.5;
@@ -39,7 +50,7 @@ antenna_l = 198-antenna_end_l;
 
 box_inner_w = card_w+card_overhang_l+antenna_start_margin+card_play*2;
 box_inner_l = card_l+(chip_y*-1)+card_play+chip_play;
-box_inner_h = 10;
+box_inner_h = card_z_offset+card_thick+chip_thick+chip_connector_h+box_joint_h+chip_connector_hole_margin+chip_connector_hole_frame_thick;
 //box_inner_w = 4;
 //box_inner_l = 30;
 //box_inner_h = 10;
