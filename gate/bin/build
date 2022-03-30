@@ -17,23 +17,23 @@ process () {
 
 
 
-echo ""
-echo "# GATE"
-
-process "gate/upright.scad"
-process "gate/angle.scad"
-process "gate/traverse.scad"
-
-echo ""
-echo "## Variant"
-
-process "gate/variant/traverse_split_L.scad"
-process "gate/variant/traverse_split_R.scad"
-
-echo ""
-process "gate/variant/traverse_without_basement.scad"
-process "gate/variant/traverse_without_basement_split_L.scad"
-process "gate/variant/traverse_without_basement_split_R.scad"
+#echo ""
+#echo "# GATE"
+#
+#process "gate/upright.scad"
+#process "gate/angle.scad"
+#process "gate/traverse.scad"
+#
+#echo ""
+#echo "## Variant"
+#
+#process "gate/variant/traverse_split_L.scad"
+#process "gate/variant/traverse_split_R.scad"
+#
+#echo ""
+#process "gate/variant/traverse_without_basement.scad"
+#process "gate/variant/traverse_without_basement_split_L.scad"
+#process "gate/variant/traverse_without_basement_split_R.scad"
 
 echo ""
 echo "# BASEMENT"
@@ -51,28 +51,28 @@ process "basement/variant/basement_box_top_without_hole.scad"
 
 
 
-echo ""
-echo "# GROUND"
-
-process "ground/ground_basement_block.scad"
-process "ground/ground_basement_box.scad"
-
-echo ""
-echo "## Variant"
-
-process "ground/variant/ground_basement_block_with_hole.scad"
-process "ground/variant/ground_basement_box_without_hole.scad"
-process "ground/variant/ground_upright_with_hole.scad"
-process "ground/variant/ground_upright_without_hole.scad"
-
-
-
-echo ""
-echo "# STARTLIGHTS"
-
-process "startlights/startlights.scad"
-process "startlights/hanger_clip.scad"
-process "startlights/hanger_rod.scad"
+#echo ""
+#echo "# GROUND"
+#
+#process "ground/ground_basement_block.scad"
+#process "ground/ground_basement_box.scad"
+#
+#echo ""
+#echo "## Variant"
+#
+#process "ground/variant/ground_basement_block_with_hole.scad"
+#process "ground/variant/ground_basement_box_without_hole.scad"
+#process "ground/variant/ground_upright_with_hole.scad"
+#process "ground/variant/ground_upright_without_hole.scad"
+#
+#
+#
+#echo ""
+#echo "# STARTLIGHTS"
+#
+#process "startlights/startlights.scad"
+#process "startlights/hanger_clip.scad"
+#process "startlights/hanger_rod.scad"
 
 
 

@@ -20,14 +20,25 @@ module _box_bottom_dock_void() {
     dock_shape(part="bottom");
 }
 
-module _box_bottom_cylinder_joints() {
+//module _box_bottom_cylinder_joints() {
+//
+//    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+//    union() {
+//        cylinder_joint(void=false);
+//
+//        translate([0,box_inner_l+box_wall_half_thick*2])
+//        cylinder_joint(void=false);
+//    }
+//}
+
+module _box_bottom_cylinder_joints_void() {
 
     translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
-        cylinder_joint(void=false);
+        cylinder_joint(void=true);
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=false);
+        cylinder_joint(void=true);
     }
 }
 
@@ -110,10 +121,12 @@ module _box_keeps() {
 
 module _box_bottom_antenna_hole() {
     color("blue")
-    translate([0,-antenna_w + box_wall_thick + box_inner_l-antenna_side_margin,0])
+//    translate([0, -antenna_w + box_wall_thick + box_inner_l-antenna_side_margin, 0])
+    translate([0, -antenna_w+box_wall_thick+box_inner_l-card_play-antenna_side_margin, 0])
     rotate([0,-45,0])
-    translate([-a_lot/2,0,-antenna_thick_void/2])
-    cube([a_lot,antenna_w,antenna_thick_void]);
+    translate([0,-antenna_play,0])
+    translate([-a_lot/2,0,-antenna_hole_thick/2])
+    cube([a_lot,antenna_hole_w,antenna_hole_thick]);
 }
 
 module _box_bottom_chip_connector_hole() {
@@ -123,11 +136,11 @@ module _box_bottom_chip_connector_hole() {
         0,
         box_bottom_base_thick+card_z_offset+card_thick+chip_thick,
     ])
-    translate([-chip_connector_hole_margin,-fix, -chip_connector_hole_margin])
+    translate([-chip_connector_hole_margin_w,-fix, -chip_connector_hole_margin_h])
     cube([
-        chip_connector_w+chip_connector_hole_margin*2,
+        chip_connector_w+chip_connector_hole_margin_w*2,
         box_wall_thick+fix*2,
-        chip_connector_h+chip_connector_hole_margin*2
+        chip_connector_h+chip_connector_hole_margin_h*2
     ]);
 }
 
@@ -139,11 +152,12 @@ module box_bottom_complete() {
                 _box_bottom_dock_void();
                 _box_bottom_nail_groove();
             }
-            _box_bottom_cylinder_joints();
+//            _box_bottom_cylinder_joints();
 
             _box_keeps();
         }
         _box_bottom_antenna_hole();
+        _box_bottom_cylinder_joints_void();
         _box_bottom_chip_connector_hole();
     }
 }
