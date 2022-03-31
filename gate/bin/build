@@ -11,69 +11,76 @@ process () {
 
     echo "  $SCAD..."
     LAST_LAP=$SECONDS
-    openscad -o build/stl/$BASE.stl print/$SCAD
+    openscad -o build/stl/$BASE.stl build/scad/$SCAD
     echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
 }
 
 
 
-#echo ""
-#echo "# GATE"
-#
-#process "gate/upright.scad"
-#process "gate/angle.scad"
-#process "gate/traverse.scad"
-#
-#echo ""
-#echo "## Variant"
-#
-#process "gate/variant/traverse_split_L.scad"
-#process "gate/variant/traverse_split_R.scad"
-#
-#echo ""
-#process "gate/variant/traverse_without_basement.scad"
-#process "gate/variant/traverse_without_basement_split_L.scad"
-#process "gate/variant/traverse_without_basement_split_R.scad"
-
 echo ""
-echo "# BASEMENT"
+echo "# GATE"
 
-process "basement/basement_block.scad"
-process "basement/basement_box_bottom.scad"
-process "basement/basement_box_side_slide.scad"
-process "basement/basement_box_top.scad"
+process "print/gate/upright.scad"
+process "print/gate/angle.scad"
+process "print/gate/traverse.scad"
 
 echo ""
 echo "## Variant"
 
-process "basement/variant/basement_block_with_hole.scad"
-process "basement/variant/basement_box_top_without_hole.scad"
+process "print/gate/variant/traverse_split_L.scad"
+process "print/gate/variant/traverse_split_R.scad"
+
+echo ""
+process "print/gate/variant/traverse_without_basement.scad"
+process "print/gate/variant/traverse_without_basement_split_L.scad"
+process "print/gate/variant/traverse_without_basement_split_R.scad"
+
+echo ""
+echo "# BASEMENT"
+
+process "print/basement/basement_block.scad"
+process "print/basement/basement_box_bottom.scad"
+process "print/basement/basement_box_side_slide.scad"
+process "print/basement/basement_box_top.scad"
+
+echo ""
+echo "## Variant"
+
+process "print/basement/variant/basement_block_with_hole.scad"
+process "print/basement/variant/basement_box_top_without_hole.scad"
 
 
 
-#echo ""
-#echo "# GROUND"
-#
-#process "ground/ground_basement_block.scad"
-#process "ground/ground_basement_box.scad"
-#
-#echo ""
-#echo "## Variant"
-#
-#process "ground/variant/ground_basement_block_with_hole.scad"
-#process "ground/variant/ground_basement_box_without_hole.scad"
-#process "ground/variant/ground_upright_with_hole.scad"
-#process "ground/variant/ground_upright_without_hole.scad"
-#
-#
-#
-#echo ""
-#echo "# STARTLIGHTS"
-#
-#process "startlights/startlights.scad"
-#process "startlights/hanger_clip.scad"
-#process "startlights/hanger_rod.scad"
+echo ""
+echo "# GROUND"
 
+process "print/ground/ground_basement_block.scad"
+process "print/ground/ground_basement_box.scad"
+
+echo ""
+echo "## Variant"
+
+process "print/ground/variant/ground_basement_block_with_hole.scad"
+process "print/ground/variant/ground_basement_box_without_hole.scad"
+process "print/ground/variant/ground_upright_with_hole.scad"
+process "print/ground/variant/ground_upright_without_hole.scad"
+
+
+
+echo ""
+echo "# STARTLIGHTS"
+
+process "print/startlights/startlights.scad"
+process "print/startlights/hanger_clip.scad"
+process "print/startlights/hanger_rod.scad"
+
+
+echo ""
+echo "# SIM"
+
+process "sim/gate_on_basement.scad"
+process "sim/gate_on_ground.scad"
+process "sim/old_vs_gate.scad"
 
 
 echo ""
