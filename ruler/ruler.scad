@@ -9,6 +9,7 @@ module ruler(x=0, y=0, z=0) {
     function value() = str(value_xyz());
 
     translate([0,-11,0])
+    linear_extrude(0.5)
     text(value(), size=8);
     cube([xx(),yy(),zz()]);
 }
