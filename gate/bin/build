@@ -54,16 +54,9 @@ process "print/basement/variant/basement_box_top_without_hole.scad"
 echo ""
 echo "# GROUND"
 
-process "print/ground/ground_basement_block.scad"
-process "print/ground/ground_basement_box.scad"
+process "print/ground/ground_with_hole.scad"
+process "print/ground/ground_without_hole.scad"
 
-echo ""
-echo "## Variant"
-
-process "print/ground/variant/ground_basement_block_with_hole.scad"
-process "print/ground/variant/ground_basement_box_without_hole.scad"
-process "print/ground/variant/ground_upright_with_hole.scad"
-process "print/ground/variant/ground_upright_without_hole.scad"
 
 
 
