@@ -19,7 +19,7 @@ box_joint_h = 4;
 card_w = 36.5;
 card_l = 83.5;
 card_thick = 0.8;
-card_z_offset = 1.5;
+card_z_offset = 1;
 card_play = play1;
 card_overhang_l = 8;
 card_overhang_offset = 4.5;
@@ -43,12 +43,19 @@ chip_connector_hole_margin_w = 0.3;
 chip_connector_hole_margin_h = 0.3;
 chip_connector_hole_w = chip_connector_w+chip_connector_hole_margin_w*2;
 chip_connector_hole_h = chip_connector_h+chip_connector_hole_margin_h*2;
+chip_connector_hole_thick = 1.8;
 
-chip_connector_niche_margin_w = 0.3;
-chip_connector_niche_margin_h = 0.3;
-chip_connector_niche_w = chip_connector_plugin_w+chip_connector_niche_margin_w*2;
-chip_connector_niche_h = chip_connector_plugin_h+chip_connector_niche_margin_h*2;
-chip_connector_niche_offset = chip_play+box_wall_thick-1.8;
+chip_connector_inner_niche_margin_w = 0.3;
+chip_connector_inner_niche_margin_h = 0.3;
+chip_connector_inner_niche_w = chip_w+chip_connector_inner_niche_margin_w*2;
+chip_connector_inner_niche_h = chip_thick+chip_connector_h+chip_connector_inner_niche_margin_h*2;
+chip_connector_inner_niche_offset = 1;
+
+chip_connector_outer_niche_margin_w = 0.3;
+chip_connector_outer_niche_margin_h = 0.3;
+chip_connector_outer_niche_w = chip_connector_plugin_w+chip_connector_outer_niche_margin_w*2;
+chip_connector_outer_niche_h = chip_connector_plugin_h+chip_connector_outer_niche_margin_h*2;
+chip_connector_outer_niche_offset = chip_play-chip_connector_inner_niche_offset+box_wall_thick-chip_connector_hole_thick;
 
 chip_processor_w = 20;
 chip_processor_l = 20;
@@ -66,7 +73,7 @@ antenna_end_l = 15;
 antenna_l = 198-antenna_end_l;
 
 box_inner_w = card_w+card_overhang_l+antenna_start_margin+card_play*2;
-box_inner_l = card_l+(chip_y*-1)+card_play+chip_play;
+box_inner_l = card_l+(chip_y*-1)+card_play+chip_play-chip_connector_inner_niche_offset;
 box_inner_h = card_z_offset+card_thick+chip_thick+chip_connector_h+box_joint_h+chip_connector_hole_margin_h+chip_connector_hole_frame_thick;
 //box_inner_w = 4;
 //box_inner_l = 30;
