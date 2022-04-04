@@ -38,7 +38,7 @@ chip_connector_h = 2.8;
 chip_connector_plugin_w = 10;
 chip_connector_plugin_h = 7;
 
-chip_connector_hole_frame_thick = 2.5;
+chip_connector_hole_frame_thick = 0.6;
 chip_connector_hole_margin_w = 0.3;
 chip_connector_hole_margin_h = 0.3;
 chip_connector_hole_w = chip_connector_w+chip_connector_hole_margin_w*2;
@@ -49,7 +49,7 @@ chip_connector_inner_niche_margin_w = 0.3;
 chip_connector_inner_niche_margin_h = 0.3;
 chip_connector_inner_niche_w = chip_w+chip_connector_inner_niche_margin_w*2;
 chip_connector_inner_niche_h = chip_thick+chip_connector_h+chip_connector_inner_niche_margin_h*2;
-chip_connector_inner_niche_offset = 1;
+chip_connector_inner_niche_offset = 0;
 
 chip_connector_outer_niche_margin_w = 0.3;
 chip_connector_outer_niche_margin_h = 0.3;

@@ -61,7 +61,7 @@ module _box_left_keep() {
 }
 
 module _box_right_back_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play;
+    keep_l = (card_w-chip_w)/2-chip_play*2;
 
     translate([
         box_inner_w-keep_l,
@@ -73,7 +73,7 @@ module _box_right_back_keep() {
 }
 
 module _box_right_front_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play;
+    keep_l = (card_w-chip_w)/2-chip_play*2;
 
     translate([
         box_inner_w-card_w-card_play*2,
@@ -85,7 +85,7 @@ module _box_right_front_keep() {
 }
 
 module _box_front_right_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play + keep_wall_thick;
+    keep_l = (card_w-chip_w)/2-chip_play*2 + keep_wall_thick;
 
     translate([
         box_inner_w-card_w-card_play*2,
@@ -99,7 +99,7 @@ module _box_front_right_keep() {
 }
 
 module _box_front_left_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play;
+    keep_l = (card_w-chip_w)/2-chip_play*2;
 
     translate([
         box_inner_w-card_w-card_play*2,
@@ -146,7 +146,11 @@ module _box_bottom_chip_connector_central_hole() {
 
 module _box_bottom_chip_connector_inner_niche() {
     color("blue")
-    translate([-chip_connector_inner_niche_w/2,chip_connector_inner_niche_offset, -chip_connector_inner_niche_h+chip_connector_h+chip_connector_inner_niche_margin_h])
+    translate([
+        -chip_connector_inner_niche_w/2,
+        box_wall_thick-chip_connector_inner_niche_offset,
+        -chip_connector_inner_niche_h+chip_connector_h/2+chip_connector_inner_niche_margin_h
+    ])
     cube([
         chip_connector_inner_niche_w,
         box_wall_thick,
@@ -173,7 +177,7 @@ module _box_bottom_chip_connector_outer_niche() {
 
 module _box_bottom_chip_connector_hole() {
     translate([
-        box_wall_thick+antenna_start_margin+card_play+chip_x+(chip_w-chip_connector_w)/2,
+        box_wall_thick+antenna_start_margin+card_play+chip_x+chip_w/2,
         0,
         box_bottom_base_thick+card_z_offset+card_thick+chip_thick+chip_connector_h/2,
     ])
@@ -199,7 +203,6 @@ module box_bottom_complete() {
         _box_bottom_antenna_hole();
 //        _box_bottom_cylinder_joints_void();
         _box_bottom_chip_connector_hole();
-        _box_bottom_chip_connector_outer_niche();
     }
 }
 

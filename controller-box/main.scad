@@ -28,7 +28,7 @@ union() {
 
 translate([
     box_wall_thick+antenna_start_margin+card_play,
-    box_wall_thick+(chip_y*-1)+chip_play,
+    box_wall_thick+(chip_y*-1)+chip_play-chip_connector_inner_niche_offset,
     box_bottom_base_thick+card_z_offset
 ])
 translate([100,0,0])
