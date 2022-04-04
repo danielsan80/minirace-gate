@@ -20,27 +20,27 @@ module _box_bottom_dock_void() {
     dock_shape(part="bottom");
 }
 
-//module _box_bottom_cylinder_joints() {
-//
-//    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
-//    union() {
-//        cylinder_joint(void=false);
-//
-//        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=false);
-//    }
-//}
-
-module _box_bottom_cylinder_joints_void() {
+module _box_bottom_cylinder_joints() {
 
     translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
-        cylinder_joint(void=true);
+        cylinder_joint(void=false);
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=true);
+        cylinder_joint(void=false);
     }
 }
+
+//module _box_bottom_cylinder_joints_void() {
+//
+//    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+//    union() {
+//        cylinder_joint(void=true);
+//
+//        translate([0,box_inner_l+box_wall_half_thick*2])
+//        cylinder_joint(void=true);
+//    }
+//}
 
 module _box_bottom_nail_groove() {
     translate([box_outer_w/2,0,box_outer_h-box_top_base_thick])
@@ -167,12 +167,12 @@ module box_bottom_complete() {
                 _box_bottom_dock_void();
                 _box_bottom_nail_groove();
             }
-//            _box_bottom_cylinder_joints();
+            _box_bottom_cylinder_joints();
 
             _box_keeps();
         }
         _box_bottom_antenna_hole();
-        _box_bottom_cylinder_joints_void();
+//        _box_bottom_cylinder_joints_void();
         _box_bottom_chip_connector_hole();
         _box_bottom_chip_connector_niche();
     }
