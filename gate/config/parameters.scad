@@ -46,6 +46,8 @@ upright_h = 90; //40; //90;
 upright_base_groove_thick = min_space;
 upright_base_groove_depth = layer_h*2;
 
+basement_upright_margin = 5;
+
 traverse_play = play2;
 
 traverse_hook_l = 8;
