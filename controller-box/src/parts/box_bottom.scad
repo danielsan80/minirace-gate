@@ -61,7 +61,7 @@ module _box_left_keep() {
 }
 
 module _box_right_back_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play;
+    keep_l = (card_w-chip_w)/2-chip_play*2;
 
     translate([
         box_inner_w-keep_l,
@@ -73,7 +73,7 @@ module _box_right_back_keep() {
 }
 
 module _box_right_front_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play;
+    keep_l = (card_w-chip_w)/2-chip_play*2;
 
     translate([
         box_inner_w-card_w-card_play*2,
@@ -85,7 +85,7 @@ module _box_right_front_keep() {
 }
 
 module _box_front_right_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play + keep_wall_thick;
+    keep_l = (card_w-chip_w)/2-chip_play*2 + keep_wall_thick;
 
     translate([
         box_inner_w-card_w-card_play*2,
@@ -99,7 +99,7 @@ module _box_front_right_keep() {
 }
 
 module _box_front_left_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play;
+    keep_l = (card_w-chip_w)/2-chip_play*2;
 
     translate([
         box_inner_w-card_w-card_play*2,
