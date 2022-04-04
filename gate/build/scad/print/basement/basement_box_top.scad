@@ -1,3 +1,3 @@
 use <../../../../src/basement/print/basement_box.scad>
 
-print_basement_box_top();
+print_basement_box_top(with_hole=true, with_groove=true);

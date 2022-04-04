@@ -43,6 +43,9 @@ intra_uprights_space_l = 160; //80; //160;
 
 upright_h = 90; //40; //90;
 
+upright_base_groove_thick = min_space;
+upright_base_groove_depth = layer_h*2;
+
 traverse_play = play2;
 
 traverse_hook_l = 8;

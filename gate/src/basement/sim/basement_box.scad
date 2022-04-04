@@ -24,7 +24,7 @@ module sim_basement_box_bottom() {
 module sim_basement_box_top() {
     translate([0,0,-ground_thick-fix2])
     rotate([0,180,0])
-    basement_box_top();
+    basement_box_top(with_hole=true, with_groove=true);
 }
 
 module sim_basement_box_side_slide() {

@@ -11,6 +11,6 @@ module print_basement_box_side_slide() {
     print_box_side_slide();
 }
 
-module print_basement_box_top(with_hole=true) {
-    basement_box_top(with_hole=with_hole);
+module print_basement_box_top(with_hole=true, with_groove=true) {
+    basement_box_top(with_hole=with_hole, with_groove=with_groove);
 }
