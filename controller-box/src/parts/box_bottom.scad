@@ -57,7 +57,7 @@ module _box_left_keep() {
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
     mirror([0,1,0])
-    keep(l=keep_l, with_wall=false);
+    keep(l=keep_l, with_wall=false, with_hold=true);
 }
 
 module _box_right_back_keep() {
@@ -69,7 +69,7 @@ module _box_right_back_keep() {
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-    keep(l=keep_l, with_wall=true);
+    keep(l=keep_l, with_wall=true, with_hold=true);
 }
 
 module _box_right_front_keep() {
@@ -81,7 +81,7 @@ module _box_right_front_keep() {
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-    keep(l=keep_l, with_wall=true);
+    keep(l=keep_l, with_wall=true, with_hold=true);
 }
 
 module _box_front_right_keep() {

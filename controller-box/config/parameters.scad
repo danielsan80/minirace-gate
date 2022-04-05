@@ -49,7 +49,7 @@ chip_connector_inner_niche_margin_w = 0.3;
 chip_connector_inner_niche_margin_h = 0.3;
 chip_connector_inner_niche_w = chip_w+chip_connector_inner_niche_margin_w*2;
 chip_connector_inner_niche_h = chip_thick+chip_connector_h+chip_connector_inner_niche_margin_h*2;
-chip_connector_inner_niche_offset = 0;
+chip_connector_inner_niche_offset = 0.5;
 
 chip_connector_outer_niche_margin_w = 0.3;
 chip_connector_outer_niche_margin_h = 0.3;
