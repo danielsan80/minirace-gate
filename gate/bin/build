@@ -35,19 +35,19 @@ process () {
 #process "print/gate/variant/traverse_without_basement_split_L.scad"
 #process "print/gate/variant/traverse_without_basement_split_R.scad"
 
-echo ""
-echo "# BASEMENT"
-
-process "print/basement/basement_block.scad"
-process "print/basement/basement_box_bottom.scad"
-process "print/basement/basement_box_side_slide.scad"
-process "print/basement/basement_box_top.scad"
-
-echo ""
-echo "## Variant"
-
-process "print/basement/variant/basement_block_with_hole.scad"
-process "print/basement/variant/basement_box_top_without_hole.scad"
+#echo ""
+#echo "# BASEMENT"
+#
+#process "print/basement/basement_block.scad"
+#process "print/basement/basement_box_bottom.scad"
+#process "print/basement/basement_box_side_slide.scad"
+#process "print/basement/basement_box_top.scad"
+#
+#echo ""
+#echo "## Variant"
+#
+#process "print/basement/variant/basement_block_with_hole.scad"
+#process "print/basement/variant/basement_box_top_without_hole.scad"
 
 #
 #
@@ -60,12 +60,12 @@ process "print/basement/variant/basement_box_top_without_hole.scad"
 #
 #
 #
-#echo ""
-#echo "# STARTLIGHTS"
-#
+echo ""
+echo "# STARTLIGHTS"
+
 #process "print/startlights/startlights.scad"
 #process "print/startlights/hanger_clip.scad"
-#process "print/startlights/hanger_rod.scad"
+process "print/startlights/hanger_rod.scad"
 #
 #
 #echo ""

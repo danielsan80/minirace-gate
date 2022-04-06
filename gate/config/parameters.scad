@@ -7,7 +7,7 @@ play = 0.25;
 play2 = 0.15;
 play3 = 0.20;
 layer_h = 0.15;
-layer_w = 0.45;
+layer_w = 0.46;
 min_space = 0.198;
 
 profile_w = 20;

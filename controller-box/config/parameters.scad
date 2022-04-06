@@ -6,7 +6,7 @@ a_few = 10;
 play1 = 0.15;
 play2 = 0.20;
 play3 = 0.25;
-layer_w = 0.45;
+layer_w = 0.46;
 layer_h = 0.15;
 
 box_wall_thick = 2.2;
