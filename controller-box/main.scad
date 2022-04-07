@@ -13,9 +13,9 @@ translate([100,0,0])
 union() {
     box_bottom();
 
-    translate([0,0,0.10])
-    box_side_slide();
-
+//    translate([0,0,10])
+//    box_side_slide();
+//
 //    translate([0,0,20])
 //    translate([0,0,box_outer_h+fix])
 //    translate([box_outer_w,0,0])
@@ -26,12 +26,12 @@ union() {
 //translate([-box_outer_w-20,0,0])
 //box_block();
 
-//translate([
-//    box_wall_thick+antenna_start_margin+card_play,
-//    box_wall_thick+(chip_y*-1)+chip_play-chip_connector_inner_niche_offset,
-//    box_bottom_base_thick+card_z_offset
-//])
-//translate([100,0,0])
-//sim_controller();
+translate([
+    box_wall_thick+antenna_start_margin+card_play,
+    box_wall_thick+(chip_y*-1)+chip_play-chip_connector_inner_niche_offset,
+    box_bottom_base_thick+card_z_offset
+])
+translate([100,0,0])
+sim_controller();
 
 echo(box_outer_h);

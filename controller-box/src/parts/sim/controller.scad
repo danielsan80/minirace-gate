@@ -52,19 +52,19 @@ module sim_antenna() {
 
 module sim_chip_processor() {
     color("#9999aa")
-    translate([chip_x+(chip_w-chip_processor_w)/2, chip_y+chip_l-chip_processor_margin-chip_processor_l, card_thick+chip_thick])
+    translate([chip_x+(chip_w-chip_processor_w)/2, chip_y+chip_l-chip_processor_margin-chip_processor_l, card_thick+chip_z_offset+chip_thick])
     cube([chip_processor_w, chip_processor_l, chip_processor_thick]);
 }
 
 module sim_chip_connector() {
     color("silver")
-    translate([chip_x+(chip_w-chip_connector_w)/2, chip_y, card_thick+chip_thick])
+    translate([chip_x+(chip_w-chip_connector_w)/2, chip_y, card_thick+chip_z_offset+chip_thick])
     cube([chip_connector_w, chip_connector_l, chip_connector_h]);
 }
 
 module sim_chip() {
     color("#333333")
-    translate([chip_x, chip_y, card_thick])
+    translate([chip_x, chip_y, card_thick+chip_z_offset])
     cube([chip_w, chip_l, chip_thick]);
 }
 
