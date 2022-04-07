@@ -1,4 +1,5 @@
 include <../../config/parameters.scad>
+use <../functions.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../joints/keep.scad>
@@ -47,25 +48,39 @@ module _box_bottom_nail_groove() {
     nail_groove();
 }
 
-module _box_left_keep() {
-    keep_l = card_w+card_play*2;
+module _box_left_back_keep() {
+    keep_l = card_keep_l;
 
     translate([
         box_inner_w-keep_l,
-        box_inner_l,
+        box_inner_l-card_left_margin,
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
     mirror([0,1,0])
-    keep(l=keep_l, with_wall=false, with_hold=true);
+    keep(l=keep_l, with_wall=true, with_hold=true);
 }
 
+module _box_left_front_keep() {
+    keep_l = card_keep_l;
+
+    translate([
+        box_inner_w-card_w-card_play*2,
+        box_inner_l-card_left_margin,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    mirror([0,1,0])
+    keep(l=keep_l, with_wall=true, with_hold=true);
+}
+
+
 module _box_right_back_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play*2;
+    keep_l = card_keep_l;
 
     translate([
         box_inner_w-keep_l,
-        box_inner_l-card_l-card_play*2,
+        box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
@@ -73,11 +88,11 @@ module _box_right_back_keep() {
 }
 
 module _box_right_front_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play*2;
+    keep_l = card_keep_l;
 
     translate([
         box_inner_w-card_w-card_play*2,
-        box_inner_l-card_l-card_play*2,
+        box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
@@ -85,11 +100,11 @@ module _box_right_front_keep() {
 }
 
 module _box_front_right_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play*2 + keep_wall_thick;
+    keep_l = card_keep_l;
 
     translate([
         box_inner_w-card_w-card_play*2,
-        box_inner_l-card_l-card_play*2,
+        box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
@@ -99,11 +114,11 @@ module _box_front_right_keep() {
 }
 
 module _box_front_left_keep() {
-    keep_l = (card_w-chip_w)/2-chip_play*2;
+    keep_l = card_keep_l;
 
     translate([
         box_inner_w-card_w-card_play*2,
-        box_inner_l,
+        box_inner_l-card_left_margin+keep_wall_thick,
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
@@ -112,7 +127,8 @@ module _box_front_left_keep() {
 }
 
 module _box_keeps() {
-    _box_left_keep();
+    _box_left_back_keep();
+    _box_left_front_keep();
     _box_right_back_keep();
     _box_right_front_keep();
     _box_front_right_keep();
@@ -121,20 +137,37 @@ module _box_keeps() {
 
 module _box_bottom_antenna_hole() {
     color("blue")
-//    translate([0, -antenna_w + box_wall_thick + box_inner_l-antenna_side_margin, 0])
-    translate([0, -antenna_w+box_wall_thick+box_inner_l-card_play-antenna_side_margin, 0])
-    rotate([0,-45,0])
-    translate([0,-antenna_play,0])
-    translate([-a_lot/2,0,-antenna_hole_thick/2])
-    cube([a_lot,antenna_hole_w,antenna_hole_thick]);
+    translate([layer_w*2,0,0])
+    union() {
+        translate([0,0,box_bottom_base_thick])
+        translate([0, -antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin, 0])
+        rotate([0,-45,0])
+        translate([0,0,-antenna_hole_thick])
+        translate([-a_few/2,0,0])
+        cube([a_few,antenna_hole_w,antenna_hole_thick]);
+
+        translate([-a_few,0,0])
+        translate([0,-antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin,0])
+        cube([a_few,antenna_hole_w,box_bottom_base_thick]);
+
+        translate([box_bottom_base_thick,0,box_bottom_base_thick])
+        translate([0,-antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin,0])
+        cube([box_wall_thick,antenna_hole_w,box_bottom_base_thick]);
+    }
+
+//    color("blue")
+//    translate([-hp(antenna_hole_thick/2)+layer_w+fix,0,0])
+//    translate([box_wall_thick,0,0])
+//    translate([0,0,box_bottom_base_thick])
+//    translate([0,-antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin,0])
+//    cube([hp(antenna_hole_thick/2),antenna_hole_w,hp(antenna_hole_thick/2)]);
+//
+//    color("blue")
+//    translate([-fix,-antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin,-fix])
+//    cube([hp(antenna_hole_thick/2)+layer_w,antenna_hole_w, box_bottom_base_thick+fix*2]);
 }
 
 module _box_bottom_chip_connector_central_hole() {
-//    translate([
-//        box_wall_thick+antenna_start_margin+card_play+chip_x+(chip_w-chip_connector_w)/2,
-//        0,
-//        box_bottom_base_thick+card_z_offset+card_thick+chip_thick,
-//    ])
     color("blue")
     translate([-chip_connector_hole_w/2,-fix, -chip_connector_hole_h/2])
     cube([
@@ -160,11 +193,6 @@ module _box_bottom_chip_connector_inner_niche() {
 
 module _box_bottom_chip_connector_outer_niche() {
     color("blue")
-//    translate([
-//        box_wall_thick+antenna_start_margin+card_play+chip_x+chip_w/2,
-//        0,
-//        box_bottom_base_thick+card_z_offset+card_thick+chip_thick+chip_connector_h/2,
-//    ])
     translate([-chip_connector_outer_niche_w/2,-box_wall_thick+chip_connector_outer_niche_offset, -chip_connector_outer_niche_h/2])
     cube([
         chip_connector_outer_niche_w,
