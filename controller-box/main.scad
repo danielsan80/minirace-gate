@@ -34,10 +34,4 @@ union() {
 //translate([100,0,0])
 //sim_controller();
 
-//box_bottom();
-//box_side_slide();
-//_box_bottom_antenna_hole();
-
-//print_box_side_slide();
-
 echo(box_outer_h);
