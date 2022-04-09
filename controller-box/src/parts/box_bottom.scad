@@ -139,20 +139,18 @@ module _box_keeps() {
 module _box_bottom_antenna_hole() {
     color("blue")
     translate([layer_w*2,0,0])
+    translate([0, -antenna_w-antenna_play+box_wall_thick+box_inner_l-card_left_margin-card_play-antenna_side_margin, 0])
     union() {
         translate([0,0,box_bottom_base_thick])
-        translate([0, -antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin, 0])
         rotate([0,-45,0])
         translate([0,0,-antenna_hole_thick])
         translate([-a_few/2,0,0])
         cube([a_few,antenna_hole_w,antenna_hole_thick]);
 
         translate([-a_few,0,0])
-        translate([0,-antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin,0])
         cube([a_few,antenna_hole_w,box_bottom_base_thick]);
 
         translate([box_bottom_base_thick,0,box_bottom_base_thick])
-        translate([0,-antenna_w-antenna_play+box_wall_thick+box_inner_l-card_play-antenna_side_margin,0])
         cube([box_wall_thick,antenna_hole_w,box_bottom_base_thick]);
     }
 }
