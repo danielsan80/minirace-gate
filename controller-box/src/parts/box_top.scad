@@ -3,7 +3,9 @@ use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../interparts/box_bottom-box_top.scad>
 
-module _box_top_main(box="controller") {
+module _box_top_main(box) {
+    assert(box=="controller" || box=="terminal");
+
     difference() {
         cube([box_outer_w(box),box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
 
@@ -12,7 +14,9 @@ module _box_top_main(box="controller") {
     }
 }
 
-module _box_top_dock_void(box="controller") {
+module _box_top_dock_void(box) {
+    assert(box=="controller" || box=="terminal");
+
     difference() {
         translate([-fix,-fix,0])
             cube([box_outer_w(box)+fix*2, box_outer_l+fix*2, a_lot/2]);
@@ -33,7 +37,8 @@ module _box_top_dock_void(box="controller") {
 //    }
 //}
 
-module _box_top_cylinder_joints_void(box="controller") {
+module _box_top_cylinder_joints_void(box) {
+    assert(box=="controller" || box=="terminal");
 
     translate([box_outer_w(box)/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
@@ -76,5 +81,15 @@ module box_terminal_top() {
         _box_top_nail_groove(box="terminal");
     }
     //    _box_top_cylinder_joints(box="terminal");
+}
 
+module box_top(box) {
+    assert(box=="controller" || box=="terminal");
+
+    if (box=="controller") {
+        box_controller_top();
+    }
+    if (box=="terminal") {
+        box_terminal_top();
+    }
 }

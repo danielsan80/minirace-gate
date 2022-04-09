@@ -9,7 +9,6 @@ use <src/parts/print/box_side_slide.scad>
 
 use <src/parts/sim/controller.scad>
 
-
 translate([100,0,0])
 union() {
     box_controller_bottom();

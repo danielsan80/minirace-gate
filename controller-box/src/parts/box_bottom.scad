@@ -7,7 +7,9 @@ use <../joints/keep.scad>
 use <../interparts/box_bottom-box_top.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
 
-module _box_bottom_main(box="controller") {
+module _box_bottom_main(box) {
+    assert(box=="controller" || box=="terminal");
+
     difference() {
         cube([box_outer_w(box),box_outer_l,box_outer_h-box_top_base_thick]);
 
@@ -16,12 +18,15 @@ module _box_bottom_main(box="controller") {
     }
 }
 
-module _box_bottom_dock_void(box="controller") {
+module _box_bottom_dock_void(box) {
+    assert(box=="controller" || box=="terminal");
+
     translate([0,0,box_outer_h-box_top_base_thick-box_joint_h])
     dock_shape(part="bottom", box=box);
 }
 
-module _box_bottom_cylinder_joints(box="controller") {
+module _box_bottom_cylinder_joints(box) {
+    assert(box=="controller" || box=="terminal");
 
     translate([box_outer_w(box)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
@@ -43,7 +48,9 @@ module _box_bottom_cylinder_joints(box="controller") {
 //    }
 //}
 
-module _box_bottom_nail_groove(box="controller") {
+module _box_bottom_nail_groove(box) {
+    assert(box=="controller" || box=="terminal");
+
     translate([box_outer_w(box)/2,0,box_outer_h-box_top_base_thick])
     nail_groove(w=box_inner_w(box));
 }
@@ -242,5 +249,16 @@ module box_terminal_bottom() {
     difference() {
         box_terminal_bottom_complete();
         box_terminal_side_slide_shape(void=true);
+    }
+}
+
+module box_bottom(box) {
+    assert(box=="controller" || box=="terminal");
+
+    if (box=="controller") {
+        box_controller_bottom();
+    }
+    if (box=="terminal") {
+        box_terminal_bottom();
     }
 }

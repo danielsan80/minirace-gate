@@ -15,3 +15,14 @@ module box_terminal_side_slide() {
         box_terminal_side_slide_shape(void=false);
     }
 }
+
+module box_side_slide(box) {
+    assert(box=="controller" || box=="terminal");
+
+    if (box=="controller") {
+        box_controller_side_slide();
+    }
+    if (box=="terminal") {
+        box_terminal_side_slide();
+    }
+}
