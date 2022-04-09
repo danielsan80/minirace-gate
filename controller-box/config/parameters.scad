@@ -79,16 +79,16 @@ antenna_start_margin = 2;
 antenna_end_l = 15;
 antenna_l = 198-antenna_end_l;
 
-box_inner_w = card_back_margin+card_w+card_overhang_l+antenna_start_margin+card_play*2;
+box_controller_inner_w = card_back_margin+card_w+card_overhang_l+antenna_start_margin+card_play*2;
 box_inner_l = card_left_margin+card_l+(chip_y*-1)+card_play+chip_play-chip_connector_inner_niche_offset;
 box_inner_h = card_z_offset+card_thick+chip_z_offset+chip_thick+chip_connector_h+box_joint_h+chip_connector_hole_margin_h+chip_connector_hole_frame_thick;
+box_terminal_outer_w = 30;
 
-box_outer_w = box_inner_w + box_wall_thick*2;
+box_controller_outer_w = box_controller_inner_w + box_wall_thick*2;
 box_outer_l = box_inner_l + box_wall_thick*2;
 box_outer_h = box_inner_h + box_bottom_base_thick + box_top_base_thick;
-
-box_terminal_outer_w = 30;
 box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
+
 
 box_joint_play = play2;
 box_side_slide_play = play1;

@@ -67,7 +67,7 @@ module _box_controller_angle_keep() {
 
 module _box_controller_front_right_keep() {
     translate([
-        box_inner_w-card_back_margin-card_w-card_play*2,
+        box_controller_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
@@ -77,7 +77,7 @@ module _box_controller_front_right_keep() {
 
 module _box_controller_front_left_keep() {
     translate([
-        box_inner_w-card_back_margin-card_w-card_play*2,
+        box_controller_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin,
         0
     ])
@@ -88,7 +88,7 @@ module _box_controller_front_left_keep() {
 
 module _box_controller_back_right_keep() {
     translate([
-        box_inner_w-card_back_margin,
+        box_controller_inner_w-card_back_margin,
         box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
@@ -99,7 +99,7 @@ module _box_controller_back_right_keep() {
 
 module _box_controller_back_left_keep() {
     translate([
-        box_inner_w-card_back_margin,
+        box_controller_inner_w-card_back_margin,
         box_inner_l-card_left_margin,
         0
     ])
@@ -111,7 +111,7 @@ module _box_controller_back_left_keep() {
 
 module _box_controller_central_keep() {
     translate([
-        box_inner_w-card_back_margin-card_play-card_w/2,
+        box_controller_inner_w-card_back_margin-card_play-card_w/2,
         box_inner_l-card_left_margin-card_play-card_l/2,
         0
     ])

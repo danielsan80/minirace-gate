@@ -23,7 +23,7 @@ union() {
     box_controller_top();
 }
 
-//translate([-box_outer_w-20,0,0])
+//translate([-box_controller_outer_w-20,0,0])
 //box_block();
 
 
