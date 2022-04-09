@@ -1,4 +1,5 @@
 include <../../config/parameters.scad>
+use <../../src/values.scad>
 
 module _box_side_slide_shape_profile() {
     half_thick = box_wall_half_thick+fix2;
@@ -14,8 +15,6 @@ module _box_side_slide_shape_profile() {
 
 module box_side_slide_shape(void=false) {
     p = void?box_side_slide_play:0;
-
-    translate([box_wall_half_thick,box_wall_thick,box_top_base_thick])
     minkowski() {
         linear_extrude(a_lot)
         _box_side_slide_shape_profile();
@@ -24,4 +23,21 @@ module box_side_slide_shape(void=false) {
     }
 }
 
+module box_controller_side_slide_shape(void=false) {
+    translate([
+        box_wall_half_thick,
+        box_wall_thick,
+        box_top_base_thick
+    ])
+    box_side_slide_shape(void=void);
+}
+
+module box_terminal_side_slide_shape(void=false, ) {
+    translate([
+        box_wall_half_thick+box_outer_w(box="terminal")-box_wall_thick,
+        box_wall_thick,
+        box_top_base_thick
+    ])
+    box_side_slide_shape(void=void);
+}
 

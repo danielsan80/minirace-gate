@@ -1,51 +1,52 @@
 include <../../config/parameters.scad>
 use <../functions.scad>
+use <../values.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../joints/keep.scad>
 use <../interparts/box_bottom-box_top.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
 
-module _box_bottom_main() {
+module _box_bottom_main(box="controller") {
     difference() {
-        cube([box_outer_w,box_outer_l,box_outer_h-box_top_base_thick]);
+        cube([box_outer_w(box),box_outer_l,box_outer_h-box_top_base_thick]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w,box_inner_l,a_lot]);
+        cube([box_inner_w(box),box_inner_l,a_lot]);
 
     }
 }
 
-module _box_bottom_dock_void() {
+module _box_bottom_dock_void(box="controller") {
     translate([0,0,box_outer_h-box_top_base_thick-box_joint_h])
-    dock_shape(part="bottom");
+    dock_shape(part="bottom", box=box);
 }
 
-module _box_bottom_cylinder_joints() {
+module _box_bottom_cylinder_joints(box="controller") {
 
-    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+    translate([box_outer_w(box)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
-        cylinder_joint(void=false);
+        cylinder_joint(void=false, w=box_inner_w(box));
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=false);
+        cylinder_joint(void=false, w=box_inner_w(box));
     }
 }
 
-//module _box_bottom_cylinder_joints_void() {
+//module _box_bottom_cylinder_joints_void(box="controller") {
 //
-//    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+//    translate([box_outer_w(box)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
 //    union() {
-//        cylinder_joint(void=true);
+//        cylinder_joint(void=true, w=box_inner_w(box));
 //
 //        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=true);
+//        cylinder_joint(void=true, w=box_inner_w(box));
 //    }
 //}
 
-module _box_bottom_nail_groove() {
-    translate([box_outer_w/2,0,box_outer_h-box_top_base_thick])
-    nail_groove();
+module _box_bottom_nail_groove(box="controller") {
+    translate([box_outer_w(box)/2,0,box_outer_h-box_top_base_thick])
+    nail_groove(w=box_inner_w(box));
 }
 
 module _box_left_back_keep() {
@@ -155,6 +156,13 @@ module _box_bottom_antenna_hole() {
     }
 }
 
+module _box_terminal_bottom_antenna_hole() {
+    translate([box_outer_w(box="terminal")/2,0,0])
+    mirror([1,0,0])
+    translate([-box_outer_w(box="terminal")/2,0,0])
+    _box_bottom_antenna_hole();
+}
+
 module _box_bottom_chip_connector_central_hole() {
     color("blue")
     translate([-chip_connector_hole_w/2,-fix, -chip_connector_hole_h/2])
@@ -225,6 +233,28 @@ module box_bottom_complete() {
 module box_bottom() {
     difference() {
         box_bottom_complete();
-        box_side_slide_shape(void=true);
+        box_controller_side_slide_shape(void=true);
+    }
+}
+
+module box_terminal_bottom_complete() {
+    difference() {
+        union() {
+            difference() {
+                _box_bottom_main(box="terminal");
+                _box_bottom_dock_void(box="terminal");
+                _box_bottom_nail_groove(box="terminal");
+            }
+            _box_bottom_cylinder_joints(box="terminal");
+        }
+        _box_terminal_bottom_antenna_hole();
+        //        _box_bottom_cylinder_joints_void();
+    }
+}
+
+module box_terminal_bottom() {
+    difference() {
+        box_terminal_bottom_complete();
+        box_terminal_side_slide_shape(void=true);
     }
 }

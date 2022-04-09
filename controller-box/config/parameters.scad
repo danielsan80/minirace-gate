@@ -87,18 +87,19 @@ box_outer_w = box_inner_w + box_wall_thick*2;
 box_outer_l = box_inner_l + box_wall_thick*2;
 box_outer_h = box_inner_h + box_bottom_base_thick + box_top_base_thick;
 
+box_terminal_outer_w = 30;
+box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
+
 box_joint_play = play2;
 box_side_slide_play = play1;
 box_joint_half_play = box_joint_play/2;
 
 cylinder_joint_play = play2;
 cylinder_joint_margin = 6;
-cylinder_joint_l = box_inner_w - cylinder_joint_margin*2 ;
 cylinder_joint_r = 0.5;
 
 
 nail_groove_margin = 6;
-nail_groove_l = box_inner_w - nail_groove_margin*2 ;
 nail_groove_r = 0.5;
 
 keep_w = 1;

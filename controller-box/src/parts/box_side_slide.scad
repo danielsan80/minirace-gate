@@ -5,6 +5,13 @@ use <../parts/box_bottom.scad>
 module box_side_slide() {
     intersection() {
         box_bottom_complete();
-        box_side_slide_shape(void=false);
+        box_controller_side_slide_shape(void=false);
+    }
+}
+
+module box_terminal_side_slide() {
+    intersection() {
+        box_terminal_bottom_complete();
+        box_terminal_side_slide_shape(void=false);
     }
 }
