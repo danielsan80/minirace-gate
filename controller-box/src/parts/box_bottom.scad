@@ -13,7 +13,6 @@ module _box_bottom_main(box="controller") {
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
         cube([box_inner_w(box),box_inner_l,a_lot]);
-
     }
 }
 
@@ -49,20 +48,7 @@ module _box_bottom_nail_groove(box="controller") {
     nail_groove(w=box_inner_w(box));
 }
 
-module _box_left_back_keep() {
-    keep_l = card_keep_l;
-
-    translate([
-        box_inner_w-card_back_margin-keep_l,
-        box_inner_l-card_left_margin,
-        0
-    ])
-    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-    mirror([0,1,0])
-    keep(l=keep_l, with_wall=true, with_hold=true);
-}
-
-module _box_angle_keep() {
+module _box_controller_angle_keep() {
     keep_l = card_keep_l;
 
     keep(l=keep_l, with_wall=true, with_hold=true);
@@ -72,17 +58,17 @@ module _box_angle_keep() {
     keep(l=keep_l, with_wall=true, with_hold=false);
 }
 
-module _box_front_right_keep() {
+module _box_controller_front_right_keep() {
     translate([
         box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-    _box_angle_keep();
+    _box_controller_angle_keep();
 }
 
-module _box_front_left_keep() {
+module _box_controller_front_left_keep() {
     translate([
         box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin,
@@ -90,10 +76,10 @@ module _box_front_left_keep() {
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
     mirror([0,1,0])
-    _box_angle_keep();
+    _box_controller_angle_keep();
 }
 
-module _box_back_right_keep() {
+module _box_controller_back_right_keep() {
     translate([
         box_inner_w-card_back_margin,
         box_inner_l-card_left_margin-card_l-card_play*2,
@@ -101,10 +87,10 @@ module _box_back_right_keep() {
     ])
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
     mirror([1,0,0])
-    _box_angle_keep();
+    _box_controller_angle_keep();
 }
 
-module _box_back_left_keep() {
+module _box_controller_back_left_keep() {
     translate([
         box_inner_w-card_back_margin,
         box_inner_l-card_left_margin,
@@ -113,10 +99,10 @@ module _box_back_left_keep() {
     translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
     mirror([0,1,0])
     mirror([1,0,0])
-    _box_angle_keep();
+    _box_controller_angle_keep();
 }
 
-module _box_central_keep() {
+module _box_controller_central_keep() {
     translate([
         box_inner_w-card_back_margin-card_play-card_w/2,
         box_inner_l-card_left_margin-card_play-card_l/2,
@@ -127,17 +113,17 @@ module _box_central_keep() {
 }
 
 
-module _box_keeps() {
-    _box_front_right_keep();
-    _box_front_left_keep();
+module _box_controller_keeps() {
+    _box_controller_front_right_keep();
+    _box_controller_front_left_keep();
 
-    _box_back_left_keep();
-    _box_back_right_keep();
+    _box_controller_back_left_keep();
+    _box_controller_back_right_keep();
 
-    _box_central_keep();
+    _box_controller_central_keep();
 }
 
-module _box_bottom_antenna_hole() {
+module _box_controller_bottom_antenna_hole() {
     color("blue")
     translate([layer_w*2,0,0])
     translate([0, -antenna_w-antenna_play+box_wall_thick+box_inner_l-card_left_margin-card_play-antenna_side_margin, 0])
@@ -160,10 +146,10 @@ module _box_terminal_bottom_antenna_hole() {
     translate([box_outer_w(box="terminal")/2,0,0])
     mirror([1,0,0])
     translate([-box_outer_w(box="terminal")/2,0,0])
-    _box_bottom_antenna_hole();
+    _box_controller_bottom_antenna_hole();
 }
 
-module _box_bottom_chip_connector_central_hole() {
+module _box_controller_bottom_chip_connector_central_hole() {
     color("blue")
     translate([-chip_connector_hole_w/2,-fix, -chip_connector_hole_h/2])
     cube([
@@ -173,7 +159,7 @@ module _box_bottom_chip_connector_central_hole() {
     ]);
 }
 
-module _box_bottom_chip_connector_inner_niche() {
+module _box_controller_bottom_chip_connector_inner_niche() {
     color("blue")
     translate([
         -chip_connector_inner_niche_w/2,
@@ -187,7 +173,7 @@ module _box_bottom_chip_connector_inner_niche() {
     ]);
 }
 
-module _box_bottom_chip_connector_outer_niche() {
+module _box_controller_bottom_chip_connector_outer_niche() {
     color("blue")
     translate([-chip_connector_outer_niche_w/2,-box_wall_thick+chip_connector_outer_niche_offset, -chip_connector_outer_niche_h/2])
     cube([
@@ -199,40 +185,40 @@ module _box_bottom_chip_connector_outer_niche() {
 
 
 
-module _box_bottom_chip_connector_hole() {
+module _box_controller_bottom_chip_connector_hole() {
     translate([
         box_wall_thick+antenna_start_margin+card_play+chip_x+chip_w/2,
         0,
         box_bottom_base_thick+card_z_offset+card_thick+chip_z_offset+chip_thick+chip_connector_h/2,
     ])
     union() {
-        _box_bottom_chip_connector_central_hole();
-        _box_bottom_chip_connector_inner_niche();
-        _box_bottom_chip_connector_outer_niche();
+        _box_controller_bottom_chip_connector_central_hole();
+        _box_controller_bottom_chip_connector_inner_niche();
+        _box_controller_bottom_chip_connector_outer_niche();
     }
 }
 
-module box_bottom_complete() {
+module box_controller_bottom_complete() {
     difference() {
         union() {
             difference() {
-                _box_bottom_main();
-                _box_bottom_dock_void();
-                _box_bottom_nail_groove();
+                _box_bottom_main(box="controller");
+                _box_bottom_dock_void(box="controller");
+                _box_bottom_nail_groove(box="controller");
             }
-            _box_bottom_cylinder_joints();
+            _box_bottom_cylinder_joints(box="controller");
 
-            _box_keeps();
+            _box_controller_keeps();
         }
-        _box_bottom_antenna_hole();
+        _box_controller_bottom_antenna_hole();
 //        _box_bottom_cylinder_joints_void();
-        _box_bottom_chip_connector_hole();
+        _box_controller_bottom_chip_connector_hole();
     }
 }
 
-module box_bottom() {
+module box_controller_bottom() {
     difference() {
-        box_bottom_complete();
+        box_controller_bottom_complete();
         box_controller_side_slide_shape(void=true);
     }
 }

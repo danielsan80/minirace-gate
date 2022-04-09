@@ -8,7 +8,7 @@ module _box_top_main(box="controller") {
         cube([box_outer_w(box),box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-            cube([box_inner_w,box_inner_l,a_lot]);
+        cube([box_inner_w(box),box_inner_l,a_lot]);
     }
 }
 
@@ -18,7 +18,7 @@ module _box_top_dock_void(box="controller") {
             cube([box_outer_w(box)+fix*2, box_outer_l+fix*2, a_lot/2]);
 
         translate([0,0,-fix])
-            dock_shape(part="top");
+            dock_shape(part="top", box=box);
     }
 }
 
@@ -36,31 +36,31 @@ module _box_top_dock_void(box="controller") {
 module _box_top_cylinder_joints_void(box="controller") {
 
     translate([box_outer_w(box)/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
-        union() {
-            cylinder_joint(void=true, w=box_inner_w(box));
+    union() {
+        cylinder_joint(void=true, w=box_inner_w(box));
 
-            translate([0,box_inner_l+box_wall_half_thick*2])
-            cylinder_joint(void=true, w=box_inner_w(box));
-        }
+        translate([0,box_inner_l+box_wall_half_thick*2])
+        cylinder_joint(void=true, w=box_inner_w(box));
+    }
 }
 
 module _box_top_nail_groove(box="controller") {
     translate([box_outer_w(box)/2,0,box_top_base_thick])
-        nail_groove(box_inner_w(box));
+    nail_groove(box_inner_w(box));
 }
 
-module box_top() {
+module box_controller_top() {
     difference() {
-        _box_top_main();
+        _box_top_main(box="controller");
 
         translate([0,0,box_top_base_thick])
-        _box_top_dock_void();
+        _box_top_dock_void(box="controller");
 
-        _box_top_cylinder_joints_void();
+        _box_top_cylinder_joints_void(box="controller");
 
-        _box_top_nail_groove();
+        _box_top_nail_groove(box="controller");
     }
-//    _box_top_cylinder_joints();
+//    _box_top_cylinder_joints(box="controller");
 
 }
 
@@ -75,6 +75,6 @@ module box_terminal_top() {
 
         _box_top_nail_groove(box="terminal");
     }
-    //    _box_top_cylinder_joints();
+    //    _box_top_cylinder_joints(box="terminal");
 
 }
