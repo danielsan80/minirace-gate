@@ -25,7 +25,8 @@ use <../../vendor/ruler/ruler.scad>
 
 module sim_new_gate() {
 
-    sim_basement_block_L();
+//    sim_basement_block_L();
+    sim_basement_box_terminal_L();
     sim_ground_L();
     sim_upright_L();
     sim_angle_L();
@@ -35,7 +36,7 @@ module sim_new_gate() {
     sim_angle_R();
     sim_upright_R();
     sim_ground_R();
-    sim_basement_box_R();
+    sim_basement_box_controller_R();
 
     translate([0,0,-profile_w_diff()/2-bar_wrapper_play-hanger_clip_junction_l-ct_slide_side/2])
     translate([0,0,startlights_board_margin()+startlights_board_hole_y_offset()])
