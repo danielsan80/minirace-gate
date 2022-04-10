@@ -23,7 +23,7 @@ union() {
     box_controller_top();
 }
 
-//translate([-box_controller_outer_w-20,0,0])
+//translate([-box_controller_outer_w-200,0,0])
 //box_block();
 
 
@@ -38,14 +38,16 @@ sim_controller();
 
 translate([-100,0,0])
 union() {
-    box_terminal_bottom();
+    w=box_controller_outer_w;
 
-    translate([0,0,10])
-    box_terminal_side_slide();
+    box_terminal_bottom(box_terminal_outer_w=w);
 
-    translate([0,0,20])
+    translate([0,0,50])
+    box_terminal_side_slide(box_terminal_outer_w=w);
+
+    translate([0,0,100])
     translate([0,0,box_outer_h+fix])
-    translate([box_outer_w(box="terminal"),0,0])
+    translate([w,0,0])
     rotate([0,180,0])
-    box_terminal_top();
+    box_terminal_top(box_terminal_outer_w=w);
 }

@@ -7,52 +7,52 @@ use <../joints/keep.scad>
 use <../interparts/box_bottom-box_top.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
 
-module _box_bottom_main(box) {
+module _box_bottom_main(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
     difference() {
-        cube([box_outer_w(box),box_outer_l,box_outer_h-box_top_base_thick]);
+        cube([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w),box_outer_l,box_outer_h-box_top_base_thick]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w(box),box_inner_l,a_lot]);
+        cube([box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w),box_inner_l,a_lot]);
     }
 }
 
-module _box_bottom_dock_void(box) {
+module _box_bottom_dock_void(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
     translate([0,0,box_outer_h-box_top_base_thick-box_joint_h])
-    dock_shape(part="bottom", box=box);
+    dock_shape(part="bottom", box=box, box_terminal_outer_w=box_terminal_outer_w);
 }
 
-module _box_bottom_cylinder_joints(box) {
+module _box_bottom_cylinder_joints(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
-        cylinder_joint(void=false, w=box_inner_w(box));
+        cylinder_joint(void=false, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=false, w=box_inner_w(box));
+        cylinder_joint(void=false, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
     }
 }
 
-//module _box_bottom_cylinder_joints_void(box="controller") {
+//module _box_bottom_cylinder_joints_void(box="controller", box_terminal_outer_w=box_terminal_outer_w) {
 //
-//    translate([box_outer_w(box)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+//    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
 //    union() {
-//        cylinder_joint(void=true, w=box_inner_w(box));
+//        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
 //
 //        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=true, w=box_inner_w(box));
+//        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
 //    }
 //}
 
-module _box_bottom_nail_groove(box) {
+module _box_bottom_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box)/2,0,box_outer_h-box_top_base_thick])
-    nail_groove(w=box_inner_w(box));
+    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,0,box_outer_h-box_top_base_thick])
+    nail_groove(w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
 }
 
 module _box_controller_angle_keep() {
@@ -149,10 +149,10 @@ module _box_controller_bottom_antenna_hole() {
     }
 }
 
-module _box_terminal_bottom_antenna_hole() {
-    translate([box_outer_w(box="terminal")/2,0,0])
+module _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w) {
+    translate([box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
     mirror([1,0,0])
-    translate([-box_outer_w(box="terminal")/2,0,0])
+    translate([-box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
     _box_controller_bottom_antenna_hole();
 }
 
@@ -230,35 +230,35 @@ module box_controller_bottom() {
     }
 }
 
-module box_terminal_bottom_complete() {
+module box_terminal_bottom_complete(box_terminal_outer_w=box_terminal_outer_w) {
     difference() {
         union() {
             difference() {
-                _box_bottom_main(box="terminal");
-                _box_bottom_dock_void(box="terminal");
-                _box_bottom_nail_groove(box="terminal");
+                _box_bottom_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+                _box_bottom_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+                _box_bottom_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
             }
-            _box_bottom_cylinder_joints(box="terminal");
+            _box_bottom_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
         }
-        _box_terminal_bottom_antenna_hole();
-        //        _box_bottom_cylinder_joints_void();
+        _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w);
+        //        _box_bottom_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
     }
 }
 
-module box_terminal_bottom() {
+module box_terminal_bottom(box_terminal_outer_w=box_terminal_outer_w) {
     difference() {
-        box_terminal_bottom_complete();
-        box_terminal_side_slide_shape(void=true);
+        box_terminal_bottom_complete(box_terminal_outer_w=box_terminal_outer_w);
+        box_terminal_side_slide_shape(void=true, box_terminal_outer_w=box_terminal_outer_w);
     }
 }
 
-module box_bottom(box) {
+module box_bottom(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
     if (box=="controller") {
         box_controller_bottom();
     }
     if (box=="terminal") {
-        box_terminal_bottom();
+        box_terminal_bottom(box_terminal_outer_w=box_terminal_outer_w);
     }
 }

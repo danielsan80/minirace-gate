@@ -1,9 +1,9 @@
 include <../../../config/parameters.scad>
 use <../../parts/box_side_slide.scad>
 
-module print_box_side_slide(box) {
+module print_box_side_slide(box, box_terminal_outer_w=box_terminal_outer) {
     translate([0,0,-box_bottom_base_thick])
-    box_side_slide(box=box);
+    box_side_slide(box=box, box_terminal_outer_w=box_terminal_outer);
 
 //    support_l = antenna_hole_w-layer_w*2;
 //
