@@ -16,24 +16,24 @@ process () {
 }
 
 
-#
-#echo ""
-#echo "# GATE"
-#
-#process "print/gate/upright.scad"
-#process "print/gate/angle.scad"
-#process "print/gate/traverse.scad"
-#
-#echo ""
-#echo "## Variant"
-#
-#process "print/gate/variant/traverse_split_L.scad"
-#process "print/gate/variant/traverse_split_R.scad"
-#
-#echo ""
-#process "print/gate/variant/traverse_without_basement.scad"
-#process "print/gate/variant/traverse_without_basement_split_L.scad"
-#process "print/gate/variant/traverse_without_basement_split_R.scad"
+
+echo ""
+echo "# GATE"
+
+process "print/gate/upright.scad"
+process "print/gate/angle.scad"
+process "print/gate/traverse.scad"
+
+echo ""
+echo "## Variant"
+
+process "print/gate/variant/traverse_split_L.scad"
+process "print/gate/variant/traverse_split_R.scad"
+
+echo ""
+process "print/gate/variant/traverse_without_basement.scad"
+process "print/gate/variant/traverse_without_basement_split_L.scad"
+process "print/gate/variant/traverse_without_basement_split_R.scad"
 
 echo ""
 echo "# BASEMENT"
@@ -54,22 +54,22 @@ process "print/basement/variant/basement_block.scad"
 process "print/basement/variant/basement_block_with_hole.scad"
 process "print/basement/variant/basement_box_controller_top_without_hole.scad"
 
-#
-#echo ""
-#echo "# GROUND"
-#
-#process "print/ground/ground_with_hole.scad"
-#process "print/ground/ground_without_hole.scad"
-#
-#
-#
-#
-#echo ""
-#echo "# STARTLIGHTS"
-#
-#process "print/startlights/startlights.scad"
-#process "print/startlights/hanger_clip.scad"
-#process "print/startlights/hanger_rod.scad"
+
+echo ""
+echo "# GROUND"
+
+process "print/ground/ground_with_hole.scad"
+process "print/ground/ground_without_hole.scad"
+
+
+
+
+echo ""
+echo "# STARTLIGHTS"
+
+process "print/startlights/startlights.scad"
+process "print/startlights/hanger_clip.scad"
+process "print/startlights/hanger_rod.scad"
 
 
 #echo ""
