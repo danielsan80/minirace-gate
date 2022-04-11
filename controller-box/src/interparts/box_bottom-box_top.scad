@@ -3,6 +3,7 @@ include <../../src/values.scad>
 
 
 module dock_shape(part="bottom", box, box_terminal_outer_w=box_terminal_outer_w) {
+    assert(part == "bottom" || part == "top");
     assert(box == "controller" || box == "terminal");
 
     hp = part=="bottom"?box_joint_half_play:-box_joint_half_play;

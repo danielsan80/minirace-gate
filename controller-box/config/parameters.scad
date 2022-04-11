@@ -50,7 +50,7 @@ chip_connector_hole_margin_w = 0.5;
 chip_connector_hole_margin_h = 0.5;
 chip_connector_hole_w = chip_connector_w+chip_connector_hole_margin_w*2;
 chip_connector_hole_h = chip_connector_h+chip_connector_hole_margin_h*2;
-chip_connector_hole_thick = 1.8;
+chip_connector_hole_thick = 1.6;
 
 chip_connector_inner_niche_margin_w = 0.5;
 chip_connector_inner_niche_margin_h = 0.5;
@@ -78,6 +78,12 @@ antenna_side_margin = card_overhang_offset;
 antenna_start_margin = 2;
 antenna_end_l = 15;
 antenna_l = 198-antenna_end_l;
+
+antenna_guides_distance = antenna_hole_w;
+antenna_guide_thick = box_wall_half_thick;
+antenna_guide_side_margin = antenna_side_margin+antenna_play;
+antenna_guide_play = antenna_play;
+
 
 box_inner_l = card_left_margin+card_l+(chip_y*-1)+card_play+chip_play-chip_connector_inner_niche_offset;
 box_inner_h = card_z_offset+card_thick+chip_z_offset+chip_thick+chip_connector_h+box_joint_h+chip_connector_hole_margin_h+chip_connector_hole_frame_thick;

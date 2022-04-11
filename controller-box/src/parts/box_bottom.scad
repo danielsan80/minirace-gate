@@ -65,6 +65,13 @@ module _box_controller_angle_keep() {
     keep(l=keep_l, with_wall=true, with_hold=false);
 }
 
+module _box_controller_guide() {
+    keep_l = card_keep_l;
+
+    rotate([0,0,-90])
+    keep(l=keep_l, with_wall=true, with_hold=false);
+}
+
 module _box_controller_front_right_keep() {
     translate([
         box_controller_inner_w-card_back_margin-card_w-card_play*2,
@@ -109,6 +116,28 @@ module _box_controller_back_left_keep() {
     _box_controller_angle_keep();
 }
 
+module _box_controller_back_guide_keep() {
+    translate([
+        box_controller_inner_w-card_back_margin,
+        box_inner_l-antenna_guide_side_margin-antenna_guide_thick-antenna_guides_distance,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    mirror([1,0,0])
+    _box_controller_guide();
+}
+
+module _box_controller_front_guide_keep() {
+    translate([
+        box_controller_inner_w-card_back_margin-card_play*2-card_w,
+        box_inner_l-antenna_guide_side_margin-antenna_guide_thick-antenna_guides_distance,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    _box_controller_guide();
+}
+
+
 module _box_controller_central_keep() {
     translate([
         box_controller_inner_w-card_back_margin-card_play-card_w/2,
@@ -128,6 +157,9 @@ module _box_controller_keeps() {
     _box_controller_back_right_keep();
 
     _box_controller_central_keep();
+
+    _box_controller_back_guide_keep();
+    _box_controller_front_guide_keep();
 }
 
 module _box_controller_bottom_antenna_hole() {
@@ -205,6 +237,37 @@ module _box_controller_bottom_chip_connector_hole() {
     }
 }
 
+
+module _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w) {
+    cube([box_inner_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)-antenna_guide_play, antenna_guide_thick, box_inner_h-box_joint_h-box_joint_play]);
+}
+
+module _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w) {
+    translate([0,antenna_guide_thick+antenna_hole_w,0])
+    rotate([90,0,0])
+    linear_extrude(height=antenna_guides_distance)
+    difference() {
+        square([box_inner_h/3,box_inner_h/3]);
+        translate([box_inner_h/3,box_inner_h/3])
+        circle(r=box_inner_h/3);
+    }
+}
+
+module _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w) {
+
+    translate([0, -antenna_guide_side_margin, 0])
+    translate([0, box_inner_l, 0])
+    translate([box_wall_thick, -antenna_guides_distance, box_bottom_base_thick])
+    union() {
+        _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w);
+
+        translate([0,antenna_guide_thick+antenna_guides_distance,0])
+        _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w);
+
+        _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w);
+    }
+}
+
 module box_controller_bottom_complete() {
     difference() {
         union() {
@@ -243,6 +306,8 @@ module box_terminal_bottom_complete(box_terminal_outer_w=box_terminal_outer_w) {
         _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w);
         //        _box_bottom_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
     }
+
+    _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w);
 }
 
 module box_terminal_bottom(box_terminal_outer_w=box_terminal_outer_w) {
