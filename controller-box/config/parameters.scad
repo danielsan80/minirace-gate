@@ -19,7 +19,7 @@ box_joint_h = 4;
 
 card_w = 36.5;
 card_l = 83.5;
-card_thick = 0.8;
+card_thick = 0.6;
 card_z_offset = 1;
 card_play = play3;
 card_overhang_l = 8;
@@ -107,7 +107,8 @@ nail_groove_r = 0.5;
 keep_w = 1;
 keep_wall_thick=1;
 keep_h = card_z_offset;
-keep_card_thick = card_thick;
+keep_card_thick_play = 0.2;
+keep_card_thick = card_thick+keep_card_thick_play;
 keep_hold_r = 0.4;
 
 
