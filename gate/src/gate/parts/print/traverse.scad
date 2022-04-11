@@ -9,32 +9,32 @@ module print_traverse(mode="basement") {
     traverse(mode=mode);
 }
 
-module _toothpick() {
-    l=toothpick_l;
+module _treverse_toothpick() {
+    l=traverse_toothpick_l;
     d=toothpick_d;
 
     translate([0,0,-l/2])
     cylinder(d=d, h=l);
 }
 
-module _toothpick_void() {
-    l=toothpick_void_l;
+module _treverse_toothpick_void() {
+    l=traverse_toothpick_void_l;
     d=toothpick_d+toothpick_play*2;
 
     translate([0,0,-l/2])
     cylinder(d=d, h=l);
 }
 
-module _toothpick_voids() {
+module _treverse_toothpick_voids() {
 
     translate([pylon_side/2,pylon_side/2,0])
-        _toothpick_void();
+        _treverse_toothpick_void();
     translate([pylon_side/2,-pylon_side/2,0])
-        _toothpick_void();
+        _treverse_toothpick_void();
     translate([-pylon_side/2,-pylon_side/2,0])
-        _toothpick_void();
+        _treverse_toothpick_void();
     translate([-pylon_side/2,pylon_side/2,0])
-        _toothpick_void();
+        _treverse_toothpick_void();
 
 
 }
@@ -53,7 +53,7 @@ module print_traverse_split_L(mode="basement") {
                 cube([a_lot,a_lot, a_lot]);
         }
 
-        _toothpick_voids();
+        _treverse_toothpick_voids();
     }
 }
 
@@ -69,6 +69,6 @@ module print_traverse_split_R(mode="basement") {
             translate([traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
             cube([a_lot,a_lot, a_lot]);
         }
-        _toothpick_voids();
+        _treverse_toothpick_voids();
     }
 }

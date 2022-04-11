@@ -3,6 +3,4 @@
 /build/stl
 #!/build/**/
 
-/gate/config/parameters.scad
-
 !.gitkeep

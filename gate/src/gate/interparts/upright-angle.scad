@@ -27,6 +27,21 @@ module upright_angle_joints() {
 
 }
 
+module upright_angle_joints_holes() {
+
+    upright_angle_joint(void=false);
+
+    translate([pylon_side, 0, 0])
+        upright_angle_joint(void=false);
+
+    translate([0, pylon_side, 0])
+        upright_angle_joint(void=false);
+
+    translate([pylon_side, pylon_side, 0])
+        upright_angle_joint(void=false);
+
+}
+
 module upright_angle_joints_void() {
 
     upright_angle_joint(void=true);

@@ -79,11 +79,15 @@ hanger_rod_hook_w = 2-hanger_rod_hook_play; // = startlight:space_x - play
 button_joint_play = 0.15;
 bolt_joint_play = 0.15;
 
-toothpick_l = 20;
-toothpick_voild_l_margin = 1;
-toothpick_void_l = toothpick_l + toothpick_voild_l_margin*2;
+toothpick_void_l_margin = 1;
 toothpick_d = 2;
 toothpick_play = 0.15;
+
+traverse_toothpick_l = 20;
+traverse_toothpick_void_l = traverse_toothpick_l + toothpick_void_l_margin*2;
+
+upright_angle_joint_toothpick_l = 10;
+upright_angle_joint_toothpick_void_l = upright_angle_joint_toothpick_l + toothpick_void_l_margin*2;
 
 
 ground_thick = 0.5;
