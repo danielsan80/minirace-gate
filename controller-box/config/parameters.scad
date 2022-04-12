@@ -32,7 +32,7 @@ chip_x = card_overhang_l+4;
 chip_y = -8;
 chip_l = 44+(chip_y*-1);
 chip_w = 28;
-chip_thick = 3.8 - 0.4;
+chip_thick = 3.8 + 0.4;
 chip_play = 0.3;
 chip_z_offset = 0;//8.4;
 
