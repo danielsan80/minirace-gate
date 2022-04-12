@@ -1,7 +1,5 @@
-# MiniRace Gate Project: Gate
+# MiniRace Gate Project: gate
 
-
-## Intro
 This subproject assembles the gate and all other stuff together to simulate
 and build the printable parts in stl files.
 It adds the joint to hang up the startlights on the traverse.
