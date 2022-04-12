@@ -154,14 +154,14 @@ module _box_controller_antenna_guide() {
 
 module _box_controller_antenna_guides() {
 
-    translate([0, -card_left_margin-card_play-antenna_side_margin, 0])
+    translate([0, -antenna_guides_gap_side_offset, 0])
     translate([0, box_inner_l, 0])
     translate([0, box_wall_thick, 0])
-    translate([box_wall_thick, -antenna_guide_thick-antenna_guides_distance+antenna_play, box_bottom_base_thick])
+    translate([box_wall_thick, -antenna_guide_thick-antenna_guides_gap_w, box_bottom_base_thick])
     union() {
         _box_controller_antenna_guide();
 
-        translate([0,antenna_guide_thick+antenna_guides_distance,0])
+        translate([0,antenna_guide_thick+antenna_guides_gap_w,0])
         _box_controller_antenna_guide();
     }
 }
@@ -276,7 +276,7 @@ module _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w) {
 module _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w) {
     translate([0,antenna_guide_thick+antenna_hole_w,0])
     rotate([90,0,0])
-    linear_extrude(height=antenna_guides_distance)
+    linear_extrude(height=antenna_guides_gap_w)
     difference() {
         square([box_inner_h/3,box_inner_h/3]);
         translate([box_inner_h/3,box_inner_h/3])
@@ -286,14 +286,14 @@ module _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_
 
 module _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w) {
 
-    translate([0, -card_left_margin-card_play-antenna_side_margin, 0])
+    translate([0, -antenna_guides_gap_side_offset, 0])
     translate([0, box_inner_l, 0])
     translate([0, box_wall_thick, 0])
-    translate([box_wall_thick, -antenna_guide_thick-antenna_guides_distance+antenna_play, box_bottom_base_thick])
+    translate([box_wall_thick, -antenna_guide_thick-antenna_guides_gap_w, box_bottom_base_thick])
     union() {
         _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w);
 
-        translate([0,antenna_guide_thick+antenna_guides_distance,0])
+        translate([0,antenna_guide_thick+antenna_guides_gap_w,0])
         _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w);
 
         _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w);

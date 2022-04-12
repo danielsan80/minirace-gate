@@ -57,6 +57,13 @@ module _box_top_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
     nail_groove(box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
 }
 
+module _box_top_controller_chip_led_hole() {
+//    translate([box_outer_w(box="controller"),0,0])
+    translate([-chip_led_hole_angle_pos.x,chip_led_hole_angle_pos.y,0])
+    translate([0,0,-fix])
+    cylinder(r=chip_led_hole_r, h=box_top_base_thick+fix*2);
+}
+
 module box_controller_top() {
     difference() {
         _box_top_main(box="controller");
@@ -67,6 +74,8 @@ module box_controller_top() {
         _box_top_cylinder_joints_void(box="controller");
 
         _box_top_nail_groove(box="controller");
+
+        _box_top_controller_chip_led_hole();
     }
 //    _box_top_cylinder_joints(box="controller");
 

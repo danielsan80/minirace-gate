@@ -68,10 +68,17 @@ module sim_chip() {
     cube([chip_w, chip_l, chip_thick]);
 }
 
+module sim_chip_led() {
+    color("#2222FF")
+        translate([chip_x+chip_w+chip_led_angle_pos.x, chip_y+chip_led_angle_pos.y, card_thick+chip_z_offset+chip_thick])
+        cylinder(r=0.5, h=1);
+}
+
 module sim_controller() {
     sim_card();
     sim_antenna();
     sim_chip();
+    sim_chip_led();
     sim_chip_connector();
     sim_chip_processor();
 }
