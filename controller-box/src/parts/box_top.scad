@@ -50,6 +50,20 @@ module _box_top_cylinder_joints_void(box, box_terminal_outer_w=box_terminal_oute
     }
 }
 
+module _box_top_cylinder_joints_fix(box, box_terminal_outer_w=box_terminal_outer_w) {
+    assert(box=="controller" || box=="terminal");
+
+    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+    union() {
+        translate([0,cylinder_joint_r+cylinder_joint_play,0])
+        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+
+        translate([0,-cylinder_joint_r-cylinder_joint_play,0])
+        translate([0,box_inner_l+box_wall_half_thick*2])
+        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+    }
+}
+
 module _box_top_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
@@ -66,7 +80,10 @@ module _box_top_controller_chip_led_hole() {
 
 module box_controller_top() {
     difference() {
-        _box_top_main(box="controller");
+        union() {
+            _box_top_main(box="controller");
+            _box_top_cylinder_joints_fix(box="controller");
+        }
 
         translate([0,0,box_top_base_thick])
         _box_top_dock_void(box="controller");
@@ -83,7 +100,10 @@ module box_controller_top() {
 
 module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
     difference() {
-        _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+        union() {
+            _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+            _box_top_cylinder_joints_fix(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+        }
 
         translate([0,0,box_top_base_thick])
         _box_top_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
