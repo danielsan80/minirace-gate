@@ -131,6 +131,20 @@ module startlights_10() {
     }
 }
 
+module _welding_groove() {
+    l = welding_l+welding_play*2;
+    w = welding_w+welding_play*2;
+    h = welding_h+welding_play;
+
+    translate([board_l/2, board_w-welding_y_offset,0])
+    translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
+    translate([-l/2, -w/2,-fix])
+    cube([l, w, h]);
+}
+
 module startlights() {
-    startlights_10();
+    difference() {
+        startlights_10();
+        _welding_groove();
+    }
 }

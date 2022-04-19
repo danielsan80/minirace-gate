@@ -10,11 +10,11 @@ sim_board();
 sim_startlights();
 sim_leds();
 
-translate([0,-30,0])
-ruler(startlights_length);
+//translate([0,-30,0])
+//ruler(startlights_length);
 
-echo ("led distance x", led_distance_x);
-echo ("led distance y", led_distance_y);
+//echo ("led distance x", led_distance_x);
+//echo ("led distance y", led_distance_y);
 
 echo ("startlights height", startlights_height);
 echo ("startlights length", startlights_length);
