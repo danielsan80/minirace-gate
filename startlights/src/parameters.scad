@@ -34,11 +34,12 @@ board_hole_y_offset = -board_margin + side/2;
 board_startlights_gap = 1;
 
 
-welding_l = 9;
-welding_w = 1.5;
-welding_h = 1;
+welding_l = 7.5;
+welding_w = 0.6;
+welding_h = 0.8;
 welding_y_offset = 11.5;
-welding_play = 0.2;
+welding_play = 0.1;
+welding_r = 0.3;
 
 
 gate_hook_width = 17;
