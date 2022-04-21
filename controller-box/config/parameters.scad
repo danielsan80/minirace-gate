@@ -110,6 +110,9 @@ chip_led_angle_pos = [
     chip_led_hole_angle_pos.y+chip_led_hole_angle_pos_offset.y
     ];
 
+chip_led_hole_tube_r = 1.6;
+chip_led_hole_tube_h = 3;
+
 box_joint_play = play2;
 box_side_slide_play = play1;
 box_joint_half_play = box_joint_play/2;

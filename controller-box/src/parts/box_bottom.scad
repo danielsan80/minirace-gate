@@ -93,6 +93,19 @@ module _box_controller_front_left_keep() {
     _box_controller_angle_keep();
 }
 
+module _box_controller_front_center_keep() {
+    keep_l = card_keep_l;
+
+    translate([
+        box_controller_inner_w-card_back_margin-card_w-card_play*2,
+        box_inner_l-antenna_guides_gap_side_offset-antenna_guides_gap_w,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    rotate([0,0,-90])
+    keep(l=keep_l, with_wall=true, with_hold=true);
+}
+
 module _box_controller_back_right_keep() {
     translate([
         box_controller_inner_w-card_back_margin,
@@ -181,6 +194,7 @@ module _box_controller_central_keep() {
 module _box_controller_keeps() {
     _box_controller_front_right_keep();
     _box_controller_front_left_keep();
+    _box_controller_front_center_keep();
 
     _box_controller_back_left_keep();
     _box_controller_back_right_keep();

@@ -78,6 +78,17 @@ module _box_top_controller_chip_led_hole() {
     cylinder(r=chip_led_hole_r, h=box_top_base_thick+fix*2);
 }
 
+module _box_top_controller_chip_led_hole_tube() {
+    translate([0,0,box_top_base_thick])
+    translate([-chip_led_hole_angle_pos.x,chip_led_hole_angle_pos.y,0])
+    difference() {
+        cylinder(r=chip_led_hole_tube_r, h=chip_led_hole_tube_h);
+
+        translate([0,0,-fix])
+        cylinder(r=chip_led_hole_r, h=a_lot);
+    }
+}
+
 module box_controller_top() {
     difference() {
         union() {
@@ -94,6 +105,7 @@ module box_controller_top() {
 
         _box_top_controller_chip_led_hole();
     }
+    _box_top_controller_chip_led_hole_tube();
 //    _box_top_cylinder_joints(box="controller");
 
 }
