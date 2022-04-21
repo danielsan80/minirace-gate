@@ -43,6 +43,6 @@ module _upright_angle_joints_holes() {
 module print_upright() {
     difference() {
         upright();
-        _upright_angle_joints_holes();
+//        _upright_angle_joints_holes();
     }
 }

@@ -33,7 +33,7 @@ bar_w = 4;
 bolt_d=6;
 bolt_h=4;
 
-upright_angle_joint_r = bar_w/2-0.3;
+upright_angle_joint_r = bar_w/2;
 upright_angle_joint_h = 3;
 
 reinforcement_gap = 5;
@@ -86,7 +86,7 @@ toothpick_play = 0.15;
 traverse_toothpick_l = 20;
 traverse_toothpick_void_l = traverse_toothpick_l + toothpick_void_l_margin*2;
 
-upright_angle_joint_toothpick_l = 10;
+upright_angle_joint_toothpick_l = 15;
 upright_angle_joint_toothpick_void_l = upright_angle_joint_toothpick_l + toothpick_void_l_margin*2;
 
 

@@ -1,4 +1,5 @@
 include <../../../../config/parameters.scad>
+use <../../../gate/parts/print/upright.scad>
 use <../../../gate/parts/upright.scad>
 use <../../../gate/parts/angle.scad>
 
@@ -9,11 +10,11 @@ module test_upright_button_joints() {
         cube([pylon_side+bar_w,bar_w,2]);
     }
 
-    translate([0,0,-upright_h+3])
+    translate([0,0,-upright_h+15])
     intersection() {
-        upright();
+        print_upright();
 
-        translate([0,0,upright_h-3])
+        translate([0,0,upright_h-15])
         translate([-a_lot/2,-a_lot/2,0])
         cube([a_lot, a_lot, a_lot]);
     }
@@ -38,9 +39,9 @@ module test_angle_button_joints() {
     intersection() {
         angle();
 
-        translate([0,0,-a_lot+angle_base_h*(1+angle_base_h2_c)])
-            translate([-a_lot/2,-a_lot/2,0])
-                cube([a_lot, a_lot, a_lot]);
+        translate([0,0,-a_lot+angle_base_h*(1+angle_base_h2_c)+5])
+        translate([-a_lot/2,-a_lot/2,0])
+        cube([a_lot, a_lot, a_lot]);
     }
 }
 

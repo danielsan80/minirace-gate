@@ -2,6 +2,7 @@ include <../../../config/parameters.scad>
 use <../../gate/joints/button_joint.scad>
 
 
+
 module upright_angle_joint(void=false) {
     r=upright_angle_joint_r;
     h=upright_angle_joint_h;
@@ -17,13 +18,13 @@ module upright_angle_joints() {
     upright_angle_joint(void=false);
 
     translate([pylon_side, 0, 0])
-        upright_angle_joint(void=false);
+    upright_angle_joint(void=false);
 
     translate([0, pylon_side, 0])
-        upright_angle_joint(void=false);
+    upright_angle_joint(void=false);
 
     translate([pylon_side, pylon_side, 0])
-        upright_angle_joint(void=false);
+    upright_angle_joint(void=false);
 
 }
 
