@@ -24,7 +24,7 @@ module _upright_angle_joint_hole() {
 module _upright_angle_joints_holes() {
 
     color("blue")
-    translate([-pylon_side/2, -pylon_side/2,upright_h+upright_angle_joint_h])
+    translate([-pylon_side/2, -pylon_side/2,upright_h+upright_angle_joint_button_h])
     union() {
         _upright_angle_joint_hole();
 

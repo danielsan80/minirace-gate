@@ -33,8 +33,6 @@ bar_w = 4;
 bolt_d=6;
 bolt_h=4;
 
-upright_angle_joint_r = bar_w/2;
-upright_angle_joint_h = 3;
 
 reinforcement_gap = 5;
 //reinforcement_gap = -5;
@@ -76,7 +74,6 @@ hanger_rod_hook_angle = 30;
 hanger_rod_hook_w = 2-hanger_rod_hook_play; // = startlight:space_x - play
 
 
-button_joint_play = 0.25;
 bolt_joint_play = 0.15;
 
 toothpick_void_l_margin = 1;
@@ -88,7 +85,13 @@ traverse_toothpick_void_l = traverse_toothpick_l + toothpick_void_l_margin*2;
 
 upright_angle_joint_toothpick_l = 15;
 upright_angle_joint_toothpick_void_l = upright_angle_joint_toothpick_l + toothpick_void_l_margin*2;
-upright_angle_joint_traverse_play = 0.15;
+
+upright_angle_joint_button_r = bar_w/2;
+upright_angle_joint_button_play = 0.25;
+upright_angle_joint_button_h = 3;
+upright_angle_joint_bar_top_w = 1;
+upright_angle_joint_bar_top_play = 0.15;
+upright_angle_joint_bar_bottom_h = angle_base_h*angle_base_h2_c;
 
 ground_thick = 0.5;
 
