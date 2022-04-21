@@ -16,6 +16,6 @@ module button_joint(r=3, h=6) {
 
 module button_joint_void(r=3, h=6) {
     tooth_l = button_joint_play;
-    linear_extrude(height=h)
-    polygon(points = gear_points(n_tooths = 18, r1=r+tooth_l/2, r2=r-tooth_l/2));
+    linear_extrude(height=h+button_joint_play)
+    polygon(points = gear_points(n_tooths = 16, r1=r+tooth_l*4/5, r2=r-tooth_l*1/5));
 }

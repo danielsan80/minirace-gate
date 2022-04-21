@@ -10,11 +10,11 @@ module test_upright_button_joints() {
         cube([pylon_side+bar_w,bar_w,2]);
     }
 
-    translate([0,0,-upright_h+15])
+    translate([0,0,-upright_h+7])
     intersection() {
         print_upright();
 
-        translate([0,0,upright_h-15])
+        translate([0,0,upright_h-7])
         translate([-a_lot/2,-a_lot/2,0])
         cube([a_lot, a_lot, a_lot]);
     }
