@@ -72,12 +72,22 @@ process "print/startlights/hanger_clip.scad"
 process "print/startlights/hanger_rod.scad"
 
 
-#echo ""
-#echo "# SIM"
-#
-#process "sim/gate_on_basement.scad"
-#process "sim/gate_on_ground.scad"
-#process "sim/old_vs_gate.scad"
+echo ""
+echo "# SIM"
+
+process "sim/gate_on_basement.scad"
+process "sim/gate_on_ground.scad"
+process "sim/old_vs_gate.scad"
+
+
+echo ""
+echo "Build for Thingiverse"
+mkdir -p "build/stl/thingiverse"
+find "build/stl/print" -type f -iname '*.stl' -exec bash -c '
+    tmp1="${1#*/}"
+    tmp2="${tmp1/stl\/print\//}"
+    filename="${tmp2//\//.}"
+    cp -nv "${1}" "build/stl/thingiverse/${filename}" ' sh_cp {} \;
 
 
 echo ""
