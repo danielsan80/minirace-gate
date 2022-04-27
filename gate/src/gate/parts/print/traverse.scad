@@ -72,3 +72,9 @@ module print_traverse_split_R(mode="basement") {
         _treverse_toothpick_voids();
     }
 }
+
+module print_traverse_split_toothpick() {
+    translate([0,0,toothpick_d/2])
+    rotate([0,90,0])
+    _treverse_toothpick();
+}

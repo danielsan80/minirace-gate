@@ -29,6 +29,7 @@ echo "## Variant"
 
 process "print/gate/variant/traverse_split_L.scad"
 process "print/gate/variant/traverse_split_R.scad"
+process "print/gate/variant/traverse_split_toothpick.scad"
 
 echo ""
 process "print/gate/variant/traverse_without_basement.scad"
@@ -72,12 +73,12 @@ process "print/startlights/hanger_clip.scad"
 process "print/startlights/hanger_rod.scad"
 
 
-echo ""
-echo "# SIM"
-
-process "sim/gate_on_basement.scad"
-process "sim/gate_on_ground.scad"
-process "sim/old_vs_gate.scad"
+#echo ""
+#echo "# SIM"
+#
+#process "sim/gate_on_basement.scad"
+#process "sim/gate_on_ground.scad"
+#process "sim/old_vs_gate.scad"
 
 
 echo ""

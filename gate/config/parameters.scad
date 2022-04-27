@@ -71,7 +71,7 @@ hanger_rod_hook_play = 0.15;
 hanger_rod_hook_l = 5;
 hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
-hanger_rod_hook_w = 2-hanger_rod_hook_play; // = startlight:space_x - play
+hanger_rod_hook_w = 2; // = startlight:space_x
 
 
 bolt_joint_play = 0.15;
