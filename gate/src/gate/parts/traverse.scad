@@ -40,6 +40,12 @@ module traverse_v_bar() {
     bar(l=pylon_side+profile_outer_w());
 }
 
+module traverse_h_bar() {
+    traverse_transform()
+    rotate([-90,0,0])
+    bar(l=pylon_side);
+}
+
 // mode="basement"|"upright"|"center"
 module traverse_v_bars(side="left", mode="basement") {
     module body() {
@@ -48,7 +54,12 @@ module traverse_v_bars(side="left", mode="basement") {
                 traverse_v_bar();
 
                 translate([0,pylon_side,0])
-                    traverse_v_bar();
+                traverse_v_bar();
+
+                traverse_h_bar();
+
+                translate([0,0,-pylon_side])
+                traverse_h_bar();
             }
 
             translate([-a_lot+traverse_play,-a_lot/2,-a_lot/2])

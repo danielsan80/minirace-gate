@@ -36,6 +36,7 @@ process "print/gate/variant/traverse_without_basement.scad"
 process "print/gate/variant/traverse_without_basement_split_L.scad"
 process "print/gate/variant/traverse_without_basement_split_R.scad"
 
+
 echo ""
 echo "# BASEMENT"
 
@@ -54,6 +55,7 @@ echo "## Variant"
 process "print/basement/variant/basement_block.scad"
 process "print/basement/variant/basement_block_with_hole.scad"
 process "print/basement/variant/basement_box_controller_top_without_hole.scad"
+process "print/basement/variant/basement_box_terminal_top_without_groove.scad"
 
 
 echo ""
@@ -61,8 +63,6 @@ echo "# GROUND"
 
 process "print/ground/ground_with_hole.scad"
 process "print/ground/ground_without_hole.scad"
-
-
 
 
 echo ""

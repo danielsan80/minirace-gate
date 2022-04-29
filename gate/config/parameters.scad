@@ -37,7 +37,7 @@ bolt_h=4;
 reinforcement_gap = 5;
 //reinforcement_gap = -5;
 
-intra_uprights_space_l = 160; //80; //160;
+intra_uprights_space_l = 40; //80; //160;
 
 upright_h = 90; //40; //90;
 
