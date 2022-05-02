@@ -37,7 +37,7 @@ bolt_h=4;
 reinforcement_gap = 5;
 //reinforcement_gap = -5;
 
-intra_uprights_space_l = 40; //80; //160;
+intra_uprights_space_l = 160; //80; //160; //270;
 
 upright_h = 90; //40; //90;
 
@@ -80,7 +80,7 @@ toothpick_void_l_margin = 1;
 toothpick_d = 2;
 toothpick_play = 0.15;
 
-traverse_toothpick_l = 20;
+traverse_toothpick_l = 30;
 traverse_toothpick_void_l = traverse_toothpick_l + toothpick_void_l_margin*2;
 
 upright_angle_joint_toothpick_l = 15;

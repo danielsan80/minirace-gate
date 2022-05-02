@@ -140,6 +140,7 @@ module _welding_groove() {
     translate([board_l/2, board_w-welding_y_offset,0])
     translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
     translate([-l/2, -w/2,-fix])
+    translate([r,r,0])
 //    cube([l, w, h]);
     minkowski() {
         cube([l-r*2, w-r*2, h]);
