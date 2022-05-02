@@ -16,16 +16,20 @@ process () {
 }
 
 
+echo ""
+echo "Build"
+echo "====="
+
 
 echo ""
-echo "# GATE"
+echo "## GATE"
 
 process "print/gate/upright.scad"
 process "print/gate/angle.scad"
 process "print/gate/traverse.scad"
 
 echo ""
-echo "## Variant"
+echo "### Variant"
 
 process "print/gate/variant/traverse_split_L.scad"
 process "print/gate/variant/traverse_split_R.scad"
@@ -38,7 +42,7 @@ process "print/gate/variant/traverse_without_basement_split_R.scad"
 
 
 echo ""
-echo "# BASEMENT"
+echo "## BASEMENT"
 
 process "print/basement/basement_box_controller_bottom.scad"
 process "print/basement/basement_box_controller_side_slide.scad"
@@ -50,25 +54,25 @@ process "print/basement/basement_box_terminal_side_slide.scad"
 process "print/basement/basement_box_terminal_top.scad"
 
 echo ""
-echo "## Variant"
+echo "### Variant"
 
 process "print/basement/variant/basement_block.scad"
 process "print/basement/variant/basement_block_with_hole.scad"
 process "print/basement/variant/basement_box_controller_top_without_hole.scad"
 process "print/basement/variant/basement_box_controller_top_with_groove.scad"
 process "print/basement/variant/basement_box_terminal_top_with_groove.scad"
-process "print/basement/variant/basement_box_controller_top_hole_cap.scad"
+process "print/basement/variant/basement_box_top_hole_cap.scad"
 
 
 echo ""
-echo "# GROUND"
+echo "## GROUND"
 
 process "print/ground/ground_with_hole.scad"
 process "print/ground/ground_without_hole.scad"
 
 
 echo ""
-echo "# STARTLIGHTS"
+echo "## STARTLIGHTS"
 
 process "print/startlights/startlights.scad"
 process "print/startlights/hanger_clip.scad"
@@ -85,6 +89,7 @@ process "print/startlights/hanger_rod.scad"
 
 echo ""
 echo "Build for Thingiverse"
+echo "====================="
 mkdir -p "build/stl/thingiverse"
 find "build/stl/print" -type f -iname '*.stl' -exec bash -c '
     tmp1="${1#*/}"
