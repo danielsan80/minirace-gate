@@ -32,6 +32,31 @@ module basement_box_controller_top(with_hole=true, with_groove=true) {
     }
 }
 
+module basement_box_top_hole_cap() {
+    minkowski() {
+        intersection() {
+            upright_base_hole(void=true);
+            translate([-a_lot/2,-a_lot/2,0])
+            cube([a_lot,a_lot,box_top_base_thick()]);
+        }
+        cylinder(r=box_top_base_thick(),h=fix);
+    }
+
+    translate([0,0,box_top_base_thick()-fix])
+    intersection() {
+        upright_base_hole(void=false);
+        translate([-a_lot/2,-a_lot/2,0])
+        cube([a_lot,a_lot,box_top_base_thick()+basement_box_top_hole_cap_ring_h+basement_box_top_hole_cap_ring_play]);
+    }
+
+    translate([0,0,box_top_base_thick()*2+basement_box_top_hole_cap_ring_play-fix])
+    intersection() {
+        upright_base_hole(void=true);
+        translate([-a_lot/2,-a_lot/2,0])
+        cube([a_lot,a_lot,basement_box_top_hole_cap_ring_h]);
+    }
+}
+
 module basement_box_controller_side_slide() {
     translate([-basement_box_controller_w()/2-_basement_box_controller_center_x_offset(),-basement_l()/2,0])
     box_controller_side_slide();

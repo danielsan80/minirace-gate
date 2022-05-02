@@ -7,3 +7,4 @@ function basement_block_w() = upright_base_level1_w()+basement_upright_margin()*
 function basement_box_terminal_w() = basement_block_w();
 function basement_l() = box_outer_l;
 function basement_h() = box_outer_h;
+function box_top_base_thick() = box_top_base_thick;

@@ -43,8 +43,11 @@ upright_h = 90; //40; //90;
 
 upright_base_groove_thick = min_space;
 upright_base_groove_depth = layer_h*2;
+upright_base_hole_play = 0.15;
 
 basement_upright_margin = 5;
+basement_box_top_hole_cap_ring_h = layer_h*2;
+basement_box_top_hole_cap_ring_play = upright_base_hole_play;
 
 traverse_play = play2;
 
@@ -92,6 +95,7 @@ upright_angle_joint_button_h = 3;
 upright_angle_joint_bar_top_w = 1;
 upright_angle_joint_bar_top_play = 0.15;
 upright_angle_joint_bar_bottom_h = angle_base_h*angle_base_h2_c;
+
 
 ground_thick = 0.5;
 

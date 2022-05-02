@@ -55,7 +55,9 @@ echo "## Variant"
 process "print/basement/variant/basement_block.scad"
 process "print/basement/variant/basement_block_with_hole.scad"
 process "print/basement/variant/basement_box_controller_top_without_hole.scad"
-process "print/basement/variant/basement_box_terminal_top_without_groove.scad"
+process "print/basement/variant/basement_box_controller_top_with_groove.scad"
+process "print/basement/variant/basement_box_terminal_top_with_groove.scad"
+process "print/basement/variant/basement_box_controller_top_hole_cap.scad"
 
 
 echo ""

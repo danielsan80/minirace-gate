@@ -15,6 +15,11 @@ module print_basement_box_controller_top(with_hole=true, with_groove=true) {
     basement_box_controller_top(with_hole=with_hole, with_groove=with_groove);
 }
 
+module print_basement_box_top_hole_cap() {
+    basement_box_top_hole_cap();
+}
+
+
 
 module print_basement_box_terminal_bottom() {
     basement_box_terminal_bottom();
