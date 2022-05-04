@@ -94,7 +94,7 @@ module _box_controller_front_left_keep() {
 }
 
 module _box_controller_front_antenna_guides_keeps() {
-    keep_l = antenna_guide_thick;
+    keep_l = antenna_guide_thick*2;
 
     translate([
         box_controller_inner_w-card_back_margin-card_w-card_play*2,
@@ -102,14 +102,16 @@ module _box_controller_front_antenna_guides_keeps() {
         0
     ])
     union() {
+        translate([0,keep_l-antenna_guide_thick,0])
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
         rotate([0,0,-90])
-        keep(l=keep_l, with_wall=true, with_hold=true);
+        keep(l=keep_l, with_wall=true, with_hold=false);
+
 
         translate([0,-antenna_guides_gap_w-antenna_guide_thick,0])
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
         rotate([0,0,-90])
-        keep(l=keep_l, with_wall=true, with_hold=true);
+        keep(l=keep_l, with_wall=true, with_hold=true, keep_wall_thick=keep_wall_thick*3);
     }
 }
 

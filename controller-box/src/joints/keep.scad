@@ -1,6 +1,6 @@
 include <../../config/parameters.scad>
 
-module keep(l, with_wall=true, with_hold=true) {
+module keep(l, with_wall=true, with_hold=true, keep_wall_thick=keep_wall_thick) {
 
     cube([l,keep_w,keep_h]);
 
