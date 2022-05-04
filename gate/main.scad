@@ -16,6 +16,7 @@ use <src/gate/parts/print/hanger_rod.scad>
 use <src/gate/parts/hanger.scad>
 use <src/gate/parts/sim/hanger.scad>
 use <src/gate/interparts/test/upright-angle.scad>
+use <src/gate/parts/test/upright.scad>
 
 use <src/basement/values.scad>
 
@@ -33,7 +34,7 @@ use <src/basement/values.scad>
 //sphere(d=5);
 
 
-sim_new_gate();
+//sim_new_gate();
 //sim_old_gate();
 
 //test_upright_angle_joints();
@@ -60,3 +61,6 @@ sim_new_gate();
 //print_hanger_rod();
 
 //sim_hanger_rod();
+
+
+test_upright_holes();

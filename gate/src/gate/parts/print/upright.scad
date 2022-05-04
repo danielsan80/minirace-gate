@@ -5,7 +5,7 @@ module _upright_angle_joint_toothpick() {
     l=upright_angle_joint_toothpick_l;
     d=toothpick_d;
 
-    translate([0,0,-l+fix])
+    translate([0,0,-l/2])
     cylinder(d=d, h=l);
 }
 
@@ -41,8 +41,24 @@ module _upright_angle_joints_holes() {
 }
 
 module print_upright() {
+    upright();
+}
+
+module print_upright_with_angle_joints_holes() {
     difference() {
         upright();
-//        _upright_angle_joints_holes();
+        _upright_angle_joints_holes();
+    }
+}
+
+
+module print_upright_angle_joint_toothpick() {
+    intersection() {
+        translate([0,0,toothpick_d/2-layer_h])
+        rotate([0,90,0])
+        _upright_angle_joint_toothpick();
+
+        translate([-a_lot/2, -a_lot/2, 0])
+        cube([a_lot, a_lot, a_lot]);
     }
 }

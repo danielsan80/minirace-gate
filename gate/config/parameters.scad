@@ -87,7 +87,7 @@ traverse_toothpick_l = 30;
 traverse_toothpick_void_l = traverse_toothpick_l + toothpick_void_l_margin*2;
 
 upright_angle_joint_toothpick_l = 15;
-upright_angle_joint_toothpick_void_l = upright_angle_joint_toothpick_l + toothpick_void_l_margin*2;
+upright_angle_joint_toothpick_void_l = upright_angle_joint_toothpick_l + toothpick_void_l_margin;
 
 upright_angle_joint_button_r = bar_w/2;
 upright_angle_joint_button_play = 0.25;

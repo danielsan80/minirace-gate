@@ -31,7 +31,7 @@ module sim_new_gate() {
 
 //    sim_basement_box_terminal_L();
 //    sim_ground_L();
-//    sim_upright_L();
+    sim_upright_L();
 //    sim_angle_L();
 //
 //    sim_traverse();
@@ -39,7 +39,7 @@ module sim_new_gate() {
 //    sim_angle_R();
 //    sim_upright_R();
 //    sim_ground_R();
-    sim_basement_box_controller_R();
+//    sim_basement_box_controller_R();
 //    sim_basement_box_controller_R_top_hole_cap();
 
 //    translate([0,0,-profile_w_diff()/2-bar_wrapper_play-hanger_clip_junction_l-ct_slide_side/2])
