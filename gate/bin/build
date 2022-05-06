@@ -33,7 +33,8 @@ echo "### Variant"
 
 process "print/gate/variant/traverse_split_L.scad"
 process "print/gate/variant/traverse_split_R.scad"
-process "print/gate/variant/traverse_split_toothpick.scad"
+process "print/gate/variant/traverse_split_toothpick_long.scad"
+process "print/gate/variant/traverse_split_toothpick_short.scad"
 process "print/gate/variant/upright_with_angle_joints_holes.scad"
 process "print/gate/variant/upright_angle_joint_toothpick.scad"
 

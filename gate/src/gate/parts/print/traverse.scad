@@ -9,12 +9,20 @@ module print_traverse(mode="basement") {
     traverse(mode=mode);
 }
 
-module _treverse_toothpick() {
+module _treverse_toothpick_long() {
     l=traverse_toothpick_l;
     d=toothpick_d;
 
     translate([0,0,-l/2])
     cylinder(d=d, h=l);
+}
+
+module _treverse_toothpick_short() {
+    l=traverse_toothpick_l/3;
+    d=toothpick_d;
+
+    translate([0,0,-l/2])
+        cylinder(d=d, h=l);
 }
 
 module _treverse_toothpick_void() {
@@ -73,13 +81,24 @@ module print_traverse_split_R(mode="basement") {
     }
 }
 
-module print_traverse_split_toothpick() {
+module print_traverse_split_toothpick_long() {
     intersection() {
         translate([0,0,toothpick_d/2-layer_h])
         rotate([0,90,0])
-        _treverse_toothpick();
+        _treverse_toothpick_long();
 
         translate([-a_lot/2, -a_lot/2, 0])
         cube([a_lot, a_lot, a_lot]);
+    }
+}
+
+module print_traverse_split_toothpick_short() {
+    intersection() {
+        translate([0,0,toothpick_d/2-layer_h])
+        rotate([0,90,0])
+        _treverse_toothpick_short();
+
+        translate([-a_lot/2, -a_lot/2, 0])
+            cube([a_lot, a_lot, a_lot]);
     }
 }
