@@ -20,6 +20,8 @@ use <src/gate/parts/test/upright.scad>
 
 use <src/basement/values.scad>
 
+use <src/basement/print/basement_box_top_glue_guide.scad>
+
 
 //$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
 //$vpr = [ 60,0,-20 ];
@@ -34,7 +36,7 @@ use <src/basement/values.scad>
 //sphere(d=5);
 
 
-//sim_new_gate();
+sim_new_gate();
 //sim_old_gate();
 
 //test_upright_angle_joints();
@@ -62,5 +64,4 @@ use <src/basement/values.scad>
 
 //sim_hanger_rod();
 
-
-test_upright_holes();
+//print_terminal_box_glue_guide();

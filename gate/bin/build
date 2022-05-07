@@ -89,6 +89,9 @@ process "print/startlights/hanger_rod.scad"
 #process "sim/gate_on_ground.scad"
 #process "sim/old_vs_gate.scad"
 
+#openscad --imgsize=1024,768 --camera=120,50,0,60,0,-20,550 --colorscheme=Cornfield --projection=o  -o prova.png main.scad
+
+
 
 echo ""
 echo "Build for Thingiverse"
