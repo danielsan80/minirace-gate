@@ -99,6 +99,14 @@ upright_angle_joint_bar_bottom_h = angle_base_h*angle_base_h2_c;
 
 ground_thick = 0.5;
 
+basement_ground_guide_play = 0.2;
+basement_ground_guide_line_w = layer_w*2;
+basement_ground_guide_h = 2;
+basement_ground_guide_thick = layer_h*3;
+basement_ground_guide_grid_gap = 15;
+
+
+
 
 
 

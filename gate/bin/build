@@ -33,8 +33,9 @@ echo "### Variant"
 
 process "print/gate/variant/traverse_split_L.scad"
 process "print/gate/variant/traverse_split_R.scad"
-process "print/gate/variant/traverse_split_toothpick_long.scad"
-process "print/gate/variant/traverse_split_toothpick_short.scad"
+process "print/gate/variant/traverse_split_toothpick_3of3.scad"
+process "print/gate/variant/traverse_split_toothpick_2of3.scad"
+process "print/gate/variant/traverse_split_toothpick_1of3.scad"
 process "print/gate/variant/upright_with_angle_joints_holes.scad"
 process "print/gate/variant/upright_angle_joint_toothpick.scad"
 
@@ -56,6 +57,7 @@ process "print/basement/basement_box_terminal_bottom.scad"
 process "print/basement/basement_box_terminal_side_slide.scad"
 process "print/basement/basement_box_terminal_top.scad"
 
+
 echo ""
 echo "### Variant"
 
@@ -64,8 +66,16 @@ process "print/basement/variant/basement_block_with_hole.scad"
 process "print/basement/variant/basement_box_controller_top_without_hole.scad"
 process "print/basement/variant/basement_box_controller_top_with_groove.scad"
 process "print/basement/variant/basement_box_terminal_top_with_groove.scad"
-process "print/basement/variant/basement_box_top_hole_cap.scad"
 
+echo ""
+echo "### Utility"
+
+echo ""
+process "print/basement/utility/basement_box_top_hole_cap.scad"
+
+echo ""
+process "print/basement/utility/basement_ground_guide_box_controller.scad"
+process "print/basement/utility/basement_ground_guide_box_terminal.scad"
 
 echo ""
 echo "## GROUND"
