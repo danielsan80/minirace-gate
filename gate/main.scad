@@ -1,5 +1,4 @@
 use <sim/modules/new_gate.scad>
-use <sim/modules/old_gate.scad>
 use <src/gate/joints/test/v_slide.scad>
 use <src/gate/joints/bar_wrapper.scad>
 use <src/gate/joints/ct_slide.scad>
@@ -37,7 +36,6 @@ use <src/basement/print/basement_box_top_glue_guide.scad>
 
 
 sim_new_gate();
-//sim_old_gate();
 
 //test_upright_angle_joints();
 //test_button_joint();
