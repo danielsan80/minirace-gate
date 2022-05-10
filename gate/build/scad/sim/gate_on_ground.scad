@@ -24,7 +24,7 @@ use <../../../src/startlights/sim/startlights.scad>
 use <../../../src/startlights/sim/leds.scad>
 use <../../../src/startlights/sim/board.scad>
 
-use <../../../lib/gaslands_gate/src/car/sim/cars.scad>
+use <../../../vendor/car/src/cars.scad>
 use <../../../vendor/ruler/ruler.scad>
 
 

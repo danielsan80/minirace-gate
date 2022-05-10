@@ -19,7 +19,7 @@ use <../../src/startlights/sim/startlights.scad>
 use <../../src/startlights/sim/leds.scad>
 use <../../src/startlights/sim/board.scad>
 
-use <../../lib/gaslands_gate/src/car/sim/cars.scad>
+use <../../vendor/car/src/cars.scad>
 use <../../vendor/ruler/ruler.scad>
 
 
@@ -59,7 +59,8 @@ module sim_new_gate() {
     sim_hanger_rod();
 
     translate([-5,-30,0])
-    sim_cars(5);
+    translate([35,26,0])
+    cars(5);
 
     translate([basement_block_w()/2, -70, 0])
     ruler(x=intra_uprights_space_l);

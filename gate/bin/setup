@@ -5,6 +5,9 @@ mkdir vendor 2> /dev/null
 unlink vendor/ruler 2> /dev/null
 ln -sfr ../ruler/ vendor/ruler
 
+unlink vendor/car 2> /dev/null
+ln -sfr ../car/ vendor/car
+
 unlink vendor/startlights 2> /dev/null
 ln -sfr ../startlights/ vendor/startlights
 
@@ -13,8 +16,3 @@ ln -sfr ../controller-box/ vendor/controller-box
 
 unlink vendor/startlights 2> /dev/null
 ln -sfr ../startlights/ vendor/startlights
-
-mkdir lib/gaslands_gate/vendor 2> /dev/null
-
-unlink lib/gaslands_gate/vendor/ruler 2> /dev/null
-ln -sfr ../ruler/ lib/gaslands_gate/vendor/ruler
