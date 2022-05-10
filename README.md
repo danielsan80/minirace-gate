@@ -8,7 +8,7 @@ The main subproject is `gate` and it depends on the other ones.
 `startlights` and `controller-box` are developed individually because they
 don't need to know anything about the main project `gate`. 
 
-`ruler` is an utility.
+`ruler` and `car` are utilities.
 
 ## Contexts
 The projects use a kind of framework.
@@ -35,3 +35,5 @@ It uses the rules to show the measures in the simulation context.
 [`controller-box`](controller-box/README.md): is the box to contain the controller card.
 
 [`ruler`](ruler/README.md): is an utility to show rulers with some measures in simulation context.
+
+[`car`](car/README.md): is an utility to show some cars in simulation context.
