@@ -47,21 +47,24 @@ translate([0,0,-fix2])
 sim_ground_R(mode="upright");
 
 translate([0,0,-profile_w_diff()/2-bar_wrapper_play-hanger_clip_junction_l-ct_slide_side/2])
-    translate([0,0,startlights_board_margin()+startlights_board_hole_y_offset()])
-        translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
-            translate([0,-pylon_side/2-ct_slide_side/2,0])
-                translate([0,0,upright_h+angle_traverse_pos_z_offset()-startlights_startlights_height()])
-                    translate([(uprights_distance(mode="upright")-startlights_startlights_length())/2,0,0])
-                        rotate([90,0,0])
-                            union() {
-                                sim_startlights_front();
-                                sim_startlights_leds();
-                                sim_startlights_board();
-                            }
+translate([0,0,startlights_board_margin()+startlights_board_hole_y_offset()])
+translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
+translate([0,-pylon_side/2-ct_slide_side/2,0])
+translate([0,0,upright_h+angle_traverse_pos_z_offset()-startlights_startlights_height()])
+translate([(uprights_distance(mode="upright")-startlights_startlights_length())/2,0,0])
+rotate([90,0,0])
+union() {
+    sim_startlights_front();
+    sim_startlights_leds();
+    sim_startlights_board();
+}
 
 sim_hanger_clips(mode="upright");
 sim_hanger_rod(mode="upright");
 
+translate([-5,-30,0])
+translate([35,26,0])
+cars(5);
 
 translate([upright_base_w/2+base_curvature_r, -70, 0])
     ruler(x=intra_uprights_space_l);

@@ -19,7 +19,7 @@ use <src/gate/parts/test/upright.scad>
 
 use <src/basement/values.scad>
 
-use <src/basement/print/basement_box_top_glue_guide.scad>
+use <src/basement/print/basement_ground_guide.scad>
 
 
 //$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
@@ -35,7 +35,7 @@ use <src/basement/print/basement_box_top_glue_guide.scad>
 //sphere(d=5);
 
 
-sim_new_gate();
+//sim_new_gate();
 
 //test_upright_angle_joints();
 //test_button_joint();
@@ -62,4 +62,4 @@ sim_new_gate();
 
 //sim_hanger_rod();
 
-//print_terminal_box_glue_guide();
+print_basement_ground_guide(box="terminal");

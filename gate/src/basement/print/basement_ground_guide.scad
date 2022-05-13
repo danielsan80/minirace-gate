@@ -59,27 +59,28 @@ module _basement_ground_guide_main(box) {
     h=basement_ground_guide_h;
     line_w=basement_ground_guide_line_w;
     thick=basement_ground_guide_thick;
+    wall_thick=basement_ground_guide_wall_thick;
     p = basement_ground_guide_play;
     basement_w = basement_w(box=box);
 
     difference() {
-        cube([basement_w+p*2+thick*2,basement_l()+p*2+thick*2,h]);
+        cube([basement_w+p*2+wall_thick*2,basement_l()+p*2+wall_thick*2,h]);
 
-        translate([thick, thick, thick])
+        translate([wall_thick, wall_thick, thick])
         cube([basement_w+p*2,basement_l()+p*2, a_lot]);
 
-        translate([thick+p+line_w, thick+line_w, -a_lot/2])
+        translate([wall_thick+p+line_w, wall_thick+p+line_w, -a_lot/2])
         cube([basement_w-line_w*2, basement_l()-line_w*2, a_lot]);
     }
 
     intersection() {
-        cube([basement_w+p*2+thick*2,basement_l()+p*2+thick*2,h]);
+        cube([basement_w+p*2+wall_thick*2,basement_l()+p*2+wall_thick*2,h]);
         _basement_ground_guide_grid();
     }
 
     translate([basement_upright_margin(),0,0])
     translate([upright_base_level1_w()/2+p, basement_l()/2,0])
-    translate([thick+p, thick+p,0])
+    translate([wall_thick+p, wall_thick+p,0])
     _basement_ground_guide_upright_base_level1_frame();
 }
 
@@ -91,6 +92,7 @@ module print_basement_ground_guide(box) {
     h=basement_ground_guide_h;
     line_w=basement_ground_guide_line_w;
     thick=basement_ground_guide_thick;
+    wall_thick=basement_ground_guide_wall_thick;
     p = basement_ground_guide_play;
     basement_w = basement_w(box=box);
 
@@ -99,7 +101,7 @@ module print_basement_ground_guide(box) {
 
         translate([basement_upright_margin(),0,0])
         translate([upright_base_level1_w()/2+p, basement_l()/2,0])
-        translate([thick+p, thick+p,0])
+        translate([wall_thick+p, wall_thick+p,0])
         _basement_ground_guide_upright_base_level1_hole();
     }
 }
