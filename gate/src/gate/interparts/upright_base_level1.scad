@@ -12,5 +12,5 @@ module upright_base_level1() {
     }
 }
 
-function upright_base_level1_w() = upright_base_w+base_curvature_r+2;
-function upright_base_level1_l() = upright_base_l+base_curvature_r+2;
+function upright_base_level1_w() = upright_base_w+base_curvature_r*2;
+function upright_base_level1_l() = upright_base_l+base_curvature_r*2;

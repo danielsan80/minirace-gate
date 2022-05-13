@@ -40,76 +40,76 @@ echo ""
 echo "Build"
 echo "====="
 
-#
-#echo ""
-#echo "## GATE"
-#
-#process "print/gate/upright.scad"
-#process "print/gate/angle.scad"
-#process "print/gate/traverse.scad"
-#
-#echo ""
-#echo "### Variant"
-#
-#process "print/gate/variant/traverse_split_L.scad"
-#process "print/gate/variant/traverse_split_R.scad"
-#process "print/gate/variant/traverse_split_toothpick_3of3.scad"
-#process "print/gate/variant/traverse_split_toothpick_2of3.scad"
-#process "print/gate/variant/traverse_split_toothpick_1of3.scad"
-#process "print/gate/variant/upright_with_angle_joints_holes.scad"
-#process "print/gate/variant/upright_angle_joint_toothpick.scad"
-#
-#echo ""
-#process "print/gate/variant/traverse_without_basement.scad"
-#process "print/gate/variant/traverse_without_basement_split_L.scad"
-#process "print/gate/variant/traverse_without_basement_split_R.scad"
-#
-#
-#echo ""
-#echo "## BASEMENT"
-#
-#process "print/basement/basement_box_controller_bottom.scad"
-#process "print/basement/basement_box_controller_side_slide.scad"
-#process "print/basement/basement_box_controller_top.scad"
-#
-#echo ""
-#process "print/basement/basement_box_terminal_bottom.scad"
-#process "print/basement/basement_box_terminal_side_slide.scad"
-#process "print/basement/basement_box_terminal_top.scad"
-#
-#
-#echo ""
-#echo "### Variant"
-#
-#process "print/basement/variant/basement_block.scad"
-#process "print/basement/variant/basement_block_with_hole.scad"
-#process "print/basement/variant/basement_box_controller_top_without_hole.scad"
-#process "print/basement/variant/basement_box_controller_top_with_groove.scad"
-#process "print/basement/variant/basement_box_terminal_top_with_groove.scad"
-#
-#echo ""
-#echo "### Utility"
-#
-#echo ""
-#process "print/basement/utility/basement_box_top_hole_cap.scad"
-#
-#echo ""
+
+echo ""
+echo "## GATE"
+
+process "print/gate/upright.scad"
+process "print/gate/angle.scad"
+process "print/gate/traverse.scad"
+
+echo ""
+echo "### Variant"
+
+process "print/gate/variant/traverse_split_L.scad"
+process "print/gate/variant/traverse_split_R.scad"
+process "print/gate/variant/traverse_split_toothpick_3of3.scad"
+process "print/gate/variant/traverse_split_toothpick_2of3.scad"
+process "print/gate/variant/traverse_split_toothpick_1of3.scad"
+process "print/gate/variant/upright_with_angle_joints_holes.scad"
+process "print/gate/variant/upright_angle_joint_toothpick.scad"
+
+echo ""
+process "print/gate/variant/traverse_without_basement.scad"
+process "print/gate/variant/traverse_without_basement_split_L.scad"
+process "print/gate/variant/traverse_without_basement_split_R.scad"
+
+
+echo ""
+echo "## BASEMENT"
+
+process "print/basement/basement_box_controller_bottom.scad"
+process "print/basement/basement_box_controller_side_slide.scad"
+process "print/basement/basement_box_controller_top.scad"
+
+echo ""
+process "print/basement/basement_box_terminal_bottom.scad"
+process "print/basement/basement_box_terminal_side_slide.scad"
+process "print/basement/basement_box_terminal_top.scad"
+
+
+echo ""
+echo "### Variant"
+
+process "print/basement/variant/basement_block.scad"
+process "print/basement/variant/basement_block_with_hole.scad"
+process "print/basement/variant/basement_box_controller_top_without_hole.scad"
+process "print/basement/variant/basement_box_controller_top_with_groove.scad"
+process "print/basement/variant/basement_box_terminal_top_with_groove.scad"
+
+echo ""
+echo "### Utility"
+
+echo ""
+process "print/basement/utility/basement_box_top_hole_cap.scad"
+
+echo ""
 process "print/basement/utility/basement_ground_guide_box_controller.scad"
 process "print/basement/utility/basement_ground_guide_box_terminal.scad"
-#
-#echo ""
-#echo "## GROUND"
-#
-#process "print/ground/ground_with_hole.scad"
-#process "print/ground/ground_without_hole.scad"
-#
-#
-#echo ""
-#echo "## STARTLIGHTS"
-#
-#process "print/startlights/startlights.scad"
-#process "print/startlights/hanger_clip.scad"
-#process "print/startlights/hanger_rod.scad"
+
+echo ""
+echo "## GROUND"
+
+process "print/ground/ground_with_hole.scad"
+process "print/ground/ground_without_hole.scad"
+
+
+echo ""
+echo "## STARTLIGHTS"
+
+process "print/startlights/startlights.scad"
+process "print/startlights/hanger_clip.scad"
+process "print/startlights/hanger_rod.scad"
 
 
 #echo ""

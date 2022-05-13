@@ -19,7 +19,7 @@ use <src/gate/parts/test/upright.scad>
 
 use <src/basement/values.scad>
 
-use <src/basement/print/basement_ground_guide.scad>
+use <src/basement/basement_ground_guide.scad>
 
 
 //$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
@@ -62,4 +62,4 @@ use <src/basement/print/basement_ground_guide.scad>
 
 //sim_hanger_rod();
 
-print_basement_ground_guide(box="terminal");
+basement_ground_guide(box="terminal");

@@ -22,7 +22,9 @@ function angle_traverse_pos_z_offset() =
 ;
 
 // mode="basement"|"upright"|"center"
-function traverse_l(mode="basement") = uprights_distance(mode=mode) - angle_traverse_pos_x_offset()*2;
+function traverse_l(mode="basement") =
+    assert(mode=="basement" || mode=="upright" || mode=="center")
+    uprights_distance(mode=mode) - angle_traverse_pos_x_offset()*2;
 
 // mode="basement"|"upright"|"center"
 module traverse_side_transform(side="left", mode="basement") {
