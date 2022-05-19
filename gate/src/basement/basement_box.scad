@@ -51,7 +51,10 @@ module basement_box_top_hole_cap() {
 
     translate([0,0,box_top_base_thick()*2+basement_box_top_hole_cap_ring_play-fix])
     intersection() {
-        upright_base_hole(void=true);
+        minkowski() {
+            upright_base_hole(void=false);
+            cylinder(r=upright_base_hole_play/2, h=fix);
+        }
         translate([-a_lot/2,-a_lot/2,0])
         cube([a_lot,a_lot,basement_box_top_hole_cap_ring_h]);
     }
