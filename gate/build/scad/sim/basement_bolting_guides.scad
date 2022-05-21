@@ -9,6 +9,7 @@ use <../../../src/gate/parts/sim/bolting.scad>
 use <../../../src/basement/basement_bolting_guide.scad>
 
 module _sim_terminal_box() {
+    sim_basement_box_underplane_transform()
     sim_basement_box_terminal_L();
 
     color("red")
@@ -25,6 +26,7 @@ module _sim_controller_box() {
     color("red")
     sim_bolting_R(mode = "basement");
 
+    sim_basement_box_underplane_transform()
     sim_basement_box_controller_R();
 
     //sim_basement_box_controller_R_top_hole_cap();

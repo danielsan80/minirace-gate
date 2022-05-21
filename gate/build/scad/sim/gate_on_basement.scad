@@ -12,6 +12,7 @@ use <../../../src/gate/interparts/uprights_distance.scad>
 
 use <../../../src/basement/values.scad>
 use <../../../src/basement/sim/basement_box.scad>
+use <../../../src/basement/sim/basement_transform.scad>
 use <../../../src/basement/sim/basement_block.scad>
 use <../../../src/gate/parts/sim/bolting.scad>
 use <../../../src/gate/parts/sim/upright.scad>
@@ -27,12 +28,13 @@ use <../../../vendor/car/src/cars.scad>
 use <../../../vendor/ruler/ruler.scad>
 
 
-$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
-$vpr = [ 60,0,-20 ];
-$vpd = 500;
+//$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
+//$vpr = [ 60,0,-20 ];
+//$vpd = 500;
 
 translate([0,0,basement_h()])
 union() {
+    sim_basement_box_underplane_transform()
     sim_basement_box_terminal_L();
     sim_bolting_L();
     sim_upright_L();
@@ -44,6 +46,7 @@ union() {
     sim_upright_R(mode="basement");
     sim_bolting_R(mode="basement");
 
+    sim_basement_box_underplane_transform()
     sim_basement_box_controller_R();
     sim_basement_box_controller_R_top_hole_cap();
 

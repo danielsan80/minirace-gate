@@ -35,7 +35,7 @@ use <src/basement/basement_bolting_guide.scad>
 //sphere(d=5);
 
 
-//sim_new_gate();
+sim_new_gate();
 
 //test_upright_angle_joints();
 //test_button_joint();
