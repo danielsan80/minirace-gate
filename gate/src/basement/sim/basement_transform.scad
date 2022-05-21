@@ -33,7 +33,7 @@ module sim_basement_box_top_hole_cap_transform() {
 }
 
 module sim_basement_bolting_guide_transform() {
-    translate([0,0,basement_ground_guide_thick+fix])
+    translate([0,0,basement_bolting_guide_thick+fix])
     sim_basement_box_top_transform()
     rotate([0,0,180])
     children();

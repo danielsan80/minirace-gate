@@ -6,7 +6,7 @@ use <../gate/interparts/upright_base_level1.scad>
 
 
 module _basement_bolting_guide_upright_base_level1_hole() {
-    p = basement_ground_guide_play;
+    p = basement_bolting_guide_play;
 
     minkowski() {
         upright_base_level1();
@@ -15,9 +15,9 @@ module _basement_bolting_guide_upright_base_level1_hole() {
 }
 
 module _basement_bolting_guide_upright_base_level1_frame() {
-    p = basement_ground_guide_play;
-    line_w = basement_ground_guide_line_w;
-    thick = basement_ground_guide_thick;
+    p = basement_bolting_guide_play;
+    line_w = basement_bolting_guide_line_w;
+    thick = basement_bolting_guide_thick;
 
     intersection() {
         minkowski() {
@@ -30,67 +30,61 @@ module _basement_bolting_guide_upright_base_level1_frame() {
     }
 }
 
-module _basement_ground_guide_grid_line() {
-    line_w=basement_ground_guide_line_w;
-    thick=basement_ground_guide_thick;
+module _basement_bolting_guide_grid_line() {
+    line_w=basement_bolting_guide_line_w;
+    thick=basement_bolting_guide_thick;
 
     translate([-line_w/2,-a_lot/2,0])
     cube([line_w,a_lot,thick]);
 }
 
 
-module _basement_ground_guide_grid() {
-    grid_gap = basement_ground_guide_grid_gap;
+module _basement_bolting_guide_grid() {
+    grid_gap = basement_bolting_guide_grid_gap;
 
     n=12;
     for(i=[-n:n]) {
         rotate([0,0,-45])
         translate([grid_gap*i,0,0])
-        _basement_ground_guide_grid_line();
+        _basement_bolting_guide_grid_line();
 
         rotate([0,0,45])
         translate([grid_gap*i,0,0])
-        _basement_ground_guide_grid_line();
+        _basement_bolting_guide_grid_line();
     }
 }
 
-function _basement_ground_guide_transform_x(box) =
-    let(wall_thick = basement_ground_guide_wall_thick)
-    let(p = basement_ground_guide_play)
+function _basement_bolting_guide_transform_x(box) =
+    let(wall_thick = basement_bolting_guide_wall_thick)
+    let(p = basement_bolting_guide_play)
     let(basement_w = basement_w(box=box))
     wall_thick + p + basement_upright_margin + upright_base_level1_w()/2
 ;
 
 
-function _basement_ground_guide_transform_y(box) =
-    let(wall_thick=basement_ground_guide_wall_thick)
-    let(p = basement_ground_guide_play)
+function _basement_bolting_guide_transform_y(box) =
+    let(wall_thick=basement_bolting_guide_wall_thick)
+    let(p = basement_bolting_guide_play)
     let(basement_w = basement_w(box=box))
     wall_thick+p+basement_l()/2;
 
-module _basement_ground_guide_transform(box) {
+module _basement_bolting_guide_transform(box) {
     translate([
-        -_basement_ground_guide_transform_x(box),
-        -_basement_ground_guide_transform_y(box),
+        -_basement_bolting_guide_transform_x(box),
+        -_basement_bolting_guide_transform_y(box),
         0
     ])
     children();
 }
 
-function _basement_ground_guide_l() =
-    let(wall_thick=basement_ground_guide_wall_thick)
-    let(p = basement_ground_guide_play)
-    basement_l()+p*2+wall_thick*2;
-
-
-module _basement_ground_guide_main(box) {
+module _basement_bolting_guide_main(box) {
     assert(box=="controller" || box=="terminal");
 
-    h=basement_ground_guide_h;
-    line_w=basement_ground_guide_line_w;
-    thick=basement_ground_guide_thick;
-    wall_thick=basement_ground_guide_wall_thick;
-    p = basement_ground_guide_play;
+    h=basement_bolting_guide_h;
+    line_w=basement_bolting_guide_line_w;
+    thick=basement_bolting_guide_thick;
+    wall_thick=basement_bolting_guide_wall_thick;
+    p = basement_bolting_guide_play;
     basement_w = basement_w(box=box);
 
     difference() {
@@ -107,12 +101,12 @@ module _basement_ground_guide_main(box) {
         cube([basement_w+p*2+wall_thick*2,basement_l()+p*2+wall_thick*2,h]);
 
         translate([wall_thick+p+basement_w/2,wall_thick+p+basement_l()/2,0])
-        _basement_ground_guide_grid();
+        _basement_bolting_guide_grid();
     }
 
     translate([
-        _basement_ground_guide_transform_x(box=box),
-        _basement_ground_guide_transform_y(box=box),
+        _basement_bolting_guide_transform_x(box=box),
+        _basement_bolting_guide_transform_y(box=box),
         0
     ])
     _basement_bolting_guide_upright_base_level1_frame();
@@ -123,16 +117,16 @@ module _basement_ground_guide_main(box) {
 module basement_bolting_guide(box) {
     assert(box=="controller" || box=="terminal");
 
-    h=basement_ground_guide_h;
-    line_w=basement_ground_guide_line_w;
-    thick=basement_ground_guide_thick;
-    wall_thick=basement_ground_guide_wall_thick;
-    p = basement_ground_guide_play;
+    h=basement_bolting_guide_h;
+    line_w=basement_bolting_guide_line_w;
+    thick=basement_bolting_guide_thick;
+    wall_thick=basement_bolting_guide_wall_thick;
+    p = basement_bolting_guide_play;
     basement_w = basement_w(box=box);
 
-    _basement_ground_guide_transform(box=box)
+    _basement_bolting_guide_transform(box=box)
     difference() {
-        _basement_ground_guide_main(box=box);
+        _basement_bolting_guide_main(box=box);
 
         translate([basement_upright_margin(),0,0])
         translate([upright_base_level1_w()/2, basement_l()/2,0])
