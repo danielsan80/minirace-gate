@@ -1,6 +1,6 @@
 /vendor
 
-/build/stl
-#!/build/**/
+/build
+!/build/**/
 
 !.gitkeep
