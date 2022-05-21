@@ -14,16 +14,16 @@ module _sim_upright_angle_joint_sticks() {
     translate([0,0,upright_h+upright_angle_joint_button_h])
     union() {
         translate([pylon_side/2,pylon_side/2,0])
-        _sim_upright_angle_joint_stick(();
+        _sim_upright_angle_joint_stick();
 
         translate([-pylon_side/2,pylon_side/2,0])
-        _sim_upright_angle_joint_stick(();
+        _sim_upright_angle_joint_stick();
 
         translate([-pylon_side/2,-pylon_side/2,0])
-        _sim_upright_angle_joint_stick(();
+        _sim_upright_angle_joint_stick();
 
         translate([pylon_side/2,-pylon_side/2,0])
-        _sim_upright_angle_joint_stick(();
+        _sim_upright_angle_joint_stick();
     }
 }
 
