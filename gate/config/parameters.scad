@@ -79,7 +79,7 @@ hanger_rod_hook_w = 2; // = startlight:space_x
 
 bolt_joint_play = 0.15;
 
-stick_void_l_margin = 1;
+stick_void_l_margin = 0.5;
 stick_d = 2;
 stick_play = 0.15;
 
