@@ -8,6 +8,7 @@ use <../../src/gate/interparts/uprights_distance.scad>
 use <../../src/basement/values.scad>
 use <../../src/basement/basement_box.scad>
 use <../../src/basement/sim/basement_box.scad>
+use <../../src/basement/sim/basement_transform.scad>
 use <../../src/basement/sim/basement_block.scad>
 use <../../src/gate/parts/sim/bolting.scad>
 use <../../src/gate/parts/sim/upright.scad>
@@ -28,7 +29,7 @@ module sim_new_gate() {
 
 //    sim_basement_block_L();
 
-
+    sim_basement_box_underplane_transform()
     sim_basement_box_terminal_L();
     sim_bolting_L();
     sim_upright_L();
@@ -39,6 +40,7 @@ module sim_new_gate() {
     sim_angle_R();
     sim_upright_R();
     sim_bolting_R();
+    sim_basement_box_underplane_transform()
     sim_basement_box_controller_R();
     sim_basement_box_controller_R_top_hole_cap();
 
@@ -58,6 +60,7 @@ module sim_new_gate() {
     sim_hanger_clips();
     sim_hanger_rod();
 
+    sim_basement_box_underplane_transform()
     translate([-5,-30,0])
     translate([35,26,0])
     cars(5);
