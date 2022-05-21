@@ -3,27 +3,27 @@ include <../../../../config/parameters.scad>
 use <../../../gate/parts/print/upright.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
-module _sim_upright_angle_joint_toothpick() {
-    translate([0,0,-upright_angle_joint_toothpick_l/2])
+module _sim_upright_angle_joint_stick() {
+    translate([0,0,-upright_angle_joint_stick_l/2])
     rotate([0,-90,0])
-    translate([0,0,layer_h-toothpick_d/2])
-    print_upright_angle_joint_toothpick();
+    translate([0,0,layer_h-stick_d/2])
+    print_upright_angle_joint_stick();
 }
 
-module _sim_upright_angle_joint_toothpicks() {
+module _sim_upright_angle_joint_sticks() {
     translate([0,0,upright_h+upright_angle_joint_button_h])
     union() {
         translate([pylon_side/2,pylon_side/2,0])
-        _sim_upright_angle_joint_toothpick();
+        _sim_upright_angle_joint_stick(();
 
         translate([-pylon_side/2,pylon_side/2,0])
-        _sim_upright_angle_joint_toothpick();
+        _sim_upright_angle_joint_stick(();
 
         translate([-pylon_side/2,-pylon_side/2,0])
-        _sim_upright_angle_joint_toothpick();
+        _sim_upright_angle_joint_stick(();
 
         translate([pylon_side/2,-pylon_side/2,0])
-        _sim_upright_angle_joint_toothpick();
+        _sim_upright_angle_joint_stick(();
     }
 }
 
@@ -33,7 +33,7 @@ module sim_upright() {
 
 module sim_upright_with_angle_joints_holes() {
     print_upright_with_angle_joints_holes();
-    _sim_upright_angle_joint_toothpicks();
+    _sim_upright_angle_joint_sticks();
 }
 
 module sim_upright_L() {

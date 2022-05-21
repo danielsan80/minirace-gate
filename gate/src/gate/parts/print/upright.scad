@@ -1,24 +1,24 @@
 include <../../../../config/parameters.scad>
 use <../../../gate/parts/upright.scad>
 
-module _upright_angle_joint_toothpick() {
-    l=upright_angle_joint_toothpick_l;
-    d=toothpick_d;
+module _upright_angle_joint_stick() {
+    l=upright_angle_joint_stick_l;
+    d=stick_d;
 
     translate([0,0,-l/2])
     cylinder(d=d, h=l);
 }
 
-module _upright_angle_joint_toothpick_void() {
-    l=upright_angle_joint_toothpick_void_l;
-    d=toothpick_d+toothpick_play*2;
+module _upright_angle_joint_stick_void() {
+    l=upright_angle_joint_stick_void_l;
+    d=stick_d+stick_play*2;
 
     translate([0,0,-l+fix])
     cylinder(d=d, h=l);
 }
 
 module _upright_angle_joint_hole() {
-    _upright_angle_joint_toothpick_void();
+    _upright_angle_joint_stick_void();
 }
 
 module _upright_angle_joints_holes() {
@@ -52,11 +52,11 @@ module print_upright_with_angle_joints_holes() {
 }
 
 
-module print_upright_angle_joint_toothpick() {
+module print_upright_angle_joint_stick() {
     intersection() {
-        translate([0,0,toothpick_d/2-layer_h])
+        translate([0,0,stick_d/2-layer_h])
         rotate([0,90,0])
-        _upright_angle_joint_toothpick();
+        _upright_angle_joint_stick();
 
         translate([-a_lot/2, -a_lot/2, 0])
         cube([a_lot, a_lot, a_lot]);
