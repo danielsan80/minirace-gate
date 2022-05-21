@@ -30,7 +30,7 @@ module sim_new_gate() {
 
 
     sim_basement_box_terminal_L();
-    sim_ground_L();
+    sim_bolting_L();
     sim_upright_L();
     sim_angle_L();
 
@@ -38,7 +38,7 @@ module sim_new_gate() {
 
     sim_angle_R();
     sim_upright_R();
-    sim_ground_R();
+    sim_bolting_R();
     sim_basement_box_controller_R();
     sim_basement_box_controller_R_top_hole_cap();
 

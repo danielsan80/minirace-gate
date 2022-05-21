@@ -105,7 +105,7 @@ echo "====="
 #build_stl "print/basement/utility/basement_ground_guide_box_terminal.scad"
 #
 #echo ""
-#echo "## GROUND"
+#echo "## BOLTING"
 #
 #build_stl "print/ground/ground_with_hole.scad"
 #build_stl "print/ground/ground_without_hole.scad"

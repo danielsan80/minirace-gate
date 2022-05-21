@@ -34,7 +34,7 @@ $vpd = 500;
 translate([0,0,basement_h()])
 union() {
     sim_basement_box_terminal_L();
-    sim_ground_L();
+    sim_bolting_L();
     sim_upright_L();
     sim_angle_L();
 
@@ -42,7 +42,7 @@ union() {
 
     sim_angle_R(mode="basement");
     sim_upright_R(mode="basement");
-    sim_ground_R(mode="basement");
+    sim_bolting_R(mode="basement");
 
     sim_basement_box_controller_R();
     sim_basement_box_controller_R_top_hole_cap();

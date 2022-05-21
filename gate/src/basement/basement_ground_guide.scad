@@ -5,7 +5,7 @@ use <../gate/interparts/basement_upright_margin.scad>
 use <../gate/interparts/upright_base_level1.scad>
 
 
-module _basement_ground_guide_upright_base_level1_hole() {
+module _basement_bolting_guide_upright_base_level1_hole() {
     p = basement_ground_guide_play;
 
     minkowski() {
@@ -14,7 +14,7 @@ module _basement_ground_guide_upright_base_level1_hole() {
     }
 }
 
-module _basement_ground_guide_upright_base_level1_frame() {
+module _basement_bolting_guide_upright_base_level1_frame() {
     p = basement_ground_guide_play;
     line_w = basement_ground_guide_line_w;
     thick = basement_ground_guide_thick;
@@ -115,12 +115,12 @@ module _basement_ground_guide_main(box) {
         _basement_ground_guide_transform_y(box=box),
         0
     ])
-    _basement_ground_guide_upright_base_level1_frame();
+    _basement_bolting_guide_upright_base_level1_frame();
 }
 
 
 
-module basement_ground_guide(box) {
+module basement_bolting_guide(box) {
     assert(box=="controller" || box=="terminal");
 
     h=basement_ground_guide_h;
@@ -137,7 +137,7 @@ module basement_ground_guide(box) {
         translate([basement_upright_margin(),0,0])
         translate([upright_base_level1_w()/2, basement_l()/2,0])
         translate([wall_thick+p, wall_thick+p,0])
-        _basement_ground_guide_upright_base_level1_hole();
+        _basement_bolting_guide_upright_base_level1_hole();
     }
 }
 

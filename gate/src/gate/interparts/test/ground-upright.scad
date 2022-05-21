@@ -3,15 +3,15 @@ use <../../../gate/interparts/ground-upright.scad>
 use <../../../gate/parts/ground.scad>
 use <../../../gate/parts/upright.scad>
 
-module test_ground_upright_bolt() {
-    ground_upright_joint();
+module test_bolting_upright_bolt() {
+    bolting_upright_joint();
 }
 
-module test_ground_upright_bolts() {
+module test_bolting_upright_bolts() {
     translate([pylon_side*2,0,0])
     union() {
         translate([0,0,1])
-        ground();
+        bolting();
         translate([-upright_base_w/2, -upright_base_l/2,0])
         cube([upright_base_w,upright_base_l,1]);
     }

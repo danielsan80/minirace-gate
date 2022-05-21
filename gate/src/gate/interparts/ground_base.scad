@@ -1,12 +1,12 @@
 include <../../../config/parameters.scad>
 use <../../gate/interparts/upright_base_level1.scad>
 
-module ground_base() {
+module bolting_base() {
     intersection() {
-        translate([-upright_base_level1_w()/2, -upright_base_level1_l()/2, -ground_thick+fix])
-        cube([upright_base_level1_w(), upright_base_level1_l(), ground_thick]);
+        translate([-upright_base_level1_w()/2, -upright_base_level1_l()/2, -bolting_base_thick+fix])
+        cube([upright_base_level1_w(), upright_base_level1_l(), bolting_base_thick]);
 
-        translate([0, 0, -ground_thick+fix])
+        translate([0, 0, -bolting_base_thick+fix])
         upright_base_level1();
     }
 }

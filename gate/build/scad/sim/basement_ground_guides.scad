@@ -12,18 +12,18 @@ module _sim_terminal_box() {
     sim_basement_box_terminal_L();
 
     color("red")
-    sim_ground_L();
+    sim_bolting_L();
 
     color("blue")
     sim_basement_box_underplane_transform()
-    sim_basement_ground_guide_transform()
-    basement_ground_guide(box="terminal");
+    sim_basement_bolting_guide_transform()
+    basement_bolting_guide(box="terminal");
 }
 
 
 module _sim_controller_box() {
     color("red")
-    sim_ground_R(mode = "basement");
+    sim_bolting_R(mode = "basement");
 
     sim_basement_box_controller_R();
 
@@ -32,8 +32,8 @@ module _sim_controller_box() {
     color("blue")
     sim_basement_box_R_tranform(mode="basement")
     sim_basement_box_underplane_transform()
-    sim_basement_ground_guide_transform()
-    basement_ground_guide(box="controller");
+    sim_basement_bolting_guide_transform()
+    basement_bolting_guide(box="controller");
 }
 
 

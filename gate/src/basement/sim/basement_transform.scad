@@ -15,7 +15,7 @@ module sim_basement_box_R_tranform(mode) {
 }
 
 module sim_basement_box_underplane_transform() {
-    translate([0,0,-ground_thick-fix2])
+    translate([0,0,-bolting_base_thick-fix2])
     translate([0,0,-basement_h()])
     children();
 }
@@ -32,7 +32,7 @@ module sim_basement_box_top_hole_cap_transform() {
     children();
 }
 
-module sim_basement_ground_guide_transform() {
+module sim_basement_bolting_guide_transform() {
     translate([0,0,basement_ground_guide_thick+fix])
     sim_basement_box_top_transform()
     rotate([0,0,180])

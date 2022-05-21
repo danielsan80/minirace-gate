@@ -30,7 +30,7 @@ module upright_base() {
         }
 
         upright_base_hole();
-        upright_ground_joints_void();
+        upright_bolting_joints_void();
     }
 
 }

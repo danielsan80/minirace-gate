@@ -45,8 +45,8 @@ use <src/basement/basement_ground_guide.scad>
 
 
 //test_angle(); // duplicated?
-//test_ground_upright_bolt();
-//test_ground_upright_bolts();
+//test_bolting_upright_bolt();
+//test_bolting_upright_bolts();
 
 //print_hanger_rod();
 //print_hanger_clip();
@@ -62,4 +62,4 @@ use <src/basement/basement_ground_guide.scad>
 
 //sim_hanger_rod();
 
-basement_ground_guide(box="terminal");
+basement_bolting_guide(box="terminal");

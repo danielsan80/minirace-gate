@@ -1,3 +1,3 @@
 use <../../../../../src/basement/basement_ground_guide.scad>
 
-basement_ground_guide(box="terminal");
+basement_bolting_guide(box="terminal");
