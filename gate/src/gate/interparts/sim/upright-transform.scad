@@ -1,4 +1,4 @@
-use <../../../gate/interparts/ground-upright.scad>
+use <../../../gate/interparts/bolting-upright.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
 module sim_upright_R_transform(mode="basement") {

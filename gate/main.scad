@@ -4,10 +4,10 @@ use <src/gate/joints/bar_wrapper.scad>
 use <src/gate/joints/ct_slide.scad>
 
 use <src/gate/parts/test/angle.scad>
-use <src/gate/interparts/test/ground-upright.scad>
+use <src/gate/interparts/test/bolting-upright.scad>
 use <src/gate/parts/sim/traverse.scad>
 use <src/gate/parts/upright.scad>
-use <src/gate/interparts/ground-upright.scad>
+use <src/gate/interparts/bolting-upright.scad>
 use <src/gate/interparts/uprights_distance.scad>
 use <src/gate/parts/print/hanger_clip.scad>
 use <src/gate/parts/print/hanger_rod.scad>
@@ -19,7 +19,7 @@ use <src/gate/parts/test/upright.scad>
 
 use <src/basement/values.scad>
 
-use <src/basement/basement_ground_guide.scad>
+use <src/basement/basement_bolting_guide.scad>
 
 
 //$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];

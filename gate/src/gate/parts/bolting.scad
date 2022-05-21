@@ -1,7 +1,7 @@
 include <../../../config/parameters.scad>
-use <../../gate/interparts/ground-upright.scad>
+use <../../gate/interparts/bolting-upright.scad>
 use <../../gate/interparts/angle-traverse.scad>
-use <../../gate/interparts/ground_base.scad>
+use <../../gate/interparts/bolting_base.scad>
 use <../../gate/interparts/upright_base_hole.scad>
 
 module bolting(with_hole=true) {

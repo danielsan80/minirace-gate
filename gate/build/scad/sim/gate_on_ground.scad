@@ -7,13 +7,13 @@ use <../../../src/gate/interparts/uprights_distance.scad>
 use <../../../src/gate/modules/profile.scad>
 use <../../../src/startlights/values.scad>
 use <../../../src/gate/interparts/angle-traverse.scad>
-use <../../../src/gate/interparts/ground-upright.scad>
+use <../../../src/gate/interparts/bolting-upright.scad>
 use <../../../src/gate/interparts/uprights_distance.scad>
 
 use <../../../src/basement/values.scad>
 use <../../../src/basement/sim/basement_box.scad>
 use <../../../src/basement/sim/basement_block.scad>
-use <../../../src/gate/parts/sim/ground.scad>
+use <../../../src/gate/parts/sim/bolting.scad>
 use <../../../src/gate/parts/sim/upright.scad>
 use <../../../src/gate/parts/sim/angle.scad>
 use <../../../src/gate/parts/sim/traverse.scad>

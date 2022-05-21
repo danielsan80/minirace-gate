@@ -4,9 +4,9 @@ use <../../../src/basement/values.scad>
 use <../../../src/basement/sim/basement_box.scad>
 use <../../../src/basement/sim/basement_transform.scad>
 use <../../../src/basement/sim/basement_block.scad>
-use <../../../src/gate/parts/sim/ground.scad>
+use <../../../src/gate/parts/sim/bolting.scad>
 
-use <../../../src/basement/basement_ground_guide.scad>
+use <../../../src/basement/basement_bolting_guide.scad>
 
 module _sim_terminal_box() {
     sim_basement_box_terminal_L();

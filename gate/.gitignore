@@ -1,8 +1,13 @@
 /vendor
 
-/build
+/build/**
 !/build/**/
-!/build/scad
+!/build/scad/**
+
+#/var/**
+#!/var/**/
+#!var/SymfonyRequirements.php
+#!var/config.yaml.dist
 
 
 !.gitkeep

@@ -1,4 +1,4 @@
-use <../../../gate/parts/ground.scad>
+use <../../../gate/parts/bolting.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 use <../../../gate/interparts/sim/upright-transform.scad>
 

@@ -47,84 +47,84 @@ echo ""
 echo "Build"
 echo "====="
 
-#
-#echo ""
-#echo "## GATE"
-#
-#build_stl "print/gate/upright.scad"
-#build_stl "print/gate/angle.scad"
-#build_stl "print/gate/traverse.scad"
-#
-#echo ""
-#echo "### Variant"
-#
-#build_stl "print/gate/variant/traverse_split_L.scad"
-#build_stl "print/gate/variant/traverse_split_R.scad"
-#build_stl "print/gate/variant/traverse_split_toothpick_3of3.scad"
-#build_stl "print/gate/variant/traverse_split_toothpick_2of3.scad"
-#build_stl "print/gate/variant/traverse_split_toothpick_1of3.scad"
-#build_stl "print/gate/variant/upright_with_angle_joints_holes.scad"
-#build_stl "print/gate/variant/upright_angle_joint_toothpick.scad"
-#
-#echo ""
-#build_stl "print/gate/variant/traverse_without_basement.scad"
-#build_stl "print/gate/variant/traverse_without_basement_split_L.scad"
-#build_stl "print/gate/variant/traverse_without_basement_split_R.scad"
-#
-#
-#echo ""
-#echo "## BASEMENT"
-#
-#build_stl "print/basement/basement_box_controller_bottom.scad"
-#build_stl "print/basement/basement_box_controller_side_slide.scad"
-#build_stl "print/basement/basement_box_controller_top.scad"
-#
-#echo ""
-#build_stl "print/basement/basement_box_terminal_bottom.scad"
-#build_stl "print/basement/basement_box_terminal_side_slide.scad"
-#build_stl "print/basement/basement_box_terminal_top.scad"
-#
-#
-#echo ""
-#echo "### Variant"
-#
-#build_stl "print/basement/variant/basement_block.scad"
-#build_stl "print/basement/variant/basement_block_with_hole.scad"
-#build_stl "print/basement/variant/basement_box_controller_top_without_hole.scad"
-#build_stl "print/basement/variant/basement_box_controller_top_with_groove.scad"
-#build_stl "print/basement/variant/basement_box_terminal_top_with_groove.scad"
-#
-#echo ""
-#echo "### Utility"
-#
-#echo ""
-#build_stl "print/basement/utility/basement_box_top_hole_cap.scad"
-#
-#echo ""
-#build_stl "print/basement/utility/basement_ground_guide_box_controller.scad"
-#build_stl "print/basement/utility/basement_ground_guide_box_terminal.scad"
-#
-#echo ""
-#echo "## BOLTING"
-#
-#build_stl "print/ground/ground_with_hole.scad"
-#build_stl "print/ground/ground_without_hole.scad"
-#
-#
-#echo ""
-#echo "## STARTLIGHTS"
-#
-#build_stl "print/startlights/startlights.scad"
-#build_stl "print/startlights/hanger_clip.scad"
-#build_stl "print/startlights/hanger_rod.scad"
+
+echo ""
+echo "## GATE"
+
+build_stl "print/gate/upright.scad"
+build_stl "print/gate/angle.scad"
+build_stl "print/gate/traverse.scad"
+
+echo ""
+echo "### Variant"
+
+build_stl "print/gate/variant/traverse_split_L.scad"
+build_stl "print/gate/variant/traverse_split_R.scad"
+build_stl "print/gate/variant/traverse_split_toothpick_3of3.scad"
+build_stl "print/gate/variant/traverse_split_toothpick_2of3.scad"
+build_stl "print/gate/variant/traverse_split_toothpick_1of3.scad"
+build_stl "print/gate/variant/upright_with_angle_joints_holes.scad"
+build_stl "print/gate/variant/upright_angle_joint_toothpick.scad"
+
+echo ""
+build_stl "print/gate/variant/traverse_without_basement.scad"
+build_stl "print/gate/variant/traverse_without_basement_split_L.scad"
+build_stl "print/gate/variant/traverse_without_basement_split_R.scad"
+
+
+echo ""
+echo "## BASEMENT"
+
+build_stl "print/basement/basement_box_controller_bottom.scad"
+build_stl "print/basement/basement_box_controller_side_slide.scad"
+build_stl "print/basement/basement_box_controller_top.scad"
+
+echo ""
+build_stl "print/basement/basement_box_terminal_bottom.scad"
+build_stl "print/basement/basement_box_terminal_side_slide.scad"
+build_stl "print/basement/basement_box_terminal_top.scad"
+
+
+echo ""
+echo "### Variant"
+
+build_stl "print/basement/variant/basement_block.scad"
+build_stl "print/basement/variant/basement_block_with_hole.scad"
+build_stl "print/basement/variant/basement_box_controller_top_without_hole.scad"
+build_stl "print/basement/variant/basement_box_controller_top_with_groove.scad"
+build_stl "print/basement/variant/basement_box_terminal_top_with_groove.scad"
+
+echo ""
+echo "### Utility"
+
+echo ""
+build_stl "print/basement/utility/basement_box_top_hole_cap.scad"
+
+echo ""
+build_stl "print/basement/utility/basement_bolting_guide_box_controller.scad"
+build_stl "print/basement/utility/basement_bolting_guide_box_terminal.scad"
+
+echo ""
+echo "## BOLTING"
+
+build_stl "print/bolting/bolting_with_hole.scad"
+build_stl "print/bolting/bolting_without_hole.scad"
+
+
+echo ""
+echo "## STARTLIGHTS"
+
+build_stl "print/startlights/startlights.scad"
+build_stl "print/startlights/hanger_clip.scad"
+build_stl "print/startlights/hanger_rod.scad"
 
 
 echo ""
 echo "# SIM"
 
-#build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800"
-#build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800"
-build_image "sim/basement_ground_guides.scad" "120,50,0,60,0,-20,1800"
+build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800"
+build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800"
+build_image "sim/basement_bolting_guides.scad" "120,50,0,60,0,-20,1800"
 
 
 echo ""

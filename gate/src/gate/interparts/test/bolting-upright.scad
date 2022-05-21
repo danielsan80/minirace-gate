@@ -1,6 +1,6 @@
 include <../../../../config/parameters.scad>
-use <../../../gate/interparts/ground-upright.scad>
-use <../../../gate/parts/ground.scad>
+use <../../../gate/interparts/bolting-upright.scad>
+use <../../../gate/parts/bolting.scad>
 use <../../../gate/parts/upright.scad>
 
 module test_bolting_upright_bolt() {
