@@ -14,9 +14,9 @@ module sim_basement_box_R_tranform(mode) {
     children();
 }
 
-module sim_basement_box_underplane_transform() {
-    translate([0,0,-bolting_base_thick-fix2])
-    translate([0,0,-basement_h()])
+module sim_on_basement_transform() {
+    translate([0,0,fix2])
+    translate([0,0,basement_h()])
     children();
 }
 

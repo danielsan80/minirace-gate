@@ -5,18 +5,16 @@ use <../../../src/basement/sim/basement_box.scad>
 use <../../../src/basement/sim/basement_transform.scad>
 use <../../../src/basement/sim/basement_block.scad>
 use <../../../src/gate/parts/sim/bolting.scad>
-
 use <../../../src/basement/basement_bolting_guide.scad>
 
 module _sim_terminal_box() {
-    sim_basement_box_underplane_transform()
     sim_basement_box_terminal_L();
 
     color("red")
+    sim_on_basement_transform()
     sim_bolting_L();
 
     color("blue")
-    sim_basement_box_underplane_transform()
     sim_basement_bolting_guide_transform()
     basement_bolting_guide(box="terminal");
 }
@@ -24,16 +22,15 @@ module _sim_terminal_box() {
 
 module _sim_controller_box() {
     color("red")
+    sim_on_basement_transform()
     sim_bolting_R(mode = "basement");
 
-    sim_basement_box_underplane_transform()
     sim_basement_box_controller_R();
 
     //sim_basement_box_controller_R_top_hole_cap();
 
     color("blue")
     sim_basement_box_R_tranform(mode="basement")
-    sim_basement_box_underplane_transform()
     sim_basement_bolting_guide_transform()
     basement_bolting_guide(box="controller");
 }

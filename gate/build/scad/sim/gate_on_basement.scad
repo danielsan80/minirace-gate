@@ -13,6 +13,7 @@ use <../../../src/gate/interparts/uprights_distance.scad>
 use <../../../src/basement/values.scad>
 use <../../../src/basement/sim/basement_box.scad>
 use <../../../src/basement/sim/basement_transform.scad>
+use <../../../src/gate/parts/sim/bolting_transform.scad>
 use <../../../src/basement/sim/basement_block.scad>
 use <../../../src/gate/parts/sim/bolting.scad>
 use <../../../src/gate/parts/sim/upright.scad>
@@ -32,24 +33,35 @@ use <../../../vendor/ruler/ruler.scad>
 //$vpr = [ 60,0,-20 ];
 //$vpd = 500;
 
-translate([0,0,basement_h()])
+sim_basement_box_terminal_L();
+
+sim_on_basement_transform()
 union() {
-    sim_basement_box_underplane_transform()
-    sim_basement_box_terminal_L();
+
     sim_bolting_L();
-    sim_upright_L();
-    sim_angle_L();
 
-    sim_traverse(mode="basement");
+    sim_on_bolting_transform()
+    union() {
+        sim_upright_L();
+        sim_angle_L();
 
-    sim_angle_R(mode="basement");
-    sim_upright_R(mode="basement");
+        sim_traverse(mode="basement");
+
+        sim_angle_R(mode="basement");
+        sim_upright_R(mode="basement");
+    }
+
     sim_bolting_R(mode="basement");
+}
 
-    sim_basement_box_underplane_transform()
-    sim_basement_box_controller_R();
-    sim_basement_box_controller_R_top_hole_cap();
 
+
+sim_basement_box_controller_R();
+//    sim_basement_box_controller_R_top_hole_cap();
+
+sim_on_basement_transform()
+sim_on_bolting_transform()
+union() {
     translate([0,0,-profile_w_diff()/2-bar_wrapper_play-hanger_clip_junction_l-ct_slide_side/2])
     translate([0,0,startlights_board_margin()+startlights_board_hole_y_offset()])
     translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
@@ -74,6 +86,7 @@ cars(5);
 translate([basement_w(box="terminal")/2, -70, 0])
 ruler(x=intra_uprights_space_l);
 
-translate([0,0,basement_h()])
 translate([-40,0,0])
+sim_on_basement_transform()
+sim_on_bolting_transform()
 ruler(z=upright_h);
