@@ -140,6 +140,7 @@ module _sim_traverse_split_R() {
 module _sim_instructions() {
 
     line_height = 15;
+
     color("black")
     text("glue the", size=8);
     color("blue")
@@ -147,9 +148,13 @@ module _sim_instructions() {
 
     translate([0,-line_height,0])
     color("black")
+    text("(to reinforce the hoverhangs)", size=5);
+
+    translate([0,-line_height*2,0])
+    color("black")
     text("fit the", size=8);
     color("red")
-    translate([0,-line_height,0])
+    translate([0,-line_height*2,0])
     text("          red sticks", size=8);
 }
 
@@ -187,7 +192,6 @@ module _sim_legenda() {
     color("red")
     text("3cm", size=3, halign="center");
 
-
 }
 
 
@@ -197,5 +201,5 @@ _sim_traverse_split_R();
 translate([-50,-40,0])
 _sim_instructions();
 
-translate([0,-75,0])
+translate([0,-90,0])
 _sim_legenda();

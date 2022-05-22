@@ -47,9 +47,9 @@ echo ""
 echo "Build"
 echo "====="
 
-
-echo ""
-echo "## GATE"
+#
+#echo ""
+#echo "## GATE"
 #
 #build_stl "print/gate/upright.scad"
 #build_stl "print/gate/angle.scad"
@@ -117,26 +117,33 @@ echo "## GATE"
 #build_stl "print/startlights/startlights.scad"
 #build_stl "print/startlights/hanger_clip.scad"
 #build_stl "print/startlights/hanger_rod.scad"
-
-
-echo ""
-echo "# SIM"
-
+#
+#
+#echo ""
+#echo "# SIM"
+#
 #build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800"
 #build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800"
 #build_image "sim/basement_bolting_guides.scad" "120,50,0,60,0,-20,1800"
-build_image "sim/traverse_splits_instructions.scad" "0,0,0,60,0,-20,600"
+#build_image "sim/traverse_assembly.scad" "0,0,0,60,0,-20,600"
+#build_image "sim/upright_assembly.scad" "0,0,0,60,0,-20,600"
 
 
 echo ""
 echo "Build for Thingiverse"
 echo "====================="
-mkdir -p "build/stl/thingiverse"
+mkdir -p "build/thingiverse"
 find "build/stl/print" -type f -iname '*.stl' -exec bash -c '
     tmp1="${1#*/}"
     tmp2="${tmp1/stl\/print\//}"
     filename="${tmp2//\//.}"
-    cp -nv "${1}" "build/stl/thingiverse/${filename}" ' sh_cp {} \;
+    cp -nv "${1}" "build/thingiverse/${filename}" ' sh_cp {} \;
+
+find "build/png/sim" -type f -iname '*.png' -exec bash -c '
+    tmp1="${1#*/}"
+    tmp2="${tmp1/png\/sim\//}"
+    filename="${tmp2//\//.}"
+    cp -nv "${1}" "build/thingiverse/${filename}" ' sh_cp {} \;
 
 
 echo ""

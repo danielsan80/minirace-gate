@@ -20,7 +20,24 @@ You can find some directories that define the context:
 - `print`: It contains modules useful for the printing. These modules wrap the source modules
   to translate and rotate them for a better placement in the space for a printing purpose.
 - `test`: It contains module useful for the testing. These modules cut or reduce the source
-  modules to print drafts to test joints, plays, friction between parts and other test stuff.  
+  modules to print drafts to test joints, plays, friction between parts and other test stuff.
+  
+## Conventions
+
+Not all projects and parts still adopt the following conventions, but they are proving useful. 
+
+### private modules
+To indicate a "private" module that is used only in the same file, it is prefixed with an underscore `_`.
+
+A private module has a global scope too (with risk of name collision), but it helps to identify which modules in a file
+should be considered "exported" and usable from who "< use >" the file.
+
+### context prefix
+To specify a module belongs to a context it is prefixed with the context keyword (`print_*`, `sim_*`, `test_*`, ...).
+
+### transform suffix
+To specify a module help to place a model in the right position (for a specific context for example)
+it is suffixed with `_transform`. Obviously it has a `children()` instruction to which apply the transformation.
 
 
 # Index
