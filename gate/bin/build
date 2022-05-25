@@ -4,6 +4,8 @@ START_TIME=$SECONDS
 
 build_stl () {
     SCAD=$1
+    THINGIVERSE_NAME=$2
+
     BASE=${SCAD/%.scad/}
     DIR=$(dirname "$SCAD")
 
@@ -12,12 +14,22 @@ build_stl () {
     echo "  $SCAD..."
     LAST_LAP=$SECONDS
     openscad -o build/stl/$BASE.stl build/scad/$SCAD
+
+    if [ ! -z "$THINGIVERSE_NAME" ]
+    then
+      mkdir -p "build/thingiverse"
+      cp "build/stl/$BASE.stl" "build/thingiverse/$THINGIVERSE_NAME.stl"
+      echo "      -> thingiverse/$THINGIVERSE_NAME.stl"
+    fi
+
     echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
 }
 
 build_image () {
     SCAD=$1
     CAMERA=$2
+    THINGIVERSE_NAME=$3
+
     BASE=${SCAD/%.scad/}
     DIR=$(dirname "$SCAD")
     W=2400
@@ -32,6 +44,13 @@ build_image () {
     convert -trim -border 50 -bordercolor "#ffffe5" build/png/$BASE.png build/png/$BASE..png
 #    convert build/png/$BASE.png -crop $((W))x$((H))+$((W))+$((H)) build/png/$BASE..png
     rm build/png/$BASE.png && mv build/png/$BASE..png build/png/$BASE.png
+
+    if [ ! -z "$THINGIVERSE_NAME" ]
+    then
+      mkdir -p "build/thingiverse"
+      cp "build/png/$BASE.png" "build/thingiverse/$THINGIVERSE_NAME.png"
+      echo "      -> thingiverse/$THINGIVERSE_NAME.png"
+    fi
 
     echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
 
@@ -52,19 +71,19 @@ echo ""
 echo "## GATE"
 
 build_stl "print/gate/upright.scad"
-build_stl "print/gate/angle.scad"
+build_stl "print/gate/angle.scad" "angle"
 build_stl "print/gate/traverse.scad"
 
 echo ""
 echo "### Variant"
 
-build_stl "print/gate/variant/traverse_split_L.scad"
-build_stl "print/gate/variant/traverse_split_R.scad"
-build_stl "print/gate/variant/traverse_split_stick_3of3.scad"
-build_stl "print/gate/variant/traverse_split_stick_2of3.scad"
-build_stl "print/gate/variant/traverse_split_stick_1of3.scad"
-build_stl "print/gate/variant/upright_with_angle_joints_holes.scad"
-build_stl "print/gate/variant/upright_angle_joint_stick.scad"
+build_stl "print/gate/variant/traverse_split_L.scad" "traverse_L"
+build_stl "print/gate/variant/traverse_split_R.scad" "traverse_R"
+build_stl "print/gate/variant/traverse_split_stick_3of3.scad" "traverse_stick_3of3"
+build_stl "print/gate/variant/traverse_split_stick_2of3.scad" "traverse_stick_2of3"
+build_stl "print/gate/variant/traverse_split_stick_1of3.scad" "traverse_stick_1of3"
+build_stl "print/gate/variant/upright_with_angle_joints_holes.scad" "upright"
+build_stl "print/gate/variant/upright_angle_joint_stick.scad" "upright_stick"
 
 echo ""
 build_stl "print/gate/variant/traverse_without_basement.scad"
@@ -75,14 +94,14 @@ build_stl "print/gate/variant/traverse_without_basement_split_R.scad"
 echo ""
 echo "## BASEMENT"
 
-build_stl "print/basement/basement_box_controller_bottom.scad"
-build_stl "print/basement/basement_box_controller_side_slide.scad"
-build_stl "print/basement/basement_box_controller_top.scad"
+build_stl "print/basement/basement_box_controller_bottom.scad" "basement_box_controller_bottom"
+build_stl "print/basement/basement_box_controller_side_slide.scad" "basement_box_controller_side_slide"
+build_stl "print/basement/basement_box_controller_top.scad" "basement_box_controller_top"
 
 echo ""
-build_stl "print/basement/basement_box_terminal_bottom.scad"
-build_stl "print/basement/basement_box_terminal_side_slide.scad"
-build_stl "print/basement/basement_box_terminal_top.scad"
+build_stl "print/basement/basement_box_terminal_bottom.scad" "basement_box_terminal_bottom"
+build_stl "print/basement/basement_box_terminal_side_slide.scad" "basement_box_terminal_side_slide"
+build_stl "print/basement/basement_box_terminal_top.scad" "basement_box_terminal_top"
 
 
 echo ""
@@ -98,52 +117,52 @@ echo ""
 echo "### Utility"
 
 echo ""
-build_stl "print/basement/utility/basement_box_top_hole_cap.scad"
+build_stl "print/basement/utility/basement_box_top_hole_cap.scad" "basement_box_controller_top_hole_cap"
 
 echo ""
-build_stl "print/basement/utility/basement_bolting_guide_box_controller.scad"
-build_stl "print/basement/utility/basement_bolting_guide_box_terminal.scad"
+build_stl "print/basement/utility/basement_bolting_guide_box_controller.scad" "basement_box_controller_bolting_guide"
+build_stl "print/basement/utility/basement_bolting_guide_box_terminal.scad" "basement_box_terminal_bolting_guide"
 
 echo ""
 echo "## BOLTING"
 
-build_stl "print/bolting/bolting_with_hole.scad"
+build_stl "print/bolting/bolting_with_hole.scad" "bolting"
 build_stl "print/bolting/bolting_without_hole.scad"
 
 
 echo ""
 echo "## STARTLIGHTS"
 
-build_stl "print/startlights/startlights.scad"
-build_stl "print/startlights/hanger_clip.scad"
-build_stl "print/startlights/hanger_rod.scad"
+build_stl "print/startlights/startlights.scad" "startlights"
+build_stl "print/startlights/hanger_clip.scad" "hanger_clip"
+build_stl "print/startlights/hanger_rod.scad" "hanger_rod"
 
 
 echo ""
 echo "# SIM"
 
-build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800"
+build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800" "gate_on_basement"
 build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800"
-build_image "sim/basement_bolting_guides.scad" "120,50,0,60,0,-20,1800"
-build_image "sim/traverse_assembly.scad" "0,0,0,60,0,-20,600"
-build_image "sim/upright_assembly.scad" "0,0,0,60,0,-20,600"
+build_image "sim/basement_bolting_guides.scad" "120,50,0,60,0,-20,1800" "basement_bolting_guides"
+build_image "sim/traverse_assembly.scad" "0,0,0,60,0,-20,600" "traverse_assembly"
+build_image "sim/upright_assembly.scad" "0,0,0,60,0,-20,600" "upright_assembly"
 
 
-echo ""
-echo "Build for Thingiverse"
-echo "====================="
-mkdir -p "build/thingiverse"
-find "build/stl/print" -type f -iname '*.stl' -exec bash -c '
-    tmp1="${1#*/}"
-    tmp2="${tmp1/stl\/print\//}"
-    filename="${tmp2//\//.}"
-    cp -nv "${1}" "build/thingiverse/${filename}" ' sh_cp {} \;
-
-find "build/png/sim" -type f -iname '*.png' -exec bash -c '
-    tmp1="${1#*/}"
-    tmp2="${tmp1/png\/sim\//}"
-    filename="${tmp2//\//.}"
-    cp -nv "${1}" "build/thingiverse/${filename}" ' sh_cp {} \;
+#echo ""
+#echo "Build for Thingiverse"
+#echo "====================="
+#mkdir -p "build/thingiverse"
+#find "build/stl/print" -type f -iname '*.stl' -exec bash -c '
+#    tmp1="${1#*/}"
+#    tmp2="${tmp1/stl\/print\//}"
+#    filename="${tmp2//\//.}"
+#    cp -nv "${1}" "build/thingiverse/${filename}" ' sh_cp {} \;
+#
+#find "build/png/sim" -type f -iname '*.png' -exec bash -c '
+#    tmp1="${1#*/}"
+#    tmp2="${tmp1/png\/sim\//}"
+#    filename="${tmp2//\//.}"
+#    cp -nv "${1}" "build/thingiverse/${filename}" ' sh_cp {} \;
 
 
 echo ""
