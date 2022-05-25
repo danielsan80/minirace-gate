@@ -37,7 +37,7 @@ board_startlights_gap = 1;
 welding_l = 8.5;
 welding_w = 1;
 welding_h = 0.8;
-welding_y_offset = 11.5;
+welding_y_offset = 10.5;
 welding_play = 0.1;
 welding_r = 0.3;
 

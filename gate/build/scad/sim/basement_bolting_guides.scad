@@ -58,7 +58,7 @@ module _sim_instructions() {
 
     translate([0,-line_height*3,0])
         color("black")
-            text("than throw the guide", size=8);
+            text("than throw away the guide", size=6);
 }
 
 
