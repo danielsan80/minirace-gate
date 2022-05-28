@@ -3,16 +3,16 @@
 This subproject assembles the gate and all other stuff together to simulate
 and build the printable parts in stl files.
 It adds the joint to hang up the startlights on the traverse.
-It uses the controller box as basement for one of its uprights.
+It uses the controller box and terminal box as basements for its uprights.
 It uses the rules to show the measures in the simulation context.
 
 ## Getting started
 Tested on Ubuntu 20.04.
 
-You must have OpenSCAD Installed (>=2019.05):
+You must have OpenSCAD (>=2019.05) and ImageMagick installed:
 
 ```
-sudo apt-get install openscad
+sudo apt-get install openscad imagemagick
 ```
 
 To build the gate you have to clone this project:
