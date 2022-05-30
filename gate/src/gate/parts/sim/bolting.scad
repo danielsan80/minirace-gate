@@ -6,9 +6,9 @@ module sim_bolting_L() {
     bolting();
 }
 
-module sim_bolting_R(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module sim_bolting_R(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    sim_upright_R_transform(mode=mode)
+    sim_upright_R_transform(startline_mode=startline_mode)
     bolting();
 }

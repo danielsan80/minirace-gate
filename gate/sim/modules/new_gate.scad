@@ -60,7 +60,7 @@ module sim_new_gate() {
         translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
         translate([0,-pylon_side/2-ct_slide_side/2,0])
         translate([0,0,upright_h+angle_traverse_pos_z_offset()-startlights_startlights_height()])
-        translate([(uprights_distance(mode="basement")-startlights_startlights_length())/2,0,0])
+        translate([(uprights_distance(startline_mode="basement")-startlights_startlights_length())/2,0,0])
         rotate([90,0,0])
         union() {
             sim_startlights_front();

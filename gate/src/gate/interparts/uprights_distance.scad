@@ -3,8 +3,8 @@ use <../../functions.scad>
 use <../../basement/values.scad>
 use <../../gate/interparts/upright_base_level1.scad>
 
-function uprights_distance(mode="center") =
-    assert(mode=="basement" || mode=="upright" || mode=="center")
-    let(base_w = mode=="upright"?upright_base_level1_w():mode=="basement"?basement_block_w():mode=="center"?0:0)
+function uprights_distance(startline_mode="center") =
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center")
+    let(base_w = startline_mode=="upright"?upright_base_level1_w():startline_mode=="basement"?basement_block_w():startline_mode=="center"?0:0)
     startline_l + base_w
 ;

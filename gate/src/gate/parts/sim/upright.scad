@@ -41,11 +41,11 @@ module sim_upright_L() {
 }
 
 
-module sim_upright_R(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module sim_upright_R(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     angle_traverse_cut_x_translate()
-    translate([traverse_l(mode=mode),0,0])
+    translate([traverse_l(startline_mode=startline_mode),0,0])
     angle_traverse_cut_x_translate()
     sim_upright_with_angle_joints_holes();
 }

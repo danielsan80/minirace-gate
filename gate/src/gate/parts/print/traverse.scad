@@ -3,11 +3,11 @@ use <../../../gate/parts/traverse.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
 
-module print_traverse(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module print_traverse(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     rotate([0,-90,0])
-    traverse(mode=mode);
+    traverse(startline_mode=startline_mode);
 }
 
 module _treverse_stick_3of3() {
@@ -57,16 +57,16 @@ module _treverse_stick_voids() {
 }
 
 
-module print_traverse_split_L(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module print_traverse_split_L(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
         translate([-pylon_side/2-bar_w/2,0,0])
         rotate([0,90,0])
-        translate([-traverse_l(mode=mode)/2,0,0])
+        translate([-traverse_l(startline_mode=startline_mode)/2,0,0])
         intersection() {
-            traverse(mode=mode);
-            translate([-a_lot+traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
+            traverse(startline_mode=startline_mode);
+            translate([-a_lot+traverse_l(startline_mode=startline_mode)/2,-a_lot/2,-a_lot/2])
                 cube([a_lot,a_lot, a_lot]);
         }
 
@@ -74,16 +74,16 @@ module print_traverse_split_L(mode="basement") {
     }
 }
 
-module print_traverse_split_R(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module print_traverse_split_R(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
         translate([pylon_side/2+bar_w/2,0,0])
         rotate([0,-90,0])
-        translate([-traverse_l(mode=mode)/2,0,0])
+        translate([-traverse_l(startline_mode=startline_mode)/2,0,0])
         intersection() {
-            traverse(mode=mode);
-            translate([traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
+            traverse(startline_mode=startline_mode);
+            translate([traverse_l(startline_mode=startline_mode)/2,-a_lot/2,-a_lot/2])
             cube([a_lot,a_lot, a_lot]);
         }
         _treverse_stick_voids();

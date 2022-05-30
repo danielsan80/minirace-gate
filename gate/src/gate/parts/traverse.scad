@@ -14,10 +14,10 @@ module traverse_transform() {
 
 
 
-module traverse_pylon(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module traverse_pylon(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    traverse_l = traverse_l(mode=mode);
+    traverse_l = traverse_l(startline_mode=startline_mode);
     step = pylon_side*2+reinforcement_gap*2;
     l_ext = step*ceil(traverse_l/step)+pylon_side+reinforcement_gap+pylon_side;
     l = traverse_l-traverse_play*2;
@@ -47,8 +47,8 @@ module traverse_h_bar() {
     bar(l=pylon_side);
 }
 
-module traverse_v_bars(side="left", mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module traverse_v_bars(side="left", startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     module body() {
         difference() {
@@ -69,14 +69,14 @@ module traverse_v_bars(side="left", mode="basement") {
         }
     }
 
-    traverse_side_transform(side=side, mode=mode)
+    traverse_side_transform(side=side, startline_mode=startline_mode)
     body();
 }
 
-module traverse_hooks(side="left", mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module traverse_hooks(side="left", startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    traverse_l = traverse_l(mode=mode);
+    traverse_l = traverse_l(startline_mode=startline_mode);
     module body() {
         translate([traverse_l/2-traverse_hooks_intra_space_l/2,0,0])
         translate([0,-pylon_side/2-profile_outer_w()/2,0])
@@ -89,31 +89,31 @@ module traverse_hooks(side="left", mode="basement") {
         traverse_hook();
     }
 
-    traverse_side_transform(side=side, mode=mode)
+    traverse_side_transform(side=side, startline_mode=startline_mode)
     body();
 }
 
-module traverse_main(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module traverse_main(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    traverse_pylon(mode=mode);
-    traverse_v_bars(side="left", mode=mode);
-    traverse_v_bars(side="right", mode=mode);
-//    traverse_hooks(side="left", mode=mode);
-//    traverse_hooks(side="right", mode=mode);
+    traverse_pylon(startline_mode=startline_mode);
+    traverse_v_bars(side="left", startline_mode=startline_mode);
+    traverse_v_bars(side="right", startline_mode=startline_mode);
+//    traverse_hooks(side="left", startline_mode=startline_mode);
+//    traverse_hooks(side="right", startline_mode=startline_mode);
 }
 
-module traverse(mode="basement") {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module traverse(startline_mode="basement") {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
-        traverse_main(mode=mode);
+        traverse_main(startline_mode=startline_mode);
 
-        traverse_plate_cut(side="left", mode=mode);
-        traverse_plate_cut(side="right", mode=mode);
+        traverse_plate_cut(side="left", startline_mode=startline_mode);
+        traverse_plate_cut(side="right", startline_mode=startline_mode);
 
-        traverse_angle_joints_void(side="left", mode=mode);
-        traverse_angle_joints_void(side="right", mode=mode);
+        traverse_angle_joints_void(side="left", startline_mode=startline_mode);
+        traverse_angle_joints_void(side="right", startline_mode=startline_mode);
     }
 
 }
