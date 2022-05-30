@@ -53,7 +53,7 @@ module _sim_traverse_split_L() {
     difference() {
 //    union() {
 
-        print_traverse_split_L(startline_mode="upright");
+        print_traverse_split_L(startline_mode="upright", startline_l=startline_l);
 
         translate([0,0,-fix])
         translate([pylon_side/2,-pylon_side/2,0])
@@ -98,7 +98,7 @@ module _sim_traverse_split_R() {
     difference() {
 //    union() {
 
-        print_traverse_split_R(startline_mode = "upright");
+        print_traverse_split_R(startline_mode = "upright", startline_l=startline_l);
 
 
         translate([0,0,-fix])
