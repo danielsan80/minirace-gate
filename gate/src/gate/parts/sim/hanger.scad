@@ -8,12 +8,12 @@ module sim_hanger_clip() {
             hanger_clip();
 }
 
-module sim_hanger_clips(startline_mode="basement") {
+module sim_hanger_clips(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
-            translate([traverse_l(startline_mode=startline_mode)/2,0,0])
+            translate([traverse_l(startline_mode=startline_mode, startline_l=startline_l)/2,0,0])
                 angle_traverse_cut_translate()
                 translate([0,0,upright_h])
                     union() {
@@ -25,12 +25,12 @@ module sim_hanger_clips(startline_mode="basement") {
 }
 
 
-module sim_hanger_rod(startline_mode="basement") {
+module sim_hanger_rod(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
-            translate([traverse_l(startline_mode=startline_mode)/2,0,0])
+            translate([traverse_l(startline_mode=startline_mode, startline_l=startline_l)/2,0,0])
                 angle_traverse_cut_translate()
                 translate([0,0,upright_h])
                     translate([0,0,hanger_clip_ct_slide_pos_y_offset()])

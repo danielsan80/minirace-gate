@@ -14,10 +14,10 @@ module traverse_transform() {
 
 
 
-module traverse_pylon(startline_mode="basement") {
+module traverse_pylon(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    traverse_l = traverse_l(startline_mode=startline_mode);
+    traverse_l = traverse_l(startline_mode=startline_mode, startline_l=startline_l);
     step = pylon_side*2+reinforcement_gap*2;
     l_ext = step*ceil(traverse_l/step)+pylon_side+reinforcement_gap+pylon_side;
     l = traverse_l-traverse_play*2;
@@ -47,7 +47,7 @@ module traverse_h_bar() {
     bar(l=pylon_side);
 }
 
-module traverse_v_bars(side="left", startline_mode="basement") {
+module traverse_v_bars(side="left", startline_mode="basement", startline_l=startline_l) {
     assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
@@ -70,15 +70,15 @@ module traverse_v_bars(side="left", startline_mode="basement") {
         }
     }
 
-    traverse_side_transform(side=side, startline_mode=startline_mode)
+    traverse_side_transform(side=side, startline_mode=startline_mode, startline_l=startline_l)
     body();
 }
 
-module traverse_hooks(side="left", startline_mode="basement") {
+module traverse_hooks(side="left", startline_mode="basement", startline_l=startline_l) {
     assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    traverse_l = traverse_l(startline_mode=startline_mode);
+    traverse_l = traverse_l(startline_mode=startline_mode, startline_l=startline_l);
     module body() {
         translate([traverse_l/2-traverse_hooks_intra_space_l/2,0,0])
         translate([0,-pylon_side/2-profile_outer_w()/2,0])
@@ -91,31 +91,31 @@ module traverse_hooks(side="left", startline_mode="basement") {
         traverse_hook();
     }
 
-    traverse_side_transform(side=side, startline_mode=startline_mode)
+    traverse_side_transform(side=side, startline_mode=startline_mode, startline_l=startline_l)
     body();
 }
 
-module traverse_main(startline_mode="basement") {
+module traverse_main(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
-    traverse_pylon(startline_mode=startline_mode);
-    traverse_v_bars(side="left", startline_mode=startline_mode);
-    traverse_v_bars(side="right", startline_mode=startline_mode);
-//    traverse_hooks(side="left", startline_mode=startline_mode);
-//    traverse_hooks(side="right", startline_mode=startline_mode);
+    traverse_pylon(startline_mode=startline_mode, startline_l=startline_l);
+    traverse_v_bars(side="left", startline_mode=startline_mode, startline_l=startline_l);
+    traverse_v_bars(side="right", startline_mode=startline_mode, startline_l=startline_l);
+//    traverse_hooks(side="left", startline_mode=startline_mode, startline_l=startline_l);
+//    traverse_hooks(side="right", startline_mode=startline_mode, startline_l=startline_l);
 }
 
-module traverse(startline_mode="basement") {
+module traverse(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
-        traverse_main(startline_mode=startline_mode);
+        traverse_main(startline_mode=startline_mode, startline_l=startline_l);
 
-        traverse_plate_cut(side="left", startline_mode=startline_mode);
-        traverse_plate_cut(side="right", startline_mode=startline_mode);
+        traverse_plate_cut(side="left", startline_mode=startline_mode, startline_l=startline_l);
+        traverse_plate_cut(side="right", startline_mode=startline_mode, startline_l=startline_l);
 
-        traverse_angle_joints_void(side="left", startline_mode=startline_mode);
-        traverse_angle_joints_void(side="right", startline_mode=startline_mode);
+        traverse_angle_joints_void(side="left", startline_mode=startline_mode, startline_l=startline_l);
+        traverse_angle_joints_void(side="right", startline_mode=startline_mode, startline_l=startline_l);
     }
 
 }
