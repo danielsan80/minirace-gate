@@ -26,6 +26,7 @@ function traverse_l(startline_mode="basement") =
     uprights_distance(startline_mode=startline_mode) - angle_traverse_pos_x_offset()*2;
 
 module traverse_side_transform(side="left", startline_mode="basement") {
+    assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     traverse_l = traverse_l(startline_mode=startline_mode);
@@ -62,6 +63,7 @@ module angle_traverse_cut() {
 }
 
 module traverse_plate_cut(side="left", startline_mode="basement") {
+    assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     module body() {
@@ -77,6 +79,7 @@ module traverse_plate_cut(side="left", startline_mode="basement") {
 }
 
 module traverse_angle_joints_void(side="left", startline_mode="basement") {
+    assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     traverse_l=traverse_l(startline_mode=startline_mode);

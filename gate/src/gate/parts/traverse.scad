@@ -48,6 +48,7 @@ module traverse_h_bar() {
 }
 
 module traverse_v_bars(side="left", startline_mode="basement") {
+    assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     module body() {
@@ -74,6 +75,7 @@ module traverse_v_bars(side="left", startline_mode="basement") {
 }
 
 module traverse_hooks(side="left", startline_mode="basement") {
+    assert(side=="left" || side=="right");
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     traverse_l = traverse_l(startline_mode=startline_mode);
