@@ -21,13 +21,13 @@ function angle_traverse_pos_z_offset() =
     sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset()
 ;
 
-// mode="basement"|"upright"|"center"
 function traverse_l(mode="basement") =
     assert(mode=="basement" || mode=="upright" || mode=="center")
     uprights_distance(mode=mode) - angle_traverse_pos_x_offset()*2;
 
-// mode="basement"|"upright"|"center"
 module traverse_side_transform(side="left", mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     traverse_l = traverse_l(mode=mode);
 
     if (side=="left") {
@@ -61,8 +61,9 @@ module angle_traverse_cut() {
     cube([a_lot,a_lot,a_lot]);
 }
 
-// mode="basement"|"upright"|"center"
 module traverse_plate_cut(side="left", mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     module body() {
         x_offset = hp(profile_outer_w()+pylon_side) - traverse_angle_align_offset();
 
@@ -75,8 +76,9 @@ module traverse_plate_cut(side="left", mode="basement") {
     body();
 }
 
-// mode="basement"|"upright"|"center"
 module traverse_angle_joints_void(side="left", mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     traverse_l=traverse_l(mode=mode);
     module body() {
         translate([-fix,-pylon_side/2,-a_lot/2])

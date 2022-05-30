@@ -9,6 +9,7 @@ module sim_hanger_clip() {
 }
 
 module sim_hanger_clips(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
 
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
@@ -25,6 +26,8 @@ module sim_hanger_clips(mode="basement") {
 
 
 module sim_hanger_rod(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     translate([0,0,bar_w/2])
         translate([0,-pylon_side/2,0])
             translate([traverse_l(mode=mode)/2,0,0])

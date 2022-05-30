@@ -84,7 +84,7 @@ translate([35,26,0])
 cars(5);
 
 translate([basement_w(box="terminal")/2, -70, 0])
-ruler(x=intra_uprights_space_l);
+ruler(x=startline_l);
 
 translate([-40,0,0])
 sim_on_basement_transform()

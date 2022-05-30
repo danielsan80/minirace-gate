@@ -14,8 +14,9 @@ module traverse_transform() {
 
 
 
-// mode="basement"|"upright"|"center"
 module traverse_pylon(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     traverse_l = traverse_l(mode=mode);
     step = pylon_side*2+reinforcement_gap*2;
     l_ext = step*ceil(traverse_l/step)+pylon_side+reinforcement_gap+pylon_side;
@@ -46,8 +47,9 @@ module traverse_h_bar() {
     bar(l=pylon_side);
 }
 
-// mode="basement"|"upright"|"center"
 module traverse_v_bars(side="left", mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     module body() {
         difference() {
             union() {
@@ -72,6 +74,8 @@ module traverse_v_bars(side="left", mode="basement") {
 }
 
 module traverse_hooks(side="left", mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     traverse_l = traverse_l(mode=mode);
     module body() {
         translate([traverse_l/2-traverse_hooks_intra_space_l/2,0,0])
@@ -90,6 +94,7 @@ module traverse_hooks(side="left", mode="basement") {
 }
 
 module traverse_main(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
 
     traverse_pylon(mode=mode);
     traverse_v_bars(side="left", mode=mode);
@@ -99,6 +104,8 @@ module traverse_main(mode="basement") {
 }
 
 module traverse(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     difference() {
         traverse_main(mode=mode);
 

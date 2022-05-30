@@ -3,8 +3,9 @@ use <../../../gate/parts/traverse.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
 
-// mode="basement"|"upright"|"center"
 module print_traverse(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
+
     rotate([0,-90,0])
     traverse(mode=mode);
 }
@@ -56,8 +57,8 @@ module _treverse_stick_voids() {
 }
 
 
-// mode="basement"|"upright"|"center"
 module print_traverse_split_L(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
 
     difference() {
         translate([-pylon_side/2-bar_w/2,0,0])
@@ -73,8 +74,8 @@ module print_traverse_split_L(mode="basement") {
     }
 }
 
-// mode="basement"|"upright"|"center"
 module print_traverse_split_R(mode="basement") {
+    assert(mode=="basement" || mode=="upright" || mode=="center");
 
     difference() {
         translate([pylon_side/2+bar_w/2,0,0])

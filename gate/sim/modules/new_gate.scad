@@ -77,7 +77,7 @@ module sim_new_gate() {
     cars(5);
 
     translate([basement_block_w()/2, -70, 0])
-    ruler(x=intra_uprights_space_l);
+    ruler(x=startline_l);
 
     sim_on_bolting_transform()
     sim_on_basement_transform()
