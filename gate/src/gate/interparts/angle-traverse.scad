@@ -21,14 +21,15 @@ function angle_traverse_pos_z_offset() =
     sin(45)*r + base_h + hp(bar_w)/2 - traverse_angle_align_offset()
 ;
 
-// mode="basement"|"upright"|"center"
-function traverse_l(mode="basement") =
-    assert(mode=="basement" || mode=="upright" || mode=="center")
-    uprights_distance(mode=mode) - angle_traverse_pos_x_offset()*2;
+function traverse_l(startline_mode="basement", startline_l=startline_l) =
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center")
+    uprights_distance(startline_mode=startline_mode, startline_l=startline_l) - angle_traverse_pos_x_offset()*2;
 
-// mode="basement"|"upright"|"center"
-module traverse_side_transform(side="left", mode="basement") {
-    traverse_l = traverse_l(mode=mode);
+module traverse_side_transform(side="left", startline_mode="basement", startline_l=startline_l) {
+    assert(side=="left" || side=="right");
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
+
+    traverse_l = traverse_l(startline_mode=startline_mode, startline_l=startline_l);
 
     if (side=="left") {
         children();
@@ -61,8 +62,10 @@ module angle_traverse_cut() {
     cube([a_lot,a_lot,a_lot]);
 }
 
-// mode="basement"|"upright"|"center"
-module traverse_plate_cut(side="left", mode="basement") {
+module traverse_plate_cut(side="left", startline_mode="basement", startline_l=startline_l) {
+    assert(side=="left" || side=="right");
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
+
     module body() {
         x_offset = hp(profile_outer_w()+pylon_side) - traverse_angle_align_offset();
 
@@ -71,13 +74,15 @@ module traverse_plate_cut(side="left", mode="basement") {
         cube([a_lot, a_lot, a_lot]);
     }
 
-    traverse_side_transform(side=side, mode=mode)
+    traverse_side_transform(side=side, startline_mode=startline_mode, startline_l=startline_l)
     body();
 }
 
-// mode="basement"|"upright"|"center"
-module traverse_angle_joints_void(side="left", mode="basement") {
-    traverse_l=traverse_l(mode=mode);
+module traverse_angle_joints_void(side="left", startline_mode="basement", startline_l=startline_l) {
+    assert(side=="left" || side=="right");
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
+
+    traverse_l=traverse_l(startline_mode=startline_mode, startline_l=startline_l);
     module body() {
         translate([-fix,-pylon_side/2,-a_lot/2])
         v_slide(h=a_lot,void=true);
@@ -86,7 +91,7 @@ module traverse_angle_joints_void(side="left", mode="basement") {
         v_slide(h=a_lot,void=true);
     }
 
-    traverse_side_transform(side=side, mode=mode)
+    traverse_side_transform(side=side, startline_mode=startline_mode, startline_l=startline_l)
     body();
 }
 

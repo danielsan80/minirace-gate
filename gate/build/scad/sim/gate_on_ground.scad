@@ -28,10 +28,9 @@ use <../../../vendor/car/src/cars.scad>
 use <../../../vendor/ruler/ruler.scad>
 
 
-//$vpt = [ uprights_distance(mode="upright")/2, 0, upright_h()/2-5];
+//$vpt = [ uprights_distance(startline_mode="upright")/2, 0, upright_h()/2-5];
 //$vpr = [ 60,0,-20 ];
 //$vpd = 500;
-
 
 sim_bolting_L();
 
@@ -40,16 +39,16 @@ union() {
     sim_upright_L();
     sim_angle_L();
 
-    sim_traverse(mode="upright");
+    sim_traverse(startline_mode="upright", startline_l=startline_l);
 
-    sim_angle_R(mode="upright");
-    sim_upright_R(mode="upright");
+    sim_angle_R(startline_mode="upright", startline_l=startline_l);
+    sim_upright_R(startline_mode="upright", startline_l=startline_l);
 
 }
 
 
 translate([0,0,-fix2])
-sim_bolting_R(mode="upright");
+sim_bolting_R(startline_mode="upright", startline_l=startline_l);
 
 sim_on_bolting_transform()
 union() {
@@ -58,7 +57,7 @@ union() {
     translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
     translate([0,-pylon_side/2-ct_slide_side/2,0])
     translate([0,0,upright_h+angle_traverse_pos_z_offset()-startlights_startlights_height()])
-    translate([(uprights_distance(mode="upright")-startlights_startlights_length())/2,0,0])
+    translate([(uprights_distance(startline_mode="upright", startline_l=startline_l)-startlights_startlights_length())/2,0,0])
     rotate([90,0,0])
     union() {
         sim_startlights_front();
@@ -66,8 +65,8 @@ union() {
         sim_startlights_board();
     }
 
-    sim_hanger_clips(mode="upright");
-    sim_hanger_rod(mode="upright");
+    sim_hanger_clips(startline_mode="upright", startline_l=startline_l);
+    sim_hanger_rod(startline_mode="upright", startline_l=startline_l);
 }
 
 
@@ -76,7 +75,7 @@ translate([35,26,0])
 cars(5);
 
 translate([upright_base_w/2+base_curvature_r, -70, 0])
-ruler(x=intra_uprights_space_l);
+ruler(x=startline_l);
 
 translate([-40,0,0])
 sim_on_bolting_transform()

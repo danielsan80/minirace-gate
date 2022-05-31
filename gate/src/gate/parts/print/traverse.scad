@@ -3,10 +3,11 @@ use <../../../gate/parts/traverse.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
 
-// mode="basement"|"upright"|"center"
-module print_traverse(mode="basement") {
+module print_traverse(startline_mode="basement", startline_l=startline_l) {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
+
     rotate([0,-90,0])
-    traverse(mode=mode);
+    traverse(startline_mode=startline_mode, startline_l=startline_l);
 }
 
 module _treverse_stick_3of3() {
@@ -56,16 +57,16 @@ module _treverse_stick_voids() {
 }
 
 
-// mode="basement"|"upright"|"center"
-module print_traverse_split_L(mode="basement") {
+module print_traverse_split_L(startline_mode="basement", startline_l=startline_l) {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
         translate([-pylon_side/2-bar_w/2,0,0])
         rotate([0,90,0])
-        translate([-traverse_l(mode=mode)/2,0,0])
+        translate([-traverse_l(startline_mode=startline_mode, startline_l=startline_l)/2,0,0])
         intersection() {
-            traverse(mode=mode);
-            translate([-a_lot+traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
+            traverse(startline_mode=startline_mode, startline_l=startline_l);
+            translate([-a_lot+traverse_l(startline_mode=startline_mode, startline_l=startline_l)/2,-a_lot/2,-a_lot/2])
                 cube([a_lot,a_lot, a_lot]);
         }
 
@@ -73,16 +74,16 @@ module print_traverse_split_L(mode="basement") {
     }
 }
 
-// mode="basement"|"upright"|"center"
-module print_traverse_split_R(mode="basement") {
+module print_traverse_split_R(startline_mode="basement", startline_l=startline_l) {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
         translate([pylon_side/2+bar_w/2,0,0])
         rotate([0,-90,0])
-        translate([-traverse_l(mode=mode)/2,0,0])
+        translate([-traverse_l(startline_mode=startline_mode, startline_l=startline_l)/2,0,0])
         intersection() {
-            traverse(mode=mode);
-            translate([traverse_l(mode=mode)/2,-a_lot/2,-a_lot/2])
+            traverse(startline_mode=startline_mode, startline_l=startline_l);
+            translate([traverse_l(startline_mode=startline_mode, startline_l=startline_l)/2,-a_lot/2,-a_lot/2])
             cube([a_lot,a_lot, a_lot]);
         }
         _treverse_stick_voids();

@@ -58,13 +58,13 @@ module sim_basement_box_terminal() {
 
 
 
-module sim_basement_box_controller_R() {
-    sim_basement_box_R_tranform(mode="basement")
+module sim_basement_box_controller_R(startline_l=startline_l) {
+    sim_basement_box_R_tranform(startline_mode="basement", startline_l=startline_l)
     sim_basement_box_controller();
 }
 
-module sim_basement_box_controller_R_top_hole_cap() {
-    sim_basement_box_R_tranform(mode="basement")
+module sim_basement_box_controller_R_top_hole_cap(startline_l=startline_l) {
+    sim_basement_box_R_tranform(startline_mode="basement", startline_l=startline_l)
     sim_basement_box_controller_top_hole_cap();
 }
 
