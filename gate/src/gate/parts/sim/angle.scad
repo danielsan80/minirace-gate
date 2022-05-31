@@ -7,8 +7,10 @@ module sim_angle_L() {
         angle();
 }
 
-module sim_angle_R(mode="basement") {
-    translate([traverse_l(mode=mode),0,0])
+module sim_angle_R(startline_mode="basement", startline_l=startline_l) {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
+
+    translate([traverse_l(startline_mode=startline_mode, startline_l=startline_l),0,0])
         angle_traverse_cut_x_translate()
         angle_traverse_cut_x_translate()
         translate([0,0,upright_h])

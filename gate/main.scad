@@ -22,7 +22,7 @@ use <src/basement/values.scad>
 use <src/basement/basement_bolting_guide.scad>
 
 
-//$vpt = [ uprights_distance(mode="basement")/2, 0, upright_h()/2-5];
+//$vpt = [ uprights_distance(startline_mode="basement")/2, 0, upright_h()/2-5];
 //$vpr = [ 60,0,-20 ];
 //$vpd = 600;
 

@@ -23,14 +23,14 @@ module _sim_terminal_box() {
 module _sim_controller_box() {
     color("red")
     sim_on_basement_transform()
-    sim_bolting_R(mode = "basement");
+    sim_bolting_R(startline_mode = "basement");
 
     sim_basement_box_controller_R();
 
     //sim_basement_box_controller_R_top_hole_cap();
 
     color("blue")
-    sim_basement_box_R_tranform(mode="basement")
+    sim_basement_box_R_tranform(startline_mode="basement")
     sim_basement_bolting_guide_transform()
     basement_bolting_guide(box="controller");
 }

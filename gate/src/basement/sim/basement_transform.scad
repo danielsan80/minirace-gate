@@ -5,11 +5,11 @@ use <../../gate/interparts/angle-traverse.scad>
 
 //TRANSFORM
 
-module sim_basement_box_R_tranform(mode) {
-    assert(mode=="basement" || mode=="upright" || mode=="center");
+module sim_basement_box_R_tranform(startline_mode, startline_l=startline_l) {
+    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     angle_traverse_cut_x_translate()
-    translate([traverse_l(mode=mode),0,0])
+    translate([traverse_l(startline_mode=startline_mode, startline_l=startline_l),0,0])
     angle_traverse_cut_x_translate()
     children();
 }

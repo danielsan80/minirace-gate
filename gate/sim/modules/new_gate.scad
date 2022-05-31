@@ -60,7 +60,7 @@ module sim_new_gate() {
         translate([0,-startlights_board_thick()-startlights_board_startlights_gap(),0])
         translate([0,-pylon_side/2-ct_slide_side/2,0])
         translate([0,0,upright_h+angle_traverse_pos_z_offset()-startlights_startlights_height()])
-        translate([(uprights_distance(mode="basement")-startlights_startlights_length())/2,0,0])
+        translate([(uprights_distance(startline_mode="basement")-startlights_startlights_length())/2,0,0])
         rotate([90,0,0])
         union() {
             sim_startlights_front();
@@ -77,7 +77,7 @@ module sim_new_gate() {
     cars(5);
 
     translate([basement_block_w()/2, -70, 0])
-    ruler(x=intra_uprights_space_l);
+    ruler(x=startline_l);
 
     sim_on_bolting_transform()
     sim_on_basement_transform()
