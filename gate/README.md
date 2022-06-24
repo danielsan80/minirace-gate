@@ -7,6 +7,36 @@ It uses the controller box and terminal box as basements for its uprights.
 It uses the rules to show the measures in the simulation context.
 
 ## Getting started
+
+### Easy way
+
+Install [OpenSCAD](https://openscad.org/)
+
+Download the project (Code -> Download ZIP) from [GitHub repository](https://github.com/danielsan80/minirace-gate).
+
+![Download the project](doc/download-repository.png "Download the project")
+
+Unzip the project in a directory (`<project-dir>`).
+
+Find and open with OpenSCAD or with a text editor the file `<project-dir>/gate/config/parameters.scad`.
+
+Change the parameters.
+
+> for example if you want to change the length of the traverse
+you must change the `statline_l` parameter, setting the millimeters between the 2 boxes on witch the gate rests.
+
+After changing some parameter you can open with OpenSCAD one of the files in `<project-dir>/gate/build/scad/print`.
+
+> if you have changed the `startline_l` parameter you probably want to obtain the new stl traverse files:
+> so open `<project-dir>/gate/build/scad/print/gate/traverse.scad` or one of his variants in `.../print/gate/variant`.
+ 
+Then render the model (Design -> Render [F6]) and export it as STL (File -> Export -> Export as STL [F7])
+
+That's all. Enjoy!
+
+
+### Easy way for Linux users
+
 Tested on Ubuntu 20.04.
 
 You must have OpenSCAD (>=2019.05) and ImageMagick installed:
