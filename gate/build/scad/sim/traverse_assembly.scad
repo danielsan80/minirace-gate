@@ -1,6 +1,5 @@
 include <../../../config/parameters.scad>
 
-use <../../../sim/modules/new_gate.scad>
 use <../../../src/gate/parts/upright.scad>
 use <../../../src/gate/interparts/uprights_distance.scad>
 
