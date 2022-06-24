@@ -79,15 +79,15 @@ echo "### Variant"
 
 build_stl "print/gate/variant/traverse_270mm.scad"
 
-build_stl "print/gate/variant/traverse_split_L.scad" "traverse_L_160mm"
-build_stl "print/gate/variant/traverse_split_R.scad" "traverse_R_160mm"
+build_stl "print/gate/variant/traverse_L.scad" "traverse_L_160mm"
+build_stl "print/gate/variant/traverse_R.scad" "traverse_R_160mm"
 
-build_stl "print/gate/variant/traverse_split_L_270mm.scad" "traverse_L_270mm"
-build_stl "print/gate/variant/traverse_split_R_270mm.scad" "traverse_R_270mm"
+build_stl "print/gate/variant/traverse_L_270mm.scad" "traverse_L_270mm"
+build_stl "print/gate/variant/traverse_R_270mm.scad" "traverse_R_270mm"
 
-build_stl "print/gate/variant/traverse_split_stick_3of3.scad" "traverse_stick_3of3"
-build_stl "print/gate/variant/traverse_split_stick_2of3.scad" "traverse_stick_2of3"
-build_stl "print/gate/variant/traverse_split_stick_1of3.scad" "traverse_stick_1of3"
+build_stl "print/gate/variant/traverse_stick_3of3.scad" "traverse_stick_3of3"
+build_stl "print/gate/variant/traverse_stick_2of3.scad" "traverse_stick_2of3"
+build_stl "print/gate/variant/traverse_stick_1of3.scad" "traverse_stick_1of3"
 
 build_stl "print/gate/variant/upright_with_angle_joints_holes.scad" "upright"
 
@@ -95,8 +95,8 @@ build_stl "print/gate/variant/upright_angle_joint_stick.scad" "upright_stick"
 
 echo ""
 build_stl "print/gate/variant/traverse_without_basement.scad"
-build_stl "print/gate/variant/traverse_without_basement_split_L.scad"
-build_stl "print/gate/variant/traverse_without_basement_split_R.scad"
+build_stl "print/gate/variant/traverse_L_without_basement.scad"
+build_stl "print/gate/variant/traverse_R_without_basement.scad"
 
 
 echo ""
