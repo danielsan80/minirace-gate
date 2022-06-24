@@ -94,6 +94,12 @@ build_stl "print/gate/traverse/traverse.scad"
 echo ""
 echo "#### Variant"
 
+echo ""
+echo "##### whole"
+
+build_stl "print/gate/traverse/variant/whole/traverse_160mm.scad"
+build_stl "print/gate/traverse/variant/whole/traverse_270mm.scad"
+build_stl "print/gate/traverse/variant/whole/traverse_without_basement.scad"
 
 echo ""
 echo "##### split"
@@ -106,25 +112,22 @@ build_stl "print/gate/traverse/variant/split/traverse_stick_2of3.scad" "traverse
 build_stl "print/gate/traverse/variant/split/traverse_stick_1of3.scad" "traverse_stick_1of3"
 
 echo ""
-echo "##### 160mm + split"
+echo "###### split + 160mm"
 
-build_stl "print/gate/traverse/variant/160mm/traverse_160mm.scad"
-build_stl "print/gate/traverse/variant/160mm/traverse_L_160mm.scad" "traverse_L_160mm"
-build_stl "print/gate/traverse/variant/160mm/traverse_R_160mm.scad" "traverse_R_160mm"
-
-echo ""
-echo "##### 270mm + split"
-
-build_stl "print/gate/traverse/variant/270mm/traverse_270mm.scad"
-build_stl "print/gate/traverse/variant/270mm/traverse_L_270mm.scad" "traverse_L_270mm"
-build_stl "print/gate/traverse/variant/270mm/traverse_R_270mm.scad" "traverse_R_270mm"
+build_stl "print/gate/traverse/variant/split/160mm/traverse_L_160mm.scad" "traverse_L_160mm"
+build_stl "print/gate/traverse/variant/split/160mm/traverse_R_160mm.scad" "traverse_R_160mm"
 
 echo ""
-echo "##### without_basement + split"
+echo "##### split + 270mm"
 
-build_stl "print/gate/traverse/variant/without_basement/traverse_without_basement.scad"
-build_stl "print/gate/traverse/variant/without_basement/traverse_L_without_basement.scad"
-build_stl "print/gate/traverse/variant/without_basement/traverse_R_without_basement.scad"
+build_stl "print/gate/traverse/variant/split/270mm/traverse_L_270mm.scad" "traverse_L_270mm"
+build_stl "print/gate/traverse/variant/split/270mm/traverse_R_270mm.scad" "traverse_R_270mm"
+
+echo ""
+echo "##### split + without_basement"
+
+build_stl "print/gate/traverse/variant/split/without_basement/traverse_L_without_basement.scad"
+build_stl "print/gate/traverse/variant/split/without_basement/traverse_R_without_basement.scad"
 
 echo ""
 echo "## BASEMENT"
