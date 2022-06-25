@@ -22,13 +22,14 @@ Find and open with OpenSCAD or with a text editor the file `<project-dir>/gate/c
 
 Change the parameters.
 
-> for example if you want to change the length of the traverse
-you must change the `statline_l` parameter, setting the millimeters between the 2 boxes on witch the gate rests.
+> for example if you want to change the length of the traverse,
+you must change the `startline_l` parameter, setting the distance (in millimeters) between the boxes.
 
 After changing some parameter you can open with OpenSCAD one of the files in `<project-dir>/gate/build/scad/print`.
 
 > if you have changed the `startline_l` parameter you probably want to obtain the new stl traverse files:
-> so open `<project-dir>/gate/build/scad/print/gate/traverse.scad` or one of his variants in `.../print/gate/variant`.
+> so open `<project-dir>/gate/build/scad/print/gate/traverse/traverse.scad`
+> or one of his variants in `.../print/gate/traverse/variant/**/*.scad`.
  
 Then render the model (Design -> Render [F6]) and export it as STL (File -> Export -> Export as STL [F7])
 
