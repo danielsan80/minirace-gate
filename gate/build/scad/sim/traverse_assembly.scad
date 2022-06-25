@@ -45,14 +45,14 @@ module _sim_bar_cut() {
     cube([profile_outer_w(),profile_outer_w(),traverse_stick_l]);
 }
 
-module _sim_traverse_split_L() {
+module _sim_traverse_L() {
     translate([-_sim_shift(),0,0])
     rotate([0,-90,0])
 
     difference() {
 //    union() {
 
-        print_traverse_split_L(startline_mode="upright", startline_l=startline_l);
+        print_traverse_L(startline_mode="upright", startline_l=startline_l);
 
         translate([0,0,-fix])
         translate([pylon_side/2,-pylon_side/2,0])
@@ -71,7 +71,7 @@ module _sim_traverse_split_L() {
     translate([0, -pylon_side/2,pylon_side/2])
     translate([0, 0,-stick_d/2])
     color("blue")
-    print_traverse_split_stick_1of3();
+    print_traverse_stick_1of3();
 
     translate([-traverse_stick_l/2-stick_void_l_margin,0,0])
     translate([-_sim_shift(),0,0])
@@ -79,7 +79,7 @@ module _sim_traverse_split_L() {
     translate([0, pylon_side/2,-pylon_side/2])
     translate([0, 0,-stick_d/2])
     color("blue")
-    print_traverse_split_stick_2of3();
+    print_traverse_stick_2of3();
 
     translate([-traverse_stick_l/2-stick_void_l_margin,0,0])
     translate([-_sim_shift(),0,0])
@@ -87,17 +87,17 @@ module _sim_traverse_split_L() {
     translate([0, -pylon_side/2,-pylon_side/2])
     translate([0, 0,-stick_d/2])
     color("red")
-    print_traverse_split_stick_3of3();
+    print_traverse_stick_3of3();
 }
 
-module _sim_traverse_split_R() {
+module _sim_traverse_R() {
     translate([_sim_shift(),0,0])
     rotate([0,0,0])
     rotate([0,90,0])
     difference() {
 //    union() {
 
-        print_traverse_split_R(startline_mode = "upright", startline_l=startline_l);
+        print_traverse_R(startline_mode = "upright", startline_l=startline_l);
 
 
         translate([0,0,-fix])
@@ -117,7 +117,7 @@ module _sim_traverse_split_R() {
     translate([0, -pylon_side/2,pylon_side/2])
     translate([0, 0,-stick_d/2])
     color("blue")
-    print_traverse_split_stick_2of3();
+    print_traverse_stick_2of3();
 
     translate([traverse_stick_l/2+stick_void_l_margin,0,0])
     translate([_sim_shift(),0,0])
@@ -125,7 +125,7 @@ module _sim_traverse_split_R() {
     translate([0, pylon_side/2,pylon_side/2])
     translate([0, 0,-stick_d/2])
     color("red")
-    print_traverse_split_stick_3of3();
+    print_traverse_stick_3of3();
 
     translate([traverse_stick_l/2+stick_void_l_margin,0,0])
     translate([_sim_shift(),0,0])
@@ -133,7 +133,7 @@ module _sim_traverse_split_R() {
     translate([0, pylon_side/2,-pylon_side/2])
     translate([0, 0,-stick_d/2])
     color("blue")
-    print_traverse_split_stick_1of3();
+    print_traverse_stick_1of3();
 }
 
 module _sim_instructions() {
@@ -162,13 +162,13 @@ module _sim_legenda() {
     text_offset = 1;
 
     color("red")
-    print_traverse_split_stick_3of3();
+    print_traverse_stick_3of3();
 
     translate([0,-line_height,0])
     translate([traverse_stick_l/3/2 - traverse_stick_l/2 - 0.5,0,0])
     union() {
         color("blue")
-        print_traverse_split_stick_1of3();
+        print_traverse_stick_1of3();
 
         translate([0,-line_height-text_offset,0])
         color("blue")
@@ -179,7 +179,7 @@ module _sim_legenda() {
     translate([traverse_stick_l/3*2/2 - traverse_stick_l/2 + traverse_stick_l/3 + 0.5,0,0])
     union() {
         color("blue")
-        print_traverse_split_stick_2of3();
+        print_traverse_stick_2of3();
 
         translate([0,-line_height-text_offset,0])
         color("blue")
@@ -194,8 +194,8 @@ module _sim_legenda() {
 }
 
 
-_sim_traverse_split_L();
-_sim_traverse_split_R();
+_sim_traverse_L();
+_sim_traverse_R();
 
 translate([-50,-40,0])
 _sim_instructions();
