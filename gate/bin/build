@@ -165,7 +165,10 @@ echo ""
 echo "## BOLTING"
 
 build_stl "print/bolting/bolting_with_hole.scad" "bolting"
-build_stl "print/bolting/bolting_without_hole.scad"
+
+echo ""
+echo "### Variant"
+build_stl "print/bolting/variant/bolting_without_hole.scad"
 
 
 echo ""
