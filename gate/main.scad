@@ -1,4 +1,3 @@
-use <sim/modules/new_gate.scad>
 use <src/gate/joints/test/v_slide.scad>
 use <src/gate/joints/bar_wrapper.scad>
 use <src/gate/joints/ct_slide.scad>
@@ -21,7 +20,6 @@ use <src/basement/values.scad>
 
 use <src/basement/basement_bolting_guide.scad>
 
-
 //$vpt = [ uprights_distance(startline_mode="basement")/2, 0, upright_h()/2-5];
 //$vpr = [ 60,0,-20 ];
 //$vpd = 600;
@@ -33,9 +31,6 @@ use <src/basement/basement_bolting_guide.scad>
 //color("red")
 //translate($vpt)
 //sphere(d=5);
-
-
-sim_new_gate();
 
 //test_upright_angle_joints();
 //test_button_joint();

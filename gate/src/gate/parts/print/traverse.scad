@@ -57,7 +57,7 @@ module _treverse_stick_voids() {
 }
 
 
-module print_traverse_split_L(startline_mode="basement", startline_l=startline_l) {
+module print_traverse_L(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
@@ -74,7 +74,7 @@ module print_traverse_split_L(startline_mode="basement", startline_l=startline_l
     }
 }
 
-module print_traverse_split_R(startline_mode="basement", startline_l=startline_l) {
+module print_traverse_R(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     difference() {
@@ -90,7 +90,7 @@ module print_traverse_split_R(startline_mode="basement", startline_l=startline_l
     }
 }
 
-module print_traverse_split_stick_3of3() {
+module print_traverse_stick_3of3() {
     intersection() {
         translate([0,0,stick_d/2-layer_h])
         rotate([0,90,0])
@@ -101,7 +101,7 @@ module print_traverse_split_stick_3of3() {
     }
 }
 
-module print_traverse_split_stick_2of3() {
+module print_traverse_stick_2of3() {
     intersection() {
         translate([0,0,stick_d/2-layer_h])
         rotate([0,90,0])
@@ -112,7 +112,7 @@ module print_traverse_split_stick_2of3() {
     }
 }
 
-module print_traverse_split_stick_1of3() {
+module print_traverse_stick_1of3() {
     intersection() {
         translate([0,0,stick_d/2-layer_h])
         rotate([0,90,0])
