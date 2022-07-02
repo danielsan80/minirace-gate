@@ -1,5 +1,5 @@
 include <../../../config/parameters.scad>
-use <../../functions.scad>
+//use <../../functions.scad>
 use <../../basement/values.scad>
 use <../../gate/interparts/upright_base_level1.scad>
 

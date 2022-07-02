@@ -5,7 +5,7 @@ use <src/parts/box_side_slide.scad>
 use <src/parts/box_top.scad>
 use <src/parts/box_block.scad>
 
-use <src/parts/print/box_side_slide.scad>
+//use <src/parts/print/box_side_slide.scad>
 
 use <src/parts/sim/controller.scad>
 

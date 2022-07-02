@@ -3,7 +3,7 @@ use <../../gate/modules/profile.scad>
 use <../../gate/modules/bar.scad>
 use <../../gate/modules/pylon.scad>
 use <../../gate/interparts/angle-traverse.scad>
-use <../../gate/joints/ct_slide.scad>
+//use <../../gate/joints/ct_slide.scad>
 
 
 module traverse_transform() {
@@ -74,26 +74,6 @@ module traverse_v_bars(side="left", startline_mode="basement", startline_l=start
     body();
 }
 
-module traverse_hooks(side="left", startline_mode="basement", startline_l=startline_l) {
-    assert(side=="left" || side=="right");
-    assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
-
-    traverse_l = traverse_l(startline_mode=startline_mode, startline_l=startline_l);
-    module body() {
-        translate([traverse_l/2-traverse_hooks_intra_space_l/2,0,0])
-        translate([0,-pylon_side/2-profile_outer_w()/2,0])
-        translate([-traverse_hook_l,-traverse_hook_w-traverse_hook_thick,0])
-        traverse_hook();
-
-        translate([traverse_l/2+traverse_hooks_intra_space_l/2,0,0])
-        translate([0,-pylon_side/2-profile_outer_w()/2,0])
-        translate([0,-traverse_hook_w-traverse_hook_thick,0])
-        traverse_hook();
-    }
-
-    traverse_side_transform(side=side, startline_mode=startline_mode, startline_l=startline_l)
-    body();
-}
 
 module traverse_main(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");

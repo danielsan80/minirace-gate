@@ -1,5 +1,5 @@
 include <../../config/parameters.scad>
-include <../../src/values.scad>
+use <../../src/values.scad>
 
 
 module dock_shape(part="bottom", box, box_terminal_outer_w=box_terminal_outer_w) {
