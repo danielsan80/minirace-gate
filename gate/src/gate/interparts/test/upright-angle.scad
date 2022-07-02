@@ -1,6 +1,6 @@
 include <../../../../config/parameters.scad>
 use <../../../gate/parts/print/upright.scad>
-use <../../../gate/parts/upright.scad>
+//use <../../../gate/parts/upright.scad>
 use <../../../gate/parts/angle.scad>
 
 module test_upright_button_joints() {

@@ -7,7 +7,7 @@ use <../gate/interparts/basement_upright_margin.scad>
 use <../../vendor/controller-box/src/parts/box_bottom.scad>
 use <../../vendor/controller-box/src/parts/box_top.scad>
 use <../../vendor/controller-box/src/parts/box_side_slide.scad>
-use <../gate/interparts/angle-traverse.scad>
+//use <../gate/interparts/angle-traverse.scad>
 
 
 function _basement_box_controller_center_x_offset() = -(basement_box_controller_w()-upright_base_level1_w())/2+basement_upright_margin();

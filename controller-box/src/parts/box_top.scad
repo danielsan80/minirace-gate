@@ -1,4 +1,5 @@
 include <../../config/parameters.scad>
+use <../values.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../interparts/box_bottom-box_top.scad>

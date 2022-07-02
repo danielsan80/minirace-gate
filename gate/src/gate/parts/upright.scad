@@ -1,11 +1,11 @@
 include <../../../config/parameters.scad>
 use <../../functions.scad>
-use <../../gate/modules/profile.scad>
+//use <../../gate/modules/profile.scad>
 use <../../gate/modules/bar.scad>
 use <../../gate/modules/pylon.scad>
 use <../../gate/interparts/bolting-upright.scad>
 use <../../gate/interparts/upright-angle.scad>
-use <../../gate/interparts/angle-traverse.scad>
+//use <../../gate/interparts/angle-traverse.scad>
 use <../../gate/interparts/upright_base_hole.scad>
 use <../../gate/interparts/upright_base_level1.scad>
 

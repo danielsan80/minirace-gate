@@ -1,8 +1,8 @@
 include <../../../config/parameters.scad>
-use <../../basement/values.scad>
+//use <../../basement/values.scad>
 use <../../basement/basement_box.scad>
 use <../../basement/sim/basement_transform.scad>
-use <../../gate/interparts/angle-traverse.scad>
+//use <../../gate/interparts/angle-traverse.scad>
 
 
 //BOXES PARTS

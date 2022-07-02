@@ -4,7 +4,7 @@ use <../../gate/joints/ct_slide.scad>
 use <../../gate/joints/bar_wrapper.scad>
 use <../../startlights/values.scad>
 
-use <../../gate/joints/print/ct_slide.scad>
+//use <../../gate/joints/print/ct_slide.scad>
 
 module hanger_clip(l=bar_wrapper_l) {
     bar_wrapper();

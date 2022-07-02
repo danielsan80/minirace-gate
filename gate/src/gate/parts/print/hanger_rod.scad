@@ -1,7 +1,7 @@
 include <../../../../config/parameters.scad>
-use <../../../gate/modules/profile.scad>
-use <../../../gate/joints/ct_slide.scad>
-use <../../../gate/joints/bar_wrapper.scad>
+//use <../../../gate/modules/profile.scad>
+//use <../../../gate/joints/ct_slide.scad>
+//use <../../../gate/joints/bar_wrapper.scad>
 use <../../../startlights/values.scad>
 use <../../../gate/parts/hanger.scad>
 
@@ -26,10 +26,7 @@ module print_hanger_rod() {
 }
 
 
-module hanger_rod_hook_support(
-d=hanger_rod_hook_d(),
-l=hanger_rod_hook_l
-) {
+module hanger_rod_hook_support(d=hanger_rod_hook_d(), l=hanger_rod_hook_l) {
     r=hanger_rod_hook_r;
     angle=hanger_rod_hook_angle;
     w = hanger_rod_hook_w;
