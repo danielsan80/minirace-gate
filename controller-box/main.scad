@@ -13,14 +13,14 @@ translate([100,0,0])
 union() {
     box_controller_bottom();
 
-//    translate([0,0,10])
-//    box_controller_side_slide();
+    translate([0,0,10])
+    box_controller_side_slide();
 
-//    translate([0,0,20])
-//    translate([0,0,box_outer_h+fix])
-//    translate([box_outer_w(box="controller"),0,0])
-//    rotate([0,180,0])
-//    box_controller_top();
+    translate([0,0,20])
+    translate([0,0,box_outer_h+fix])
+    translate([box_outer_w(box="controller"),0,0])
+    rotate([0,180,0])
+    box_controller_top();
 }
 
 //translate([-box_controller_outer_w-200,0,0])

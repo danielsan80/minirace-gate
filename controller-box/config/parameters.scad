@@ -99,19 +99,39 @@ box_controller_outer_w = box_controller_inner_w + box_wall_thick*2;
 box_terminal_outer_w = box_controller_outer_w;
 box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
 
-chip_led_hole_angle_pos = [-18,24];
-chip_led_hole_angle_pos_offset = [
+// CHIP LEDS
+
+chip_led_hole_d = 4.5;
+chip_led_hole_r = chip_led_hole_d/2;
+chip_led_hole_tube_thick = 0.6;
+chip_led_hole_tube_r = chip_led_hole_r+chip_led_hole_tube_thick;
+chip_led_hole_tube_h = 3;
+
+// CHIP BLUE LED
+chip_blue_led_hole_angle_pos = [-18,24];
+chip_blue_led_hole_angle_pos_offset = [
     -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_controller_outer_w,
     -chip_y+card_l+card_play+card_left_margin+box_wall_thick-box_outer_l
 ];
-chip_led_hole_r = 1;
-chip_led_angle_pos = [
-    chip_led_hole_angle_pos.x+chip_led_hole_angle_pos_offset.x,
-    chip_led_hole_angle_pos.y+chip_led_hole_angle_pos_offset.y
+
+chip_blue_led_angle_pos = [
+    chip_blue_led_hole_angle_pos.x+chip_blue_led_hole_angle_pos_offset.x,
+    chip_blue_led_hole_angle_pos.y+chip_blue_led_hole_angle_pos_offset.y
     ];
 
-chip_led_hole_tube_r = 1.6;
-chip_led_hole_tube_h = 3;
+
+// CHIP RED LED
+chip_red_led_hole_angle_pos = [-28,24];
+chip_red_led_hole_angle_pos_offset = [
+                        -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_controller_outer_w,
+                        -chip_y+card_l+card_play+card_left_margin+box_wall_thick-box_outer_l
+    ];
+
+chip_red_led_angle_pos = [
+        chip_red_led_hole_angle_pos.x+chip_red_led_hole_angle_pos_offset.x,
+        chip_red_led_hole_angle_pos.y+chip_red_led_hole_angle_pos_offset.y
+    ];
+
 
 box_joint_play = play2;
 box_side_slide_play = play1;

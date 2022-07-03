@@ -72,16 +72,22 @@ module _box_top_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
     nail_groove(box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
 }
 
-module _box_top_controller_chip_led_hole() {
-//    translate([box_outer_w(box="controller"),0,0])
-    translate([-chip_led_hole_angle_pos.x,chip_led_hole_angle_pos.y,0])
+module _box_top_controller_chip_led_hole(angle_pos) {
+    translate([-angle_pos.x,angle_pos.y,0])
     translate([0,0,-fix])
     cylinder(r=chip_led_hole_r, h=box_top_base_thick+fix*2);
 }
 
-module _box_top_controller_chip_led_hole_tube() {
-    translate([0,0,box_top_base_thick])
-    translate([-chip_led_hole_angle_pos.x,chip_led_hole_angle_pos.y,0])
+module _box_top_controller_chip_blue_led_hole() {
+    _box_top_controller_chip_led_hole(chip_blue_led_hole_angle_pos);
+}
+
+module _box_top_controller_chip_red_led_hole() {
+    _box_top_controller_chip_led_hole(chip_red_led_hole_angle_pos);
+}
+
+module _box_top_controller_chip_led_hole_tube(angle_pos) {
+    translate([-angle_pos.x,angle_pos.y,0])
     difference() {
         cylinder(r=chip_led_hole_tube_r, h=chip_led_hole_tube_h);
 
@@ -89,6 +95,15 @@ module _box_top_controller_chip_led_hole_tube() {
         cylinder(r=chip_led_hole_r, h=a_lot);
     }
 }
+
+module _box_top_controller_chip_blue_led_hole_tube(angle_pos) {
+    _box_top_controller_chip_led_hole_tube(chip_blue_led_hole_angle_pos);
+}
+
+module _box_top_controller_chip_red_led_hole_tube(angle_pos) {
+    _box_top_controller_chip_led_hole_tube(chip_red_led_hole_angle_pos);
+}
+
 
 module box_controller_top() {
     difference() {
@@ -104,9 +119,11 @@ module box_controller_top() {
 
         _box_top_nail_groove(box="controller");
 
-        _box_top_controller_chip_led_hole();
+        _box_top_controller_chip_blue_led_hole();
+        _box_top_controller_chip_red_led_hole();
     }
-    _box_top_controller_chip_led_hole_tube();
+    _box_top_controller_chip_blue_led_hole_tube();
+    _box_top_controller_chip_red_led_hole_tube();
 //    _box_top_cylinder_joints(box="controller");
 
 }
