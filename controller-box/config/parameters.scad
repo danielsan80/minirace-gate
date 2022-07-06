@@ -69,6 +69,11 @@ chip_processor_l = 20;
 chip_processor_thick = 7-chip_thick;
 chip_processor_margin = 5;
 
+startlights_connector_w = 3.6;
+startlights_connector_l = 7.2;
+startlights_connector_h = 5;
+startlights_connector_pos = [card_overhang_l,43.31];
+
 antenna_w = card_overhang_w;
 antenna_play = 0.5;
 antenna_thick = 0.5;
@@ -121,16 +126,19 @@ chip_blue_led_angle_pos = [
 
 
 // CHIP RED LED
-chip_red_led_hole_angle_pos = [-28,24];
+chip_red_led_hole_angle_pos = [
+    chip_blue_led_hole_angle_pos.x-9.525,
+    chip_blue_led_hole_angle_pos.y
+];
 chip_red_led_hole_angle_pos_offset = [
-                        -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_controller_outer_w,
-                        -chip_y+card_l+card_play+card_left_margin+box_wall_thick-box_outer_l
-    ];
+    -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_controller_outer_w,
+    -chip_y+card_l+card_play+card_left_margin+box_wall_thick-box_outer_l
+];
 
 chip_red_led_angle_pos = [
-        chip_red_led_hole_angle_pos.x+chip_red_led_hole_angle_pos_offset.x,
-        chip_red_led_hole_angle_pos.y+chip_red_led_hole_angle_pos_offset.y
-    ];
+    chip_red_led_hole_angle_pos.x+chip_red_led_hole_angle_pos_offset.x,
+    chip_red_led_hole_angle_pos.y+chip_red_led_hole_angle_pos_offset.y
+];
 
 
 box_joint_play = play2;
@@ -152,6 +160,10 @@ keep_card_thick_play = 0.2;
 keep_card_thick = card_thick+keep_card_thick_play;
 keep_hold_r = 0.4;
 
-
+box_controller_card_pos = [
+    box_wall_thick+antenna_start_margin+card_play,
+    box_wall_thick+(chip_y*-1)+chip_play-chip_connector_inner_niche_offset,
+    box_bottom_base_thick+card_z_offset
+];
 
 

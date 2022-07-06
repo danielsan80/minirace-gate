@@ -111,7 +111,7 @@ module _box_controller_front_antenna_guides_keeps() {
         translate([0,-antenna_guides_gap_w-antenna_guide_thick,0])
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
         rotate([0,0,-90])
-        keep(l=keep_l, with_wall=true, with_hold=true, keep_wall_thick=keep_wall_thick*3);
+        keep(l=keep_l, with_wall=true, with_hold=false, keep_wall_thick=keep_wall_thick*3);
     }
 }
 
