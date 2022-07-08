@@ -13,3 +13,11 @@ function basement_h() = box_outer_h;
 function box_top_base_thick() = box_top_base_thick;
 function basement_box_controller_card_pos() = box_controller_card_pos;
 function basement_box_controller_card_startlights_connector_pos() = startlights_connector_pos;
+
+
+function basement_box_controller_center_offset() = [
+    -basement_box_controller_w()/2+upright_base_level1_w()/2+basement_upright_margin(),
+    -basement_l()/2
+    +basement_box_controller_card_pos().y
+    +basement_box_controller_card_startlights_connector_pos().y
+];

@@ -66,7 +66,7 @@ function _basement_bolting_guide_transform_y(box) =
     let(wall_thick=basement_bolting_guide_wall_thick)
     let(p = basement_bolting_guide_play)
     let(basement_w = basement_w(box=box))
-    wall_thick+p+basement_l()/2;
+    wall_thick+p+basement_l()/2-basement_box_controller_center_offset().y;
 
 module _basement_bolting_guide_transform(box) {
     translate([
@@ -129,7 +129,7 @@ module basement_bolting_guide(box) {
         _basement_bolting_guide_main(box=box);
 
         translate([basement_upright_margin(),0,0])
-        translate([upright_base_level1_w()/2, basement_l()/2,0])
+        translate([upright_base_level1_w()/2, basement_l()/2-basement_box_controller_center_offset().y,0])
         translate([wall_thick+p, wall_thick+p,0])
         _basement_bolting_guide_upright_base_level1_hole();
     }

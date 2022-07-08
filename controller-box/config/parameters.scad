@@ -125,6 +125,7 @@ chip_blue_led_angle_pos = [
     ];
 
 
+
 // CHIP RED LED
 chip_red_led_hole_angle_pos = [
     chip_blue_led_hole_angle_pos.x-9.525,
@@ -159,6 +160,8 @@ keep_h = card_z_offset;
 keep_card_thick_play = 0.2;
 keep_card_thick = card_thick+keep_card_thick_play;
 keep_hold_r = 0.4;
+
+box_controller_front_center_keep_offset = [0,-3];
 
 box_controller_card_pos = [
     box_wall_thick+antenna_start_margin+card_play,
