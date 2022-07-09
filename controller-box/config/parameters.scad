@@ -107,6 +107,7 @@ box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
 // CHIP LEDS
 
 chip_led_hole_d = 4.5;
+chip_led_hole_cap_d = 5;
 chip_led_hole_r = chip_led_hole_d/2;
 chip_led_hole_tube_thick = 0.6;
 chip_led_hole_tube_r = chip_led_hole_r+chip_led_hole_tube_thick;

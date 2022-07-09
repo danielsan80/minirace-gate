@@ -77,6 +77,53 @@ module _basement_bolting_guide_transform(box) {
     children();
 }
 
+module _basement_box_controller_bolting_guide_led_frame() {
+    cylinder(d=basement_box_controller_chip_led_hole_cap_d()+basement_bolting_guide_line_w*2+basement_bolting_guide_chip_led_hole_cap_play*2, h=basement_bolting_guide_thick);
+}
+
+module _basement_box_controller_bolting_guide_led_hole() {
+    translate([0,0,-fix2])
+    cylinder(d=basement_box_controller_chip_led_hole_cap_d()+basement_bolting_guide_chip_led_hole_cap_play*2, h=basement_bolting_guide_thick+fix2*2);
+}
+
+module _basement_box_controller_bolting_guide_blue_led_transform() {
+    p = basement_bolting_guide_play;
+    wall_thick=basement_bolting_guide_wall_thick;
+    blue_led_pos = basement_box_controller_chip_blue_led_hole_angle_pos();
+    red_led_pos = basement_box_controller_chip_red_led_hole_angle_pos();
+
+    translate([basement_w(box="controller")-p*2+wall_thick*2+blue_led_pos.x, basement_l()-p*2+wall_thick*2-blue_led_pos.y,0])
+    children();
+}
+
+module _basement_box_controller_bolting_guide_red_led_transform() {
+    p = basement_bolting_guide_play;
+    wall_thick=basement_bolting_guide_wall_thick;
+    blue_led_pos = basement_box_controller_chip_blue_led_hole_angle_pos();
+    red_led_pos = basement_box_controller_chip_red_led_hole_angle_pos();
+
+    translate([basement_w(box="controller")-p*2+wall_thick*2+red_led_pos.x, basement_l()-p*2+wall_thick*2-red_led_pos.y,0])
+    children();
+}
+
+module _basement_box_controller_bolting_guide_leds_frame() {
+
+    _basement_box_controller_bolting_guide_blue_led_transform()
+    _basement_box_controller_bolting_guide_led_frame();
+
+    _basement_box_controller_bolting_guide_red_led_transform()
+    _basement_box_controller_bolting_guide_led_frame();
+}
+
+module _basement_box_controller_bolting_guide_leds_holes() {
+
+    _basement_box_controller_bolting_guide_blue_led_transform()
+    _basement_box_controller_bolting_guide_led_hole();
+
+    _basement_box_controller_bolting_guide_red_led_transform()
+    _basement_box_controller_bolting_guide_led_hole();
+}
+
 module _basement_bolting_guide_main(box) {
     assert(box=="controller" || box=="terminal");
 
@@ -110,6 +157,11 @@ module _basement_bolting_guide_main(box) {
         0
     ])
     _basement_bolting_guide_upright_base_level1_frame();
+
+
+    if (box=="controller") {
+        _basement_box_controller_bolting_guide_leds_frame();
+    }
 }
 
 
@@ -132,6 +184,10 @@ module basement_bolting_guide(box) {
         translate([upright_base_level1_w()/2, basement_l()/2-basement_box_controller_center_offset().y,0])
         translate([wall_thick+p, wall_thick+p,0])
         _basement_bolting_guide_upright_base_level1_hole();
+
+        if (box=="controller") {
+            _basement_box_controller_bolting_guide_leds_holes();
+        }
     }
 }
 

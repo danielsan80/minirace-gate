@@ -14,6 +14,9 @@ function box_top_base_thick() = box_top_base_thick;
 function basement_box_controller_card_pos() = box_controller_card_pos;
 function basement_box_controller_card_startlights_connector_pos() = startlights_connector_pos;
 
+function basement_box_controller_chip_led_hole_cap_d() = chip_led_hole_cap_d;
+function basement_box_controller_chip_blue_led_hole_angle_pos() = chip_blue_led_hole_angle_pos;
+function basement_box_controller_chip_red_led_hole_angle_pos() = chip_red_led_hole_angle_pos;
 
 function basement_box_controller_center_offset() = [
     -basement_box_controller_w()/2+upright_base_level1_w()/2+basement_upright_margin(),
