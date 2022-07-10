@@ -109,11 +109,11 @@ box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
 chip_led_hole_d = 4.5;
 chip_led_hole_cap_d = 5;
 chip_led_hole_cap_r = chip_led_hole_cap_d/2;
-chip_led_hole_cap_play = 0.15;
+chip_led_hole_cap_play = 0.10;
 chip_led_hole_cap_ring_play = 0.15;
 chip_led_hole_cap_ring_h = layer_h*2;
 chip_led_hole_r = chip_led_hole_d/2;
-chip_led_hole_tube_thick = 0.6;
+chip_led_hole_tube_thick = 1;
 chip_led_hole_tube_r = chip_led_hole_r+chip_led_hole_tube_thick;
 chip_led_hole_tube_h = 3;
 
