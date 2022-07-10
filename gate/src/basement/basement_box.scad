@@ -7,6 +7,7 @@ use <../gate/interparts/basement_upright_margin.scad>
 use <../../vendor/controller-box/src/parts/box_bottom.scad>
 use <../../vendor/controller-box/src/parts/box_top.scad>
 use <../../vendor/controller-box/src/parts/box_side_slide.scad>
+use <../../vendor/controller-box/src/parts/box_top_led_hole_cap.scad>
 //use <../gate/interparts/angle-traverse.scad>
 
 
@@ -58,6 +59,10 @@ module basement_box_top_hole_cap() {
         translate([-a_lot/2,-a_lot/2,0])
         cube([a_lot,a_lot,basement_box_top_hole_cap_ring_h]);
     }
+}
+
+module basement_box_top_led_hole_cap() {
+    box_top_led_hole_cap();
 }
 
 module basement_box_controller_side_slide() {
