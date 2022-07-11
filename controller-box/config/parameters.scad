@@ -109,13 +109,15 @@ box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
 chip_led_hole_d = 4.5;
 chip_led_hole_cap_d = 5;
 chip_led_hole_cap_r = chip_led_hole_cap_d/2;
+chip_led_hole_cap_inner_thick = 0.8;
 chip_led_hole_cap_play = 0.10;
-chip_led_hole_cap_ring_play = 0.15;
-chip_led_hole_cap_ring_h = layer_h*2;
 chip_led_hole_r = chip_led_hole_d/2;
+
 chip_led_hole_tube_thick = 1;
 chip_led_hole_tube_r = chip_led_hole_r+chip_led_hole_tube_thick;
-chip_led_hole_tube_h = 3;
+chip_led_hole_tube_r_ext = 0.5;
+chip_led_hole_tube_h1 = 3;
+chip_led_hole_tube_h2 = 3.5;
 
 
 // CHIP BLUE LED
@@ -167,7 +169,7 @@ keep_card_thick_play = 0.2;
 keep_card_thick = card_thick+keep_card_thick_play;
 keep_hold_r = 0.4;
 
-box_controller_front_center_keep_offset = [0,-3];
+box_controller_front_center_keep_offset = [0,-3-card_keep_l];
 
 box_controller_card_pos = [
     box_wall_thick+antenna_start_margin+card_play,

@@ -36,12 +36,12 @@ module sim_box_controller_top_led_hole_cap_color(led) {
     assert(led == "blue" || led == "red");
 
     if (led=="blue") {
-        color("#8888ff33")
+        color("#8888ff77")
         children();
     }
 
     if (led=="red") {
-        color("#ff888833")
+        color("#ff888877")
         children();
     }
 

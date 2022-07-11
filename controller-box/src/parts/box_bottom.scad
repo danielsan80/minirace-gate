@@ -117,8 +117,6 @@ module _box_controller_front_antenna_guides_keeps() {
 
 module _box_controller_front_center_keep() {
     keep_l = card_keep_l;
-    box_controller_front_center_keep_offset = [0,-3];
-
 
     translate([
         0,

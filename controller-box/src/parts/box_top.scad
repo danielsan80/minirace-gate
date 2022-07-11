@@ -87,12 +87,24 @@ module _box_top_controller_chip_red_led_hole() {
 }
 
 module _box_top_controller_chip_led_hole_tube(angle_pos) {
-    translate([-angle_pos.x,angle_pos.y,0])
-    difference() {
-        cylinder(r=chip_led_hole_tube_r, h=chip_led_hole_tube_h);
 
-        translate([0,0,-fix])
-        cylinder(r=chip_led_hole_r, h=a_lot);
+
+    translate([-angle_pos.x,angle_pos.y,0])
+    union() {
+        difference() {
+            cylinder(r=chip_led_hole_tube_r, h=chip_led_hole_tube_h1);
+
+            translate([0,0,-fix])
+            cylinder(r=chip_led_hole_r, h=a_lot);
+        }
+
+        translate([0,0,chip_led_hole_tube_h1-fix])
+        difference() {
+            cylinder(r=chip_led_hole_tube_r+chip_led_hole_tube_r_ext, h=chip_led_hole_tube_h2);
+
+            translate([0,0,-fix])
+            cylinder(r=chip_led_hole_r+chip_led_hole_tube_r_ext, h=a_lot);
+        }
     }
 }
 
