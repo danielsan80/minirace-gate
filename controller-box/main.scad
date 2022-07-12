@@ -19,21 +19,21 @@ union() {
     translate([0,0,10])
     box_controller_side_slide();
 
-//    translate([0,0,20])
-//    translate([0,0,box_outer_h+fix])
-//    translate([box_outer_w(box="controller"),0,0])
-//    rotate([0,180,0])
-//    union() {
-//        box_controller_top();
-//
-//        sim_box_controller_top_led_hole_cap_transform(led="blue")
-//        sim_box_controller_top_led_hole_cap_color(led="blue")
-//        %box_top_led_hole_cap();
-//
-//        sim_box_controller_top_led_hole_cap_transform(led="red")
-//        sim_box_controller_top_led_hole_cap_color(led="red")
-//        %box_top_led_hole_cap();
-//    }
+    translate([0,0,20])
+    translate([0,0,box_outer_h+fix])
+    translate([box_outer_w(box="controller"),0,0])
+    rotate([0,180,0])
+    union() {
+        box_controller_top();
+
+        sim_box_controller_top_led_hole_cap_transform(led="blue")
+        sim_box_controller_top_led_hole_cap_color(led="blue")
+        %box_top_led_hole_cap();
+
+        sim_box_controller_top_led_hole_cap_transform(led="red")
+        sim_box_controller_top_led_hole_cap_color(led="red")
+        %box_top_led_hole_cap();
+    }
 
 
     translate([ box_controller_card_pos.x, box_controller_card_pos.y, 0])
@@ -41,7 +41,7 @@ union() {
     sim_controller();
 }
 
-
+//
 //union() {
 //    box_controller_top();
 //
@@ -53,7 +53,7 @@ union() {
 //    sim_box_controller_top_led_hole_cap_color(led="red")
 //    box_top_led_hole_cap();
 //}
-//
+
 //box_top_led_hole_cap();
 
 //translate([-box_controller_outer_w-200,0,0])
