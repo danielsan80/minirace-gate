@@ -62,72 +62,72 @@ build_image () {
 }
 
 
-#echo ""
-#echo "Build"
-#echo "====="
-#
-#
-#echo ""
-#echo "## GATE"
-#
-#
-#echo ""
-#echo "### UPRIGHT"
-#
-#build_stl "print/gate/upright/upright.scad"
-#
-#echo ""
-#echo "#### Variant"
-#
-#build_stl "print/gate/upright/variant/upright_with_angle_joints_holes.scad" "upright"
-#build_stl "print/gate/upright/variant/upright_angle_joint_stick.scad" "upright_stick"
-#
-#echo ""
-#echo "### ANGLE"
-#
-#build_stl "print/gate/angle/angle.scad" "angle"
-#
-#echo ""
-#echo "### TRAVERSE"
-#build_stl "print/gate/traverse/traverse.scad"
-#
-#echo ""
-#echo "#### Variant"
-#
-#echo ""
-#echo "##### whole"
-#
-#build_stl "print/gate/traverse/variant/whole/traverse_160mm.scad"
-#build_stl "print/gate/traverse/variant/whole/traverse_270mm.scad"
-#build_stl "print/gate/traverse/variant/whole/traverse_without_basement.scad"
-#
-#echo ""
-#echo "##### split"
-#
-#build_stl "print/gate/traverse/variant/split/traverse_L.scad"
-#build_stl "print/gate/traverse/variant/split/traverse_R.scad"
-#
-#build_stl "print/gate/traverse/variant/split/traverse_stick_3of3.scad" "traverse_stick_3of3"
-#build_stl "print/gate/traverse/variant/split/traverse_stick_2of3.scad" "traverse_stick_2of3"
-#build_stl "print/gate/traverse/variant/split/traverse_stick_1of3.scad" "traverse_stick_1of3"
-#
-#echo ""
-#echo "###### split + 160mm"
-#
-#build_stl "print/gate/traverse/variant/split/160mm/traverse_L_160mm.scad" "traverse_L_160mm"
-#build_stl "print/gate/traverse/variant/split/160mm/traverse_R_160mm.scad" "traverse_R_160mm"
-#
-#echo ""
-#echo "##### split + 270mm"
-#
-#build_stl "print/gate/traverse/variant/split/270mm/traverse_L_270mm.scad" "traverse_L_270mm"
-#build_stl "print/gate/traverse/variant/split/270mm/traverse_R_270mm.scad" "traverse_R_270mm"
-#
-#echo ""
-#echo "##### split + without_basement"
-#
-#build_stl "print/gate/traverse/variant/split/without_basement/traverse_L_without_basement.scad"
-#build_stl "print/gate/traverse/variant/split/without_basement/traverse_R_without_basement.scad"
+echo ""
+echo "Build"
+echo "====="
+
+
+echo ""
+echo "## GATE"
+
+
+echo ""
+echo "### UPRIGHT"
+
+build_stl "print/gate/upright/upright.scad"
+
+echo ""
+echo "#### Variant"
+
+build_stl "print/gate/upright/variant/upright_with_angle_joints_holes.scad" "upright"
+build_stl "print/gate/upright/variant/upright_angle_joint_stick.scad" "upright_stick"
+
+echo ""
+echo "### ANGLE"
+
+build_stl "print/gate/angle/angle.scad" "angle"
+
+echo ""
+echo "### TRAVERSE"
+build_stl "print/gate/traverse/traverse.scad"
+
+echo ""
+echo "#### Variant"
+
+echo ""
+echo "##### whole"
+
+build_stl "print/gate/traverse/variant/whole/traverse_160mm.scad"
+build_stl "print/gate/traverse/variant/whole/traverse_270mm.scad"
+build_stl "print/gate/traverse/variant/whole/traverse_without_basement.scad"
+
+echo ""
+echo "##### split"
+
+build_stl "print/gate/traverse/variant/split/traverse_L.scad"
+build_stl "print/gate/traverse/variant/split/traverse_R.scad"
+
+build_stl "print/gate/traverse/variant/split/traverse_stick_3of3.scad" "traverse_stick_3of3"
+build_stl "print/gate/traverse/variant/split/traverse_stick_2of3.scad" "traverse_stick_2of3"
+build_stl "print/gate/traverse/variant/split/traverse_stick_1of3.scad" "traverse_stick_1of3"
+
+echo ""
+echo "###### split + 160mm"
+
+build_stl "print/gate/traverse/variant/split/160mm/traverse_L_160mm.scad" "traverse_L_160mm"
+build_stl "print/gate/traverse/variant/split/160mm/traverse_R_160mm.scad" "traverse_R_160mm"
+
+echo ""
+echo "##### split + 270mm"
+
+build_stl "print/gate/traverse/variant/split/270mm/traverse_L_270mm.scad" "traverse_L_270mm"
+build_stl "print/gate/traverse/variant/split/270mm/traverse_R_270mm.scad" "traverse_R_270mm"
+
+echo ""
+echo "##### split + without_basement"
+
+build_stl "print/gate/traverse/variant/split/without_basement/traverse_L_without_basement.scad"
+build_stl "print/gate/traverse/variant/split/without_basement/traverse_R_without_basement.scad"
 
 echo ""
 echo "## BASEMENT"
