@@ -17,12 +17,3 @@ function basement_box_controller_card_startlights_connector_pos() = startlights_
 function basement_box_controller_chip_led_hole_cap_d() = chip_led_hole_cap_d;
 function basement_box_controller_chip_blue_led_hole_angle_pos() = chip_blue_led_hole_angle_pos;
 function basement_box_controller_chip_red_led_hole_angle_pos() = chip_red_led_hole_angle_pos;
-
-function basement_box_controller_center_offset() = [
-    -basement_box_controller_w()/2+upright_base_level1_w()/2+basement_upright_margin(),
-    -basement_l()/2
-    +basement_box_controller_chip_blue_led_hole_angle_pos().y
-    +basement_box_controller_chip_led_hole_cap_d()/2
-    +basement_upright_margin()
-    +upright_base_level1_l()/2
-];
