@@ -120,7 +120,7 @@ module _box_controller_front_center_keep() {
 
     translate([
         0,
-        startlights_connector_pos.y-startlights_connector_l/2+box_controller_front_center_keep_offset.y,
+        startlights_connector_old_pos.y-startlights_connector_old_l/2+box_controller_front_center_keep_offset.y,
         0
     ])
     translate([
