@@ -47,6 +47,13 @@ module sim_startlights_connector() {
     cube([startlights_connector_w,startlights_connector_l,startlights_connector_h]);
 }
 
+module sim_startlights_connector_old() {
+    translate([startlights_connector_old_pos.x,startlights_connector_old_pos.y,0])
+    translate([0,-startlights_connector_old_l/2,card_thick])
+    color("#ddddddaa")
+    cube([startlights_connector_old_w,startlights_connector_old_l,startlights_connector_old_h]);
+}
+
 module sim_antenna() {
     translate([-antenna_l, card_l-card_overhang_offset-card_overhang_w, 0])
     color("#aaaaaa")
@@ -90,6 +97,7 @@ module sim_chip_red_led() {
 module sim_controller() {
     sim_card();
     sim_startlights_connector();
+    sim_startlights_connector_old();
     sim_antenna();
     sim_chip();
     sim_chip_blue_led();
