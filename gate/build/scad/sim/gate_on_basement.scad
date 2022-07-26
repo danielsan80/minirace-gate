@@ -76,7 +76,7 @@ translate([5,-30,0])
 translate([35,26,0])
 cars(5);
 
-translate([basement_w(box="terminal")/2, -70, 0])
+translate([basement_w(box="terminal")/2, -100, 0])
 ruler(x=startline_l);
 
 translate([-40,0,0])
