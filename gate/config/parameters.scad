@@ -107,7 +107,7 @@ basement_bolting_guide_h = 2;
 basement_bolting_guide_thick = layer_h*3;
 basement_bolting_guide_wall_thick = 0.6;
 basement_bolting_guide_grid_gap = 15;
-
+basement_bolting_guide_chip_led_hole_cap_play = 0.5;
 
 
 

@@ -135,6 +135,7 @@ echo "## BASEMENT"
 build_stl "print/basement/basement_box_controller_bottom.scad" "basement_box_controller_bottom"
 build_stl "print/basement/basement_box_controller_side_slide.scad" "basement_box_controller_side_slide"
 build_stl "print/basement/basement_box_controller_top.scad" "basement_box_controller_top"
+build_stl "print/basement/basement_box_controller_top_led_hole_cap.scad" "basement_box_controller_top_led_hole_cap"
 
 echo ""
 build_stl "print/basement/basement_box_terminal_bottom.scad" "basement_box_terminal_bottom"

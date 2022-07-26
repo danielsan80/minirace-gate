@@ -40,6 +40,20 @@ module sim_card() {
 
 }
 
+module sim_startlights_connector() {
+    translate([startlights_connector_pos.x,startlights_connector_pos.y,0])
+    translate([0,-startlights_connector_l/2,card_thick])
+    color("white")
+    cube([startlights_connector_w,startlights_connector_l,startlights_connector_h]);
+}
+
+module sim_startlights_connector_old() {
+    translate([startlights_connector_old_pos.x,startlights_connector_old_pos.y,0])
+    translate([0,-startlights_connector_old_l/2,card_thick])
+    color("#ddddddaa")
+    cube([startlights_connector_old_w,startlights_connector_old_l,startlights_connector_old_h]);
+}
+
 module sim_antenna() {
     translate([-antenna_l, card_l-card_overhang_offset-card_overhang_w, 0])
     color("#aaaaaa")
@@ -68,17 +82,26 @@ module sim_chip() {
     cube([chip_w, chip_l, chip_thick]);
 }
 
-module sim_chip_led() {
+module sim_chip_blue_led() {
     color("#2222FF")
-        translate([chip_x+chip_w+chip_led_angle_pos.x, chip_y+chip_led_angle_pos.y, card_thick+chip_z_offset+chip_thick])
+        translate([chip_x+chip_w+chip_blue_led_angle_pos.x, chip_y+chip_blue_led_angle_pos.y, card_thick+chip_z_offset+chip_thick])
         cylinder(r=0.5, h=1);
+}
+
+module sim_chip_red_led() {
+    color("#FF2222")
+        translate([chip_x+chip_w+chip_red_led_angle_pos.x, chip_y+chip_red_led_angle_pos.y, card_thick+chip_z_offset+chip_thick])
+            cylinder(r=0.5, h=1);
 }
 
 module sim_controller() {
     sim_card();
+    sim_startlights_connector();
+    sim_startlights_connector_old();
     sim_antenna();
     sim_chip();
-    sim_chip_led();
+    sim_chip_blue_led();
+    sim_chip_red_led();
     sim_chip_connector();
     sim_chip_processor();
 }

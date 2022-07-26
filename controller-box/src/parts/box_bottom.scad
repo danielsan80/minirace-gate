@@ -108,11 +108,29 @@ module _box_controller_front_antenna_guides_keeps() {
         keep(l=keep_l, with_wall=true, with_hold=false);
 
 
-        translate([0,-antenna_guides_gap_w-antenna_guide_thick,0])
-        translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        rotate([0,0,-90])
-        keep(l=keep_l, with_wall=true, with_hold=true, keep_wall_thick=keep_wall_thick*3);
+//        translate([0,-antenna_guides_gap_w-antenna_guide_thick,0])
+//        translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+//        rotate([0,0,-90])
+//        keep(l=keep_l, with_wall=true, with_hold=false, keep_wall_thick=keep_wall_thick*3);
     }
+}
+
+module _box_controller_front_center_keep() {
+    keep_l = card_keep_l;
+
+    translate([
+        0,
+        startlights_connector_pos.y-startlights_connector_l/2+box_controller_front_center_keep_offset.y,
+        0
+    ])
+    translate([
+        box_controller_inner_w-card_back_margin-card_w-card_play*2,
+        box_inner_l-card_left_margin-card_l-card_play*2,
+        0
+    ])
+    translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+    rotate([0,0,-90])
+    keep(l=keep_l, with_wall=true, with_hold=false);
 }
 
 module _box_controller_back_right_keep() {
@@ -204,6 +222,8 @@ module _box_controller_keeps() {
     _box_controller_front_right_keep();
     _box_controller_front_left_keep();
     _box_controller_front_antenna_guides_keeps();
+
+    _box_controller_front_center_keep();
 
     _box_controller_back_left_keep();
     _box_controller_back_right_keep();
