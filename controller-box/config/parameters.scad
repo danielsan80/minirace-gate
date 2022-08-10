@@ -115,7 +115,7 @@ chip_led_hole_d = 4.5;
 chip_led_hole_cap_d = 5;
 chip_led_hole_cap_r = chip_led_hole_cap_d/2;
 chip_led_hole_cap_inner_thick = 0.8;
-chip_led_hole_cap_play = 0.10;
+chip_led_hole_cap_play = 0.12;
 chip_led_hole_r = chip_led_hole_d/2;
 
 chip_led_hole_tube_thick = 1;
