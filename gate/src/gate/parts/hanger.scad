@@ -22,11 +22,11 @@ module hanger_clip(l=bar_wrapper_l) {
 module hanger_clip_generic() {
     hook_bar_thick = 5;//bar_wrapper_l;
     hook_bar_w = hanger_clip_junction_w;
-    hook_l1 = 20;
+    hook_l1 = 15;
     hook_l2 = 13;
     hook_inner_w = 5;
     hook_outer_w = hook_inner_w+hook_bar_w*2;
-    hook_tilt = 3;
+    hook_tilt = 5;
 
     module hook() {
         cube([hook_bar_w,hook_l1,hook_bar_thick]);
