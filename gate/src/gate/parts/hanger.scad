@@ -19,47 +19,45 @@ module hanger_clip(l=bar_wrapper_l) {
         ct_slide_c(l=l);
 }
 
-module hanger_clip_generic() {
-    hook_bar_thick = 5;//bar_wrapper_l;
-    hook_bar_w = hanger_clip_junction_w;
-    hook_l1 = 15;
-    hook_l2 = 13;
-    hook_inner_w = 5;
-    hook_outer_w = hook_inner_w+hook_bar_w*2;
-    hook_tilt = 5;
+module hanger_clip_generic(
+    l1=hanger_clip_generic_l1,
+    l2=hanger_clip_generic_l2,
+    inner_w=hanger_clip_generic_inner_w,
+    tilt=hanger_clip_generic_tilt,
+    bar_h=hanger_clip_generic_bar_h,
+) {
+    bar_thick = hanger_clip_junction_w;
+    outer_w = inner_w+bar_thick*2;
 
-    module hook() {
-        cube([hook_bar_w,hook_l1,hook_bar_thick]);
+    module _hook() {
+        cube([bar_thick,l1,bar_h]);
 
-//        translate([-hook_inner_w,hook_l1-hook_bar_w,0])
-//        cube([hook_inner_w,hook_bar_w,hook_bar_thick]);
-
-        translate([hook_bar_w-hook_outer_w/2,hook_l1-fix,0])
+        translate([bar_thick-outer_w/2,l1-fix,0])
         difference() {
-            cylinder(d=hook_outer_w, h=hook_bar_thick);
+            cylinder(d=outer_w, h=bar_h);
             translate([0,0,-fix])
-            cylinder(d=hook_inner_w, h=hook_bar_thick+fix*2);
+            cylinder(d=inner_w, h=bar_h+fix*2);
 
-            translate([-(hook_outer_w+fix*2)/2,-(hook_outer_w+fix*2),-fix])
-            cube([hook_outer_w+fix*2, hook_outer_w+fix*2, hook_bar_thick+fix*2]);
+            translate([-(outer_w+fix*2)/2,-(outer_w+fix*2),-fix])
+            cube([outer_w+fix*2, outer_w+fix*2, bar_h+fix*2]);
         }
 
-        translate([-hook_inner_w-hook_bar_w,hook_l1-hook_l2,0])
-        translate([0,hook_l2,0])
-        rotate([0,0,hook_tilt])
-        translate([0,-hook_l2,0])
-        cube([hook_bar_w,hook_l2,hook_bar_thick]);
+        translate([-inner_w-bar_thick,l1-l2,0])
+        translate([0,l2,0])
+        rotate([0,0,tilt])
+        translate([0,-l2,0])
+        cube([bar_thick,l2,bar_h]);
     }
 
 
-    hook();
+    _hook();
 
     translate([
         0,
         -ct_slide_side,
         0
     ])
-    ct_slide_c(l=hook_bar_thick);
+    ct_slide_c(l=bar_h);
 }
 
 module hanger_clip_junction(thick,w,l) {
@@ -133,6 +131,3 @@ module hanger_rod_hook(
 }
 
 function hanger_rod_hook_d() = startlights_board_hole_d()-hanger_rod_hook_play*2;
-
-
-hanger_clip_generic();

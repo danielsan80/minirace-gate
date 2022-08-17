@@ -18,6 +18,8 @@ Download the project (Code -> Download ZIP) from [GitHub repository](https://git
 
 Unzip the project in a directory (`<project-dir>`).
 
+Create a link `<project-dir>/gate/vendor` -> `<project-dir>` 
+
 Find and open with OpenSCAD or with a text editor the file `<project-dir>/gate/config/parameters.scad`.
 
 Change the parameters.

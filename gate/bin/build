@@ -179,6 +179,10 @@ build_stl "print/startlights/startlights.scad" "startlights"
 build_stl "print/startlights/hanger_clip.scad" "hanger_clip"
 build_stl "print/startlights/hanger_rod.scad" "hanger_rod"
 
+echo ""
+echo "### Variant"
+build_stl "print/startlights/variant/hanger_clip_generic.scad" "hanger_clip_generic"
+
 
 echo ""
 echo "# SIM"
