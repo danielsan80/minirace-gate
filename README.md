@@ -1,13 +1,14 @@
 # MiniRace Gate Project
 
 ## Intro
-This project is the 3d printable part oh the
-[Mini Race Challenge Lap Counter](https://www.youtube.com/channel/UCmPbh32NU4jp-B-oBcA80wQ).
+This project is the 3D printable part oh the **Mini Race Challenge Lap Counter**.
 
-It is a lap counter for Can RC cars (1:54) and Turbo Racing RC Cars based on NFC technology.
+It is a lap counter for Can RC cars (1:54) and Turbo Racing RC cars (1:76) based on NFC technology.
 
 The app is available at [www.miniracechallage.com](https://www.miniracechallenge.com)
 and works on PC, IOS and Android.
+
+[Here](https://www.youtube.com/channel/UCmPbh32NU4jp-B-oBcA80wQ) is the Youtube channel.
 
 It's in an Early bird phase.
 
