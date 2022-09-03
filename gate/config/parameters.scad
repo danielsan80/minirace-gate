@@ -72,6 +72,12 @@ v_slide_play = play2;
 hanger_clip_junction_w = 2;
 hanger_clip_junction_l = 4;
 
+hanger_clip_generic_bar_h = 5;
+hanger_clip_generic_l1 = 15;
+hanger_clip_generic_l2 = 13;
+hanger_clip_generic_inner_w = 5;
+hanger_clip_generic_tilt = 5;
+
 hanger_rod_hook_play = 0.15;
 hanger_rod_hook_l = 5;
 hanger_rod_hook_r = 6;

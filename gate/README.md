@@ -6,9 +6,7 @@ It adds the joint to hang up the startlights on the traverse.
 It uses the controller box and terminal box as basements for its uprights.
 It uses the rules to show the measures in the simulation context.
 
-## Getting started
-
-### Easy way
+## Getting started: easy way
 
 Install [OpenSCAD](https://openscad.org/)
 
@@ -17,6 +15,8 @@ Download the project (Code -> Download ZIP) from [GitHub repository](https://git
 ![Download the project](doc/download-repository.png "Download the project")
 
 Unzip the project in a directory (`<project-dir>`).
+
+Create a link `<project-dir>/gate/vendor` -> `<project-dir>` 
 
 Find and open with OpenSCAD or with a text editor the file `<project-dir>/gate/config/parameters.scad`.
 
@@ -36,7 +36,7 @@ Then render the model (Design -> Render [F6]) and export it as STL (File -> Expo
 That's all. Enjoy!
 
 
-### Easy way for Linux users
+## Getting started: easy way for Linux users
 
 Tested on Ubuntu 20.04.
 
@@ -58,7 +58,7 @@ Enter the project dir:
 cd minirace-gate
 ```
 
-## Setup
+### Setup
 After cloning the project fron Github and moving into the project dir you must setup the project.
 
 Enter in gate subdir:
@@ -75,13 +75,13 @@ bin/setup
 
 Now all should be ok.
 
-## Rendering
+### Rendering
 The `gate/main.scad` is a "whiteboard" I used to see the simulation of the whole gate and its parts,
 adding and removing modules to see if all fit together.
 
 It is worth to grasp the whole idea.
 
-## Build
+### Build
 
 It's time to build the .stl files from the .scad files.
 
@@ -99,10 +99,16 @@ If you have to rebuild them you can delete the stl dir and rerun the `bin/build`
 
 The dir `gate/build/scad` contains the .scad version of the generated .stl files. 
 
-## Configuration
+### Configuration
 
 If you need to change the configuration you can edit the `gate/config/parameters.scad` file.
 
 I tried to put all values in a parameter in this file. Tha major part of them should be considered as constants.
 
 It makes sense to change only a few of them. 
+
+### Printing
+
+The project has a lot of elements, so I added a little [Printing guide](doc/printing.md) to help you understanding it.
+
+The guide refers to the Thingiverse built stls. 
