@@ -111,4 +111,4 @@ It makes sense to change only a few of them.
 
 The project has a lot of elements, so I added a little [Printing guide](doc/printing.md) to help you understanding it.
 
-It uses the Thingiverse built stls. 
+The guide refers to the Thingiverse built stls. 
