@@ -50,7 +50,8 @@ upright_base_hole_play = 0.15;
 basement_upright_margin = 5;
 basement_upright_leds_margin = 1.5;
 basement_box_top_hole_cap_ring_h = layer_h*2;
-basement_box_top_hole_cap_ring_play = upright_base_hole_play;
+basement_box_top_hole_cap_play_h = upright_base_hole_play;
+basement_box_top_hole_cap_ring_r_ext = 0.2;
 
 traverse_play = play2;
 
