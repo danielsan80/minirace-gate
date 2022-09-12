@@ -18,3 +18,18 @@ module dock_shape(part="bottom", box, box_terminal_outer_w=box_terminal_outer_w)
         a_lot
     ]);
 }
+
+
+module box_controller_startlights_hole_transform() {
+//    translate([0,box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h/2])
+    translate([0, startlights_cable_hole_pos.x, startlights_cable_hole_pos.y])
+    translate([-a_few/2, -startlights_cable_hole_w/2, -startlights_cable_hole_h/2])
+    children();
+}
+
+module box_controller_startlights_hole_cut(void=true) {
+    p = void?0:startlights_cable_hole_play;
+    box_controller_startlights_hole_transform()
+    translate([0, p, p])
+    cube([a_few, startlights_cable_hole_w-p*2, a_lot]);
+}

@@ -17,6 +17,10 @@ box_top_base_thick = 1;
 
 box_joint_h = 4;
 
+box_joint_play = play2;
+box_side_slide_play = play1;
+box_joint_half_play = box_joint_play/2;
+
 card_w = 36.5;
 card_l = 83.5;
 card_thick = 0.6;
@@ -78,6 +82,7 @@ startlights_connector_old_w = 3.6;
 startlights_connector_old_l = 10;
 startlights_connector_old_h = 5;
 startlights_connector_old_pos = [card_overhang_l,-startlights_connector_old_l/2+card_l-card_overhang_offset-card_overhang_w-4];
+
 
 antenna_w = card_overhang_w;
 antenna_play = 0.5;
@@ -155,10 +160,6 @@ chip_red_led_angle_pos = [
 ];
 
 
-box_joint_play = play2;
-box_side_slide_play = play1;
-box_joint_half_play = box_joint_play/2;
-
 cylinder_joint_play = play2;
 cylinder_joint_margin = 6;
 cylinder_joint_r = 0.5;
@@ -183,3 +184,8 @@ box_controller_card_pos = [
 ];
 
 
+startlights_cable_hole_w = 3;
+startlights_cable_hole_h = 3;
+startlights_cable_hole_pos = [box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h/2];
+//startlights_cable_hole_pos = [box_outer_l/2, box_outer_h/2];
+startlights_cable_hole_play = box_joint_play;

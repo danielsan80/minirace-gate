@@ -19,7 +19,7 @@ module sim_basement_box_controller_side_slide() {
 
 module sim_basement_box_controller_top() {
     sim_basement_box_top_transform()
-    basement_box_controller_top(with_hole=true, with_groove=false);
+    basement_box_controller_top(with_hole=false, with_groove=false);
 
 
     sim_basement_box_top_transform()

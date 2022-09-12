@@ -1,11 +1,15 @@
 include <../../config/parameters.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
+use <../interparts/box_bottom-box_top.scad>
 use <../parts/box_bottom.scad>
 
 module box_controller_side_slide() {
-    intersection() {
-        box_controller_bottom_complete();
-        box_controller_side_slide_shape(void=false);
+    difference() {
+        intersection() {
+            box_controller_bottom_complete();
+            box_controller_side_slide_shape(void=false);
+        }
+        box_controller_startlights_hole_cut(void=true);
     }
 }
 
