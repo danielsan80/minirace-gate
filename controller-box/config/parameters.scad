@@ -83,7 +83,6 @@ startlights_connector_old_l = 10;
 startlights_connector_old_h = 5;
 startlights_connector_old_pos = [card_overhang_l,-startlights_connector_old_l/2+card_l-card_overhang_offset-card_overhang_w-4];
 
-
 antenna_w = card_overhang_w;
 antenna_play = 0.5;
 antenna_thick = 0.5;

@@ -21,7 +21,6 @@ module dock_shape(part="bottom", box, box_terminal_outer_w=box_terminal_outer_w)
 
 
 module box_controller_startlights_hole_transform() {
-//    translate([0,box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h/2])
     translate([0, startlights_cable_hole_pos.x, startlights_cable_hole_pos.y])
     translate([-a_few/2, -startlights_cable_hole_w/2, -startlights_cable_hole_h/2])
     children();

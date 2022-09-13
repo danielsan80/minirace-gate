@@ -346,7 +346,6 @@ module _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w) {
 
 module box_controller_startlights_hole() {
     box_controller_startlights_hole_transform()
-    color("red")
     cube([
         a_few,
         startlights_cable_hole_w,
