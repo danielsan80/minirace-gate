@@ -133,21 +133,16 @@ module box_controller_top() {
 
         _box_top_controller_chip_blue_led_hole();
         _box_top_controller_chip_red_led_hole();
+
+        translate([box_controller_outer_w,0,0])
+        translate([0,0,box_outer_h])
+        rotate([0,180,0])
+        color("red")
+        box_controller_startlights_hole();
     }
     _box_top_controller_chip_blue_led_hole_tube();
     _box_top_controller_chip_red_led_hole_tube();
 //    _box_top_cylinder_joints(box="controller");
-
-    intersection() {
-        box_controller_bottom_complete();
-        translate([box_controller_outer_w,0,0])
-        translate([0,0,startlights_cable_hole_pos.y*2])
-        rotate([0,180,0])
-        difference() {
-            box_controller_startlights_hole_cut(void=false);
-            box_controller_startlights_hole();
-        }
-    }
 }
 
 module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
