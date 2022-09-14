@@ -97,7 +97,7 @@ module sim_chip_red_led() {
 module sim_controller() {
     sim_card();
     sim_startlights_connector();
-//    sim_startlights_connector_old();
+    sim_startlights_connector_old();
     sim_antenna();
     sim_chip();
     sim_chip_blue_led();
