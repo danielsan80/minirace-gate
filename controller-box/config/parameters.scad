@@ -183,8 +183,8 @@ box_controller_card_pos = [
 ];
 
 
-startlights_cable_hole_w = 3;
-startlights_cable_hole_h = 3;
-startlights_cable_hole_pos = [box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h-box_top_base_thick-startlights_cable_hole_h/2-1];
-//startlights_cable_hole_pos = [box_outer_l/2, box_outer_h/2];
-startlights_cable_hole_play = box_joint_play;
+startlights_cable_side_hole_w = 3;
+startlights_cable_side_hole_h = 3;
+startlights_cable_side_hole_pos = [box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h-box_top_base_thick-startlights_cable_side_hole_h/2-1];
+//startlights_cable_side_hole_pos = [box_outer_l/2, box_outer_h/2];
+startlights_cable_side_hole_play = box_joint_play;

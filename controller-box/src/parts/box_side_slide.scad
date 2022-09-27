@@ -9,7 +9,7 @@ module box_controller_side_slide() {
             box_controller_bottom_complete();
             box_controller_side_slide_shape(void=false);
         }
-        box_controller_startlights_hole_cut(void=true);
+        box_controller_startlights_side_hole_cut(void=true);
     }
 }
 

@@ -345,12 +345,12 @@ module _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w) {
 }
 
 
-module box_controller_startlights_hole() {
-    box_controller_startlights_hole_transform()
+module box_controller_startlights_side_hole() {
+    box_controller_startlights_side_hole_transform()
     cube([
         a_few,
-        startlights_cable_hole_w,
-        startlights_cable_hole_h
+        startlights_cable_side_hole_w,
+        startlights_cable_side_hole_h
     ]);
 
 }
@@ -373,7 +373,7 @@ module box_controller_bottom_complete() {
 //        _box_bottom_cylinder_joints_void();
         _box_controller_bottom_chip_connector_hole();
 
-        box_controller_startlights_hole();
+        box_controller_startlights_side_hole();
     }
 
     _box_controller_antenna_guides();
