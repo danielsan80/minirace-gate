@@ -148,7 +148,7 @@ echo "### Variant"
 
 build_stl "print/basement/variant/basement_block.scad"
 build_stl "print/basement/variant/basement_block_with_hole.scad"
-build_stl "print/basement/variant/basement_box_controller_top_without_hole.scad"
+build_stl "print/basement/variant/basement_box_controller_top_without_hole.scad" "basement_box_controller_top_without_hole"
 build_stl "print/basement/variant/basement_box_controller_top_with_groove.scad"
 build_stl "print/basement/variant/basement_box_terminal_top_with_groove.scad"
 

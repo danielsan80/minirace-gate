@@ -39,10 +39,18 @@ Printing the controller box is **the only thing required** to get started.
 - basement_box_controller_side_slide.stl (x 1) [**cement gray**]
 - basement_box_controller_top.stl (x 1) [**cement gray**]
 - basement_box_controller_top_led_hole (x 2) [**transparent**]
-- basement_box_controller_top_hole_cap.stl (x 1) [**cement gray**] (optional, useful only if you don't use the startlights module)
+
+If you don't want to use the controller box as basement for the gate you can alternatively print another box controller top.
+
+- ~~basement_box_controller_top.stl (x 1) [**cement gray**]~~
+- basement_box_controller_top_without_hole.stl (x 1) [**cement gray**]
+
+Or simply optionally print the hole cap.
+
+- basement_box_controller_top_hole_cap.stl (x 1) [**cement gray**]
 
 > After a while we realized that printing the controller box with matte black filament was very cool!
-> So, if you are going to print the controller box only, consider to you the matte black filament. 
+> So, if you are going to print the controller box only, consider to you the **matte black** color.
 
 
 ### Terminal box
