@@ -17,6 +17,10 @@ box_top_base_thick = 1;
 
 box_joint_h = 4;
 
+box_joint_play = play2;
+box_side_slide_play = play1;
+box_joint_half_play = box_joint_play/2;
+
 card_w = 36.5;
 card_l = 83.5;
 card_thick = 0.6;
@@ -155,10 +159,6 @@ chip_red_led_angle_pos = [
 ];
 
 
-box_joint_play = play2;
-box_side_slide_play = play1;
-box_joint_half_play = box_joint_play/2;
-
 cylinder_joint_play = play2;
 cylinder_joint_margin = 6;
 cylinder_joint_r = 0.5;
@@ -183,3 +183,8 @@ box_controller_card_pos = [
 ];
 
 
+startlights_cable_side_hole_w = 3;
+startlights_cable_side_hole_h = 3;
+startlights_cable_side_hole_pos = [box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h-box_top_base_thick-startlights_cable_side_hole_h/2-1];
+//startlights_cable_side_hole_pos = [box_outer_l/2, box_outer_h/2];
+startlights_cable_side_hole_play = box_joint_play;

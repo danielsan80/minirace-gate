@@ -120,7 +120,8 @@ module _box_controller_front_center_keep() {
 
     translate([
         0,
-        startlights_connector_old_pos.y-startlights_connector_old_l/2+box_controller_front_center_keep_offset.y,
+//        startlights_connector_old_pos.y-startlights_connector_old_l/2+box_controller_front_center_keep_offset.y,
+        startlights_connector_pos.y-startlights_connector_l/2+box_controller_front_center_keep_offset.y,
         0
     ])
     translate([
@@ -343,6 +344,19 @@ module _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w) {
     }
 }
 
+
+module box_controller_startlights_side_hole() {
+    box_controller_startlights_side_hole_transform()
+    cube([
+        a_few,
+        startlights_cable_side_hole_w,
+        startlights_cable_side_hole_h
+    ]);
+
+}
+
+
+
 module box_controller_bottom_complete() {
     difference() {
         union() {
@@ -358,6 +372,8 @@ module box_controller_bottom_complete() {
         _box_controller_bottom_antenna_hole();
 //        _box_bottom_cylinder_joints_void();
         _box_controller_bottom_chip_connector_hole();
+
+        box_controller_startlights_side_hole();
     }
 
     _box_controller_antenna_guides();
