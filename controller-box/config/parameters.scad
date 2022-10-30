@@ -3,10 +3,6 @@ fix = 0.01;
 fix2 = 0.1;
 a_lot = 1000;
 a_few = 10;
-a_bit = 3;
-play1 = 0.15;
-play2 = 0.20;
-play3 = 0.25;
 layer_w = 0.46;
 layer_h = 0.15;
 
@@ -17,15 +13,15 @@ box_top_base_thick = 1;
 
 box_joint_h = 4;
 
-box_joint_play = play2;
-box_side_slide_play = play1;
+box_joint_play = 0.20;
+box_side_slide_play = 0.15;
 box_joint_half_play = box_joint_play/2;
 
 card_w = 36.5;
 card_l = 83.5;
 card_thick = 0.6;
 card_z_offset = 1;
-card_play = play3;
+card_play = 0.25;
 card_overhang_l = 8;
 card_overhang_offset = 4.5;
 card_overhang_w = 31;
@@ -159,7 +155,7 @@ chip_red_led_angle_pos = [
 ];
 
 
-cylinder_joint_play = play2;
+cylinder_joint_play = 0.20;
 cylinder_joint_margin = 6;
 cylinder_joint_r = 0.5;
 

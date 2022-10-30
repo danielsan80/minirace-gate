@@ -1,10 +1,8 @@
 include <../../../config/parameters.scad>
 use <../../gate/modules/profile.scad>
-//use <../../gate/modules/bar.scad>
 use <../../gate/modules/pylon.scad>
 use <../../gate/interparts/angle-traverse.scad>
 use <../../gate/interparts/upright-angle.scad>
-//use <../../gate/parts/angle.scad>
 
 module angle_base() {
     w = angle_base_w;

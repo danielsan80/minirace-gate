@@ -8,8 +8,6 @@ use <src/parts/box_block.scad>
 use <src/parts/box_top_led_hole_cap.scad>
 use <src/parts/sim/box_controller_top_led_hole_cap.scad>
 
-//use <src/parts/print/box_side_slide.scad>
-
 use <src/parts/sim/controller.scad>
 
 translate([100,0,0])

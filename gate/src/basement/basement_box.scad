@@ -9,7 +9,6 @@ use <../../vendor/controller-box/src/parts/box_bottom.scad>
 use <../../vendor/controller-box/src/parts/box_top.scad>
 use <../../vendor/controller-box/src/parts/box_side_slide.scad>
 use <../../vendor/controller-box/src/parts/box_top_led_hole_cap.scad>
-//use <../gate/interparts/angle-traverse.scad>
 
 
 module basement_box_controller_bottom() {

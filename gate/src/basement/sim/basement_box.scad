@@ -4,7 +4,6 @@ use <../../basement/basement_box.scad>
 use <../../basement/sim/basement_transform.scad>
 use <../../basement/sim/basement_box_controller_top_led_hole_cap.scad>
 use <../../basement/basement_box_controller_center_offset.scad>
-//use <../../gate/interparts/angle-traverse.scad>
 
 
 //BOXES PARTS

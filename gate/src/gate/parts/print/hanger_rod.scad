@@ -1,7 +1,4 @@
 include <../../../../config/parameters.scad>
-//use <../../../gate/modules/profile.scad>
-//use <../../../gate/joints/ct_slide.scad>
-//use <../../../gate/joints/bar_wrapper.scad>
 use <../../../startlights/values.scad>
 use <../../../gate/parts/hanger.scad>
 

@@ -1,7 +1,4 @@
 include <../../../../config/parameters.scad>
-//use <../../../functions.scad>
-//use <../../../gate/parts/upright.scad>
-//use <../../../gate/parts/angle.scad>
 use <../../../gate/interparts/upright-angle.scad>
 
 module test_button_joint() {

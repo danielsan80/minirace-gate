@@ -2,7 +2,6 @@ include <../../config/parameters.scad>
 use <../basement/values.scad>
 use <../gate/interparts/upright_base_hole.scad>
 use <../gate/interparts/upright_base_groove.scad>
-//use <../../vendor/controller-box/src/parts/box_block.scad>
 
 module basement_block(with_hole=false, with_groove=true) {
     difference() {
