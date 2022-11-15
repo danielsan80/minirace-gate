@@ -17,4 +17,9 @@ module board() {
     translate([board_l/2,board_w-welding_y_offset,board_thick])
     translate([-welding_l/2, -welding_w/2,0])
     cube([welding_l, welding_w, welding_h]);
+
+    color("white")
+    translate([board_l/2,board_cable_connector_y_offset,-board_cable_connector_h])
+    translate([-board_cable_connector_l/2,0,0])
+    cube([board_cable_connector_l, board_cable_connector_w, board_cable_connector_h]);
 }

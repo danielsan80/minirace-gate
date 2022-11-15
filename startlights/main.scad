@@ -6,10 +6,11 @@ use <src/parts/sim/led.scad>
 use <src/parts/startlights.scad>
 use <src/parts/led.scad>
 
-//sim_board();
+sim_board();
 sim_startlights();
-//sim_leds();
+sim_leds();
 
+sim_startlights_case();
 //translate([0,-30,0])
 //ruler(startlights_length);
 

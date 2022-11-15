@@ -131,6 +131,39 @@ module startlights_10() {
     }
 }
 
+
+module _startlights_case_10() {
+    color("grey")
+    difference() {
+        union() {
+            for (j=[0:4]) {
+                translate([(side+space_x)*j, 0, 0])
+                cube([side,side*2+space_y,case_thick]);
+            }
+
+            translate([0,bar_x_offset, 0])
+            cube([side*5+space_x*4,side*2+space_y-bar_x_offset*2,case_base_thick]);
+        }
+
+        translate([board_margin-case_play,board_margin-case_play, case_base_thick])
+        cube([board_l+case_play*2, board_w+case_play*2, a_lot]);
+
+        color("red")
+        translate([board_l/2+board_margin,board_cable_connector_y_offset+board_margin,0])
+        translate([
+            -board_cable_connector_l/2-board_cable_connector_play,
+            -board_cable_connector_play,
+            0
+        ])
+        translate([0,0,-a_lot/2])
+        cube([
+            board_cable_connector_l+board_cable_connector_play*2,
+            board_cable_connector_w+board_cable_connector_play*2,
+            a_lot
+        ]);
+    }
+}
+
 module _welding_groove() {
     l = welding_l+welding_play*2;
     w = welding_w+welding_play*2;
@@ -154,3 +187,9 @@ module startlights() {
         _welding_groove();
     }
 }
+
+module startlights_case() {
+    translate([0,0,-4.5])
+    _startlights_case_10();
+}
+
