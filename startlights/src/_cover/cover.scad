@@ -1,26 +1,24 @@
 include <../../config/parameters.scad>
-use <../joints/bar.scad>
 
 
-module cowl(r = 6) {
-    cone_r1 = r;
-    h = cone_r1;
-    cone_ratio = 5.5/6;
+module _cowl(r = 6) {
+    fix = 0.1;
     thick1 = 1;
     thick2 = 0.5;
-    fix = 0.1;
-
+    cone_r1 = r;
+    cone_r2 = cone_r1-thick1;
+    h = r;
+    cone_ratio = 5.5/6;
 
     cut_side = cone_r1*2+fix*2;
 
     module cone() {
-        cylinder(h = h, r1 = cone_r1, r2 = cone_r1-thick2);
+        cylinder(h = h, r1 = cone_r1, r2 = cone_r2);
     }
 
     module void() {
         translate([0,0,-fix])
-        cylinder(h = h+fix*2, r = cone_r1-thick1);
-
+        cylinder(h = h+fix*2, r = cone_r2);
     }
 
     module cut1() {
@@ -29,10 +27,10 @@ module cowl(r = 6) {
         offset_bottom = cone_r1*8.5/6;
         hull() {
             translate([0,-offset_top,h])
-            cube([side,side,fix], center=true);
+                cube([side,side,fix], center=true);
 
             translate([0,-offset_bottom,0])
-            cube([side,side,fix], center=true);
+                cube([side,side,fix], center=true);
         }
     }
 
@@ -50,7 +48,6 @@ module cowl(r = 6) {
         }
     }
 
-
     translate([side/2,side/2,thick+startlight_circle_estrusion])
     union() {
         difference() {
@@ -60,13 +57,20 @@ module cowl(r = 6) {
             cut2();
 
         }
-        //        #cut1();
-        //        #cut2();
     }
-
 }
 
-module startlight() {
+module _cover_bar_x() {
+    cube([side*5+space_x*4,bar_thick,bar_thick]);
+}
+
+module _cover_bar_y() {
+    cube([side,space_y,bar_thick]);
+}
+
+
+
+module _cover_x1() {
 
     play = 0.4;
     h = startlight_circle_estrusion;
@@ -78,7 +82,7 @@ module startlight() {
 
     color("grey")
     union() {
-        cowl(r);
+        _cowl(r);
         difference() {
             union() {
                 cube([side,side,thick]);
@@ -103,54 +107,53 @@ module startlight() {
 
 
 
-module startlights_2() {
+module _cover_x2() {
     translate([0, side+space_y, 0])
-    startlight();
+    _cover_x1();
 
-    startlight();
+    _cover_x1();
 
     color("grey")
     translate([0, side, 0])
-    bar_y();
+    _cover_bar_y();
 }
 
-module startlights_10() {
+module _cover_x10() {
     for (j=[0:4]) {
         translate([(side+space_x)*j, 0, 0])
-        startlights_2();
+        _cover_x2();
     }
 
     color("grey")
     for (i=[0:1]) {
-
         translate([0, (side+space_y)*i+bar_x_offset, 0])
-        bar_x();
+        _cover_bar_x();
 
         translate([0, (side+space_y)*i+side-bar_x_offset-bar_thick, 0])
-        bar_x();
+            _cover_bar_x();
     }
 }
 
-module _welding_groove() {
+module _cover_welding_groove() {
     l = welding_l+welding_play*2;
     w = welding_w+welding_play*2;
     h = welding_h+welding_play;
     r = welding_r;
 
     translate([board_l/2, board_w-welding_y_offset,0])
-    translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
-    translate([-l/2, -w/2,-fix])
-    translate([r,r,0])
-//    cube([l, w, h]);
-    minkowski() {
-        cube([l-r*2, w-r*2, h]);
-        cylinder(r=r, h=fix);
-    }
+        translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
+            translate([-l/2, -w/2,-fix])
+                translate([r,r,0])
+                    //    cube([l, w, h]);
+                    minkowski() {
+                        cube([l-r*2, w-r*2, h]);
+                        cylinder(r=r, h=fix);
+                    }
 }
 
-module startlights() {
+module cover() {
     difference() {
-        startlights_10();
-        _welding_groove();
+        _cover_x10();
+        _cover_welding_groove();
     }
 }

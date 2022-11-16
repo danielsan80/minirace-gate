@@ -1,4 +1,4 @@
-include <src/parameters.scad>
+include <src/../config/parameters.scad>
 use <vendor/ruler/ruler.scad>
 use <src/parts/sim/board.scad>
 use <src/parts/sim/startlights.scad>
@@ -8,7 +8,7 @@ use <src/parts/led.scad>
 
 //sim_board();
 sim_startlights();
-//sim_leds();
+sim_leds();
 
 //translate([0,-30,0])
 //ruler(startlights_length);

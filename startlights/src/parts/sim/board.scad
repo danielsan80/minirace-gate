@@ -1,4 +1,4 @@
-include <../../parameters.scad>
+include <../../../config/parameters.scad>
 use <../../parts/board.scad>
 
 module sim_board() {

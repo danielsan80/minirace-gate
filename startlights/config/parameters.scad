@@ -33,6 +33,7 @@ board_hole_x_offset = -board_margin + side + space_x/2;
 board_hole_y_offset = -board_margin + side/2;
 board_startlights_gap = 1;
 
+board_offset = [(startlights_length-board_l)/2, (startlights_height-board_w)/2];
 
 welding_l = 8.5;
 welding_w = 1;
