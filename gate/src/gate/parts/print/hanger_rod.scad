@@ -11,7 +11,7 @@ module print_hanger_rod() {
     hanger_rod();
 
     hanger_rod_ct_slide_transform()
-    ct_slide_t_supports(l=l);
+    ct_slide_t_supports(w=l);
 
     translate([hook_offset,0,0])
     translate([0,-ct_slide_side,0])

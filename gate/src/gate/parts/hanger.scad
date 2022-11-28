@@ -4,17 +4,34 @@ use <../../gate/joints/ct_slide.scad>
 use <../../gate/joints/bar_wrapper.scad>
 use <../../startlights/values.scad>
 
+module _hanger_clip_junction(thick,w,l) {
+    p=bar_wrapper_play;
+    translate([-w/2,-l-profile_outer_w()/2-p,0])
+    cube([w,l,thick]);
+}
+
+function hanger_clip_ct_slide_pos_x_offset() =
+    -ct_slide_side/2
+;
+
+function hanger_clip_ct_slide_pos_y_offset() =
+    -ct_slide_side
+    -profile_outer_w()/2
+    -bar_wrapper_play
+    -hanger_clip_junction_l
+;
+
 module hanger_clip(l=bar_wrapper_l) {
     bar_wrapper();
 
-    hanger_clip_junction(thick=l, w=hanger_clip_junction_w, l=hanger_clip_junction_l);
+    _hanger_clip_junction(thick=l, w=hanger_clip_junction_w, l=hanger_clip_junction_l);
 
     translate([
         hanger_clip_ct_slide_pos_x_offset(),
         hanger_clip_ct_slide_pos_y_offset(),
         0
         ])
-        ct_slide_c(l=l);
+        ct_slide_c(w=l);
 }
 
 module hanger_clip_generic(
@@ -55,26 +72,10 @@ module hanger_clip_generic(
         -ct_slide_side,
         0
     ])
-    ct_slide_c(l=bar_h);
-}
-
-module hanger_clip_junction(thick,w,l) {
-    p=bar_wrapper_play;
-    translate([-w/2,-l-profile_outer_w()/2-p,0])
-    cube([w,l,thick]);
+    ct_slide_c(w=bar_h);
 }
 
 
-function hanger_clip_ct_slide_pos_x_offset() =
-    -ct_slide_side/2
-;
-
-function hanger_clip_ct_slide_pos_y_offset() =
-    -ct_slide_side
-    -profile_outer_w()/2
-    -bar_wrapper_play
-    -hanger_clip_junction_l
-;
 
 
 module hanger_rod() {
@@ -83,7 +84,7 @@ module hanger_rod() {
     hook_offset = l/2-startlights_board_hole_x_offset();
 
     hanger_rod_ct_slide_transform()
-    ct_slide_t(l=l);
+    ct_slide_t(w=l);
 
     translate([hook_offset,0,0])
     translate([0,-ct_slide_side,0])
@@ -101,6 +102,8 @@ module hanger_rod_ct_slide_transform() {
     rotate([90,0,0])
     children();
 }
+
+function hanger_rod_hook_d() = startlights_board_hole_d()-hanger_rod_hook_play*2;
 
 module hanger_rod_hook(
     d=hanger_rod_hook_d(),
@@ -128,4 +131,3 @@ module hanger_rod_hook(
     }
 }
 
-function hanger_rod_hook_d() = startlights_board_hole_d()-hanger_rod_hook_play*2;

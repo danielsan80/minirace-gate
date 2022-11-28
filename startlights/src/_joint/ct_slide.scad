@@ -1,10 +1,10 @@
-include <../../../config/parameters.scad>
+include <../../config/parameters.scad>
 
-module _ct_slide_t_profile() {
+module ct_slide_t_profile() {
     side = ct_slide_side;
     x = side/4;
     y = side/5;
-
+    
     polygon([
         [x,y],
         [x,y*4],
@@ -21,32 +21,30 @@ module _ct_slide_t_profile() {
     ]);
 }
 
-module _ct_slide_c_profile() {
-
+module ct_slide_c_profile() {
+    
     side = ct_slide_side;
     x = side/4;
     y = side/5;
     p = ct_slide_play;
-
+    
     difference() {
         square([x*4,y*5]);
         minkowski() {
-            _ct_slide_t_profile();
-
+            ct_slide_t_profile();
+            
             translate([-p, -p])
             square([p*2, p*2]);
         }
-
     }
 }
 
 module ct_slide_t(w) {
     linear_extrude(w)
-    _ct_slide_t_profile();
+    ct_slide_t_profile();
 };
 
 module ct_slide_c(w) {
     linear_extrude(w)
-    _ct_slide_c_profile();
+    ct_slide_c_profile();
 };
-
