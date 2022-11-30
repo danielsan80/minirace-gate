@@ -1,9 +1,9 @@
 include <../../../config/parameters.scad>
 
-use <../../../src/_cover/cover.scad>
+use <../../../src/cover/cover.scad>
 
 
 
-module print_cover() {
+module sim_cover() {
     cover();
 }

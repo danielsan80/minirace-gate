@@ -1,5 +1,5 @@
 include <../../config/parameters.scad>
-include <../../src/_led/led.scad>
+include <../../src/led/led.scad>
 
 
 module _board_main() {

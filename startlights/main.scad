@@ -1,7 +1,7 @@
 include <src/../config/parameters.scad>
 use <vendor/ruler/ruler.scad>
-use <src/_board/sim/board.scad>
-use <src/_cover/sim/cover.scad>
+use <src/board/sim/board.scad>
+use <src/cover/sim/cover.scad>
 
 sim_board();
 
