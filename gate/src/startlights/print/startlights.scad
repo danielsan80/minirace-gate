@@ -1,5 +1,5 @@
-use <../../../vendor/startlights/src/parts/print/startlights.scad>
+use <../../../vendor/startlights/src/_cover/print/cover.scad>
 
 module print_startlights_front() {
-    print_startlights();
+    print_cover();
 }

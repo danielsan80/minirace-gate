@@ -1,12 +1,11 @@
 include <src/../config/parameters.scad>
 use <vendor/ruler/ruler.scad>
 use <src/_board/sim/board.scad>
-use <src/parts/sim/startlights.scad>
-use <src/parts/startlights.scad>
+use <src/_cover/sim/cover.scad>
 
 sim_board();
 
-sim_startlights();
+sim_cover();
 
 //translate([0,-30,0])
 //ruler(startlights_length);
