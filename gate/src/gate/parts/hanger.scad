@@ -5,8 +5,8 @@ use <../../gate/joints/bar_wrapper.scad>
 use <../../startlights/values.scad>
 
 module _hanger_clip_junction(thick,w,l) {
-    p=bar_wrapper_play;
-    translate([-w/2,-l-profile_outer_w()/2-p,0])
+    translate([0,-bar_wrapper_offset(),0])
+    translate([-w/2,-l,0])
     cube([w,l,thick]);
 }
 
@@ -16,8 +16,7 @@ function hanger_clip_ct_slide_pos_x_offset() =
 
 function hanger_clip_ct_slide_pos_y_offset() =
     -ct_slide_side
-    -profile_outer_w()/2
-    -bar_wrapper_play
+    -bar_wrapper_offset()
     -hanger_clip_junction_l
 ;
 

@@ -1,5 +1,9 @@
 include <../../config/parameters.scad>
 
+
+function ct_slide_pixel() = [ct_slide_side/4, ct_slide_side/5];
+function ct_slide_size() = [4, 5];
+
 module ct_slide_t_profile() {
     side = ct_slide_side;
     x = side/4;
@@ -48,3 +52,5 @@ module ct_slide_c(w) {
     linear_extrude(w)
     ct_slide_c_profile();
 };
+
+

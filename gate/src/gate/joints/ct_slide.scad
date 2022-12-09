@@ -50,3 +50,5 @@ module ct_slide_c(w) {
     _ct_slide_c_profile();
 };
 
+function ct_slide_c_offset() = [ct_slide_side/5*4, ct_slide_side];
+

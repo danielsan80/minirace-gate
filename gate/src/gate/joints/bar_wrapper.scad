@@ -1,5 +1,6 @@
 include <../../../config/parameters.scad>
 use <../../gate/modules/bar.scad>
+use <../../gate/modules/profile.scad>
 
 module bar_wrapper(l=bar_wrapper_l, thick=bar_wrapper_thick) {
     difference() {
@@ -17,3 +18,5 @@ module bar_wrapper(l=bar_wrapper_l, thick=bar_wrapper_thick) {
     }
 
 }
+
+function bar_wrapper_offset() = profile_outer_w()/2+bar_wrapper_play;
