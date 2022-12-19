@@ -4,10 +4,4 @@
 !/build/**/
 !/build/scad/**
 
-#/var/**
-#!/var/**/
-#!var/SymfonyRequirements.php
-#!var/config.yaml.dist
-
-
 !.gitkeep

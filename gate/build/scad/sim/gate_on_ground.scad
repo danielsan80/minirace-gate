@@ -9,7 +9,6 @@ use <../../../src/gate/parts/sim/traverse.scad>
 use <../../../src/gate/parts/sim/hanger.scad>
 
 use <../../../src/startlights/sim/startlights.scad>
-use <../../../src/startlights/sim/leds.scad>
 use <../../../src/startlights/sim/board.scad>
 
 use <../../../vendor/car/src/cars.scad>
@@ -43,7 +42,6 @@ union() {
     sim_startlights_transform(startline_mode="upright", startline_l=startline_l)
     union() {
         sim_startlights_front();
-        sim_startlights_leds();
         sim_startlights_board();
     }
 
