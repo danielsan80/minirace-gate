@@ -60,7 +60,7 @@ traverse_hook_w = 2;
 traverse_hook_thick = 0.8;
 traverse_hooks_intra_space_l = 30;
 
-bar_wrapper_l = 3;
+bar_wrapper_w = 3;
 bar_wrapper_thick = 1.2;
 bar_wrapper_play = play2;
 
@@ -71,21 +71,10 @@ ct_slide_play = play3;
 
 v_slide_play = play2;
 
-    hanger_clip_junction_w = 2;
-    hanger_clip_junction_l = 4;
+hanger_clip_junction_w = 2;
+hanger_clip_junction_l = 4;
 
-    hanger_clip_generic_bar_h = 5;
-    hanger_clip_generic_l1 = 15;
-    hanger_clip_generic_l2 = 13;
-    hanger_clip_generic_inner_w = 5;
-    hanger_clip_generic_tilt = 5;
-
-    hanger_rod_hook_play = 0.15;
-    hanger_rod_hook_l = 5;
-    hanger_rod_hook_r = 6;
-    hanger_rod_hook_angle = 30;
-    hanger_rod_hook_w = 2; // = startlight:space_x
-
+hanger_clip_generic_w = 5;
 
 bolt_joint_play = 0.15;
 

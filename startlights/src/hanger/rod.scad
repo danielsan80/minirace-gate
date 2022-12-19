@@ -41,7 +41,7 @@ module hanger_rod_ct_slide_transform() {
 
 module hanger_rod() {
     l=board_l;
-    hook_offset = l/2-board_hole_x_offset;
+    hook_offset = l/2-board_hole_offset.x;
     
     hanger_rod_ct_slide_transform()
     ct_slide_t(w=l);

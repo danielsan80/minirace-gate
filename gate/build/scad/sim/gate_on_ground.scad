@@ -20,17 +20,17 @@ use <../../../src/startlights/sim/startlights_transform.scad>
 //$vpr = [ 60,0,-20 ];
 //$vpd = 500;
 
-//sim_bolting_L();
+sim_bolting_L();
 
 sim_on_bolting_transform()
 union() {
-//    sim_upright_L();
-//    sim_angle_L();
+    sim_upright_L();
+    sim_angle_L();
 
     sim_traverse(startline_mode="upright", startline_l=startline_l);
 
-//    sim_angle_R(startline_mode="upright", startline_l=startline_l);
-//    sim_upright_R(startline_mode="upright", startline_l=startline_l);
+    sim_angle_R(startline_mode="upright", startline_l=startline_l);
+    sim_upright_R(startline_mode="upright", startline_l=startline_l);
 
 }
 
@@ -50,13 +50,13 @@ union() {
 }
 
 
-//translate([-5,-30,0])
-//translate([35,26,0])
-//cars(5);
+translate([-5,-30,0])
+translate([35,26,0])
+cars(5);
 
-//translate([upright_base_w/2+base_curvature_r, -70, 0])
-//ruler(x=startline_l);
-//
-//translate([-40,0,0])
-//sim_on_bolting_transform()
-//ruler(z=upright_h);
+translate([upright_base_w/2+base_curvature_r, -70, 0])
+ruler(x=startline_l);
+
+translate([-40,0,0])
+sim_on_bolting_transform()
+ruler(z=upright_h);

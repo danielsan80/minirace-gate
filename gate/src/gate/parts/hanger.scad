@@ -1,6 +1,5 @@
 include <../../../config/parameters.scad>
 use <../../gate/modules/profile.scad>
-use <../../gate/joints/ct_slide.scad>
 use <../../gate/joints/bar_wrapper.scad>
 use <../../startlights/values.scad>
 use <../../startlights/hanger.scad>
@@ -20,15 +19,17 @@ function hanger_clip_rod_joint_pos_offset() = [
 ];
 
 
-module hanger_clip(l=bar_wrapper_l) {
+module hanger_clip() {
+    w=bar_wrapper_w;
+    
     bar_wrapper();
 
-    _hanger_clip_junction(thick=l, w=hanger_clip_junction_w, l=hanger_clip_junction_l);
+    _hanger_clip_junction(thick=w, w=hanger_clip_junction_w, l=hanger_clip_junction_l);
 
     translate([
         hanger_clip_rod_joint_pos_offset().x,
         hanger_clip_rod_joint_pos_offset().y,
         0
         ])
-        startlights_hanger_clip_c(w=l);
+        startlights_hanger_clip_c(w=w);
 }

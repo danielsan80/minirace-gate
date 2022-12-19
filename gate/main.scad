@@ -1,6 +1,5 @@
 use <src/gate/joints/test/v_slide.scad>
 use <src/gate/joints/bar_wrapper.scad>
-use <src/gate/joints/ct_slide.scad>
 
 use <src/gate/parts/test/angle.scad>
 use <src/gate/interparts/test/bolting-upright.scad>

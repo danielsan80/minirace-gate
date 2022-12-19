@@ -6,7 +6,7 @@ use <../../../gate/interparts/angle-traverse.scad>
 
 module sim_hanger_clip() {
     rotate([90, 0, - 90])
-    translate([0, 0, - bar_wrapper_l / 2])
+    translate([0, 0, - bar_wrapper_w / 2])
     hanger_clip();
 }
 
@@ -43,5 +43,4 @@ module sim_hanger_rod_transform(startline_mode = "basement", startline_l = start
 module sim_hanger_rod(startline_mode = "basement", startline_l = startline_l) {
     sim_hanger_rod_transform(startline_mode=startline_mode, startline_l=startline_l)
     sim_startlights_hanger_rod();
-//    hanger_rod();
 }

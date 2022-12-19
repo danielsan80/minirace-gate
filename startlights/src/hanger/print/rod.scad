@@ -37,7 +37,7 @@ module _hanger_rod_hook_support(
 
 module print_hanger_rod() {
     l = board_l;
-    hook_offset = l / 2 - board_hole_x_offset;
+    hook_offset = l / 2 - board_hole_offset.x;
     
     hanger_rod();
     

@@ -31,9 +31,7 @@ board_l = startlights_length-board_margin*2;
 board_w = startlights_height-board_margin*2;
 board_thick = 1.6;
 board_hole_d = 3;
-board_hole_x_offset = -board_margin + side + space_x/2;
-board_hole_y_offset = -board_margin + side/2;
-board_hole_offset = [board_hole_x_offset, board_hole_y_offset];
+board_hole_offset = [-board_margin + side + space_x/2, -board_margin + side/2];
 board_startlights_gap = 0.2;
 
 board_offset = [(startlights_length-board_l)/2, (startlights_height-board_w)/2];
