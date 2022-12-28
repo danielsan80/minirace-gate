@@ -17,14 +17,17 @@ use <../../../vendor/car/src/cars.scad>
 use <../../../vendor/ruler/ruler.scad>
 use <../../../src/startlights/sim/startlights_transform.scad>
 
+use <../../../src/basement/sim/_basement.scad>
+use <../../../src/basement/sim/_basement_transform.scad>
 
 //$vpt = [ uprights_distance(startline_mode="basement")/2, 0, upright_h()/2-5];
 //$vpr = [ 60,0,-20 ];
 //$vpd = 500;
 
-sim_basement_box_terminal_L();
+//sim_basement_box_terminal_L();
+_sim_basement_L();
 
-sim_on_basement_transform()
+_sim_on_basement_transform()
 union() {
 
     sim_bolting_L();
@@ -45,10 +48,11 @@ union() {
 
 
 
-sim_basement_box_controller_R(startline_l=startline_l);
+//sim_basement_box_controller_R(startline_l=startline_l);
 //    sim_basement_box_controller_R_top_hole_cap();
+_sim_basement_R(startline_l=startline_l);
 
-sim_on_basement_transform()
+_sim_on_basement_transform()
 sim_on_bolting_transform()
 union() {
     sim_startlights_transform(startline_mode="basement", startline_l=startline_l)
