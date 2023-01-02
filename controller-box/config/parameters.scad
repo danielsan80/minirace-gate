@@ -172,7 +172,7 @@ keep_hold_r = 0.4;
 
 box_controller_front_center_keep_offset = [0,-1];
 
-box_controller_card_pos = [
+box_card_pos = [
     box_wall_thick+antenna_start_margin+card_play,
     box_wall_thick+(chip_y*-1)+chip_play-chip_connector_inner_niche_offset,
     box_bottom_base_thick+card_z_offset
@@ -181,6 +181,6 @@ box_controller_card_pos = [
 
 startlights_cable_side_hole_w = 3;
 startlights_cable_side_hole_h = 3;
-startlights_cable_side_hole_pos = [box_controller_card_pos.y+startlights_connector_pos.y,box_outer_h-box_top_base_thick-startlights_cable_side_hole_h/2-1];
+startlights_cable_side_hole_pos = [box_card_pos.y+startlights_connector_pos.y,box_outer_h-box_top_base_thick-startlights_cable_side_hole_h/2-1];
 //startlights_cable_side_hole_pos = [box_outer_l/2, box_outer_h/2];
 startlights_cable_side_hole_play = box_joint_play;

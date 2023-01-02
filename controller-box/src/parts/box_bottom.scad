@@ -10,10 +10,10 @@ module _box_bottom_main(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
     difference() {
-        cube([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w),box_outer_l,box_outer_h-box_top_base_thick]);
+        cube([box_outer_w(),box_outer_l,box_outer_h-box_top_base_thick]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w),box_inner_l,a_lot]);
+        cube([box_inner_w(),box_inner_l,a_lot]);
     }
 }
 
@@ -27,31 +27,31 @@ module _box_bottom_dock_void(box, box_terminal_outer_w=box_terminal_outer_w) {
 module _box_bottom_cylinder_joints(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+    translate([box_outer_w()/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
-        cylinder_joint(void=false, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+        cylinder_joint(void=false, w=box_inner_w());
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=false, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+        cylinder_joint(void=false, w=box_inner_w());
     }
 }
 
 //module _box_bottom_cylinder_joints_void(box="controller", box_terminal_outer_w=box_terminal_outer_w) {
 //
-//    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+//    translate([box_outer_w()/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
 //    union() {
-//        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+//        cylinder_joint(void=true, w=box_inner_w());
 //
 //        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+//        cylinder_joint(void=true, w=box_inner_w());
 //    }
 //}
 
 module _box_bottom_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,0,box_outer_h-box_top_base_thick])
-    nail_groove(w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+    translate([box_outer_w()/2,0,box_outer_h-box_top_base_thick])
+    nail_groove(w=box_inner_w());
 }
 
 module _box_controller_angle_keep() {
@@ -181,12 +181,12 @@ module _box_controller_back_left_keep() {
 module _box_controller_antenna_guide() {
     difference() {
         translate([antenna_play,0,0])
-        cube([box_inner_w(box="controller")-antenna_guide_play, antenna_guide_thick, keep_h+card_thick]);
+        cube([box_inner_w()-antenna_guide_play, antenna_guide_thick, keep_h+card_thick]);
 
         color("blue")
         translate([-card_w,0,0])
         translate([-card_back_margin,0,0])
-        translate([box_inner_w(box="controller")-antenna_guide_play,0,0])
+        translate([box_inner_w()-antenna_guide_play,0,0])
         translate([0,-a_lot/2,-a_few/2])
         cube([card_w+card_play*2,a_lot,a_few]);
     }
@@ -256,10 +256,10 @@ module _box_controller_bottom_antenna_hole() {
 }
 
 module _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w) {
-    translate([box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
-    mirror([1,0,0])
-    translate([-box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
-    _box_controller_bottom_antenna_hole();
+//    translate([box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
+//    mirror([1,0,0])
+//    translate([-box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
+//    _box_controller_bottom_antenna_hole();
 }
 
 module _box_controller_bottom_chip_connector_central_hole() {
@@ -313,7 +313,7 @@ module _box_controller_bottom_chip_connector_hole() {
 
 
 module _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w) {
-    cube([box_inner_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)-antenna_guide_play, antenna_guide_thick, box_inner_h-box_joint_h-box_joint_play]);
+//    cube([box_inner_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)-antenna_guide_play, antenna_guide_thick, box_inner_h-box_joint_h-box_joint_play]);
 }
 
 module _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w) {

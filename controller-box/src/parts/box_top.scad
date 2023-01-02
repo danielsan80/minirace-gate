@@ -9,10 +9,10 @@ module _box_top_main(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
     difference() {
-        cube([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w),box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
+        cube([box_outer_w(),box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w),box_inner_l,a_lot]);
+        cube([box_inner_w(),box_inner_l,a_lot]);
     }
 }
 
@@ -21,7 +21,7 @@ module _box_top_dock_void(box, box_terminal_outer_w=box_terminal_outer_w) {
 
     difference() {
         translate([-fix,-fix,0])
-            cube([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)+fix*2, box_outer_l+fix*2, a_lot/2]);
+            cube([box_outer_w()+fix*2, box_outer_l+fix*2, a_lot/2]);
 
         translate([0,0,-fix])
             dock_shape(part="top", box=box, box_terminal_outer_w=box_terminal_outer_w);
@@ -31,46 +31,46 @@ module _box_top_dock_void(box, box_terminal_outer_w=box_terminal_outer_w) {
 //module _box_top_cylinder_joints(box, box_terminal_outer_w=box_terminal_outer_w) {
 //    assert(box=="controller" || box=="terminal");
 //
-//    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+//    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
 //    union() {
-//        cylinder_joint(void=false, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+//        cylinder_joint(void=false, w=box_inner_w());
 //
 //        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=false, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+//        cylinder_joint(void=false, w=box_inner_w());
 //    }
 //}
 
 module _box_top_cylinder_joints_void(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
-        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+        cylinder_joint(void=true, w=box_inner_w());
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+        cylinder_joint(void=true, w=box_inner_w());
     }
 }
 
 module _box_top_cylinder_joints_fix(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
         translate([0,cylinder_joint_r+cylinder_joint_play,0])
-        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+        cylinder_joint(void=true, w=box_inner_w());
 
         translate([0,-cylinder_joint_r-cylinder_joint_play,0])
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=true, w=box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+        cylinder_joint(void=true, w=box_inner_w());
     }
 }
 
 module _box_top_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
     assert(box=="controller" || box=="terminal");
 
-    translate([box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)/2,0,box_top_base_thick])
-    nail_groove(box_inner_w(box=box, box_terminal_outer_w=box_terminal_outer_w));
+    translate([box_outer_w()/2,0,box_top_base_thick])
+    nail_groove(box_inner_w());
 }
 
 module _box_top_controller_chip_led_hole(angle_pos) {

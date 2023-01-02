@@ -11,7 +11,7 @@ function basement_w(box) =
 function basement_l() = box_outer_l;
 function basement_h() = box_outer_h;
 function box_top_base_thick() = box_top_base_thick;
-function basement_box_controller_card_pos() = box_controller_card_pos;
+//function basement_box_controller_card_pos() = box_card_pos;
 function basement_box_controller_card_startlights_connector_pos() = startlights_connector_pos;
 
 function basement_box_controller_chip_led_hole_cap_d() = chip_led_hole_cap_d;

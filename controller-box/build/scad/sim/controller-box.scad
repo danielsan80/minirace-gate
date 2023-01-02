@@ -19,7 +19,7 @@ union() {
     
     translate([0,0,60])
     translate([0,0,box_outer_h+fix])
-    translate([box_outer_w(box="controller"),0,0])
+    translate([box_outer_w(),0,0])
     rotate([0,180,0])
     union() {
         box_top();
@@ -33,7 +33,7 @@ union() {
         %box_top_led_hole_cap();
     }
     
-    translate([ box_controller_card_pos.x, box_controller_card_pos.y, 0])
-    translate([0,0,box_controller_card_pos.z])
+    translate([ box_card_pos.x, box_card_pos.y, 0])
+    translate([0,0,box_card_pos.z])
     sim_controller();
 }

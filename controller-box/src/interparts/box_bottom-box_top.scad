@@ -13,7 +13,7 @@ module dock_shape(part="bottom", box, box_terminal_outer_w=box_terminal_outer_w)
         0
     ])
     cube([
-        box_outer_w(box=box, box_terminal_outer_w=box_terminal_outer_w)-box_wall_half_thick*2+hp*2,
+        box_outer_w()-box_wall_half_thick*2+hp*2,
         box_outer_l-box_wall_half_thick*2+hp*2,
         a_lot
     ]);
