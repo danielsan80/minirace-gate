@@ -12,25 +12,25 @@ use <../../vendor/controller-box/src/parts/box_top_led_hole_cap.scad>
 
 
 module basement_box_controller_bottom() {
-    translate([-basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
-    translate([-basement_box_controller_w()/2,-basement_l()/2,0])
-    box_bottom(box="controller");
+//    translate([-basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
+//    translate([-basement_box_controller_w()/2,-basement_l()/2,0])
+//    box_bottom(box="controller");
 }
 
 module basement_box_controller_top(with_hole=true, with_groove=true) {
-    difference() {
-        translate([+basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
-        translate([-basement_box_controller_w()/2,-basement_l()/2,0])
-        box_top(box="controller");
-
-        if (with_hole) {
-            upright_base_hole();
-        }
-        if (with_groove) {
-            rotate([0,180,0])
-            upright_base_groove();
-        }
-    }
+//    difference() {
+//        translate([+basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
+//        translate([-basement_box_controller_w()/2,-basement_l()/2,0])
+//        box_top(box="controller");
+//
+//        if (with_hole) {
+//            upright_base_hole();
+//        }
+//        if (with_groove) {
+//            rotate([0,180,0])
+//            upright_base_groove();
+//        }
+//    }
 }
 
 module basement_box_top_hole_cap() {
@@ -66,36 +66,36 @@ module basement_box_top_led_hole_cap() {
 }
 
 module basement_box_controller_side_slide() {
-    translate([-basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
-    translate([-basement_box_controller_w()/2,-basement_l()/2,0])
-    box_controller_side_slide();
+//    translate([-basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
+//    translate([-basement_box_controller_w()/2,-basement_l()/2,0])
+//    box_controller_side_slide();
 }
 
 
 module basement_box_terminal_bottom() {
-    translate([0,-basement_box_controller_center_offset().y,0])
-    translate([-basement_box_terminal_w()/2,-basement_l()/2,0])
-    box_bottom(box="terminal", box_terminal_outer_w=basement_box_terminal_w());
+//    translate([0,-basement_box_controller_center_offset().y,0])
+//    translate([-basement_box_terminal_w()/2,-basement_l()/2,0])
+//    box_bottom(box="terminal", box_terminal_outer_w=basement_box_terminal_w());
 }
 
 module basement_box_terminal_top(with_hole=true, with_groove=true) {
-    difference() {
-        translate([0,-basement_box_controller_center_offset().y,0])
-        translate([-basement_box_terminal_w()/2,-basement_l()/2,0])
-            box_top(box="terminal", box_terminal_outer_w=basement_box_terminal_w());
-
-        if (with_hole) {
-            upright_base_hole();
-        }
-        if (with_groove) {
-            rotate([0,180,0])
-                upright_base_groove();
-        }
-    }
+//    difference() {
+//        translate([0,-basement_box_controller_center_offset().y,0])
+//        translate([-basement_box_terminal_w()/2,-basement_l()/2,0])
+//            box_top(box="terminal", box_terminal_outer_w=basement_box_terminal_w());
+//
+//        if (with_hole) {
+//            upright_base_hole();
+//        }
+//        if (with_groove) {
+//            rotate([0,180,0])
+//                upright_base_groove();
+//        }
+//    }
 }
 
 module basement_box_terminal_side_slide() {
-    translate([0,-basement_box_controller_center_offset().y,0])
-    translate([-basement_box_terminal_w()/2,-basement_l()/2,0])
-        box_side_slide(box="terminal",box_terminal_outer_w=basement_box_terminal_w());
+//    translate([0,-basement_box_controller_center_offset().y,0])
+//    translate([-basement_box_terminal_w()/2,-basement_l()/2,0])
+//    box_side_slide(box="terminal",box_terminal_outer_w=basement_box_terminal_w());
 }

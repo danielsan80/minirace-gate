@@ -9,22 +9,22 @@ use <../../basement/basement_box_controller_center_offset.scad>
 //BOXES PARTS
 
 module sim_basement_box_controller_bottom() {
-    basement_box_controller_bottom();
+//    basement_box_controller_bottom();
 }
 
 module sim_basement_box_controller_side_slide() {
-    basement_box_controller_side_slide();
+//    basement_box_controller_side_slide();
 }
 
 module sim_basement_box_controller_top() {
-    sim_basement_box_top_transform()
-    basement_box_controller_top(with_hole=true, with_groove=false);
-
-
-    sim_basement_box_top_transform()
-    translate([+basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
-    translate([-basement_box_controller_w()/2,-basement_l()/2,0])
-    sim_basement_box_controller_top_led_hole_caps();
+//    sim_basement_box_top_transform()
+//    basement_box_controller_top(with_hole=true, with_groove=false);
+//
+//
+//    sim_basement_box_top_transform()
+//    translate([+basement_box_controller_center_offset().x,-basement_box_controller_center_offset().y,0])
+//    translate([-basement_box_controller_w()/2,-basement_l()/2,0])
+//    sim_basement_box_controller_top_led_hole_caps();
 }
 
 module sim_basement_box_controller_top_hole_cap() {
@@ -61,9 +61,9 @@ module sim_basement_box_terminal_top() {
 //BOXES
 
 module sim_basement_box_controller() {
-    sim_basement_box_controller_bottom();
-    sim_basement_box_controller_side_slide();
-    sim_basement_box_controller_top();
+//    sim_basement_box_controller_bottom();
+//    sim_basement_box_controller_side_slide();
+//    sim_basement_box_controller_top();
 }
 
 module sim_basement_box_terminal() {
