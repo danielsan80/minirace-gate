@@ -16,15 +16,14 @@ module _box_top_main(box, box_terminal_outer_w=box_terminal_outer_w) {
     }
 }
 
-module _box_top_dock_void(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
+module _box_top_dock_void() {
 
     difference() {
         translate([-fix,-fix,0])
             cube([box_outer_w()+fix*2, box_outer_l+fix*2, a_lot/2]);
 
         translate([0,0,-fix])
-            dock_shape(part="top", box=box, box_terminal_outer_w=box_terminal_outer_w);
+            dock_shape(part="top");
     }
 }
 
@@ -124,20 +123,20 @@ module _box_top_startlight_cable_side_hole_transform() {
 }
 
 module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
-    difference() {
-        union() {
-            _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-            _box_top_cylinder_joints_fix(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-        }
-
-        translate([0,0,box_top_base_thick])
-        _box_top_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-
-        _box_top_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-
-        _box_top_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-    }
-    //    _box_top_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//    difference() {
+//        union() {
+//            _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//            _box_top_cylinder_joints_fix(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//        }
+//
+//        translate([0,0,box_top_base_thick])
+//        _box_top_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//
+//        _box_top_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//
+//        _box_top_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//    }
+//    //    _box_top_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
 }
 
 module box_top() {
@@ -148,7 +147,7 @@ module box_top() {
         }
         
         translate([0,0,box_top_base_thick])
-        _box_top_dock_void(box="controller");
+        _box_top_dock_void();
         
         _box_top_cylinder_joints_void(box="controller");
         
@@ -158,18 +157,18 @@ module box_top() {
         _box_top_controller_chip_red_led_hole();
         
         _box_top_startlight_cable_side_hole_transform()
-        box_controller_startlights_side_hole();
+        box_startlights_side_hole();
     }
     _box_top_controller_chip_blue_led_hole_tube();
     _box_top_controller_chip_red_led_hole_tube();
     //    _box_top_cylinder_joints(box="controller");
     
     intersection() {
-        box_controller_bottom_complete();
+        box_bottom_complete();
         _box_top_startlight_cable_side_hole_transform()
         difference() {
             box_controller_startlights_side_hole_cut(void=false);
-            box_controller_startlights_side_hole();
+            box_startlights_side_hole();
         }
     }
 }

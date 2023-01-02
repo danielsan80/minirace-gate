@@ -18,7 +18,7 @@ module _box_bottom_main() {
 module _box_bottom_dock_void() {
 
     translate([0,0,box_outer_h-box_top_base_thick-box_joint_h])
-    dock_shape(part="bottom", box="controller");
+    dock_shape(part="bottom");
 }
 
 module _box_bottom_cylinder_joints() {
@@ -32,7 +32,7 @@ module _box_bottom_cylinder_joints() {
     }
 }
 
-//module _box_bottom_cylinder_joints_void(box="controller", box_terminal_outer_w=box_terminal_outer_w) {
+//module _box_bottom_cylinder_joints_void() {
 //
 //    translate([box_outer_w()/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
 //    union() {
@@ -250,12 +250,12 @@ module _box_bottom_antenna_hole() {
     }
 }
 
-module _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w) {
-//    translate([box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
-//    mirror([1,0,0])
-//    translate([-box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
-//    _box_bottom_antenna_hole();
-}
+//module _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w) {
+////    translate([box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
+////    mirror([1,0,0])
+////    translate([-box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
+////    _box_bottom_antenna_hole();
+//}
 
 module _box_bottom_chip_connector_central_hole() {
     color("blue")
@@ -293,7 +293,7 @@ module _box_bottom_chip_connector_outer_niche() {
 
 
 
-module _box_controller_bottom_chip_connector_hole() {
+module _box_bottom_chip_connector_hole() {
     translate([
         box_wall_thick+antenna_start_margin+card_play+chip_x+chip_w/2,
         0,
@@ -339,8 +339,8 @@ module _box_controller_bottom_chip_connector_hole() {
 //}
 
 
-module box_controller_startlights_side_hole() {
-    box_controller_startlights_side_hole_transform()
+module box_startlights_side_hole() {
+    box_startlights_side_hole_transform()
     cube([
         a_few,
         startlights_cable_side_hole_w,
@@ -351,7 +351,7 @@ module box_controller_startlights_side_hole() {
 
 
 
-module box_controller_bottom_complete() {
+module box_bottom_complete() {
     difference() {
         union() {
             difference() {
@@ -365,9 +365,9 @@ module box_controller_bottom_complete() {
         }
         _box_bottom_antenna_hole();
 //        _box_bottom_cylinder_joints_void();
-        _box_controller_bottom_chip_connector_hole();
+        _box_bottom_chip_connector_hole();
 
-        box_controller_startlights_side_hole();
+        box_startlights_side_hole();
     }
 
     _box_antenna_guides();
@@ -399,7 +399,7 @@ module box_controller_bottom_complete() {
 
 module box_bottom() {
     difference() {
-        box_controller_bottom_complete();
-        box_controller_side_slide_shape(void=true);
+        box_bottom_complete();
+        box_side_slide_shape(void=true);
     }
 }
