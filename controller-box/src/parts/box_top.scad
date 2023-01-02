@@ -123,41 +123,6 @@ module _box_controller_top_startlight_cable_side_hole_transform() {
     children();
 }
 
-
-module box_controller_top() {
-    difference() {
-        union() {
-            _box_top_main(box="controller");
-            _box_top_cylinder_joints_fix(box="controller");
-        }
-
-        translate([0,0,box_top_base_thick])
-        _box_top_dock_void(box="controller");
-
-        _box_top_cylinder_joints_void(box="controller");
-
-        _box_top_nail_groove(box="controller");
-
-        _box_top_controller_chip_blue_led_hole();
-        _box_top_controller_chip_red_led_hole();
-
-        _box_controller_top_startlight_cable_side_hole_transform()
-        box_controller_startlights_side_hole();
-    }
-    _box_top_controller_chip_blue_led_hole_tube();
-    _box_top_controller_chip_red_led_hole_tube();
-//    _box_top_cylinder_joints(box="controller");
-
-    intersection() {
-        box_controller_bottom_complete();
-        _box_controller_top_startlight_cable_side_hole_transform()
-        difference() {
-            box_controller_startlights_side_hole_cut(void=false);
-            box_controller_startlights_side_hole();
-        }
-    }
-}
-
 module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
     difference() {
         union() {
@@ -175,13 +140,36 @@ module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
     //    _box_top_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
 }
 
-module box_top(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
-
-    if (box=="controller") {
-        box_controller_top();
+module box_top() {
+    difference() {
+        union() {
+            _box_top_main(box="controller");
+            _box_top_cylinder_joints_fix(box="controller");
+        }
+        
+        translate([0,0,box_top_base_thick])
+        _box_top_dock_void(box="controller");
+        
+        _box_top_cylinder_joints_void(box="controller");
+        
+        _box_top_nail_groove(box="controller");
+        
+        _box_top_controller_chip_blue_led_hole();
+        _box_top_controller_chip_red_led_hole();
+        
+        _box_controller_top_startlight_cable_side_hole_transform()
+        box_controller_startlights_side_hole();
     }
-    if (box=="terminal") {
-        box_terminal_top(box_terminal_outer_w=box_terminal_outer_w);
+    _box_top_controller_chip_blue_led_hole_tube();
+    _box_top_controller_chip_red_led_hole_tube();
+    //    _box_top_cylinder_joints(box="controller");
+    
+    intersection() {
+        box_controller_bottom_complete();
+        _box_controller_top_startlight_cable_side_hole_transform()
+        difference() {
+            box_controller_startlights_side_hole_cut(void=false);
+            box_controller_startlights_side_hole();
+        }
     }
 }

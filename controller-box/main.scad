@@ -12,23 +12,23 @@ use <src/parts/sim/controller.scad>
 
 translate([100,0,0])
 union() {
-    box_controller_bottom();
+    box_bottom();
 
     translate([0,0,30])
-    box_controller_side_slide();
+    box_side_slide();
 
     translate([0,0,60])
     translate([0,0,box_outer_h+fix])
     translate([box_outer_w(box="controller"),0,0])
     rotate([0,180,0])
     union() {
-        box_controller_top();
+        box_top();
 
-        sim_box_controller_top_led_hole_cap_transform(led="blue")
+        sim_box_top_led_hole_cap_transform(led="blue")
         sim_box_controller_top_led_hole_cap_color(led="blue")
         %box_top_led_hole_cap();
 
-        sim_box_controller_top_led_hole_cap_transform(led="red")
+        sim_box_top_led_hole_cap_transform(led="red")
         sim_box_controller_top_led_hole_cap_color(led="red")
         %box_top_led_hole_cap();
     }
@@ -41,13 +41,13 @@ union() {
 
 //
 //union() {
-//    box_controller_top();
+//    box_top();
 //
-//    sim_box_controller_top_led_hole_cap_transform(led="blue")
+//    sim_box_top_led_hole_cap_transform(led="blue")
 //    sim_box_controller_top_led_hole_cap_color(led="blue")
 //    box_top_led_hole_cap();
 //
-//    sim_box_controller_top_led_hole_cap_transform(led="red")
+//    sim_box_top_led_hole_cap_transform(led="red")
 //    sim_box_controller_top_led_hole_cap_color(led="red")
 //    box_top_led_hole_cap();
 //}

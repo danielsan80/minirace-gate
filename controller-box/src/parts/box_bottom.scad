@@ -378,13 +378,6 @@ module box_controller_bottom_complete() {
     _box_controller_antenna_guides();
 }
 
-module box_controller_bottom() {
-    difference() {
-        box_controller_bottom_complete();
-        box_controller_side_slide_shape(void=true);
-    }
-}
-
 module box_terminal_bottom_complete(box_terminal_outer_w=box_terminal_outer_w) {
     difference() {
         union() {
@@ -409,13 +402,9 @@ module box_terminal_bottom(box_terminal_outer_w=box_terminal_outer_w) {
     }
 }
 
-module box_bottom(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
-
-    if (box=="controller") {
-        box_controller_bottom();
-    }
-    if (box=="terminal") {
-        box_terminal_bottom(box_terminal_outer_w=box_terminal_outer_w);
+module box_bottom() {
+    difference() {
+        box_controller_bottom_complete();
+        box_controller_side_slide_shape(void=true);
     }
 }

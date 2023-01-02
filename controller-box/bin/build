@@ -65,10 +65,10 @@ echo "# PRINT"
 echo ""
 echo "## CONTROLLER BOX"
 
-#build_stl "print/box/box_bottom.scad" "box_bottom"
-#build_stl "print/box/box_side_slide.scad" "box_side_slide"
-#build_stl "print/box/box_top.scad" "box_top"
-#build_stl "print/box/box_top_led_hole_cap.scad" "box_top_led_hole_cap"
+build_stl "print/box/box_bottom.scad" "box_bottom"
+build_stl "print/box/box_side_slide.scad" "box_side_slide"
+build_stl "print/box/box_top.scad" "box_top"
+build_stl "print/box/box_top_led_hole_cap.scad" "box_top_led_hole_cap"
 
 
 echo ""

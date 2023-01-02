@@ -1,7 +1,7 @@
 include <../../../config/parameters.scad>
 use <../../parts/box_top_led_hole_cap.scad>
 
-module sim_box_controller_top_led_hole_cap_transform(led) {
+module sim_box_top_led_hole_cap_transform(led) {
     assert(led=="blue" || led=="red");
 
     if (led=="blue") {
@@ -23,12 +23,12 @@ module sim_box_controller_top_led_hole_cap_transform(led) {
 }
 
 module sim_box_controller_top_blue_led_hole_cap_transform() {
-    sim_box_controller_top_led_hole_cap_transform(led="blue")
+    sim_box_top_led_hole_cap_transform(led="blue")
     children();
 }
 
 module sim_box_controller_top_red_led_hole_cap_transform() {
-    sim_box_controller_top_led_hole_cap_transform(led="red")
+    sim_box_top_led_hole_cap_transform(led="red")
     children();
 }
 
