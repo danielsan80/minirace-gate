@@ -5,9 +5,7 @@ use <../joints/cylinder_joint.scad>
 use <../interparts/box_bottom-box_top.scad>
 use <../parts/box_bottom.scad>
 
-module _box_top_main(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
-
+module _box_top_main() {
     difference() {
         cube([box_outer_w(),box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
 
@@ -27,9 +25,7 @@ module _box_top_dock_void() {
     }
 }
 
-//module _box_top_cylinder_joints(box, box_terminal_outer_w=box_terminal_outer_w) {
-//    assert(box=="controller" || box=="terminal");
-//
+//module _box_top_cylinder_joints() {
 //    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
 //    union() {
 //        cylinder_joint(void=false, w=box_inner_w());
@@ -39,8 +35,7 @@ module _box_top_dock_void() {
 //    }
 //}
 
-module _box_top_cylinder_joints_void(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
+module _box_top_cylinder_joints_void() {
 
     translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
@@ -51,9 +46,7 @@ module _box_top_cylinder_joints_void(box, box_terminal_outer_w=box_terminal_oute
     }
 }
 
-module _box_top_cylinder_joints_fix(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
-
+module _box_top_cylinder_joints_fix() {
     translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
         translate([0,cylinder_joint_r+cylinder_joint_play,0])
@@ -65,28 +58,26 @@ module _box_top_cylinder_joints_fix(box, box_terminal_outer_w=box_terminal_outer
     }
 }
 
-module _box_top_nail_groove(box, box_terminal_outer_w=box_terminal_outer_w) {
-    assert(box=="controller" || box=="terminal");
-
+module _box_top_nail_groove() {
     translate([box_outer_w()/2,0,box_top_base_thick])
     nail_groove(box_inner_w());
 }
 
-module _box_top_controller_chip_led_hole(angle_pos) {
+module _box_top_chip_led_hole(angle_pos) {
     translate([-angle_pos.x,angle_pos.y,0])
     translate([0,0,-fix])
     cylinder(r=chip_led_hole_r, h=box_top_base_thick+fix*2);
 }
 
-module _box_top_controller_chip_blue_led_hole() {
-    _box_top_controller_chip_led_hole(chip_blue_led_hole_angle_pos);
+module _box_top_chip_blue_led_hole() {
+    _box_top_chip_led_hole(chip_blue_led_hole_angle_pos);
 }
 
-module _box_top_controller_chip_red_led_hole() {
-    _box_top_controller_chip_led_hole(chip_red_led_hole_angle_pos);
+module _box_top_chip_red_led_hole() {
+    _box_top_chip_led_hole(chip_red_led_hole_angle_pos);
 }
 
-module _box_top_controller_chip_led_hole_tube(angle_pos) {
+module _box_top_chip_led_hole_tube(angle_pos) {
 
     module body() {
         cylinder(r=chip_led_hole_tube_r+chip_led_hole_tube_r_ext, h=chip_led_hole_tube_h1+chip_led_hole_tube_h2);
@@ -107,12 +98,12 @@ module _box_top_controller_chip_led_hole_tube(angle_pos) {
     }
 }
 
-module _box_top_controller_chip_blue_led_hole_tube(angle_pos) {
-    _box_top_controller_chip_led_hole_tube(chip_blue_led_hole_angle_pos);
+module _box_top_chip_blue_led_hole_tube(angle_pos) {
+    _box_top_chip_led_hole_tube(chip_blue_led_hole_angle_pos);
 }
 
-module _box_top_controller_chip_red_led_hole_tube(angle_pos) {
-    _box_top_controller_chip_led_hole_tube(chip_red_led_hole_angle_pos);
+module _box_top_chip_red_led_hole_tube(angle_pos) {
+    _box_top_chip_led_hole_tube(chip_red_led_hole_angle_pos);
 }
 
 module _box_top_startlight_cable_side_hole_transform() {
@@ -122,46 +113,46 @@ module _box_top_startlight_cable_side_hole_transform() {
     children();
 }
 
-module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
-//    difference() {
-//        union() {
-//            _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-//            _box_top_cylinder_joints_fix(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-//        }
-//
-//        translate([0,0,box_top_base_thick])
-//        _box_top_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-//
-//        _box_top_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-//
-//        _box_top_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-//    }
-//    //    _box_top_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-}
+//module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
+////    difference() {
+////        union() {
+////            _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+////            _box_top_cylinder_joints_fix(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+////        }
+////
+////        translate([0,0,box_top_base_thick])
+////        _box_top_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+////
+////        _box_top_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+////
+////        _box_top_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+////    }
+////    //    _box_top_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
+//}
 
 module box_top() {
     difference() {
         union() {
-            _box_top_main(box="controller");
-            _box_top_cylinder_joints_fix(box="controller");
+            _box_top_main();
+            _box_top_cylinder_joints_fix();
         }
         
         translate([0,0,box_top_base_thick])
         _box_top_dock_void();
         
-        _box_top_cylinder_joints_void(box="controller");
+        _box_top_cylinder_joints_void();
         
-        _box_top_nail_groove(box="controller");
+        _box_top_nail_groove();
         
-        _box_top_controller_chip_blue_led_hole();
-        _box_top_controller_chip_red_led_hole();
+        _box_top_chip_blue_led_hole();
+        _box_top_chip_red_led_hole();
         
         _box_top_startlight_cable_side_hole_transform()
         box_startlights_side_hole();
     }
-    _box_top_controller_chip_blue_led_hole_tube();
-    _box_top_controller_chip_red_led_hole_tube();
-    //    _box_top_cylinder_joints(box="controller");
+    _box_top_chip_blue_led_hole_tube();
+    _box_top_chip_red_led_hole_tube();
+    //    _box_top_cylinder_joints();
     
     intersection() {
         box_bottom_complete();
