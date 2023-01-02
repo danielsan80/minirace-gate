@@ -68,7 +68,7 @@ module _box_angle_keep() {
 
 module _box_front_right_keep() {
     translate([
-        box_controller_inner_w-card_back_margin-card_w-card_play*2,
+        box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
@@ -78,7 +78,7 @@ module _box_front_right_keep() {
 
 module _box_front_left_keep() {
     translate([
-        box_controller_inner_w-card_back_margin-card_w-card_play*2,
+        box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin,
         0
     ])
@@ -91,7 +91,7 @@ module _box_front_antenna_guides_keeps() {
     keep_l = antenna_guide_thick*2;
 
     translate([
-        box_controller_inner_w-card_back_margin-card_w-card_play*2,
+        box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-antenna_guides_gap_side_offset+antenna_guide_thick,
         0
     ])
@@ -114,12 +114,12 @@ module _box_front_center_keep() {
 
     translate([
         0,
-//        startlights_connector_old_pos.y-startlights_connector_old_l/2+box_controller_front_center_keep_offset.y,
-        startlights_connector_pos.y-startlights_connector_l/2+box_controller_front_center_keep_offset.y,
+//        startlights_connector_old_pos.y-startlights_connector_old_l/2+box_front_center_keep_offset.y,
+        startlights_connector_pos.y-startlights_connector_l/2+box_front_center_keep_offset.y,
         0
     ])
     translate([
-        box_controller_inner_w-card_back_margin-card_w-card_play*2,
+        box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
@@ -130,7 +130,7 @@ module _box_front_center_keep() {
 
 module _box_back_right_keep() {
     translate([
-        box_controller_inner_w-card_back_margin,
+        box_inner_w-card_back_margin,
         box_inner_l-card_left_margin-card_l-card_play*2,
         0
     ])
@@ -141,7 +141,7 @@ module _box_back_right_keep() {
 
 module _box_back_left_keep() {
     translate([
-        box_controller_inner_w-card_back_margin,
+        box_inner_w-card_back_margin,
         box_inner_l-card_left_margin,
         0
     ])
@@ -153,7 +153,7 @@ module _box_back_left_keep() {
 
 //module _box_back_guide_keep() {
 //    translate([
-//        box_controller_inner_w-card_back_margin,
+//        box_inner_w-card_back_margin,
 //        box_inner_l-antenna_guide_side_margin-antenna_guide_thick-antenna_guides_distance,
 //        0
 //    ])
@@ -164,7 +164,7 @@ module _box_back_left_keep() {
 //
 //module _box_front_guide_keep() {
 //    translate([
-//        box_controller_inner_w-card_back_margin-card_play*2-card_w,
+//        box_inner_w-card_back_margin-card_play*2-card_w,
 //        box_inner_l-antenna_guide_side_margin-antenna_guide_thick-antenna_guides_distance,
 //        0
 //    ])
@@ -204,7 +204,7 @@ module _box_antenna_guides() {
 
 module _box_central_keep() {
     translate([
-        box_controller_inner_w-card_back_margin-card_play-card_w/2,
+        box_inner_w-card_back_margin-card_play-card_w/2,
         box_inner_l-card_left_margin-card_play-card_l/2,
         0
     ])

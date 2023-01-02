@@ -103,11 +103,11 @@ box_inner_h = card_z_offset+card_thick+chip_z_offset+chip_thick+chip_connector_h
 box_outer_l = box_inner_l + box_wall_thick*2;
 box_outer_h = box_inner_h + box_bottom_base_thick + box_top_base_thick;
 
-box_controller_inner_w = card_back_margin+card_w+card_overhang_l+antenna_start_margin+card_play*2;
-box_controller_outer_w = box_controller_inner_w + box_wall_thick*2;
+box_inner_w = card_back_margin+card_w+card_overhang_l+antenna_start_margin+card_play*2;
+box_outer_w = box_inner_w + box_wall_thick*2;
 
-box_terminal_outer_w = box_controller_outer_w;
-box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
+//box_terminal_outer_w = box_outer_w;
+//box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
 
 // CHIP LEDS
 
@@ -128,7 +128,7 @@ chip_led_hole_tube_h2 = 3.5;
 // CHIP BLUE LED
 chip_blue_led_hole_angle_pos = [-18,24];
 chip_blue_led_hole_angle_pos_offset = [
-    -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_controller_outer_w,
+    -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_outer_w,
     -chip_y+card_l+card_play+card_left_margin+box_wall_thick-box_outer_l
 ];
 
@@ -145,7 +145,7 @@ chip_red_led_hole_angle_pos = [
     chip_blue_led_hole_angle_pos.y
 ];
 chip_red_led_hole_angle_pos_offset = [
-    -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_controller_outer_w,
+    -chip_w-chip_x-card_play-antenna_start_margin-box_wall_thick+box_outer_w,
     -chip_y+card_l+card_play+card_left_margin+box_wall_thick-box_outer_l
 ];
 
@@ -170,7 +170,7 @@ keep_card_thick_play = 0.2;
 keep_card_thick = card_thick+keep_card_thick_play;
 keep_hold_r = 0.4;
 
-box_controller_front_center_keep_offset = [0,-1];
+box_front_center_keep_offset = [0,-1];
 
 box_card_pos = [
     box_wall_thick+antenna_start_margin+card_play,

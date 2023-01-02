@@ -16,6 +16,6 @@ module box_side_slide() {
             box_bottom_complete();
             box_side_slide_shape(void=false);
         }
-        box_controller_startlights_side_hole_cut(void=true);
+        box_startlights_side_hole_cut(void=true);
     }
 }

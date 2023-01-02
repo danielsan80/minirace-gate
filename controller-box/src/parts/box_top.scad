@@ -107,7 +107,7 @@ module _box_top_chip_red_led_hole_tube(angle_pos) {
 }
 
 module _box_top_startlight_cable_side_hole_transform() {
-    translate([box_controller_outer_w,0,0])
+    translate([box_outer_w,0,0])
     translate([0,0,box_outer_h])
     rotate([0,180,0])
     children();
@@ -158,7 +158,7 @@ module box_top() {
         box_bottom_complete();
         _box_top_startlight_cable_side_hole_transform()
         difference() {
-            box_controller_startlights_side_hole_cut(void=false);
+            box_startlights_side_hole_cut(void=false);
             box_startlights_side_hole();
         }
     }

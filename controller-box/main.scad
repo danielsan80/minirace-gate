@@ -54,13 +54,13 @@ union() {
 
 //box_top_led_hole_cap();
 
-//translate([-box_controller_outer_w-200,0,0])
+//translate([-box_outer_w-200,0,0])
 //box_block();
 
 
 translate([-100,0,0])
 union() {
-    w=box_controller_outer_w;
+    w=box_outer_w;
 
 //    box_terminal_bottom(box_terminal_outer_w=w);
 

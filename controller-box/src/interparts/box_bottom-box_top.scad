@@ -25,7 +25,7 @@ module box_startlights_side_hole_transform() {
     children();
 }
 
-module box_controller_startlights_side_hole_cut(void=true) {
+module box_startlights_side_hole_cut(void=true) {
     p = void?0:startlights_cable_side_hole_play;
     box_startlights_side_hole_transform()
     translate([0, p, p])
