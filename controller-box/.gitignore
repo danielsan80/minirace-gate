@@ -1,0 +1,7 @@
+/vendor
+
+/build/**
+!/build/**/
+!/build/scad/**
+
+!.gitkeep
