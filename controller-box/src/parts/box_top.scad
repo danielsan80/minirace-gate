@@ -116,7 +116,7 @@ module _box_top_controller_chip_red_led_hole_tube(angle_pos) {
     _box_top_controller_chip_led_hole_tube(chip_red_led_hole_angle_pos);
 }
 
-module _box_controller_top_startlight_cable_side_hole_transform() {
+module _box_top_startlight_cable_side_hole_transform() {
     translate([box_controller_outer_w,0,0])
     translate([0,0,box_outer_h])
     rotate([0,180,0])
@@ -157,7 +157,7 @@ module box_top() {
         _box_top_controller_chip_blue_led_hole();
         _box_top_controller_chip_red_led_hole();
         
-        _box_controller_top_startlight_cable_side_hole_transform()
+        _box_top_startlight_cable_side_hole_transform()
         box_controller_startlights_side_hole();
     }
     _box_top_controller_chip_blue_led_hole_tube();
@@ -166,7 +166,7 @@ module box_top() {
     
     intersection() {
         box_controller_bottom_complete();
-        _box_controller_top_startlight_cable_side_hole_transform()
+        _box_top_startlight_cable_side_hole_transform()
         difference() {
             box_controller_startlights_side_hole_cut(void=false);
             box_controller_startlights_side_hole();

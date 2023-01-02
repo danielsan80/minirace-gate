@@ -22,17 +22,17 @@ module sim_box_top_led_hole_cap_transform(led) {
     }
 }
 
-module sim_box_controller_top_blue_led_hole_cap_transform() {
+module sim_box_top_blue_led_hole_cap_transform() {
     sim_box_top_led_hole_cap_transform(led="blue")
     children();
 }
 
-module sim_box_controller_top_red_led_hole_cap_transform() {
+module sim_box_top_red_led_hole_cap_transform() {
     sim_box_top_led_hole_cap_transform(led="red")
     children();
 }
 
-module sim_box_controller_top_led_hole_cap_color(led) {
+module sim_box_top_led_hole_cap_color(led) {
     assert(led == "blue" || led == "red");
 
     if (led=="blue") {

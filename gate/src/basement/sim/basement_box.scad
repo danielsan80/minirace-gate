@@ -28,18 +28,18 @@ module sim_basement_box_controller_top() {
 }
 
 module sim_basement_box_controller_top_hole_cap() {
-    sim_basement_box_top_hole_cap_transform()
-    basement_box_top_hole_cap();
+//    sim_basement_box_top_hole_cap_transform()
+//    basement_box_top_hole_cap();
 }
 
 module sim_basement_box_controller_top_led_hole_caps() {
-    sim_basement_box_controller_top_led_hole_cap_transform(led="blue")
-    sim_basement_box_controller_top_led_hole_cap_color(led="blue")
-    basement_box_top_led_hole_cap();
-
-    sim_basement_box_controller_top_led_hole_cap_transform(led="red")
-    sim_basement_box_controller_top_led_hole_cap_color(led="red")
-    basement_box_top_led_hole_cap();
+//    sim_basement_box_controller_top_led_hole_cap_transform(led="blue")
+//    sim_basement_box_controller_top_led_hole_cap_color(led="blue")
+//    basement_box_top_led_hole_cap();
+//
+//    sim_basement_box_controller_top_led_hole_cap_transform(led="red")
+//    sim_basement_box_controller_top_led_hole_cap_color(led="red")
+//    basement_box_top_led_hole_cap();
 }
 
 
@@ -82,8 +82,8 @@ module sim_basement_box_controller_R(startline_l=startline_l) {
 }
 
 module sim_basement_box_controller_R_top_hole_cap(startline_l=startline_l) {
-    sim_basement_box_R_tranform(startline_mode="basement", startline_l=startline_l)
-    sim_basement_box_controller_top_hole_cap();
+//    sim_basement_box_R_tranform(startline_mode="basement", startline_l=startline_l)
+//    sim_basement_box_controller_top_hole_cap();
 }
 
 module sim_basement_box_terminal_L() {

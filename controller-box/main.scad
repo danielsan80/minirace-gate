@@ -6,7 +6,7 @@ use <src/parts/box_top.scad>
 use <src/parts/box_block.scad>
 
 use <src/parts/box_top_led_hole_cap.scad>
-use <src/parts/sim/box_controller_top_led_hole_cap.scad>
+use <src/parts/sim/box_top_led_hole_cap.scad>
 
 use <src/parts/sim/controller.scad>
 
@@ -25,11 +25,11 @@ union() {
         box_top();
 
         sim_box_top_led_hole_cap_transform(led="blue")
-        sim_box_controller_top_led_hole_cap_color(led="blue")
+        sim_box_top_led_hole_cap_color(led="blue")
         %box_top_led_hole_cap();
 
         sim_box_top_led_hole_cap_transform(led="red")
-        sim_box_controller_top_led_hole_cap_color(led="red")
+        sim_box_top_led_hole_cap_color(led="red")
         %box_top_led_hole_cap();
     }
 
@@ -44,11 +44,11 @@ union() {
 //    box_top();
 //
 //    sim_box_top_led_hole_cap_transform(led="blue")
-//    sim_box_controller_top_led_hole_cap_color(led="blue")
+//    sim_box_top_led_hole_cap_color(led="blue")
 //    box_top_led_hole_cap();
 //
 //    sim_box_top_led_hole_cap_transform(led="red")
-//    sim_box_controller_top_led_hole_cap_color(led="red")
+//    sim_box_top_led_hole_cap_color(led="red")
 //    box_top_led_hole_cap();
 //}
 

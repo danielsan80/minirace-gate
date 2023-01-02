@@ -25,11 +25,11 @@ union() {
         box_top();
         
         sim_box_top_led_hole_cap_transform(led="blue")
-        sim_box_controller_top_led_hole_cap_color(led="blue")
+        sim_box_top_led_hole_cap_color(led="blue")
         %box_top_led_hole_cap();
         
         sim_box_top_led_hole_cap_transform(led="red")
-        sim_box_controller_top_led_hole_cap_color(led="red")
+        sim_box_top_led_hole_cap_color(led="red")
         %box_top_led_hole_cap();
     }
     
