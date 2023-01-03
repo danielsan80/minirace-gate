@@ -1,6 +1,5 @@
 include <../../../../config/parameters.scad>
 use <../../../gate/parts/bolting.scad>
-//use <../../../gate/interparts/angle-traverse.scad>
 use <../../../gate/interparts/sim/upright-transform.scad>
 
 module sim_bolting_L() {

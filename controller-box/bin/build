@@ -1,0 +1,83 @@
+#!/bin/bash
+
+START_TIME=$SECONDS
+
+build_stl () {
+    SCAD=$1
+    THINGIVERSE_NAME=$2
+
+    BASE=${SCAD/%.scad/}
+    DIR=$(dirname "$SCAD")
+
+    mkdir -p "build/stl/$DIR"
+
+    echo "  $SCAD..."
+    LAST_LAP=$SECONDS
+    openscad -o build/stl/$BASE.stl build/scad/$SCAD
+
+    if [ ! -z "$THINGIVERSE_NAME" ]
+    then
+      mkdir -p "build/thingiverse"
+      cp "build/stl/$BASE.stl" "build/thingiverse/$THINGIVERSE_NAME.stl"
+      echo "      -> thingiverse/$THINGIVERSE_NAME.stl"
+    fi
+
+    echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+}
+
+build_image () {
+    SCAD=$1
+    CAMERA=$2
+    THINGIVERSE_NAME=$3
+
+    BASE=${SCAD/%.scad/}
+    DIR=$(dirname "$SCAD")
+    W=2400
+    H=1800
+    RATIO=3
+
+    mkdir -p "build/png/$DIR"
+
+    echo "  $SCAD..."
+    LAST_LAP=$SECONDS
+    openscad --imgsize=$((W*RATIO)),$((H*RATIO)) --camera=$CAMERA --colorscheme=Cornfield --projection=p -o build/png/$BASE.png build/scad/$SCAD
+    convert -trim -border 50 -bordercolor "#ffffe5" build/png/$BASE.png build/png/$BASE..png
+    rm build/png/$BASE.png && mv build/png/$BASE..png build/png/$BASE.png
+
+    if [ ! -z "$THINGIVERSE_NAME" ]
+    then
+      mkdir -p "build/thingiverse"
+      cp "build/png/$BASE.png" "build/thingiverse/$THINGIVERSE_NAME.png"
+      echo "      -> thingiverse/$THINGIVERSE_NAME.png"
+    fi
+
+    echo "    $(($SECONDS - $LAST_LAP)) secs" && LAST_LAP=$SECONDS
+}
+
+
+echo ""
+echo "Build"
+echo "====="
+
+echo ""
+echo "# PRINT"
+
+echo ""
+echo "## CONTROLLER BOX"
+
+build_stl "print/box/box_bottom.scad" "box_bottom"
+build_stl "print/box/box_side_slide.scad" "box_side_slide"
+build_stl "print/box/box_top.scad" "box_top"
+build_stl "print/box/box_top_led_hole_cap.scad" "box_top_led_hole_cap"
+
+
+echo ""
+echo "# SIM"
+
+build_image "sim/controller-box.scad" "120,50,0,60,0,-20,1800" "controller-box"
+
+
+echo ""
+echo "DONE"
+echo "   in $(($SECONDS - $START_TIME)) secs"
+echo ""

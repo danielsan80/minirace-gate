@@ -1,9 +1,6 @@
 include <../../../../config/parameters.scad>
-//use <../../../functions.scad>
-//use <../../../gate/parts/upright.scad>
 use <../../../gate/parts/angle.scad>
 use <../../../gate/parts/traverse.scad>
-//use <../../../gate/interparts/upright-angle.scad>
 use <../../../gate/interparts/angle-traverse.scad>
 
 module test_v_slide_m() {

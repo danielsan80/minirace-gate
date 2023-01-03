@@ -1,6 +1,5 @@
 include <../../../config/parameters.scad>
 use <../../gate/interparts/bolting-upright.scad>
-//use <../../gate/interparts/angle-traverse.scad>
 use <../../gate/interparts/bolting_base.scad>
 use <../../gate/interparts/upright_base_hole.scad>
 

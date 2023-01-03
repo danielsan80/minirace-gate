@@ -1,17 +1,7 @@
 include <../../../config/parameters.scad>
 
-//use <../../../src/gate/parts/upright.scad>
-//use <../../../src/gate/interparts/uprights_distance.scad>
-
-//use <../../../src/gate/modules/profile.scad>
-//use <../../../src/startlights/values.scad>
-//use <../../../src/gate/interparts/angle-traverse.scad>
-//use <../../../src/gate/interparts/bolting-upright.scad>
 use <../../../src/gate/parts/sim/bolting_transform.scad>
 
-//use <../../../src/basement/values.scad>
-//use <../../../src/basement/sim/basement_box.scad>
-//use <../../../src/basement/sim/basement_block.scad>
 use <../../../src/gate/parts/sim/bolting.scad>
 use <../../../src/gate/parts/sim/upright.scad>
 use <../../../src/gate/parts/sim/angle.scad>
@@ -19,7 +9,6 @@ use <../../../src/gate/parts/sim/traverse.scad>
 use <../../../src/gate/parts/sim/hanger.scad>
 
 use <../../../src/startlights/sim/startlights.scad>
-use <../../../src/startlights/sim/leds.scad>
 use <../../../src/startlights/sim/board.scad>
 
 use <../../../vendor/car/src/cars.scad>
@@ -53,7 +42,6 @@ union() {
     sim_startlights_transform(startline_mode="upright", startline_l=startline_l)
     union() {
         sim_startlights_front();
-        sim_startlights_leds();
         sim_startlights_board();
     }
 

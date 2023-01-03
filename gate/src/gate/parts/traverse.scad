@@ -3,7 +3,6 @@ use <../../gate/modules/profile.scad>
 use <../../gate/modules/bar.scad>
 use <../../gate/modules/pylon.scad>
 use <../../gate/interparts/angle-traverse.scad>
-//use <../../gate/joints/ct_slide.scad>
 
 
 module traverse_transform() {

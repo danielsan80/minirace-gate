@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -Rf build/stl
+rm -Rf build/png
+rm -Rf build/thingiverse

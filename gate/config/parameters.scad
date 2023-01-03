@@ -6,8 +6,8 @@ a_few = 10;
 play = 0.25;
 play2 = 0.15;
 play3 = 0.20;
-layer_h = 0.15;
-layer_w = 0.46;
+    layer_h = 0.15;
+    layer_w = 0.46;
 min_space = 0.198;
 
 profile_w = 20;
@@ -48,10 +48,7 @@ upright_base_groove_depth = layer_h*2;
 upright_base_hole_play = 0.15;
 
 basement_upright_margin = 5;
-basement_upright_leds_margin = 1.5;
-basement_box_top_hole_cap_ring_h = layer_h*2;
-basement_box_top_hole_cap_play_h = upright_base_hole_play;
-basement_box_top_hole_cap_ring_r_ext = 0.2;
+basement_h = 10;
 
 traverse_play = play2;
 
@@ -60,7 +57,7 @@ traverse_hook_w = 2;
 traverse_hook_thick = 0.8;
 traverse_hooks_intra_space_l = 30;
 
-bar_wrapper_l = 3;
+bar_wrapper_w = 3;
 bar_wrapper_thick = 1.2;
 bar_wrapper_play = play2;
 
@@ -74,18 +71,7 @@ v_slide_play = play2;
 hanger_clip_junction_w = 2;
 hanger_clip_junction_l = 4;
 
-hanger_clip_generic_bar_h = 5;
-hanger_clip_generic_l1 = 15;
-hanger_clip_generic_l2 = 13;
-hanger_clip_generic_inner_w = 5;
-hanger_clip_generic_tilt = 5;
-
-hanger_rod_hook_play = 0.15;
-hanger_rod_hook_l = 5;
-hanger_rod_hook_r = 6;
-hanger_rod_hook_angle = 30;
-hanger_rod_hook_w = 2; // = startlight:space_x
-
+hanger_clip_generic_w = 5;
 
 bolt_joint_play = 0.15;
 
@@ -108,14 +94,6 @@ upright_angle_joint_bar_bottom_h = angle_base_h*angle_base_h2_c;
 
 
 bolting_base_thick = 0.5;
-
-basement_bolting_guide_play = 0.2;
-basement_bolting_guide_line_w = layer_w*2;
-basement_bolting_guide_h = 2;
-basement_bolting_guide_thick = layer_h*3;
-basement_bolting_guide_wall_thick = 0.6;
-basement_bolting_guide_grid_gap = 15;
-basement_bolting_guide_chip_led_hole_cap_play = 0.5;
 
 
 

@@ -1,6 +1,5 @@
 use <src/gate/joints/test/v_slide.scad>
 use <src/gate/joints/bar_wrapper.scad>
-use <src/gate/joints/ct_slide.scad>
 
 use <src/gate/parts/test/angle.scad>
 use <src/gate/interparts/test/bolting-upright.scad>
@@ -16,9 +15,6 @@ use <src/gate/parts/sim/hanger.scad>
 use <src/gate/interparts/test/upright-angle.scad>
 use <src/gate/parts/test/upright.scad>
 
-use <src/basement/values.scad>
-
-use <src/basement/basement_bolting_guide.scad>
 
 //$vpt = [ uprights_distance(startline_mode="basement")/2, 0, upright_h()/2-5];
 //$vpr = [ 60,0,-20 ];
