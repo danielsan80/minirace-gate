@@ -131,14 +131,14 @@ build_stl "print/gate/traverse/variant/split/without_basement/traverse_R_without
 
 echo ""
 #echo "## BASEMENT"
-echo "## CONTROLLER BOX"
+#echo "## CONTROLLER BOX"
 
-build_stl "print/basement/basement_box_controller_bottom.scad" "basement_box_controller_bottom"
-build_stl "print/basement/basement_box_controller_side_slide.scad" "basement_box_controller_side_slide"
-build_stl "print/basement/basement_box_controller_top.scad" "basement_box_controller_top"
-build_stl "print/basement/basement_box_controller_top_led_hole_cap.scad" "basement_box_controller_top_led_hole_cap"
+#build_stl "print/basement/basement_box_controller_bottom.scad" "basement_box_controller_bottom"
+#build_stl "print/basement/basement_box_controller_side_slide.scad" "basement_box_controller_side_slide"
+#build_stl "print/basement/basement_box_controller_top.scad" "basement_box_controller_top"
+#build_stl "print/basement/basement_box_controller_top_led_hole_cap.scad" "basement_box_controller_top_led_hole_cap"
 
-echo ""
+#echo ""
 #build_stl "print/basement/basement_box_terminal_bottom.scad" "basement_box_terminal_bottom"
 #build_stl "print/basement/basement_box_terminal_side_slide.scad" "basement_box_terminal_side_slide"
 #build_stl "print/basement/basement_box_terminal_top.scad" "basement_box_terminal_top"
@@ -192,7 +192,7 @@ echo "# SIM"
 
 build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800" "gate_on_basement"
 build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800"
-build_image "sim/basement_bolting_guides.scad" "120,50,0,60,0,-20,1800" "basement_bolting_guides"
+#build_image "sim/basement_bolting_guides.scad" "120,50,0,60,0,-20,1800" "basement_bolting_guides"
 build_image "sim/traverse_assembly.scad" "0,0,0,60,0,-20,600" "traverse_assembly"
 build_image "sim/upright_assembly.scad" "0,0,0,60,0,-20,600" "upright_assembly"
 
