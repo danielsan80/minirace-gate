@@ -1,5 +1,4 @@
 include <../../config/parameters.scad>
-use <../values.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../interparts/box_bottom-box_top.scad>
@@ -7,10 +6,10 @@ use <../parts/box_bottom.scad>
 
 module _box_top_main() {
     difference() {
-        cube([box_outer_w(),box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
+        cube([box_outer_w,box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w(),box_inner_l,a_lot]);
+        cube([box_inner_w,box_inner_l,a_lot]);
     }
 }
 
@@ -18,7 +17,7 @@ module _box_top_dock_void() {
 
     difference() {
         translate([-fix,-fix,0])
-            cube([box_outer_w()+fix*2, box_outer_l+fix*2, a_lot/2]);
+            cube([box_outer_w+fix*2, box_outer_l+fix*2, a_lot/2]);
 
         translate([0,0,-fix])
             dock_shape(part="top");
@@ -26,41 +25,41 @@ module _box_top_dock_void() {
 }
 
 //module _box_top_cylinder_joints() {
-//    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+//    translate([box_outer_w/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
 //    union() {
-//        cylinder_joint(void=false, w=box_inner_w());
+//        cylinder_joint(void=false, w=box_inner_w);
 //
 //        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=false, w=box_inner_w());
+//        cylinder_joint(void=false, w=box_inner_w);
 //    }
 //}
 
 module _box_top_cylinder_joints_void() {
 
-    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+    translate([box_outer_w/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
-        cylinder_joint(void=true, w=box_inner_w());
+        cylinder_joint(void=true, w=box_inner_w);
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=true, w=box_inner_w());
+        cylinder_joint(void=true, w=box_inner_w);
     }
 }
 
 module _box_top_cylinder_joints_fix() {
-    translate([box_outer_w()/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
+    translate([box_outer_w/2,+box_wall_half_thick,box_top_base_thick+box_joint_h/2])
     union() {
         translate([0,cylinder_joint_r+cylinder_joint_play,0])
-        cylinder_joint(void=true, w=box_inner_w());
+        cylinder_joint(void=true, w=box_inner_w);
 
         translate([0,-cylinder_joint_r-cylinder_joint_play,0])
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=true, w=box_inner_w());
+        cylinder_joint(void=true, w=box_inner_w);
     }
 }
 
 module _box_top_nail_groove() {
-    translate([box_outer_w()/2,0,box_top_base_thick])
-    nail_groove(box_inner_w());
+    translate([box_outer_w/2,0,box_top_base_thick])
+    nail_groove(box_inner_w);
 }
 
 module _box_top_chip_led_hole(angle_pos) {

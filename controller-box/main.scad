@@ -1,5 +1,4 @@
 include <config/parameters.scad>
-use <src/values.scad>
 use <src/parts/box_bottom.scad>
 use <src/parts/box_side_slide.scad>
 use <src/parts/box_top.scad>
@@ -19,7 +18,7 @@ union() {
 
     translate([0,0,60])
     translate([0,0,box_outer_h+fix])
-    translate([box_outer_w(),0,0])
+    translate([box_outer_w,0,0])
     rotate([0,180,0])
     union() {
         box_top();

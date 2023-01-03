@@ -1,5 +1,4 @@
 include <../../config/parameters.scad>
-use <../values.scad>
 use <../joints/nail_groove.scad>
 use <../joints/cylinder_joint.scad>
 use <../joints/keep.scad>
@@ -8,10 +7,10 @@ use <../interparts/box_bottom-box_side_slide.scad>
 
 module _box_bottom_main() {
     difference() {
-        cube([box_outer_w(),box_outer_l,box_outer_h-box_top_base_thick]);
+        cube([box_outer_w,box_outer_l,box_outer_h-box_top_base_thick]);
 
         translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w(),box_inner_l,a_lot]);
+        cube([box_inner_w,box_inner_l,a_lot]);
     }
 }
 
@@ -23,30 +22,30 @@ module _box_bottom_dock_void() {
 
 module _box_bottom_cylinder_joints() {
 
-    translate([box_outer_w()/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
     union() {
-        cylinder_joint(void=false, w=box_inner_w());
+        cylinder_joint(void=false, w=box_inner_w);
 
         translate([0,box_inner_l+box_wall_half_thick*2])
-        cylinder_joint(void=false, w=box_inner_w());
+        cylinder_joint(void=false, w=box_inner_w);
     }
 }
 
 //module _box_bottom_cylinder_joints_void() {
 //
-//    translate([box_outer_w()/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
+//    translate([box_outer_w/2,box_wall_half_thick,box_outer_h-box_top_base_thick-box_joint_h/2])
 //    union() {
-//        cylinder_joint(void=true, w=box_inner_w());
+//        cylinder_joint(void=true, w=box_inner_w);
 //
 //        translate([0,box_inner_l+box_wall_half_thick*2])
-//        cylinder_joint(void=true, w=box_inner_w());
+//        cylinder_joint(void=true, w=box_inner_w);
 //    }
 //}
 
 module _box_bottom_nail_groove() {
 
-    translate([box_outer_w()/2,0,box_outer_h-box_top_base_thick])
-    nail_groove(w=box_inner_w());
+    translate([box_outer_w/2,0,box_outer_h-box_top_base_thick])
+    nail_groove(w=box_inner_w);
 }
 
 module _box_angle_keep() {
@@ -176,12 +175,12 @@ module _box_back_left_keep() {
 module _box_antenna_guide() {
     difference() {
         translate([antenna_play,0,0])
-        cube([box_inner_w()-antenna_guide_play, antenna_guide_thick, keep_h+card_thick]);
+        cube([box_inner_w-antenna_guide_play, antenna_guide_thick, keep_h+card_thick]);
 
         color("blue")
         translate([-card_w,0,0])
         translate([-card_back_margin,0,0])
-        translate([box_inner_w()-antenna_guide_play,0,0])
+        translate([box_inner_w-antenna_guide_play,0,0])
         translate([0,-a_lot/2,-a_few/2])
         cube([card_w+card_play*2,a_lot,a_few]);
     }

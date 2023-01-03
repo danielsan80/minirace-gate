@@ -1,5 +1,4 @@
 include <../../config/parameters.scad>
-use <../../src/values.scad>
 
 
 module dock_shape(part="bottom") {
@@ -12,7 +11,7 @@ module dock_shape(part="bottom") {
         0
     ])
     cube([
-        box_outer_w()-box_wall_half_thick*2+hp*2,
+        box_outer_w-box_wall_half_thick*2+hp*2,
         box_outer_l-box_wall_half_thick*2+hp*2,
         a_lot
     ]);
