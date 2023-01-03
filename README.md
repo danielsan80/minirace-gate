@@ -1,23 +1,20 @@
-# MiniRace Gate Project
+# MiniRaceChallenge 3D printable parts
 
 ## Intro
-This project is the 3D printable part oh the **Mini Race Challenge Lap Counter**.
+This repository contains the 3D printable parts of the **Mini Race Challenge Timing System**.
 
-It is a lap counter for Can RC cars (1:54) and Turbo Racing RC cars (1:76) based on NFC technology.
+It is a lap timing system mini sized RC cars, as can RC cars (1:54) or Turbo Racing RC cars (1:76), based on NFC technology.
 
-The app is available at [www.miniracechallage.com](https://www.miniracechallenge.com)
+More details on the site [www.miniracechallage.com](https://www.miniracechallenge.com).
+
+The app is available at [app.miniracechallage.com](https://app.miniracechallenge.com)
 and works on PC, IOS and Android.
 
-[Here](https://www.youtube.com/channel/UCmPbh32NU4jp-B-oBcA80wQ) is the Youtube channel.
+This repository contains a few projects.
 
-It's in an Early bird phase.
+The project `gate` depends on the other ones.
 
-This project is composed by a few subprojects.
-
-The main subproject is `gate` and it depends on the other ones.
-
-`startlights` and `controller-box` are developed individually because they
-don't need to know anything about the main project `gate`. 
+`startlights` and `controller-box` are stand alone projects.
 
 `ruler` and `car` are utilities.
 
@@ -26,41 +23,47 @@ The projects use a kind of framework.
 You can find some directories that define the context:
 - `src`: It contains the source code (*.scad) in an abstract/generic/default context.
   The 3d parts are located in a useful and natural position without a specific purpose.  
-- `sim`: It contains modules useful for the simulation. These modules wrap the source modules
+- `sim`: It contains modules useful for the simulation. These modules wrap and transform the source modules
   to translate and rotate them for a better placement in the space for a simulation purpose.
-- `print`: It contains modules useful for the printing. These modules wrap the source modules
+- `print`: It contains modules useful for the printing. These modules wrap and transform the source modules
   to translate and rotate them for a better placement in the space for a printing purpose.
-- `test`: It contains module useful for the testing. These modules cut or reduce the source
+- `test`: It contains modules useful for the testing. These modules cut or reduce the source
   modules to print drafts to test joints, plays, friction between parts and other test stuff.
   
 ## Conventions
 
 Not all projects and parts still adopt the following conventions, but they are proving useful. 
 
-### private modules
+### Private modules
 To indicate a "private" module that is used only in the same file, it is prefixed with an underscore `_`.
 
 A private module has a global scope too (with risk of name collision), but it helps to identify which modules in a file
 should be considered "exported" and usable from who "< use >" the file.
 
-### context prefix
+### Context prefix
 To specify a module belongs to a context it is prefixed with the context keyword (`print_*`, `sim_*`, `test_*`, ...).
 
-### transform suffix
+### _transform suffix
 To specify a module help to place a model in the right position (for a specific context for example)
 it is suffixed with `_transform`. Obviously it has a `children()` instruction to which apply the transformation.
 
+### _color suffix
+To specify a module apply a color to a model (for a simulation for example)
+it is suffixed with `_color`. Obviously it has a `children()` instruction to which apply the color.
+
 
 # Index
-[`gate`](gate/README.md): Assembles the gate and all other stuff together to simulate
-and build the printable parts in stl files.
-It adds the joint to hang up the startlights on the traverse.
-It uses the controller box as basement for one of its uprights.
-It uses the rules to show the measures in the simulation context.
-
-[`startlights`](startlights/README.md): is the startlights mask for the startlights card.
 
 [`controller-box`](controller-box/README.md): is the box to contain the controller card.
+
+[`startlights`](startlights/README.md): Provides cover and hanger for the startlights card.
+It provides a generic clip to hang the startlights and a metaclip to build a specific clip.
+
+[`gate`](gate/README.md): Assembles the gate and the startlights together to simulate
+and build the printable parts in stl files.
+It adds the joint to hang up the startlights on the traverse.
+It uses the rules to show the measures in the simulation context.
+It uses the car models (1:54) to show the aspect ratio of the gate in the simulation context.
 
 [`ruler`](ruler/README.md): is an utility to show rulers with some measures in simulation context.
 

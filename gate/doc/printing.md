@@ -1,4 +1,3 @@
-
 ## Printing guide
 
 
@@ -6,11 +5,11 @@
 
 These are the main parts of the project:
 
-- the basements (controller box and terminal box)
+- the basements (blocks to place the gate on)
 - the gate (uprights, angles and traverse)
-- the boltings (bolts and guides allow you to combine the basements and the gate)
+- the boltings (bolts help you to place the gate on something other than the basements)
 - the starglights (the cover to put on the startlights module)
-- the hanger (clips and rod allow you to hang up the startlights module on the gate traverse.
+- the hanger (clips and rod allow you to hang up the startlights module on the gate traverse).
 
 Of course you can use only one filament colors and in case paint it but
 ideally the project is designed to be printed in different ones:
@@ -18,64 +17,42 @@ ideally the project is designed to be printed in different ones:
 - **cement gray** for the basements
 - **silver** for the gate, the hanger clips and the boltings
 - **matte black** for the startlights cover and the hanger rod
-- **transparent** for the basement led caps
 
 Here are some suggestions:
 
 - **cement gray**: [Giantarm Silver pla filament](https://www.amazon.it/Filamento-GIANTARM-Stampante-Spool-Argento/dp/B07PV5KD6S) [★★★★☆]. It is a silver, not a gray, but we like it and is a good quality brand.
 - **silver**: [Noulei Silk Silver pla filament](https://www.amazon.it/Noulei-Filamento-stampanti-Printing-Filament/dp/B07PRX7X4B) [★★★☆☆]. It is a silk silver, we like it but after a while we preferred to use [Giantarm Silver pla filament](https://www.amazon.it/Filamento-GIANTARM-Stampante-Spool-Argento/dp/B07PV5KD6S) [★★★★☆] because  is more strong and cohesive: it is not a silk pla but it is a better quality filament and the gate looks good.
 - **matte black**:  [Overture Matte Black pla filament](https://www.amazon.it/gp/product/B08X6YWZBT) [★★★★★].
-- **transparent**:  [Giantarm Transparent pla filament](https://www.amazon.it/gp/product/B08LZ7L7L1) [★★★★☆]. You can avoid to print the led caps and use these [LED lampshade with light guide column cap](https://www.aliexpress.com/item/1005002316760848.html)
-
 
 **No supports are needed**. The startlights rod has an integrated support to remove at post-printing time.
 
 
-### Controller box
+### Basements
 
-Printing the controller box is **the only thing required** to get started.
+Basements are created to convey the cars under the gate, preventing they crashed into the uprights.
 
-- basement_box_controller_bottom.stl (x 1) [**cement gray**]
-- basement_box_controller_side_slide.stl (x 1) [**cement gray**]
-- basement_box_controller_top.stl (x 1) [**cement gray**]
-- basement_box_controller_top_led_hole (x 2) [**transparent**]
+To do this they should have a trapezoidal base, but currently they have a rectangular base.
 
-If you don't want to use the controller box as basement for the gate you can alternatively print another box controller top.
+With a rectangular base they are not so useful (they are a WIP).
 
-- ~~basement_box_controller_top.stl (x 1) [**cement gray**]~~
-- basement_box_controller_top_without_hole.stl (x 1) [**cement gray**]
+Anyway, if you want to print this version...
 
-Or simply optionally print the hole cap.
+- basement.stl (x 2) [**cement gray**]
 
-- basement_box_controller_top_hole_cap.stl (x 1) [**cement gray**]
+### Bolting
 
-> After a while we realized that printing the controller box with matte black filament was very cool!
-> So, if you are going to print the controller box only, consider to you the **matte black** color.
+If you want to place the gate on something other than the provided basements
+or directly on the track you can print the boltings and glue them on it.
 
+- bolting.stl (x 2) [**silver**]
 
-### Terminal box
-
-If you want to use the controller box as basement for the gate you should print the terminal box too.
-
-- basement_box_terminal_bottom.stl (x 1) [**cement gray**]
-- basement_box_terminal_side_slide.stl (x 1) [**cement gray**]
-- basement_box_terminal_top.stl (x 1) [**cement gray**]
-
-
-### Bolting and guides
-
-After printing the terminal box you should print the boltings and the guides to glue them on the top of the basement boxes.
-
-- bolting.stl (x 1) [**silver**]
-- basement_box_controller_bolting_guide.stl (x 1) [**any**]
-- basement_box_terminal_bolting_guide.stl (x 1) [**any**]
-
-After glueing the boltings on the boxes you can throw avay the guides.
+> Note: right now the basement has not integrated bolts but it should in the future(it is a WIP).
+> So, for now, you can glue the boltings on the basements too.
 
 
 ### Gate
 
-You can print tha gate and place it on the basement boxes or not: your choice.
+You can print tha gate and place it on the basements or not: your choice.
 
 - upright.stl (x 2) [**silver**]
 - upright_stick.stl (x 8) [**silver**]
@@ -110,3 +87,6 @@ To hang it to the gate you need to print the hanger:
 There is a generic clip variant that allows you to hang the startlights on what you want (a 3-5mm thick bar for example)
 
 - hanger_clip_generic (x2) [**matte black**]
+
+
+That's all!
