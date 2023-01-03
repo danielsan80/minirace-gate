@@ -1,4 +1,4 @@
-# MiniRaceChallenge 3D printable parts: GATE
+# Mini Race Challenge 3D printable parts: GATE
 
 This project assembles the gate and the startlights to simulate
 and build the printable parts in stl files.

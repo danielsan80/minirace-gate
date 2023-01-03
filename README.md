@@ -1,4 +1,4 @@
-# MiniRaceChallenge 3D printable parts
+# Mini Race Challenge 3D printable parts
 
 ## Intro
 This repository contains the 3D printable parts of the **Mini Race Challenge Timing System**.

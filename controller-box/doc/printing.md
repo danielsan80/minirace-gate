@@ -26,9 +26,9 @@ Here are some suggestions:
 
 Printing the controller box is **the only thing required** to get started with MRC Timing system.
 
-- box_bottom.stl (x 1) [**cement gray**]
-- box_side_slide.stl (x 1) [**cement gray**]
-- box_top.stl (x 1) [**cement gray**]
+- box_bottom.stl (x 1) [**matte black**]
+- box_side_slide.stl (x 1) [**matte black**]
+- box_top.stl (x 1) [**matte black**]
 - box_top_led_hole_cap (x 2) [**transparent**]
 
 
