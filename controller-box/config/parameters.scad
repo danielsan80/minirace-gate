@@ -106,9 +106,6 @@ box_outer_h = box_inner_h + box_bottom_base_thick + box_top_base_thick;
 box_inner_w = card_back_margin+card_w+card_overhang_l+antenna_start_margin+card_play*2;
 box_outer_w = box_inner_w + box_wall_thick*2;
 
-//box_terminal_outer_w = box_outer_w;
-//box_terminal_inner_w = box_terminal_outer_w-box_wall_thick*2;
-
 // CHIP LEDS
 
 chip_led_hole_d = 4.5;

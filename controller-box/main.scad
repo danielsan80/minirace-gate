@@ -2,7 +2,6 @@ include <config/parameters.scad>
 use <src/parts/box_bottom.scad>
 use <src/parts/box_side_slide.scad>
 use <src/parts/box_top.scad>
-//use <src/parts/box_block.scad>
 
 use <src/parts/box_top_led_hole_cap.scad>
 use <src/parts/sim/box_top_led_hole_cap.scad>
@@ -53,22 +52,3 @@ union() {
 
 //box_top_led_hole_cap();
 
-//translate([-box_outer_w-200,0,0])
-//box_block();
-
-
-translate([-100,0,0])
-union() {
-    w=box_outer_w;
-
-//    box_terminal_bottom(box_terminal_outer_w=w);
-
-//    translate([0,0,50])
-//    box_terminal_side_slide(box_terminal_outer_w=w);
-//
-//    translate([0,0,100])
-//    translate([0,0,box_outer_h+fix])
-//    translate([w,0,0])
-//    rotate([0,180,0])
-//    box_terminal_top(box_terminal_outer_w=w);
-}

@@ -1,6 +1,5 @@
 include <../../config/parameters.scad>
 
-
 module dock_shape(part="bottom") {
     assert(part == "bottom" || part == "top");
 

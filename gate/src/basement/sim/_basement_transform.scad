@@ -1,5 +1,4 @@
 include <../../../config/parameters.scad>
-use <../../basement/values.scad>
 use <../../gate/interparts/angle-traverse.scad>
 
 

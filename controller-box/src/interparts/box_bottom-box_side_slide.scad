@@ -22,15 +22,6 @@ module _box_side_slide_shape_body(void=false) {
     }
 }
 
-//module box_terminal_side_slide_shape(void=false, box_terminal_outer_w=box_terminal_outer_w) {
-////    translate([
-////        box_wall_half_thick+box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)-box_wall_thick,
-////        box_wall_thick,
-////        box_top_base_thick
-////    ])
-////    _box_side_slide_shape_body(void=void);
-//}
-
 module box_side_slide_shape(void=false) {
     translate([
         box_wall_half_thick,

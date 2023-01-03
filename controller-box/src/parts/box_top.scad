@@ -112,23 +112,6 @@ module _box_top_startlight_cable_side_hole_transform() {
     children();
 }
 
-//module box_terminal_top(box_terminal_outer_w=box_terminal_outer_w) {
-////    difference() {
-////        union() {
-////            _box_top_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////            _box_top_cylinder_joints_fix(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////        }
-////
-////        translate([0,0,box_top_base_thick])
-////        _box_top_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////
-////        _box_top_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////
-////        _box_top_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////    }
-////    //    _box_top_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-//}
-
 module box_top() {
     difference() {
         union() {

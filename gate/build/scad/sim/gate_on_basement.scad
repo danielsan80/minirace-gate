@@ -1,8 +1,5 @@
 include <../../../config/parameters.scad>
 
-//use <../../../src/basement/values.scad>
-//use <../../../src/basement/sim/basement_box.scad>
-//use <../../../src/basement/sim/basement_transform.scad>
 use <../../../src/gate/parts/sim/bolting_transform.scad>
 use <../../../src/gate/parts/sim/bolting.scad>
 use <../../../src/gate/parts/sim/upright.scad>

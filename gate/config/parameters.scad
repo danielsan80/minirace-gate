@@ -48,10 +48,6 @@ upright_base_groove_depth = layer_h*2;
 upright_base_hole_play = 0.15;
 
 basement_upright_margin = 5;
-//basement_upright_leds_margin = 1.5;
-//basement_box_top_hole_cap_ring_h = layer_h*2;
-//basement_box_top_hole_cap_play_h = upright_base_hole_play;
-//basement_box_top_hole_cap_ring_r_ext = 0.2;
 basement_h = 10;
 
 traverse_play = play2;
@@ -98,14 +94,6 @@ upright_angle_joint_bar_bottom_h = angle_base_h*angle_base_h2_c;
 
 
 bolting_base_thick = 0.5;
-
-//basement_bolting_guide_play = 0.2;
-//basement_bolting_guide_line_w = layer_w*2;
-//basement_bolting_guide_h = 2;
-//basement_bolting_guide_thick = layer_h*3;
-//basement_bolting_guide_wall_thick = 0.6;
-//basement_bolting_guide_grid_gap = 15;
-//basement_bolting_guide_chip_led_hole_cap_play = 0.5;
 
 
 

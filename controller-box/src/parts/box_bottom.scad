@@ -249,13 +249,6 @@ module _box_bottom_antenna_hole() {
     }
 }
 
-//module _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w) {
-////    translate([box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
-////    mirror([1,0,0])
-////    translate([-box_outer_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)/2,0,0])
-////    _box_bottom_antenna_hole();
-//}
-
 module _box_bottom_chip_connector_central_hole() {
     color("blue")
     translate([-chip_connector_hole_w/2,-fix, -chip_connector_hole_h/2])
@@ -306,38 +299,6 @@ module _box_bottom_chip_connector_hole() {
 }
 
 
-//module _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w) {
-////    cube([box_inner_w(box="terminal", box_terminal_outer_w=box_terminal_outer_w)-antenna_guide_play, antenna_guide_thick, box_inner_h-box_joint_h-box_joint_play]);
-//}
-
-//module _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w) {
-//    translate([0,antenna_guide_thick+antenna_hole_w,0])
-//    rotate([90,0,0])
-//    linear_extrude(height=antenna_guides_gap_w)
-//    difference() {
-//        square([box_inner_h/3,box_inner_h/3]);
-//        translate([box_inner_h/3,box_inner_h/3])
-//        circle(r=box_inner_h/3);
-//    }
-//}
-
-//module _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w) {
-//
-////    translate([0, -antenna_guides_gap_side_offset, 0])
-////    translate([0, box_inner_l, 0])
-////    translate([0, box_wall_thick, 0])
-////    translate([box_wall_thick, -antenna_guide_thick-antenna_guides_gap_w, box_bottom_base_thick])
-////    union() {
-////        _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w);
-////
-////        translate([0,antenna_guide_thick+antenna_guides_gap_w,0])
-////        _box_terminal_antenna_guide(box_terminal_outer_w=box_terminal_outer_w);
-////
-////        _box_terminal_antenna_guide_ramp(box_terminal_outer_w=box_terminal_outer_w);
-////    }
-//}
-
-
 module box_startlights_side_hole() {
     box_startlights_side_hole_transform()
     cube([
@@ -371,30 +332,6 @@ module box_bottom_complete() {
 
     _box_antenna_guides();
 }
-
-//module box_terminal_bottom_complete(box_terminal_outer_w=box_terminal_outer_w) {
-////    difference() {
-////        union() {
-////            difference() {
-////                _box_bottom_main(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////                _box_bottom_dock_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////                _box_bottom_nail_groove(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////            }
-////            _box_bottom_cylinder_joints(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////        }
-////        _box_terminal_bottom_antenna_hole(box_terminal_outer_w=box_terminal_outer_w);
-////        //        _box_bottom_cylinder_joints_void(box="terminal", box_terminal_outer_w=box_terminal_outer_w);
-////    }
-////
-////    _box_terminal_antenna_guides(box_terminal_outer_w=box_terminal_outer_w);
-//}
-
-//module box_terminal_bottom(box_terminal_outer_w=box_terminal_outer_w) {
-////    difference() {
-////        box_terminal_bottom_complete(box_terminal_outer_w=box_terminal_outer_w);
-////        box_terminal_side_slide_shape(void=true, box_terminal_outer_w=box_terminal_outer_w);
-////    }
-//}
 
 module box_bottom() {
     difference() {
