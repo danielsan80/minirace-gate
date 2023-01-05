@@ -161,7 +161,7 @@ nail_groove_margin = 6;
 nail_groove_r = 0.5;
 
 keep_w = 1;
-keep_wall_thick=1;
+keep_wall_thick= max(card_back_margin, card_left_margin); //1;
 keep_h = card_z_offset;
 keep_card_thick_play = 0.2;
 keep_card_thick = card_thick+keep_card_thick_play;

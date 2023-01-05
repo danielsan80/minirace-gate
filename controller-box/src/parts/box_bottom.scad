@@ -6,7 +6,6 @@ use <../interparts/box_bottom-box_top.scad>
 use <../interparts/box_bottom-box_side_slide.scad>
 
 module _box_bottom_main() {
-    echo(box_outer_w,box_outer_l);
     difference() {
         cube([box_outer_w,box_outer_l,box_outer_h-box_top_base_thick]);
 
@@ -54,9 +53,9 @@ module _box_angle_keep() {
 
     keep(l=keep_l, with_wall=true, with_hold=true);
 
-    translate([0,keep_l-keep_wall_thick,0])
+    translate([0,keep_l,0])
     rotate([0,0,-90])
-    keep(l=keep_l, with_wall=true, with_hold=false);
+    keep(l=keep_l+keep_wall_thick, with_wall=true, with_hold=false);
 }
 
 //module _box_guide() {
