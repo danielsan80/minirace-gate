@@ -1,9 +1,10 @@
 # Mini Race Challenge 3D printable parts
 
 ## Intro
-This repository contains the 3D printable parts of the **Mini Race Challenge Timing System**.
+This repository contains the 3D printable parts of the **Mini Race Challenge** Timing System.
 
-It is a lap timing system mini sized RC cars, as can RC cars (1:54) or Turbo Racing RC cars (1:76), based on NFC technology.
+It is a timing system specifically designed for extremely small sized radio controlled cars,
+from 1:76 (Turbo Racing) to 1:57 (Coke Can Cars) and more.
 
 More details on the site [www.miniracechallage.com](https://www.miniracechallenge.com).
 
