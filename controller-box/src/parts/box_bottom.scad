@@ -53,9 +53,9 @@ module _box_angle_keep() {
 
     keep(l=keep_l, with_wall=true, with_hold=true);
 
-    translate([0,keep_l-keep_wall_thick,0])
+    translate([0,keep_l,0])
     rotate([0,0,-90])
-    keep(l=keep_l, with_wall=true, with_hold=false);
+    keep(l=keep_l+keep_wall_thick, with_wall=true, with_hold=false);
 }
 
 //module _box_guide() {
@@ -88,7 +88,7 @@ module _box_front_left_keep() {
 
 module _box_front_antenna_guides_keeps() {
     keep_l = antenna_guide_thick*2;
-
+    
     translate([
         box_inner_w-card_back_margin-card_w-card_play*2,
         box_inner_l-antenna_guides_gap_side_offset+antenna_guide_thick,
@@ -100,10 +100,33 @@ module _box_front_antenna_guides_keeps() {
         rotate([0,0,-90])
         keep(l=keep_l, with_wall=true, with_hold=false);
 
-
 //        translate([0,-antenna_guides_gap_w-antenna_guide_thick,0])
 //        translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
 //        rotate([0,0,-90])
+//        keep(l=keep_l, with_wall=true, with_hold=false, keep_wall_thick=keep_wall_thick*3);
+    }
+}
+
+
+module _box_back_antenna_guides_keeps() {
+    keep_l = antenna_guide_thick*2;
+    
+    translate([
+        box_inner_w-card_back_margin,
+        box_inner_l-antenna_guides_gap_side_offset+antenna_guide_thick,
+        0
+    ])
+    union() {
+        translate([0,keep_l-antenna_guide_thick,0])
+        translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+        translate([0,-keep_l,0])
+        rotate([0,0,90])
+        keep(l=keep_l, with_wall=true, with_hold=false);
+        
+//        translate([0,-antenna_guides_gap_w-antenna_guide_thick,0])
+//        translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
+//        translate([0,-keep_l,0])
+//        rotate([0,0,90])
 //        keep(l=keep_l, with_wall=true, with_hold=false, keep_wall_thick=keep_wall_thick*3);
     }
 }
@@ -221,6 +244,7 @@ module _box_keeps() {
 
     _box_back_left_keep();
     _box_back_right_keep();
+    _box_back_antenna_guides_keeps();
 
     _box_central_keep();
 
