@@ -1,4 +1,4 @@
-# MiniRaceChallenge 3D printable parts: CONTROLLER BOX
+# Mini Race Challenge 3D printable parts: CONTROLLER BOX
 
 This project provide the box to contain the controller.
 

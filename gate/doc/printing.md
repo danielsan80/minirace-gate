@@ -46,7 +46,7 @@ or directly on the track you can print the boltings and glue them on it.
 
 - bolting.stl (x 2) [**silver**]
 
-> Note: right now the basement has not integrated bolts but it should in the future(it is a WIP).
+> Note: right now the basement has not integrated bolts but it should in the future (it is a WIP).
 > So, for now, you can glue the boltings on the basements too.
 
 
