@@ -50,6 +50,7 @@ module _cowl(r = 6) {
 
     translate([side/2,side/2,thick+startlight_circle_estrusion])
     union() {
+        rotate([0,0,90])
         difference() {
             cone();
             void();
@@ -62,6 +63,10 @@ module _cowl(r = 6) {
 
 module _cover_bar_x() {
     cube([side*5+space_x*4,bar_thick,bar_thick]);
+}
+
+module _cover_bar_x2() {
+    cube([space_x,side*2+space_y,bar_thick]);
 }
 
 module _cover_bar_y() {
@@ -132,6 +137,12 @@ module _cover_x10() {
         translate([0, (side+space_y)*i+side-bar_x_offset-bar_thick, 0])
             _cover_bar_x();
     }
+    
+//    color("grey")
+//    for (j=[0:3]) {
+//        translate([side+j*(space_x+side), 0, 0])
+//        _cover_bar_x2();
+//    }
 }
 
 module _cover_welding_groove() {
@@ -141,19 +152,24 @@ module _cover_welding_groove() {
     r = welding_r;
 
     translate([board_l/2, board_w-welding_y_offset,0])
-        translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
-            translate([-l/2, -w/2,-fix])
-                translate([r,r,0])
-                    //    cube([l, w, h]);
-                    minkowski() {
-                        cube([l-r*2, w-r*2, h]);
-                        cylinder(r=r, h=fix);
-                    }
+    translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
+    translate([-l/2, -w/2,-fix])
+    translate([r,r,0])
+    //    cube([l, w, h]);
+    minkowski() {
+        cube([l-r*2, w-r*2, h]);
+        cylinder(r=r, h=fix);
+    }
 }
 
 module cover() {
     difference() {
         _cover_x10();
+        
+        _cover_welding_groove();
+        
+        translate([startlights_length,startlights_height,0])
+        rotate([0,0,180])
         _cover_welding_groove();
     }
 }

@@ -5,7 +5,7 @@ use <../../gate/interparts/angle-traverse.scad>
 use <../../gate/interparts/uprights_distance.scad>
 
 
-
+//TODO maybe is better to not include parameters.scad bat use a import_parameters.scad with var => var() to avoid global scope
 module sim_startlights_transform(startline_mode="basement", startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 

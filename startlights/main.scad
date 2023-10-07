@@ -3,7 +3,7 @@ use <vendor/ruler/ruler.scad>
 use <src/board/sim/board.scad>
 use <src/cover/sim/cover.scad>
 
-sim_board();
+//sim_board();
 
 sim_cover();
 
