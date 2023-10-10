@@ -15,7 +15,7 @@ module _board_holes() {
         cylinder(d=board_hole_d, h=a_lot);
 }
 
-module _board_weilding() {
+module _board_welding() {
     translate([board_l/2,board_w-welding_y_offset,board_thick])
     translate([-welding_l/2, -welding_w/2,0])
     cube([welding_l, welding_w, welding_h]);
@@ -28,6 +28,12 @@ module _board_leds() {
     led();
 }
 
+module _board_cable_connector() {
+    translate([board_l / 2, board_cable_connector_y_offset, - board_cable_connector_h])
+    translate([- board_cable_connector_l / 2, 0, 0])
+    cube([board_cable_connector_l, board_cable_connector_w, board_cable_connector_h]);
+}
+
 module board() {
 
     color("darkgreen")
@@ -37,8 +43,10 @@ module board() {
     }
 
     color("silver")
-    _board_weilding();
+    _board_welding();
 
+    color("white")
+    _board_cable_connector();
 
     _board_leds();
 }

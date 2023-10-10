@@ -130,7 +130,7 @@ module _cover_x10() {
         _cover_bar_x();
 
         translate([0, (side+space_y)*i+side-bar_x_offset-bar_thick, 0])
-            _cover_bar_x();
+        _cover_bar_x();
     }
 }
 

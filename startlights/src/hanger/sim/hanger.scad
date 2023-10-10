@@ -22,6 +22,11 @@ module sim_rod_transform() {
     children();
 }
 
+module sim_rod_color() {
+    color("darkgray")
+    children();
+}
+
 
 module sim_clip_center() {
     translate([
@@ -50,5 +55,11 @@ module sim_clip_rod_transform() {
     translate([0,-board_hole_offset.y,0])
     translate([0,board_w,0])
 //    translate([0,-hanger_clip_rod_joint_pixel().y*5/2,0])
+    children();
+}
+
+
+module sim_clip_color() {
+    color("gray")
     children();
 }
