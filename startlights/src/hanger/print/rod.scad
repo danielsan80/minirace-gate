@@ -36,19 +36,19 @@ module _hanger_rod_hook_support(
 
 
 module print_hanger_rod() {
-    l = board_v1_l;
-    hook_offset = l / 2 - board_v1_hole_offset.x;
 
     hanger_rod();
 
     hanger_rod_ct_slide_transform()
-    ct_slide_t_supports(w = l);
+    ct_slide_t_supports(w = hanger_rod_l);
 
-    translate([hook_offset, 0, 0])
+    translate([cover_hook_pos.x, 0, 0])
     translate([0, - ct_slide_side, 0])
     _hanger_rod_hook_support();
 
-    translate([- hook_offset, 0, 0])
+    translate([- cover_hook_pos.x, 0, 0])
     translate([0, - ct_slide_side, 0])
     _hanger_rod_hook_support();
 }
+
+print_hanger_rod();
