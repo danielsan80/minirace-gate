@@ -34,8 +34,6 @@ board_v1_l = cover_l-board_v1_margin.x*2;
 board_v1_w = cover_h-board_v1_margin.y*2;
 board_v1_hole_offset = [-board_v1_margin.x + side + space_x/2, -board_v1_margin.y + side/2];
 board_v1_cover_gap = 0.2;
-board_v1_offset = [(cover_l-board_v1_l)/2, (cover_h-board_v1_w)/2];
-
 
 board_v2_l = 56;
 board_v2_w = 19;
