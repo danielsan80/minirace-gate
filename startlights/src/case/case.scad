@@ -20,13 +20,13 @@ module _case_solid_x10() {
 }
 
 module _case_void_x10() {
-    translate([board_margin-case_play,board_margin-case_play, case_base_thick+fix])
-    cube([board_l+case_play*2, board_w+case_play*2, a_lot]);
+    translate([board_v1_margin.x-case_play,board_v1_margin.y-case_play, case_base_thick+fix])
+    cube([board_v1_l+case_play*2, board_v1_w+case_play*2, a_lot]);
     
 }
 
 module _case_cable_connector_hole_x10() {
-        translate([board_l/2+board_margin,board_cable_connector_y_offset+board_margin,0])
+        translate([board_v1_l/2+board_v1_margin.x,board_cable_connector_y_offset+board_v1_margin.y,0])
         translate([
             -board_cable_connector_l/2-board_cable_connector_play,
             -board_cable_connector_play,
@@ -41,12 +41,12 @@ module _case_cable_connector_hole_x10() {
 }
 
 module _case_hooks_holes() {
-    translate([board_offset.x, board_offset.y, -board_thick-board_startlights_gap])
+    translate([board_v1_margin.x, board_v1_margin.y, -board_thick-board_v1_cover_gap])
     union() {
-        translate([board_hole_offset.x, board_w-board_hole_offset.y,-fix])
+        translate([board_v1_hole_offset.x, board_v1_w-board_v1_hole_offset.y,-fix])
         cylinder(d=board_hole_d, h=a_lot);
         
-        translate([board_l-board_hole_offset.x, board_w-board_hole_offset.y,-fix])
+        translate([board_v1_l-board_v1_hole_offset.x, board_v1_w-board_v1_hole_offset.y,-fix])
         cylinder(d=board_hole_d, h=a_lot);
     }
 }

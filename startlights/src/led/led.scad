@@ -40,7 +40,7 @@ module led_x10_cover_transform() {
 }
 
 module led_on_board_transform() {
-    translate([-board_offset.x,-board_offset.y,board_thick])
+    translate([-board_v1_margin.x,-board_v1_margin.y,board_thick])
     children();
 }
 

@@ -18,7 +18,7 @@ module sim_rod_rotate() {
 }
 
 module sim_rod_transform() {
-    translate([board_l/2,0,0])
+    translate([board_v1_l/2,0,0])
     children();
 }
 
@@ -44,16 +44,16 @@ module sim_clip_rotate() {
 
 module sim_clip_x2_transform() {
     
-    translate([board_hole_offset.x,0,0])
+    translate([board_v1_hole_offset.x,0,0])
     children();
-    translate([board_l-board_hole_offset.x,0,0])
+    translate([board_v1_l-board_v1_hole_offset.x,0,0])
     children();
 }
 
 module sim_clip_rod_transform() {
     translate([0,0,-4*hanger_clip_rod_joint_pixel().x/2])
-    translate([0,-board_hole_offset.y,0])
-    translate([0,board_w,0])
+    translate([0,-board_v1_hole_offset.y,0])
+    translate([0,board_v1_w,0])
 //    translate([0,-hanger_clip_rod_joint_pixel().y*5/2,0])
     children();
 }

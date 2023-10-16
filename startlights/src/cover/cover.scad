@@ -140,8 +140,8 @@ module _cover_welding_groove() {
     h = welding_h+welding_play;
     r = welding_r;
 
-    translate([board_l/2, board_w-welding_y_offset,0])
-    translate([(startlights_length-board_l)/2,(startlights_height-board_w)/2,0])
+    translate([board_v1_l/2, board_v1_w-welding_y_offset,0])
+    translate([(cover_l-board_v1_l)/2,(cover_h-board_v1_w)/2,0])
     translate([-l/2, -w/2,-fix])
     translate([r,r,0])
     //    cube([l, w, h]);
@@ -157,7 +157,7 @@ module cover() {
         
         _cover_welding_groove();
         
-        translate([startlights_length,startlights_height,0])
+        translate([cover_l,cover_h,0])
         rotate([0,0,180])
         _cover_welding_groove();
     }

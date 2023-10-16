@@ -20,21 +20,29 @@ startlight_led_jut_h = 0.5;
 bar_thick = 1.5;
 bar_x_offset = bar_thick;
 
-startlights_length = side*5+space_x*4;
-startlights_height = side*2+space_y;
+cover_l = side*5+space_x*4;
+cover_h = side*2+space_y;
 
 led_distance_x = side+space_x;
 led_distance_y = side+space_y;
 
-board_margin = bar_x_offset;
-board_l = startlights_length-board_margin*2;
-board_w = startlights_height-board_margin*2;
 board_thick = 1.5;
 board_hole_d = 3;
-board_hole_offset = [-board_margin + side + space_x/2, -board_margin + side/2];
-board_startlights_gap = 0.2;
 
-board_offset = [(startlights_length-board_l)/2, (startlights_height-board_w)/2];
+board_v1_margin = [bar_x_offset, bar_x_offset];
+board_v1_l = cover_l-board_v1_margin.x*2;
+board_v1_w = cover_h-board_v1_margin.y*2;
+board_v1_hole_offset = [-board_v1_margin.x + side + space_x/2, -board_v1_margin.y + side/2];
+board_v1_cover_gap = 0.2;
+board_v1_offset = [(cover_l-board_v1_l)/2, (cover_h-board_v1_w)/2];
+
+
+board_v2_l = 56;
+board_v2_w = 19;
+board_v2_margin = [(cover_l-board_v2_l)/2, (cover_h-board_v2_w)/2];
+board_v2_hole_offset = [-board_v2_margin.x + side + space_x/2, -board_v2_margin.y + side/2];
+board_v2_startlights_gap = 1.5;
+
 
 board_cable_connector_l = 7.5;
 board_cable_connector_w = 3.8;
