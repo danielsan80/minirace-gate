@@ -22,6 +22,7 @@ bar_x_offset = bar_thick;
 
 cover_l = side*5+space_x*4;
 cover_h = side*2+space_y;
+cover_hook_pos = [cover_l/2-side-space_x/2, cover_h/2 - side/2];
 
 led_distance_x = side+space_x;
 led_distance_y = side+space_y;
@@ -45,7 +46,7 @@ board_v2_startlights_gap = 1.5;
 board_cable_connector_l = 7.5;
 board_cable_connector_w = 3.8;
 board_cable_connector_h = 5.2;
-board_cable_connector_y_offset = 5.8;
+board_cable_connector_offset = [0,-cover_h/2 + bar_x_offset+5.8+board_cable_connector_w/2];
 board_cable_connector_play = 0.5;
 
 welding_l = 8.5;
@@ -80,6 +81,10 @@ hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
 hanger_rod_hook_w = 2; // = startlight:space_x
 
+hanger_rod_margin = bar_x_offset;
+hanger_rod_l = cover_l-hanger_rod_margin*2;
+
 case_thick = 4;
 case_base_thick = 0.5;
 case_play = 0.3;
+case_wall_w = 0.8;
