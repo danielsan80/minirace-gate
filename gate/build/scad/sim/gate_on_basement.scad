@@ -55,7 +55,7 @@ sim_on_bolting_transform()
 union() {
     sim_startlights_transform(startline_mode="basement", startline_l=startline_l)
     union() {
-        sim_startlights_front();
+        sim_startlights_cover();
         sim_startlights_board();
     }
 
