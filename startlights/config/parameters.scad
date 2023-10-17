@@ -101,4 +101,4 @@ hanger_rod_l = cover_l-hanger_rod_margin*2;
 case_thick = 5.5;
 case_base_thick = 0.8;
 case_play = 0.3;
-case_wall_w = 0.9;
+case_wall_w = 1;
