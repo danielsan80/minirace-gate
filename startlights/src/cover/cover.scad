@@ -135,19 +135,21 @@ module _cover_x10() {
 }
 
 module _cover_welding_groove() {
-    l = welding_l+welding_play*2;
-    w = welding_w+welding_play*2;
-    h = welding_h+welding_play;
-    r = welding_r;
-
-    translate([board_v1_l/2, board_v1_w-welding_y_offset,0])
-    translate([(cover_l-board_v1_l)/2,(cover_h-board_v1_w)/2,0])
-    translate([-l/2, -w/2,-fix])
-    translate([r,r,0])
-    //    cube([l, w, h]);
-    minkowski() {
-        cube([l-r*2, w-r*2, h]);
-        cylinder(r=r, h=fix);
+    if (board_has_cover_welding_groove) {
+        l = board_welding_l+board_welding_play*2;
+        w = board_welding_w+board_welding_play*2;
+        h = board_welding_h+board_welding_play;
+        r = board_welding_r;
+    
+        translate([board_l/2, board_w/2+board_welding_offset.y,0])
+        translate([board_margin.x,board_margin.y/2,0])
+        translate([-l/2, -w/2,-fix])
+        translate([r,r,0])
+        //    cube([l, w, h]);
+        minkowski() {
+            cube([l-r*2, w-r*2, h]);
+            cylinder(r=r, h=fix);
+        }
     }
 }
 

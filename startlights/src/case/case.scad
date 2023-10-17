@@ -41,7 +41,7 @@ module _case_cable_connector_hole_x10() {
 }
 
 module _case_hooks_holes() {
-    translate([0, 0, -board_thick-board_v1_cover_gap]) {
+    translate([0, 0, -board_thick-board_cover_gap]) {
         translate([cover_l/2-cover_hook_pos.x, cover_h/2+cover_hook_pos.y,-fix])
         cylinder(d=board_hole_d, h=a_lot);
         
@@ -61,6 +61,6 @@ module _case_x10() {
 }
 
 module case() {
-    translate([0,0,-4.5])
+    translate([0,0,-case_thick-0.2])
     _case_x10();
 }
