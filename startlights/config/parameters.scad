@@ -33,13 +33,11 @@ board_hole_d = 3;
 board_v1_margin = [bar_x_offset, bar_x_offset];
 board_v1_l = cover_l-board_v1_margin.x*2;
 board_v1_w = cover_h-board_v1_margin.y*2;
-board_v1_hole_offset = [-board_v1_margin.x + side + space_x/2, -board_v1_margin.y + side/2];
 board_v1_cover_gap = 0.2;
 
 board_v2_l = 56;
 board_v2_w = 19;
 board_v2_margin = [(cover_l-board_v2_l)/2, (cover_h-board_v2_w)/2];
-board_v2_hole_offset = [-board_v2_margin.x + side + space_x/2, -board_v2_margin.y + side/2];
 board_v2_startlights_gap = 1.5;
 
 
