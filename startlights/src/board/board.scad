@@ -18,7 +18,7 @@ module _board_holes() {
 }
 
 module _board_welding() {
-    translate([board_l/2,board_w/2+board_welding_offset.y,board_thick])
+    translate([board_l/2+board_welding_offset.x,board_w/2+board_welding_offset.y,board_thick])
     translate([-board_welding_l/2, -board_welding_w/2,0])
     cube([board_welding_l, board_welding_w, board_welding_h]);
 }
