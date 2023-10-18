@@ -32,15 +32,15 @@ module cover_welding_test_cut() {
 
 //cover_cut()
 //cover_welding_test_cut()
-cover();
+//cover();
 
 //%sim_board_transform()
 //board();
 
-//sim_case_color()
-//case();
-//
-//
+sim_case_color()
+case();
+
+
 //%translate([0,0,-2]) {
 //    sim_rod_transform()
 //    sim_board_transform_tmp()

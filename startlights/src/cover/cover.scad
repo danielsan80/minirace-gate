@@ -80,7 +80,7 @@ module _cover_bar_y() {
 
 module _cover_x1() {
 
-    play = 0.4;
+    play = 0.3;
     h = startlight_circle_estrusion;
     t = 1;
     fix = 0.1;

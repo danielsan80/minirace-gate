@@ -101,7 +101,7 @@ hanger_rod_hook_w = 2; // = startlight:space_x
 hanger_rod_margin = bar_x_offset;
 hanger_rod_l = cover_l-hanger_rod_margin*2;
 
-case_thick = 5.5;
+case_thick = 4.8;
 case_base_thick = 0.8;
 case_play = 0.3;
 case_wall_w = 1;
