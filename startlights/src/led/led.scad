@@ -19,8 +19,16 @@ module led_3mm() {
     }
 }
 
-module led() {
+module led_3mm_with_pin() {
+    
     led_3mm();
+    
+    translate([-led_pin_thick/2,-led_pin_w/2,-led_pin_h])
+    cube([led_pin_thick, led_pin_w, led_pin_h]);
+}
+
+module led() {
+    led_3mm_with_pin();
 }
 
 module led_x2_cover_transform() {
@@ -45,6 +53,6 @@ module led_on_board_transform() {
 }
 
 module led_color() {
-    #color("red")
+    color("red")
     children();
 }
