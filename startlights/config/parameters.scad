@@ -13,6 +13,9 @@ r = 4.0; //6;
 
 led_d = 3.4; //5.4;
 led_r = led_d/2;
+led_pin_thick = 0.4;
+led_pin_w = 6;
+led_pin_h = 1.5;
 
 led_base_h = 1;
 startlight_led_jut_h = 0.5;
@@ -61,11 +64,11 @@ board_welding_w = 1;
 board_welding_play = 0.1;
 board_welding_r = 0.3;
 
-board_v1_welding_offset = [0, -1.4];
+board_v1_welding_offset = [0, -2.2];
 board_v1_has_cover_welding_groove = true;
 
 board_v2_welding_offset = [0, -0.8];
-board_v2_has_cover_welding_groove = false;
+board_v2_has_cover_welding_groove = true;
 
 board_welding_offset = board_v==1?board_v1_welding_offset:board_v2_welding_offset;
 board_has_cover_welding_groove = board_v==1?board_v1_has_cover_welding_groove:board_v2_has_cover_welding_groove;

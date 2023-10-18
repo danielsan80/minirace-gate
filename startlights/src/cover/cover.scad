@@ -61,13 +61,21 @@ module _cowl(r = 6) {
 }
 
 module _cover_bar_x() {
-    cube([side*5+space_x*4,bar_thick,bar_thick]);
+    play = 0.1;
+    difference() {
+        cube([side*5+space_x*4,bar_thick,bar_thick]);
+        
+        for (i=[0:4]) {
+            translate([(side+space_x)*i,0,0])
+            translate([play,-play,-play])
+            cube([side-play*2,bar_thick+play*2,bar_thick+play*2]);
+        }
+    }
 }
 
 module _cover_bar_y() {
     cube([side,space_y,bar_thick]);
 }
-
 
 
 module _cover_x1() {
@@ -78,6 +86,7 @@ module _cover_x1() {
     fix = 0.1;
     jut_h = startlight_led_jut_h;
     a_few = 10;
+    play2 = 0.2;
 
 
     color("grey")
@@ -98,8 +107,11 @@ module _cover_x1() {
             translate([side/2,side/2,-fix])
             cylinder(r=led_r, h=a_few);
 
-            translate([side/2,side/2,-jut_h])
-            cylinder(r=led_r+play, h=thick);
+            translate([side/2,side/2,-jut_h]) {
+                cylinder(r=led_r+play, h=thick);
+                translate([-led_pin_thick/2-play2,-led_pin_w/2-play2,0])
+                cube([led_pin_thick+play2*2,led_pin_w+play2*2,thick]);
+            }
 
         }
     }
@@ -141,11 +153,10 @@ module _cover_welding_groove() {
         h = board_welding_h+board_welding_play;
         r = board_welding_r;
     
-        translate([board_l/2, board_w/2+board_welding_offset.y,0])
-        translate([board_margin.x,board_margin.y/2,0])
+        translate([board_welding_offset.x,board_welding_offset.y,0])
+        translate([cover_l/2, cover_h/2,0])
         translate([-l/2, -w/2,-fix])
         translate([r,r,0])
-        //    cube([l, w, h]);
         minkowski() {
             cube([l-r*2, w-r*2, h]);
             cylinder(r=r, h=fix);
