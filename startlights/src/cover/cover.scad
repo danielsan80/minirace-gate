@@ -6,19 +6,18 @@ module _cowl(r = 6) {
     thick1 = 1;
     thick2 = 0.5;
     cone_r1 = r;
-    cone_r2 = cone_r1-thick1;
     h = r;
     cone_ratio = 5.5/6;
 
     cut_side = cone_r1*2+fix*2;
 
     module cone() {
-        cylinder(h = h, r1 = cone_r1, r2 = cone_r2);
+        cylinder(h = h, r1 = cone_r1, r2 = cone_r1-thick2);
     }
 
     module void() {
         translate([0,0,-fix])
-        cylinder(h = h+fix*2, r = cone_r2);
+        cylinder(h = h+fix*2, r = cone_r1-thick1);
     }
 
     module cut1() {
