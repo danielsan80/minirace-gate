@@ -79,7 +79,7 @@ module _cover_bar_y() {
 
 module _cover_x1() {
 
-    play = 0.3;
+    play = 0.4;
     h = startlight_circle_estrusion;
     t = 1;
     fix = 0.1;
@@ -90,18 +90,18 @@ module _cover_x1() {
 
     color("grey")
     union() {
-        _cowl(r);
+//        _cowl(r);
         difference() {
             union() {
                 cube([side,side,thick]);
 
-                difference() {
-                    translate([side/2,side/2,h])
-                    cylinder(r=r, h=thick);
-
-                    translate([side/2,side/2,h])
-                    cylinder(r=r-t, h=thick+h);
-                }
+//                difference() {
+//                    translate([side/2,side/2,h])
+//                    cylinder(r=r, h=thick);
+//
+//                    translate([side/2,side/2,h])
+//                    cylinder(r=r-t, h=thick+h);
+//                }
             }
             translate([side/2,side/2,-fix])
             cylinder(r=led_r, h=a_few);

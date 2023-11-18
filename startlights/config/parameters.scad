@@ -4,7 +4,7 @@ a_lot = 1000;
 layer_h = 0.15;
 layer_w = 0.46;
 
-thick = 2.0;
+thick = 5.0;
 startlight_circle_estrusion = 1;
 side = 10; //15;
 space_x = 2; //3;
@@ -18,7 +18,7 @@ led_pin_w = 6;
 led_pin_h = 1.5;
 
 led_base_h = 1;
-startlight_led_jut_h = 0.5;
+startlight_led_jut_h = 4.0;
 
 bar_thick = 1.5;
 bar_x_offset = bar_thick;
@@ -60,7 +60,7 @@ board_cable_connector_play = 0.5;
 
 board_welding_l = 8.5;
 board_welding_h = 0.8;
-board_welding_w = 1;
+board_welding_w = 1.5;
 board_welding_play = 0.1;
 board_welding_r = 0.3;
 
