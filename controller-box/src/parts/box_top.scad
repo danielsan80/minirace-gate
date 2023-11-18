@@ -5,12 +5,9 @@ use <../interparts/box_bottom-box_top.scad>
 use <../parts/box_bottom.scad>
 
 module _box_top_main() {
-    difference() {
-        cube([box_outer_w,box_outer_l,box_top_base_thick+box_joint_h-box_joint_play]);
+    translate([-10,-10,0])
+    cube([20,20,box_bottom_base_thick]);
 
-        translate([box_wall_thick,box_wall_thick,box_bottom_base_thick])
-        cube([box_inner_w,box_inner_l,a_lot]);
-    }
 }
 
 module _box_top_dock_void() {
@@ -63,7 +60,6 @@ module _box_top_nail_groove() {
 }
 
 module _box_top_chip_led_hole(angle_pos) {
-    translate([-angle_pos.x,angle_pos.y,0])
     translate([0,0,-fix])
     cylinder(r=chip_led_hole_r, h=box_top_base_thick+fix*2);
 }
@@ -77,9 +73,13 @@ module _box_top_chip_red_led_hole() {
 }
 
 module _box_top_chip_led_hole_tube(angle_pos) {
+    ceil_thick = 2;
+    tap_ext = 2;
+    tap_thick = 0.5;
 
     module body() {
         cylinder(r=chip_led_hole_tube_r+chip_led_hole_tube_r_ext, h=chip_led_hole_tube_h1+chip_led_hole_tube_h2);
+        cylinder(r=chip_led_hole_tube_r+chip_led_hole_tube_r_ext+tap_ext, h=ceil_thick+tap_thick);
     }
 
     module hole() {
@@ -88,9 +88,12 @@ module _box_top_chip_led_hole_tube(angle_pos) {
 
         translate([0,0,chip_led_hole_tube_h1])
         cylinder(r=chip_led_hole_r+chip_led_hole_tube_r_ext, h=a_lot);
+        
+        translate([0,0,-fix])
+        cylinder(r=chip_led_hole_tube_r+chip_led_hole_tube_r_ext+tap_ext+fix, h=ceil_thick);
+        
     }
 
-    translate([-angle_pos.x,angle_pos.y,0])
     difference() {
         body();
         hole();
@@ -113,35 +116,35 @@ module _box_top_startlight_cable_side_hole_transform() {
 }
 
 module box_top() {
-    difference() {
-        union() {
-            _box_top_main();
-            _box_top_cylinder_joints_fix();
-        }
-        
-        translate([0,0,box_top_base_thick])
-        _box_top_dock_void();
-        
-        _box_top_cylinder_joints_void();
-        
-        _box_top_nail_groove();
-        
-        _box_top_chip_blue_led_hole();
-        _box_top_chip_red_led_hole();
-        
-        _box_top_startlight_cable_side_hole_transform()
-        box_startlights_side_hole();
-    }
-    _box_top_chip_blue_led_hole_tube();
-    _box_top_chip_red_led_hole_tube();
-    //    _box_top_cylinder_joints();
     
-    intersection() {
-        box_bottom_complete();
-        _box_top_startlight_cable_side_hole_transform()
-        difference() {
-            box_startlights_side_hole_cut(void=false);
-            box_startlights_side_hole();
-        }
-    }
+//    difference() {
+//        union() {
+//            _box_top_main();
+////            _box_top_cylinder_joints_fix();
+//        }
+//
+////        translate([0,0,box_top_base_thick])
+////        _box_top_dock_void();
+//
+////        _box_top_cylinder_joints_void();
+//
+////        _box_top_nail_groove();
+//
+//        _box_top_chip_blue_led_hole();
+////        _box_top_chip_red_led_hole();
+//
+////        _box_top_startlight_cable_side_hole_transform()
+////        box_startlights_side_hole();
+//    }
+    _box_top_chip_blue_led_hole_tube();
+//    _box_top_chip_red_led_hole_tube();
+    
+//    intersection() {
+//        box_bottom_complete();
+//        _box_top_startlight_cable_side_hole_transform()
+//        difference() {
+//            box_startlights_side_hole_cut(void=false);
+//            box_startlights_side_hole();
+//        }
+//    }
 }
