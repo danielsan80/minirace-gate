@@ -73,8 +73,8 @@ module _box_top_chip_red_led_hole() {
 }
 
 module _box_top_chip_led_hole_tube(angle_pos) {
-    ceil_thick = 2;
-    tap_ext = 2;
+    ceil_thick = 1.5;
+    tap_ext = 0.5;
     tap_thick = 0.5;
 
     module body() {
@@ -136,8 +136,11 @@ module box_top() {
 ////        _box_top_startlight_cable_side_hole_transform()
 ////        box_startlights_side_hole();
 //    }
-    _box_top_chip_blue_led_hole_tube();
-//    _box_top_chip_red_led_hole_tube();
+//    _box_top_chip_blue_led_hole_tube();
+    
+//    translate([9,0,0])
+//    _box_top_chip_blue_led_hole_tube();
+    _box_top_chip_red_led_hole_tube();
     
 //    intersection() {
 //        box_bottom_complete();
