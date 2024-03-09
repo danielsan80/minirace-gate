@@ -25,9 +25,9 @@ module _hanger_rod_hook_support(
             translate([- 6 / 2, 0, 0])
             cube([
                 6,
-                        l + sin(angle) * (r + d / 2) - layer_w,
+                l + sin(angle) * (r + d / 2) - layer_w,
                 layer_h
-                ]);
+            ]);
         }
         hanger_rod_hook(d = d + layer_h * 2, l = l);
     }
@@ -36,19 +36,19 @@ module _hanger_rod_hook_support(
 
 
 module print_hanger_rod() {
-    l = board_l;
-    hook_offset = l / 2 - board_hole_offset.x;
-    
+
     hanger_rod();
-    
+
     hanger_rod_ct_slide_transform()
-    ct_slide_t_supports(w = l);
-    
-    translate([hook_offset, 0, 0])
+    ct_slide_t_supports(w = hanger_rod_l);
+
+    translate([cover_hook_pos.x, 0, 0])
     translate([0, - ct_slide_side, 0])
     _hanger_rod_hook_support();
-    
-    translate([- hook_offset, 0, 0])
+
+    translate([- cover_hook_pos.x, 0, 0])
     translate([0, - ct_slide_side, 0])
     _hanger_rod_hook_support();
 }
+
+print_hanger_rod();

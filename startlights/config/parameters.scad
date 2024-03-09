@@ -13,6 +13,9 @@ r = 4.0; //6;
 
 led_d = 3.4; //5.4;
 led_r = led_d/2;
+led_pin_thick = 0.4;
+led_pin_w = 6;
+led_pin_h = 1.5;
 
 led_base_h = 1;
 startlight_led_jut_h = 0.5;
@@ -20,28 +23,55 @@ startlight_led_jut_h = 0.5;
 bar_thick = 1.5;
 bar_x_offset = bar_thick;
 
-startlights_length = side*5+space_x*4;
-startlights_height = side*2+space_y;
+cover_l = side*5+space_x*4;
+cover_h = side*2+space_y;
+cover_hook_pos = [cover_l/2-side-space_x/2, cover_h/2 - side/2];
 
 led_distance_x = side+space_x;
 led_distance_y = side+space_y;
 
-board_margin = bar_x_offset;
-board_l = startlights_length-board_margin*2;
-board_w = startlights_height-board_margin*2;
-board_thick = 1.6;
+board_v = 2;
+
+board_thick = 1.5;
 board_hole_d = 3;
-board_hole_offset = [-board_margin + side + space_x/2, -board_margin + side/2];
-board_startlights_gap = 0.2;
 
-board_offset = [(startlights_length-board_l)/2, (startlights_height-board_w)/2];
 
-welding_l = 8.5;
-welding_w = 1;
-welding_h = 0.8;
-welding_y_offset = 10.5;
-welding_play = 0.1;
-welding_r = 0.3;
+board_v1_l = cover_l-bar_x_offset*2;
+board_v1_w = cover_h-bar_x_offset*2;
+board_v1_margin = [(cover_l-board_v1_l)/2, (cover_h-board_v1_w)/2];
+board_v1_cover_gap = 0.2;
+
+board_v2_l = 56;
+board_v2_w = 19;
+board_v2_margin = [(cover_l-board_v2_l)/2, (cover_h-board_v2_w)/2];
+board_v2_cover_gap = 1.5;
+
+board_margin = board_v==1?board_v1_margin:board_v2_margin;
+board_l = board_v==1?board_v1_l:board_v2_l;
+board_w = board_v==1?board_v1_w:board_v2_w;
+board_cover_gap = board_v==1?board_v1_cover_gap:board_v2_cover_gap;
+
+
+board_cable_connector_l = 7.5;
+board_cable_connector_w = 3.8;
+board_cable_connector_h = 5.2;
+board_cable_connector_offset = [0,-cover_h/2 + bar_x_offset+5.8+board_cable_connector_w/2];
+board_cable_connector_play = 0.5;
+
+board_welding_l = 8.5;
+board_welding_h = 0.8;
+board_welding_w = 1;
+board_welding_play = 0.1;
+board_welding_r = 0.3;
+
+board_v1_welding_offset = [0, -2.2];
+board_v1_has_cover_welding_groove = true;
+
+board_v2_welding_offset = [0, -0.8];
+board_v2_has_cover_welding_groove = true;
+
+board_welding_offset = board_v==1?board_v1_welding_offset:board_v2_welding_offset;
+board_has_cover_welding_groove = board_v==1?board_v1_has_cover_welding_groove:board_v2_has_cover_welding_groove;
 
 
 gate_hook_width = 17;
@@ -67,3 +97,11 @@ hanger_rod_hook_l = 5;
 hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
 hanger_rod_hook_w = 2; // = startlight:space_x
+
+hanger_rod_margin = bar_x_offset;
+hanger_rod_l = cover_l-hanger_rod_margin*2;
+
+case_thick = 4.8;
+case_base_thick = 0.8;
+case_play = 0.3;
+case_wall_w = 1;

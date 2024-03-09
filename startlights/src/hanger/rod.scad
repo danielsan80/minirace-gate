@@ -32,7 +32,7 @@ module hanger_rod_hook(
 }
 
 module hanger_rod_ct_slide_transform() {
-    translate([board_l/2,0,0])
+    translate([hanger_rod_l/2,0,0])
     rotate([0,0,-90])
     rotate([90,0,0])
     children();
@@ -40,8 +40,8 @@ module hanger_rod_ct_slide_transform() {
 
 
 module hanger_rod() {
-    l=board_l;
-    hook_offset = l/2-board_hole_offset.x;
+    l=hanger_rod_l;
+    hook_offset = cover_hook_pos.x;
     
     hanger_rod_ct_slide_transform()
     ct_slide_t(w=l);
@@ -49,7 +49,7 @@ module hanger_rod() {
     translate([hook_offset,0,0])
     translate([0,-ct_slide_side,0])
     hanger_rod_hook();
-    
+
     translate([-hook_offset,0,0])
     translate([0,-ct_slide_side,0])
     hanger_rod_hook();
