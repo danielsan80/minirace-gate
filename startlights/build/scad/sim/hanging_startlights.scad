@@ -11,6 +11,7 @@ use <../../../src/cover/sim/cover.scad>
 
 
 
+sim_hanging_startlights_transform() {
     cover();
     
     sim_board_transform()
@@ -31,5 +32,5 @@ use <../../../src/cover/sim/cover.scad>
     sim_clip_center()
     sim_clip_color()
     hanger_clip();
-   
-
+    
+}
