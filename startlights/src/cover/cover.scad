@@ -163,6 +163,19 @@ module _cover_welding_groove() {
     }
 }
 
+module _cover_recess() {
+    difference() {
+        translate([-fix,-fix,-fix])
+        cube([cover_l+fix*2,cover_h+fix*2,cover_recess_h+fix]);
+        
+        translate([case_wall_w+cover_recess_play,case_wall_w+cover_recess_play,-fix*2])
+        cube([cover_l-case_wall_w*2-cover_recess_play*2,cover_h-case_wall_w*2-cover_recess_play*2,cover_recess_h+fix*2]);
+    }
+    
+}
+
+
+
 module cover() {
     difference() {
         _cover_x10();
@@ -172,5 +185,7 @@ module cover() {
         translate([cover_l,cover_h,0])
         rotate([0,0,180])
         _cover_welding_groove();
+        
+        _cover_recess();
     }
 }
