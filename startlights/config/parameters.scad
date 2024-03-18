@@ -4,14 +4,14 @@ a_lot = 1000;
 layer_h = 0.15;
 layer_w = 0.46;
 
-thick = 2.0;
+thick = 2.5;
 startlight_circle_estrusion = 1;
-side = 10; //15;
+side = 13.4; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;
-r = 4.0; //6;
+r = 5.4; //6;
 
-led_d = 3.4; //5.4;
+led_d = 6.5; //5.4;
 led_r = led_d/2;
 led_pin_thick = 0.4;
 led_pin_w = 6;
@@ -20,17 +20,19 @@ led_pin_h = 1.5;
 led_base_h = 1;
 startlight_led_jut_h = 0.5;
 
-bar_thick = 1.5;
+bar_thick = thick - 0.5;
 bar_x_offset = bar_thick;
 
 cover_l = side*5+space_x*4;
 cover_h = side*2+space_y;
 cover_hook_pos = [cover_l/2-side-space_x/2, cover_h/2 - side/2];
+cover_recess_h = 1.5;
+cover_recess_play = 0.15;
 
 led_distance_x = side+space_x;
 led_distance_y = side+space_y;
 
-board_v = 2;
+board_v = 3;
 
 board_thick = 1.5;
 board_hole_d = 3;
@@ -46,10 +48,16 @@ board_v2_w = 19;
 board_v2_margin = [(cover_l-board_v2_l)/2, (cover_h-board_v2_w)/2];
 board_v2_cover_gap = 1.5;
 
-board_margin = board_v==1?board_v1_margin:board_v2_margin;
-board_l = board_v==1?board_v1_l:board_v2_l;
-board_w = board_v==1?board_v1_w:board_v2_w;
-board_cover_gap = board_v==1?board_v1_cover_gap:board_v2_cover_gap;
+board_v3_l = cover_l-bar_x_offset*2;
+board_v3_w = cover_h-bar_x_offset*2;
+board_v3_margin = [(cover_l-board_v3_l)/2, (cover_h-board_v3_w)/2];
+board_v3_cover_gap = 0.5;
+
+
+board_margin = [board_v1_margin,board_v2_margin,board_v3_margin][board_v-1];
+board_l = [board_v1_l,board_v2_l,board_v3_l][board_v-1];
+board_w = [board_v1_w,board_v2_w,board_v3_w][board_v-1];
+board_cover_gap = [board_v1_cover_gap,board_v2_cover_gap,board_v3_cover_gap][board_v-1];
 
 
 board_cable_connector_l = 7.5;

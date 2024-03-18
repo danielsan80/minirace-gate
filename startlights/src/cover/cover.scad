@@ -106,11 +106,11 @@ module _cover_x1() {
             translate([side/2,side/2,-fix])
             cylinder(r=led_r, h=a_few);
 
-            translate([side/2,side/2,-jut_h]) {
-                cylinder(r=led_r+play, h=thick);
-                translate([-led_pin_thick/2-play2,-led_pin_w/2-play2,0])
-                cube([led_pin_thick+play2*2,led_pin_w+play2*2,thick]);
-            }
+//            translate([side/2,side/2,-jut_h]) {
+//                cylinder(r=led_r+play, h=thick);
+//                translate([-led_pin_thick/2-play2,-led_pin_w/2-play2,0])
+//                cube([led_pin_thick+play2*2,led_pin_w+play2*2,thick]);
+//            }
 
         }
     }
@@ -163,6 +163,19 @@ module _cover_welding_groove() {
     }
 }
 
+module _recess() {
+    difference() {
+        translate([-fix,-fix,-fix])
+        cube([cover_l+fix*2,cover_h+fix*2,cover_recess_h+fix]);
+        
+        translate([case_wall_w+cover_recess_play,case_wall_w+cover_recess_play,-fix*2])
+        cube([cover_l-case_wall_w*2-cover_recess_play*2,cover_h-case_wall_w*2-cover_recess_play*2,cover_recess_h+fix*2]);
+    }
+    
+}
+
+
+
 module cover() {
     difference() {
         _cover_x10();
@@ -172,5 +185,8 @@ module cover() {
         translate([cover_l,cover_h,0])
         rotate([0,0,180])
         _cover_welding_groove();
+        
+        _recess();
     }
+
 }
