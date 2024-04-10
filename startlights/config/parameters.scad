@@ -4,7 +4,7 @@ a_lot = 1000;
 layer_h = 0.15;
 layer_w = 0.46;
 
-thick = 2.5;
+thick = 3;
 startlight_circle_estrusion = 1;
 side = 10; //15;
 space_x = 2; //3;
@@ -26,8 +26,8 @@ bar_x_offset = bar_thick;
 cover_l = side*5+space_x*4;
 cover_h = side*2+space_y;
 cover_hook_pos = [cover_l/2-side-space_x/2, cover_h/2 - side/2];
-cover_recess_h = 1.5;
-cover_recess_play = 0.15;
+cover_recess_h = 2;
+cover_recess_play = 0;
 
 led_distance_x = side+space_x;
 led_distance_y = side+space_y;
@@ -103,7 +103,7 @@ hanger_rod_hook_w = 2; // = startlight:space_x
 hanger_rod_margin = bar_x_offset;
 hanger_rod_l = cover_l-hanger_rod_margin*2;
 
-case_thick = 4.8;
+case_thick = 3.2;
 case_base_thick = 0.8;
 case_play = 0.3;
 case_wall_w = 1;
