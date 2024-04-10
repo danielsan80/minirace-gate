@@ -20,6 +20,21 @@ led_pin_h = 1.5;
 led_base_h = 1;
 startlight_led_jut_h = 0.5;
 
+led_squared_3mm_w = 2.80;
+led_squared_3mm_l = 3.15;
+led_squared_3mm_h = 2.0;
+led_play = 0.15;
+led_play_h = 0.3;
+
+led_cap_dome_h= 0.5;
+led_cap_dome_d= 6.85;
+led_cap_leg_d_outer = 6.35;
+led_cap_leg_d_inner = 5.34;
+led_cap_leg_h = 1.55;
+led_cap_foot_h = 1;
+led_cap_clip_h = led_cap_leg_h+led_cap_foot_h;
+led_cap_h = led_cap_clip_h+led_cap_dome_h;
+
 bar_thick = thick - 0.5;
 bar_x_offset = bar_thick;
 

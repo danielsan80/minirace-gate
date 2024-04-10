@@ -27,7 +27,6 @@ module _board_leds() {
     led_color()
     led_on_board_transform()
     led_x10_cover_transform()
-    translate([0,0,board_cover_gap])
     led();
 }
 

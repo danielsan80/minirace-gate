@@ -1,4 +1,5 @@
 include <../../config/parameters.scad>
+include <../../src/led/led.scad>
 
 
 module _cowl(r = 6) {
@@ -106,11 +107,8 @@ module _cover_x1() {
             translate([side/2,side/2,-fix])
             cylinder(r=led_r, h=a_few);
 
-            translate([side/2,side/2,-jut_h]) {
-                cylinder(r=led_r+play, h=thick);
-                translate([-led_pin_thick/2-play2,-led_pin_w/2-play2,0])
-                cube([led_pin_thick+play2*2,led_pin_w+play2*2,thick]);
-            }
+            translate([side/2,side/2,0])
+            led_void();
 
         }
     }

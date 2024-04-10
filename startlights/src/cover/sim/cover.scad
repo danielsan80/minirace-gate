@@ -1,6 +1,8 @@
 include <../../../config/parameters.scad>
 
 use <../../../src/cover/cover.scad>
+use <../../../src/led/led_cap.scad>
+use <../../../src/led/led.scad>
 
 
 module sim_hanging_startlights_transform() {
@@ -8,7 +10,8 @@ module sim_hanging_startlights_transform() {
     children();
 }
 
-
-module sim_cover() {
-    cover();
+module sim_cover_led_caps() {
+    #translate([0,0,thick])
+    led_x10_cover_transform()
+    led_cap();
 }
