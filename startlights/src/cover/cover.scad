@@ -105,8 +105,8 @@ module _cover_x1() {
                     cylinder(r=r-t, h=thick+h);
                 }
             }
-            translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
-            cylinder(d=led_cap_leg_d_outer+led_play*2, h=a_few);
+            translate([side/2,side/2,thick-led_cap_clip_h+led_play_h])
+            cylinder(d=led_cap_clip_d+led_play*2, h=a_few);
             
             translate([side/2,side/2,thick-led_cap_clip_h-led_play_h+fix])
             cylinder(d=led_cap_foot_d+led_play*2, h=led_cap_foot_h+led_play_h*2);

@@ -1,19 +1,25 @@
 include <../../config/parameters.scad>
+include <../../src/led/led.scad>
+
 
 module _led_cap_dome() {
-    cylinder(d=led_cap_dome_d, h=led_cap_dome_h);
+    intersection(){
+        scale([1, 1, 0.7])
+        sphere(d=led_cap_dome_d);
+        cylinder(d=led_cap_dome_d, h=led_cap_dome_d/2);
+    }
 }
 
 module _led_cap_clip() {
 
     difference() {
         union() {
-            cylinder(d=led_cap_dome_d, h=led_cap_foot_h);
-            cylinder(d=led_cap_leg_d_outer, h=led_cap_clip_h);
+            cylinder(d=led_cap_foot_d, h=led_cap_foot_h);
+            cylinder(d=led_cap_clip_d, h=led_cap_clip_h);
         }
-        translate([0, 0, -fix])
-        cylinder(d=led_cap_leg_d_inner, h=led_cap_clip_h);
+        led_void();
     }
+    
     
 }
 

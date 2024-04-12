@@ -11,7 +11,8 @@ module sim_hanging_startlights_transform() {
 }
 
 module sim_cover_led_caps() {
-    %translate([0,0,thick])
+    color("white")
+    translate([0,0,thick+led_play_h/2])
     led_x10_cover_transform()
     led_cap();
 }

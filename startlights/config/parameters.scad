@@ -4,17 +4,32 @@ a_lot = 1000;
 layer_h = 0.15;
 layer_w = 0.46;
 
-led_cap_dome_h= 0.5;
-led_cap_dome_d= 6.85;
-led_cap_leg_d_outer = 6.35;
-led_cap_leg_d_inner = 5.34;
-led_cap_leg_h = 1.55;
-led_cap_foot_d = led_cap_dome_d;
-led_cap_foot_h = 1;
-led_cap_clip_h = led_cap_leg_h+led_cap_foot_h;
-led_cap_h = led_cap_clip_h+led_cap_dome_h;
+//led_cap_dome_h= 0.5;
+//led_cap_dome_d= 6.85;
+//led_cap_leg_d_outer = 6.35;
+//led_cap_leg_d_inner = 5.34;
+//led_cap_leg_h = 1.55;
+//led_cap_foot_d = led_cap_dome_d;
+//led_cap_clip_h = led_cap_leg_h+led_cap_foot_h;
+//led_cap_h = led_cap_clip_h+led_cap_dome_h;
 
-thick = 3;
+led_squared_3mm_w = 2.80;
+led_squared_3mm_l = 3.15;
+led_squared_3m_hp = sqrt(pow(led_squared_3mm_l,2)+pow(led_squared_3mm_w,2));
+led_squared_3mm_h = 2.0;
+led_play = 0.1;
+led_play_h = 0.15;
+
+led_cap_wall_thick = 0.2;
+led_cap_dome_overhang = 0.2;
+led_cap_dome_d = led_squared_3m_hp+led_play*2+led_cap_wall_thick*2+led_cap_dome_overhang*2;
+led_cap_clip_d = led_squared_3m_hp+led_play*2+led_cap_wall_thick*2;
+led_cap_clip_h = led_squared_3mm_h+led_play_h;
+led_cap_foot_d = led_cap_clip_d+led_play*2;
+led_cap_foot_h = 1;
+led_cap_leg_h = led_cap_clip_h-led_cap_foot_h;
+
+thick = 2.5;
 startlight_circle_estrusion = 1;
 side = 10; //15;
 space_x = 2; //3;
@@ -31,11 +46,6 @@ led_pin_h = 1.5;
 led_base_h = 1;
 startlight_led_jut_h = 0.5;
 
-led_squared_3mm_w = 2.80;
-led_squared_3mm_l = 3.15;
-led_squared_3mm_h = 2.0;
-led_play = 0.1;
-led_play_h = 0.2;
 
 
 
