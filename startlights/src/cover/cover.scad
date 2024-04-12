@@ -82,7 +82,8 @@ module _cover_x1() {
 
     play = 0.3;
     h = startlight_circle_estrusion;
-    t = 1;
+    t = cowl_t;
+    r = cowl_r;
     fix = 0.1;
     jut_h = startlight_led_jut_h;
     a_few = 10;
@@ -104,8 +105,11 @@ module _cover_x1() {
                     cylinder(r=r-t, h=thick+h);
                 }
             }
-            translate([side/2,side/2,-fix])
-            cylinder(r=led_r, h=a_few);
+            translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
+            cylinder(d=led_cap_leg_d_outer+led_play*2, h=a_few);
+            
+            translate([side/2,side/2,thick-led_cap_clip_h-led_play_h+fix])
+            cylinder(d=led_cap_foot_d+led_play*2, h=led_cap_foot_h+led_play_h*2);
 
             translate([side/2,side/2,0])
             led_void();
@@ -179,11 +183,11 @@ module cover() {
         _cover_x10();
         
         _cover_welding_groove();
-        
+
         translate([cover_l,cover_h,0])
         rotate([0,0,180])
         _cover_welding_groove();
-        
+
         _cover_recess();
     }
 }

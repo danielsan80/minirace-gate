@@ -4,12 +4,23 @@ a_lot = 1000;
 layer_h = 0.15;
 layer_w = 0.46;
 
+led_cap_dome_h= 0.5;
+led_cap_dome_d= 6.85;
+led_cap_leg_d_outer = 6.35;
+led_cap_leg_d_inner = 5.34;
+led_cap_leg_h = 1.55;
+led_cap_foot_d = led_cap_dome_d;
+led_cap_foot_h = 1;
+led_cap_clip_h = led_cap_leg_h+led_cap_foot_h;
+led_cap_h = led_cap_clip_h+led_cap_dome_h;
+
 thick = 3;
 startlight_circle_estrusion = 1;
 side = 10; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;
-r = 4.0; //6;
+cowl_t = 1;
+cowl_r = led_cap_dome_d/2+cowl_t+0.2;
 
 led_d = 3.4; //5.4;
 led_r = led_d/2;
@@ -23,19 +34,12 @@ startlight_led_jut_h = 0.5;
 led_squared_3mm_w = 2.80;
 led_squared_3mm_l = 3.15;
 led_squared_3mm_h = 2.0;
-led_play = 0.15;
-led_play_h = 0.3;
+led_play = 0.1;
+led_play_h = 0.2;
 
-led_cap_dome_h= 0.5;
-led_cap_dome_d= 6.85;
-led_cap_leg_d_outer = 6.35;
-led_cap_leg_d_inner = 5.34;
-led_cap_leg_h = 1.55;
-led_cap_foot_h = 1;
-led_cap_clip_h = led_cap_leg_h+led_cap_foot_h;
-led_cap_h = led_cap_clip_h+led_cap_dome_h;
 
-bar_thick = thick - 0.5;
+
+bar_thick = 1.5;
 bar_x_offset = bar_thick;
 
 cover_l = side*5+space_x*4;
@@ -118,7 +122,7 @@ hanger_rod_hook_w = 2; // = startlight:space_x
 hanger_rod_margin = bar_x_offset;
 hanger_rod_l = cover_l-hanger_rod_margin*2;
 
-case_thick = 3.2;
-case_base_thick = 0.8;
+case_thick = 4.4;
+case_base_thick = 1.0;
 case_play = 0.3;
 case_wall_w = 1;

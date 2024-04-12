@@ -35,7 +35,7 @@ module led_squared_3mm(void = false) {
     l = led_squared_3mm_l+p*2;
     h = led_squared_3mm_h+ph;
     
-    translate([-w/2,-l/2,0])
+    translate([-w/2,-l/2,-fix])
     cube([w, l, h]);
 }
 
