@@ -4,8 +4,8 @@ include <../../src/led/led.scad>
 
 module _cowl(r = 6) {
     fix = 0.1;
-    thick1 = 1;
-    thick2 = 0.5;
+    thick1 = cowl_t;
+    thick2 = cowl_t-0.5;
     cone_r1 = r;
     h = r;
     cone_ratio = 5.5/6;
