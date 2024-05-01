@@ -8,6 +8,7 @@ use <src/hanger/clip_rod_joint.scad>
 use <src/hanger/sim/hanger.scad>
 use <src/cover/cover.scad>
 use <src/cover/sim/cover.scad>
+use <src/led/led_cap.scad>
 use <src/cover/print/cover.scad>
 use <src/case/sim/case.scad>
 use <src/case/case.scad>
@@ -31,21 +32,23 @@ module cover_welding_test_cut() {
     }
 }
 
-cover_cut()
+//cover_cut()
 //cover_welding_test_cut()
 //translate([0,0,40])
-cover();
+//cover();
 //print_cover();
 
-cover_cut()
-sim_cover_led_caps();
+//cover_cut()
+//sim_cover_led_caps();
+
+//led_cap();
 
 //translate([0,0,20])
-sim_board_transform()
-board();
+//sim_board_transform()
+//board();
 
 //sim_case_color()
-cover_cut()
+//cover_cut()
 case();
 
 

@@ -20,7 +20,7 @@ led_squared_3mm_h = 2.0;
 led_play = 0.1;
 led_play_h = 0.15;
 
-led_cap_wall_thick = 0.2;
+led_cap_wall_thick = 0.5;
 led_cap_dome_overhang = 0.2;
 led_cap_dome_d = led_squared_3m_hp+led_play*2+led_cap_wall_thick*2+led_cap_dome_overhang*2;
 led_cap_clip_d = led_squared_3m_hp+led_play*2+led_cap_wall_thick*2;
@@ -55,7 +55,7 @@ bar_x_offset = bar_thick;
 cover_l = side*5+space_x*4;
 cover_h = side*2+space_y;
 cover_hook_pos = [cover_l/2-side-space_x/2, cover_h/2 - side/2];
-cover_recess_h = 2;
+cover_recess_h = 1.5;
 cover_recess_play = 0;
 
 led_distance_x = side+space_x;
