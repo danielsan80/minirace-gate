@@ -16,6 +16,7 @@ led_cap_h = led_cap_clip_h+led_cap_dome_h;
 
 thick = 3;
 startlight_circle_estrusion = 1;
+circle_estrusion_depth = 1;
 side = 10; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;

@@ -82,6 +82,7 @@ module _cover_x1() {
 
     play = 0.3;
     h = startlight_circle_estrusion;
+    depth = circle_estrusion_depth;
     t = cowl_t;
     r = cowl_r;
     fix = 0.1;
@@ -98,17 +99,28 @@ module _cover_x1() {
                 cube([side,side,thick]);
 
                 difference() {
-                    translate([side/2,side/2,h])
-                    cylinder(r=r, h=thick);
+                    translate([0,0,thick])
+                    translate([0,0,-fix])
+                    translate([side/2,side/2,0])
+                    cylinder(r=r, h=h+fix);
 
-                    translate([side/2,side/2,h])
-                    cylinder(r=r-t, h=thick+h);
+
+                    translate([0,0,h-depth])
+                    translate([0,0,thick])
+                    translate([side/2,side/2,0])
+                    cylinder(r=r-t, h=depth+fix);
+                    
                 }
             }
             translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
             cylinder(d=led_cap_leg_d_outer+led_play*2, h=a_few);
             
-            translate([side/2,side/2,thick-led_cap_clip_h-led_play_h+fix])
+            translate([0,0,fix])
+            translate([0,0,-led_play_h])
+            translate([0,0,-led_cap_clip_h])
+            translate([0,0,h-depth])
+            translate([0,0,thick])
+            translate([side/2,side/2,0])
             cylinder(d=led_cap_foot_d+led_play*2, h=led_cap_foot_h+led_play_h*2);
 
             translate([side/2,side/2,0])
