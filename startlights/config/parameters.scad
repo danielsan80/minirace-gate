@@ -16,7 +16,7 @@ led_cap_h = led_cap_clip_h+led_cap_dome_h;
 
 thick = 3.6;
 startlight_circle_estrusion = 1;
-circle_estrusion_depth = 0.4;
+circle_estrusion_depth = 0;
 side = 10; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;
@@ -46,7 +46,7 @@ bar_x_offset = bar_thick;
 cover_l = side*5+space_x*4;
 cover_h = side*2+space_y;
 cover_hook_pos = [cover_l/2-side-space_x/2, cover_h/2 - side/2];
-cover_recess_h = 2;
+cover_recess_h = 0;
 cover_recess_play = 0;
 
 led_distance_x = side+space_x;

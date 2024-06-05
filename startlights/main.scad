@@ -31,17 +31,17 @@ module cover_welding_test_cut() {
     }
 }
 
-cover_cut()
+//cover_cut()
 //cover_welding_test_cut()
 //translate([0,0,40])
 cover();
 //print_cover();
 
-sim_cover_led_caps();
+//sim_cover_led_caps();
 
 //translate([0,0,20])
-sim_board_transform()
-board();
+//sim_board_transform()
+//board();
 
 //cover_cut()
 //sim_case_color()

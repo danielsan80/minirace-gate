@@ -93,7 +93,7 @@ module _cover_x1() {
 
     color("grey")
     union() {
-        _cowl(r);
+//        _cowl(r);
         difference() {
             union() {
                 cube([side,side,thick]);
@@ -194,12 +194,12 @@ module cover() {
     difference() {
         _cover_x10();
         
-        _cover_welding_groove();
+//        _cover_welding_groove();
 
-        translate([cover_l,cover_h,0])
-        rotate([0,0,180])
-        _cover_welding_groove();
+//        translate([cover_l,cover_h,0])
+//        rotate([0,0,180])
+//        _cover_welding_groove();
 
-        _cover_recess();
+//        _cover_recess();
     }
 }
