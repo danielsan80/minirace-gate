@@ -113,7 +113,7 @@ module _cover_x1() {
                 }
             }
             translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
-            cylinder(d=led_cap_leg_d_outer+led_play*2, h=a_few);
+            cylinder(d=led_cap_leg_d_outer+led_cap_play*2, h=a_few);
             
             translate([0,0,fix])
             translate([0,0,-led_play_h])

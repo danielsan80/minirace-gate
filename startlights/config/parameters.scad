@@ -20,7 +20,7 @@ circle_estrusion_depth = 0.4;
 side = 10; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;
-cowl_t = 0.8;
+cowl_t = 1;
 cowl_r = led_cap_dome_d/2+cowl_t+0.2;
 
 led_d = 3.4; //5.4;
@@ -35,7 +35,8 @@ startlight_led_jut_h = 0.5;
 led_squared_3mm_w = 2.80;
 led_squared_3mm_l = 3.15;
 led_squared_3mm_h = 2.0;
-led_play = 0.1;
+led_play = 0.20;
+led_cap_play = 0.1;
 led_play_h = 0.2;
 
 
@@ -82,7 +83,7 @@ board_cable_connector_play = 0.5;
 
 board_welding_l = 8.5;
 board_welding_h = 0.8;
-board_welding_w = 1;
+board_welding_w = 1.45;
 board_welding_play = 0.1;
 board_welding_r = 0.3;
 
@@ -115,7 +116,7 @@ hanger_clip_hook_tilt = 5;
 hanger_clip_hook_thick = 2;
 
 hanger_rod_hook_play = 0.15;
-hanger_rod_hook_l = 5;
+hanger_rod_hook_l = 6;
 hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
 hanger_rod_hook_w = 2; // = startlight:space_x
