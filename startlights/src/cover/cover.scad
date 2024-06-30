@@ -36,8 +36,8 @@ module _cowl(r = 6) {
 
     module cut2() {
         side = cone_r1*15/6;
-        z_offset_top = cone_r1*8.5/6;
-        z_offset_bottom = cone_r1*7.5/6;
+        z_offset_top = cone_r1*8.5/5.3;
+        z_offset_bottom = cone_r1*7.5/5.5;
         a_few = 5;
         hull() {
             translate([0,cone_r1,z_offset_top])
@@ -113,15 +113,15 @@ module _cover_x1() {
                 }
             }
             translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
-            cylinder(d=led_cap_leg_d_outer+led_cap_play*2, h=a_few);
-            
-            translate([0,0,fix])
-            translate([0,0,-led_play_h])
-            translate([0,0,-led_cap_clip_h])
-            translate([0,0,h-depth])
-            translate([0,0,thick])
-            translate([side/2,side/2,0])
-            cylinder(d=led_cap_foot_d+led_play*2, h=led_cap_foot_h+led_play_h*2);
+            cylinder(d=led_cap_leg_d+led_cap_play*2, h=a_few);
+
+//            translate([0,0,fix])
+//            translate([0,0,-led_play_h])
+//            translate([0,0,-led_cap_dome_h])
+//            translate([0,0,h-depth])
+//            translate([0,0,thick])
+//            translate([side/2,side/2,0])
+//            cylinder(d=led_cap_dome_d+led_play*2, h=led_cap_dome_h+led_play_h*2);
 
             translate([side/2,side/2,0])
             led_void();

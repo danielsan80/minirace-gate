@@ -4,24 +4,20 @@ a_lot = 1000;
 layer_h = 0.15;
 layer_w = 0.46;
 
-led_cap_dome_h= 0.5;
-led_cap_dome_d= 6.85;
-led_cap_leg_d_outer = 6.35;
-led_cap_leg_d_inner = 5.34;
-led_cap_leg_h = 1.55;
-led_cap_foot_d = led_cap_dome_d;
-led_cap_foot_h = 1;
-led_cap_clip_h = led_cap_leg_h+led_cap_foot_h;
-led_cap_h = led_cap_clip_h+led_cap_dome_h;
+led_cap_h = 3.85;
+led_cap_leg_h = 2.70;
+led_cap_dome_h= led_cap_h-led_cap_leg_h;
+led_cap_dome_d= 5;
+led_cap_leg_d = 3.85;
 
-thick = 3.6;
-startlight_circle_estrusion = 1;
+thick = 4;
+startlight_circle_estrusion = 1.2;
 circle_estrusion_depth = 0.4;
 side = 10; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;
 cowl_t = 1;
-cowl_r = led_cap_dome_d/2+cowl_t+0.2;
+cowl_r = 4.2; //led_cap_dome_d/2+cowl_t+0.2;
 
 led_d = 3.4; //5.4;
 led_r = led_d/2;
