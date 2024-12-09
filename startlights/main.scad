@@ -37,11 +37,11 @@ module cover_welding_test_cut() {
 //cover_welding_test_cut()
 //translate([0,0,40])
 //cover();
-//print_cover();
+print_cover();
 
 //sim_cover_led_caps();
 
-led_cap_applier();
+//led_cap_applier();
 
 //translate([0,0,20])
 //sim_board_transform()

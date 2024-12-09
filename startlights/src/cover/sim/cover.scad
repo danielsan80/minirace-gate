@@ -11,6 +11,7 @@ module sim_hanging_startlights_transform() {
 }
 
 module sim_cover_led_caps() {
+    %translate([0,0,circle_estrusion_led_cap_base_h])
     %translate([0,0,-circle_estrusion_depth])
     %translate([0,0,startlight_circle_estrusion])
     %translate([0,0,thick])

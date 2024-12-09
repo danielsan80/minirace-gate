@@ -11,13 +11,15 @@ led_cap_dome_d= 5;
 led_cap_leg_d = 3.85;
 
 thick = 4;
-startlight_circle_estrusion = 1.2;
-circle_estrusion_depth = 0.4;
+startlight_circle_estrusion = 1.4;
+circle_estrusion_depth = 0.5;
+circle_estrusion_led_cap_base_h = 0.7;
+
 side = 10; //15;
 space_x = 2; //3;
 space_y = 1.2; //2;
 cowl_t = 1;
-cowl_r = 4.2; //led_cap_dome_d/2+cowl_t+0.2;
+cowl_r = 4.3; //led_cap_dome_d/2+cowl_t+0.2;
 
 led_d = 3.4; //5.4;
 led_r = led_d/2;

@@ -5,7 +5,7 @@ include <../../src/led/led.scad>
 module _cowl(r = 6) {
     fix = 0.1;
     thick1 = cowl_t;
-    thick2 = cowl_t-0.5;
+    thick2 = cowl_t-0.7;
     cone_r1 = r;
     h = r;
     cone_ratio = 5.5/6;
@@ -111,6 +111,15 @@ module _cover_x1() {
                     cylinder(r=r-t, h=depth+fix);
                     
                 }
+                
+                translate([0,0,-depth])
+                translate([0,0,h])
+                translate([0,0,thick])
+                translate([0,0,-fix])
+                translate([side/2,side/2,0])
+                cylinder(d=led_cap_dome_d, h=circle_estrusion_led_cap_base_h+fix);
+                
+                
             }
             translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
             cylinder(d=led_cap_leg_d+led_cap_play*2, h=a_few);
