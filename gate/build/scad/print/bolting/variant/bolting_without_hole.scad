@@ -1,3 +1,3 @@
-use <../../../../../src/gate/parts/print/bolting.scad>
+use <../../../../../src/gate/parts/bolting.scad>
 
-print_bolting(with_hole=false);
+bolting(with_hole=false);

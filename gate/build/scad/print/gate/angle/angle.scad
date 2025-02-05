@@ -1,3 +1,3 @@
-use <../../../../../src/gate/parts/print/angle.scad>
+use <../../../../../src/gate/parts/angle.scad>
 
-print_angle();
+angle();

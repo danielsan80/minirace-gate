@@ -134,7 +134,9 @@ build_stl "print/gate/traverse/variant/split/without_basement/traverse_R_without
 echo ""
 echo "### BASEMENT"
 
-build_stl "print/basement/_basement.scad"
+build_stl "print/basement/_basement.scad" "basement"
+build_stl "print/basement/_basement_deflector_L.scad" "basement_deflector_L"
+build_stl "print/basement/_basement_deflector_R.scad" "basement_deflector_R"
 
 
 echo ""
@@ -150,9 +152,10 @@ build_stl "print/bolting/variant/bolting_without_hole.scad"
 echo ""
 echo "## STARTLIGHTS"
 
-build_stl "print/startlights/startlights.scad" "startlights"
-build_stl "print/startlights/hanger_clip.scad" "hanger_clip"
+build_stl "print/startlights/startlights_cover.scad" "startlights_cover"
+build_stl "print/startlights/startlights_case.scad" "startlights_case"
 build_stl "print/startlights/hanger_rod.scad" "hanger_rod"
+build_stl "print/startlights/hanger_clip.scad" "hanger_clip"
 
 echo ""
 echo "### Variant"
@@ -163,7 +166,7 @@ echo ""
 echo "# SIM"
 
 build_image "sim/gate_on_basement.scad" "120,50,0,60,0,-20,1800" "gate_on_basement"
-build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800"
+build_image "sim/gate_on_ground.scad" "120,50,0,60,0,-20,1800" "gate_on_ground"
 build_image "sim/traverse_assembly.scad" "0,0,0,60,0,-20,600" "traverse_assembly"
 build_image "sim/upright_assembly.scad" "0,0,0,60,0,-20,600" "upright_assembly"
 

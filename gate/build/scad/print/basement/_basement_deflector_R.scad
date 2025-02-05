@@ -1,3 +1,3 @@
 use <../../../../src/basement/_basement.scad>
 
-_basement();
+_basement_deflector_R();
