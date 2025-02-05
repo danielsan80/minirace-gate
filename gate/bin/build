@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPENSCAD=openscad
+source bin/config.env
 
 START_TIME=$SECONDS
 

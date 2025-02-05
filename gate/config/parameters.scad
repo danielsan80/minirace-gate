@@ -49,6 +49,8 @@ upright_base_hole_play = 0.15;
 
 basement_upright_margin = 5;
 basement_h = 10;
+basement_deflector_l = 80;
+
 
 traverse_play = play2;
 

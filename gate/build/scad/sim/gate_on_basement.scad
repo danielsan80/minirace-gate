@@ -24,10 +24,10 @@ use <../../../src/basement/sim/_basement_transform.scad>
 
 //sim_basement_box_terminal_L();
 _sim_basement_L();
+_sim_basement_deflector_L();
 
 _sim_on_basement_transform()
 union() {
-
     sim_bolting_L();
 
     sim_on_bolting_transform()
@@ -49,13 +49,17 @@ union() {
 //sim_basement_box_controller_R(startline_l=startline_l);
 //    sim_basement_box_controller_R_top_hole_cap();
 _sim_basement_R(startline_l=startline_l);
+_sim_basement_deflector_R();
 
 _sim_on_basement_transform()
 sim_on_bolting_transform()
 union() {
     sim_startlights_transform(startline_mode="basement", startline_l=startline_l)
+    translate([0,0,1.6])
     union() {
         sim_startlights_cover();
+        sim_startlights_cover_led_caps();
+        sim_startlights_case();
         sim_startlights_board();
     }
 
