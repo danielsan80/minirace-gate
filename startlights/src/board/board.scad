@@ -31,7 +31,7 @@ module _board_leds() {
 }
 
 module _board_cable_connector() {
-    translate([-board_margin.x, , -board_margin.y])
+    translate([-board_margin.x,-board_margin.y,0])
     translate([cover_l / 2, cover_h/2 + board_cable_connector_offset.y, - board_cable_connector_h])
     translate([-board_cable_connector_l / 2, -board_cable_connector_w/2, 0])
     cube([board_cable_connector_l, board_cable_connector_w, board_cable_connector_h]);

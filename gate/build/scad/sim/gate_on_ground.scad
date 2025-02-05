@@ -40,8 +40,11 @@ sim_bolting_R(startline_mode="upright", startline_l=startline_l);
 sim_on_bolting_transform()
 union() {
     sim_startlights_transform(startline_mode="upright", startline_l=startline_l)
+    translate([0,0,1.6])
     union() {
         sim_startlights_cover();
+        sim_startlights_cover_led_caps();
+        sim_startlights_case();
         sim_startlights_board();
     }
 
