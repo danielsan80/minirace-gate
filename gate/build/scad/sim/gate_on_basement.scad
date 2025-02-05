@@ -24,6 +24,7 @@ use <../../../src/basement/sim/_basement_transform.scad>
 
 //sim_basement_box_terminal_L();
 _sim_basement_L();
+translate([0,0.2,0])
 _sim_basement_deflector_L();
 
 _sim_on_basement_transform()
@@ -49,6 +50,7 @@ union() {
 //sim_basement_box_controller_R(startline_l=startline_l);
 //    sim_basement_box_controller_R_top_hole_cap();
 _sim_basement_R(startline_l=startline_l);
+translate([0,0.2,0])
 _sim_basement_deflector_R();
 
 _sim_on_basement_transform()
