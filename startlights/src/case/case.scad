@@ -61,6 +61,5 @@ module _case_x10() {
 }
 
 module case() {
-    translate([0,0,-case_thick-0.2])
     _case_x10();
 }

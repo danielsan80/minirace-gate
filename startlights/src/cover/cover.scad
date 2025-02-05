@@ -91,7 +91,6 @@ module _cover_x1() {
     play2 = 0.2;
 
 
-    color("grey")
     union() {
         _cowl(r);
         difference() {
@@ -147,7 +146,6 @@ module _cover_x2() {
 
     _cover_x1();
 
-    color("grey")
     translate([0, side, 0])
     _cover_bar_y();
 }
@@ -158,7 +156,6 @@ module _cover_x10() {
         _cover_x2();
     }
 
-    color("grey")
     for (i=[0:1]) {
         translate([0, (side+space_y)*i+bar_x_offset, 0])
         _cover_bar_x();

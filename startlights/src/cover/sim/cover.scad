@@ -18,3 +18,8 @@ module sim_cover_led_caps() {
     led_x10_cover_transform()
     led_cap();
 }
+
+module sim_cover_color() {
+    color("grey")
+    children();
+}
