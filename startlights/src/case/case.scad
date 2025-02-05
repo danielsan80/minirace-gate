@@ -3,14 +3,14 @@ include <../../config/parameters.scad>
 
 module _case_base_x10() {
     translate([0,bar_x_offset, 0])
-    cube([side*5+space_x*4,side*2+space_y-bar_x_offset*2,case_base_thick]);
+    cube([side*5+space_x*4,side*2+space_y-bar_x_offset*2,case_base_thick+cover_recess_h]);
     
 }
 
 module _case_block_x10() {
     for (j=[0:4]) {
         translate([(side+space_x)*j, 0, 0])
-        cube([side,side*2+space_y,case_thick]);
+        cube([side,side*2+space_y,case_thick+cover_recess_h]);
     }
 }
 
@@ -61,6 +61,5 @@ module _case_x10() {
 }
 
 module case() {
-    translate([0,0,-case_thick-0.2])
     _case_x10();
 }

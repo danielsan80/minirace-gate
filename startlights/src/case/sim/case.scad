@@ -2,6 +2,12 @@ include <../../../config/parameters.scad>
 use <../../../src/case/case.scad>
 
 
+
+module sim_case_transform() {
+    translate([0,0,-case_thick-0.2])
+    children();
+}
+
 module sim_case_color() {
     color("gray")
     children();

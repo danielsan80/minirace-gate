@@ -1,10 +1,11 @@
 include <../../config/parameters.scad>
+include <../../src/led/led.scad>
 
 
 module _cowl(r = 6) {
     fix = 0.1;
-    thick1 = 1;
-    thick2 = 0.5;
+    thick1 = cowl_t;
+    thick2 = cowl_t-0.7;
     cone_r1 = r;
     h = r;
     cone_ratio = 5.5/6;
@@ -35,8 +36,8 @@ module _cowl(r = 6) {
 
     module cut2() {
         side = cone_r1*15/6;
-        z_offset_top = cone_r1*8.5/6;
-        z_offset_bottom = cone_r1*7.5/6;
+        z_offset_top = cone_r1*8.5/5.3;
+        z_offset_bottom = cone_r1*7.5/5.5;
         a_few = 5;
         hull() {
             translate([0,cone_r1,z_offset_top])
@@ -81,14 +82,15 @@ module _cover_x1() {
 
     play = 0.3;
     h = startlight_circle_estrusion;
-    t = 1;
+    depth = circle_estrusion_depth;
+    t = cowl_t;
+    r = cowl_r;
     fix = 0.1;
     jut_h = startlight_led_jut_h;
     a_few = 10;
     play2 = 0.2;
 
 
-    color("grey")
     union() {
         _cowl(r);
         difference() {
@@ -96,21 +98,41 @@ module _cover_x1() {
                 cube([side,side,thick]);
 
                 difference() {
-                    translate([side/2,side/2,h])
-                    cylinder(r=r, h=thick);
+                    translate([0,0,thick])
+                    translate([0,0,-fix])
+                    translate([side/2,side/2,0])
+                    cylinder(r=r, h=h+fix);
 
-                    translate([side/2,side/2,h])
-                    cylinder(r=r-t, h=thick+h);
+
+                    translate([0,0,h-depth])
+                    translate([0,0,thick])
+                    translate([side/2,side/2,0])
+                    cylinder(r=r-t, h=depth+fix);
+                    
                 }
+                
+                translate([0,0,-depth])
+                translate([0,0,h])
+                translate([0,0,thick])
+                translate([0,0,-fix])
+                translate([side/2,side/2,0])
+                cylinder(d=led_cap_dome_d, h=circle_estrusion_led_cap_base_h+fix);
+                
+                
             }
-            translate([side/2,side/2,-fix])
-            cylinder(r=led_r, h=a_few);
+            translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
+            cylinder(d=led_cap_leg_d+led_cap_play*2, h=a_few);
 
-            translate([side/2,side/2,-jut_h]) {
-                cylinder(r=led_r+play, h=thick);
-                translate([-led_pin_thick/2-play2,-led_pin_w/2-play2,0])
-                cube([led_pin_thick+play2*2,led_pin_w+play2*2,thick]);
-            }
+//            translate([0,0,fix])
+//            translate([0,0,-led_play_h])
+//            translate([0,0,-led_cap_dome_h])
+//            translate([0,0,h-depth])
+//            translate([0,0,thick])
+//            translate([side/2,side/2,0])
+//            cylinder(d=led_cap_dome_d+led_play*2, h=led_cap_dome_h+led_play_h*2);
+
+            translate([side/2,side/2,0])
+            led_void();
 
         }
     }
@@ -124,7 +146,6 @@ module _cover_x2() {
 
     _cover_x1();
 
-    color("grey")
     translate([0, side, 0])
     _cover_bar_y();
 }
@@ -135,7 +156,6 @@ module _cover_x10() {
         _cover_x2();
     }
 
-    color("grey")
     for (i=[0:1]) {
         translate([0, (side+space_y)*i+bar_x_offset, 0])
         _cover_bar_x();
@@ -163,14 +183,29 @@ module _cover_welding_groove() {
     }
 }
 
+module _cover_recess() {
+    difference() {
+        translate([-fix,-fix,-fix])
+        cube([cover_l+fix*2,cover_h+fix*2,cover_recess_h+fix]);
+        
+        translate([case_wall_w+cover_recess_play,case_wall_w+cover_recess_play,-fix*2])
+        cube([cover_l-case_wall_w*2-cover_recess_play*2,cover_h-case_wall_w*2-cover_recess_play*2,cover_recess_h+fix*2]);
+    }
+    
+}
+
+
+
 module cover() {
     difference() {
         _cover_x10();
         
         _cover_welding_groove();
-        
+
         translate([cover_l,cover_h,0])
         rotate([0,0,180])
         _cover_welding_groove();
+
+        _cover_recess();
     }
 }
