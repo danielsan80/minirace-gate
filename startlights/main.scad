@@ -1,3 +1,4 @@
+include <config/specials.scad>
 include <config/parameters.scad>
 use <vendor/ruler/ruler.scad>
 use <src/board/board.scad>

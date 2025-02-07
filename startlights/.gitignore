@@ -4,4 +4,6 @@
 !/build/**/
 !/build/scad/**
 
+/bin/config.env
+
 !.gitkeep

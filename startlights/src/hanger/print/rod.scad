@@ -50,5 +50,3 @@ module print_hanger_rod() {
     translate([0, - ct_slide_side, 0])
     _hanger_rod_hook_support();
 }
-
-print_hanger_rod();
