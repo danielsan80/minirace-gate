@@ -46,7 +46,8 @@ sim_cover_led_caps();
 //led_cap_applier();
 
 //translate([0,0,20])
-//sim_board_transform()
+//sim_board_zoffset_transform()
+//sim_board_margin_transform()
 //board();
 
 //cover_cut()
