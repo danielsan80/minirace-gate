@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ ! -f "bin/config.env" ]]; then
+    cp "bin/config.env.dist" "bin/config.env"
+fi
+
 source bin/config.env
 
 START_TIME=$SECONDS
