@@ -30,16 +30,16 @@ module _basement_deflector() {
     }
 }
 
-module _basement_deflector_L() {
+module basement_deflector_L() {
     _basement_deflector();
 }
 
-module _basement_deflector_R() {
+module basement_deflector_R() {
     mirror([1,0,0])
     _basement_deflector();
 }
 
-module _basement() {
+module basement() {
     difference() {
         translate([-basement_w() / 2, -basement_l() / 2, 0])
         cube([basement_w(), basement_l(), basement_h]);

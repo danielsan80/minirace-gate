@@ -138,9 +138,9 @@ build_stl "print/gate/traverse/variant/split/without_basement/traverse_R_without
 echo ""
 echo "### BASEMENT"
 
-build_stl "print/basement/_basement.scad" "basement"
-build_stl "print/basement/_basement_deflector_L.scad" "basement_deflector_L"
-build_stl "print/basement/_basement_deflector_R.scad" "basement_deflector_R"
+build_stl "print/basement/basement.scad" "basement"
+build_stl "print/basement/basement_deflector_L.scad" "basement_deflector_L"
+build_stl "print/basement/basement_deflector_R.scad" "basement_deflector_R"
 
 
 echo ""

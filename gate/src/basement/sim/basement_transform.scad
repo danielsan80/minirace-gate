@@ -4,7 +4,7 @@ use <../../gate/interparts/angle-traverse.scad>
 
 //TRANSFORM
 
-module _sim_basement_R_transform(startline_mode, startline_l=startline_l) {
+module sim_basement_R_transform(startline_mode, startline_l=startline_l) {
     assert(startline_mode=="basement" || startline_mode=="upright" || startline_mode=="center");
 
     angle_traverse_cut_x_translate()
