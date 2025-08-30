@@ -28,6 +28,12 @@ module _board_leds() {
     led_on_board_transform()
     led_x10_cover_transform()
     led();
+    
+//    color("cyan")
+//    translate([0,0,fix])
+//    led_on_board_transform()
+//    led_x10_cover_by_datasheet_transform()
+//    led();
 }
 
 module _board_cable_connector() {

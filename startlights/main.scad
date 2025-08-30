@@ -21,7 +21,7 @@ module cover_cut() {
         children();
         
         translate([-10+side/2,-2,-10])
-        cube([10, 30, 20]);
+        cube([10, 50, 30]);
     }
 }
 
@@ -46,9 +46,9 @@ sim_cover_led_caps();
 //led_cap_applier();
 
 //translate([0,0,20])
-//sim_board_zoffset_transform()
-//sim_board_margin_transform()
-//board();
+sim_board_zoffset_transform()
+sim_board_margin_transform()
+board();
 
 //cover_cut()
 sim_case_transform()

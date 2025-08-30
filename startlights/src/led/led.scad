@@ -39,13 +39,29 @@ module led_squared_3mm(void = false) {
     cube([w, l, h]);
 }
 
+module led_squared_5mm(void = false) {
+    p = void?led_play:0;
+    ph = void?led_play_h:0;
+    
+    w = led_squared_5mm_w+p*2;
+    l = led_squared_5mm_l+p*2;
+    h = led_squared_5mm_h+ph;
+    
+    translate([-w/2,-l/2,-fix])
+    cube([w, l, h]);
+}
+
+
+
 
 module led() {
-    led_squared_3mm();
+//    led_squared_3mm();
+    led_squared_5mm();
 }
 
 module led_void() {
-    led_squared_3mm(void=true);
+//    led_squared_3mm(void=true);
+    led_squared_5mm(void=true);
 }
 
 module led_x2_cover_transform() {
@@ -53,13 +69,32 @@ module led_x2_cover_transform() {
     children();
 
     translate([side/2,side/2,0])
+    rotate([0,0,180])
     children();
 }
+
+module led_x2_cover_by_datasheet_transform() {
+    translate([4,5+17,0])
+    children();
+    
+    translate([4,5,0])
+    rotate([0,0,180])
+    children();
+}
+
 
 module led_x10_cover_transform() {
     for (j=[0:4]) {
         translate([(side+space_x)*j,0,0])
             led_x2_cover_transform()
+        children();
+    }
+}
+
+module led_x10_cover_by_datasheet_transform() {
+    for (j=[0:4]) {
+        translate([18*j,0,0])
+        led_x2_cover_transform()
         children();
     }
 }

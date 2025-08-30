@@ -1,5 +1,6 @@
 include <../../config/parameters.scad>
 include <../../src/led/led.scad>
+include <../../src/led/led_cap.scad>
 
 
 module _cowl(r = 6) {
@@ -111,17 +112,17 @@ module _cover_x1() {
                     
                 }
                 
-                translate([0,0,-depth])
-                translate([0,0,h])
-                translate([0,0,thick])
-                translate([0,0,-fix])
-                translate([side/2,side/2,0])
-                cylinder(d=led_cap_dome_d, h=circle_estrusion_led_cap_base_h+fix);
+//                translate([0,0,-depth])
+//                translate([0,0,h])
+//                translate([0,0,thick])
+//                translate([0,0,-fix])
+//                translate([side/2,side/2,0])
+//                cylinder(d=led_cap_dome_d, h=circle_estrusion_led_cap_base_h+fix);
                 
                 
             }
-            translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
-            cylinder(d=led_cap_leg_d+led_cap_play*2, h=a_few);
+//            translate([side/2,side/2,thick-led_cap_leg_h+led_play_h])
+//            cylinder(d=led_cap_leg_d+led_cap_play*2, h=a_few);
 
 //            translate([0,0,fix])
 //            translate([0,0,-led_play_h])
@@ -133,6 +134,9 @@ module _cover_x1() {
 
             translate([side/2,side/2,0])
             led_void();
+            
+            translate([side/2,side/2,0])
+            led_cap_void();
 
         }
     }

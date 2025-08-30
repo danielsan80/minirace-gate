@@ -11,12 +11,12 @@ module sim_hanging_startlights_transform() {
 }
 
 module sim_cover_led_caps() {
-    %translate([0,0,circle_estrusion_led_cap_base_h])
-    %translate([0,0,-circle_estrusion_depth])
-    %translate([0,0,startlight_circle_estrusion])
-    %translate([0,0,thick])
+//    translate([0,0,circle_estrusion_led_cap_base_h])
+//    translate([0,0,-circle_estrusion_depth])
+//    translate([0,0,startlight_circle_estrusion])
+//    translate([0,0,thick])
     led_x10_cover_transform()
-    led_cap();
+    %led_cap();
 }
 
 module sim_cover_color() {
