@@ -163,10 +163,10 @@ hanger_clip_hook_tilt = 5;
 hanger_clip_hook_thick = 2;
 
 hanger_rod_hook_play = 0.15;
-hanger_rod_hook_l = 6;
+hanger_rod_hook_l = 7.5;
 hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
-hanger_rod_hook_w = 2; // = startlight:space_x
+hanger_rod_hook_w = 2.3; // = startlight:space_x
 
 hanger_rod_margin = bar_x_offset;
 hanger_rod_l = cover_l-hanger_rod_margin*2;
