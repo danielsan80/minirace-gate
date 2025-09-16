@@ -23,8 +23,8 @@ module led_cap_applier() {
     depth = 1;
     d = 10;
     h = 20;
-    do = led_cap_dome_d+1.0;
-    di = led_cap_dome_d+0.4;
+    do = led_cap_dome_d+1.8; //1.0
+    di = led_cap_dome_d+0.6; //0.4
     
     translate([0, 0, h/2+fix])
     cylinder(d=d, h=h/2);
