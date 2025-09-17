@@ -80,6 +80,7 @@ echo ""
 echo "### COVER"
 
 build_stl "print/cover/cover.scad" "cover"
+build_stl "print/cover/cover-no_supports.scad" "cover-no_supports"
 
 echo ""
 echo "### CASE"
@@ -90,6 +91,7 @@ echo ""
 echo "### ROD"
 
 build_stl "print/hanger/hanger_rod.scad" "hanger_rod"
+build_stl "print/hanger/hanger_rod-no_supports.scad" "hanger_rod-no_supports"
 
 
 echo ""
