@@ -7,7 +7,7 @@ led_cap_h = 3.85;
 led_cap_leg_h = 2.70;
 led_cap_dome_h= led_cap_h-led_cap_leg_h;
 led_cap_dome_d= 5;
-led_cap_leg_d = 3.85;
+led_cap_leg_d = 3.80;
 
 thick = 4;
 startlight_circle_estrusion = 1.4;
@@ -32,8 +32,9 @@ startlight_led_jut_h = 0.5;
 led_squared_3mm_w = 2.80;
 led_squared_3mm_l = 3.15;
 led_squared_3mm_h = 2.0;
-led_play = 0.20;
-led_cap_play = 0.1;
+led_play_w = 0.20;
+led_play_l = 0.20 + 0.25;
+led_cap_play = 0.05;
 led_play_h = 0.2;
 
 
@@ -79,8 +80,8 @@ board_cable_connector_offset = [0,-cover_h/2 + bar_x_offset+5.8+board_cable_conn
 board_cable_connector_play = 0.5;
 
 board_welding_l = 8.5;
-board_welding_h = 0.8;
-board_welding_w = 1.45;
+board_welding_h = 1.2;
+board_welding_w = 2.00;
 board_welding_play = 0.1;
 board_welding_r = 0.3;
 

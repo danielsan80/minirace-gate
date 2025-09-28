@@ -28,11 +28,12 @@ module led_3mm_with_pin() {
 }
 
 module led_squared_3mm(void = false) {
-    p = void?led_play:0;
+    pw = void?led_play_w:0;
+    pl = void?led_play_l:0;
     ph = void?led_play_h:0;
     
-    w = led_squared_3mm_w+p*2;
-    l = led_squared_3mm_l+p*2;
+    w = led_squared_3mm_w+pw*2;
+    l = led_squared_3mm_l+pl*2;
     h = led_squared_3mm_h+ph;
     
     translate([-w/2,-l/2,-fix])
