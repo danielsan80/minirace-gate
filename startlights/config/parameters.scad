@@ -39,8 +39,10 @@ led_play_h = 0.2;
 
 
 
-bar_thick = 1.5;
-bar_x_offset = bar_thick;
+bar_y_thick = 2.0-fix;
+bar_x_thick = 1.5;
+bar_x_w = 1.5;
+bar_x_offset = 1.5;
 
 cover_l = side*5+space_x*4;
 cover_h = side*2+space_y;
@@ -79,16 +81,16 @@ board_cable_connector_h = 5.2;
 board_cable_connector_offset = [0,-cover_h/2 + bar_x_offset+5.8+board_cable_connector_w/2];
 board_cable_connector_play = 0.5;
 
-board_welding_l = 8.5;
-board_welding_h = 1.2;
-board_welding_w = 2.00;
+board_welding_l = 8.3;
+board_welding_h = 1.1;
+board_welding_w = 3.00;
 board_welding_play = 0.1;
 board_welding_r = 0.3;
 
 board_v1_welding_offset = [0, -2.2];
 board_v1_has_cover_welding_groove = true;
 
-board_v2_welding_offset = [0, -0.8];
+board_v2_welding_offset = [0, 0];
 board_v2_has_cover_welding_groove = true;
 
 board_welding_offset = board_v==1?board_v1_welding_offset:board_v2_welding_offset;

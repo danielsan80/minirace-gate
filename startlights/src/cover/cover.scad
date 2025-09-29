@@ -63,18 +63,18 @@ module _cowl(r = 6) {
 module _cover_bar_x() {
     play = 0.1;
     difference() {
-        cube([side*5+space_x*4,bar_thick,bar_thick]);
+        cube([side*5+space_x*4,bar_x_w,bar_x_thick]);
         
         for (i=[0:4]) {
             translate([(side+space_x)*i,0,0])
             translate([play,-play,-play])
-            cube([side-play*2,bar_thick+play*2,bar_thick+play*2]);
+            cube([side-play*2,bar_x_w+play*2,bar_x_thick+play*2]);
         }
     }
 }
 
 module _cover_bar_y() {
-    cube([side,space_y,bar_thick]);
+    cube([side,space_y,bar_y_thick]);
 }
 
 
@@ -160,7 +160,7 @@ module _cover_x10() {
         translate([0, (side+space_y)*i+bar_x_offset, 0])
         _cover_bar_x();
 
-        translate([0, (side+space_y)*i+side-bar_x_offset-bar_thick, 0])
+        translate([0, (side+space_y)*i+side-bar_x_offset-bar_x_w, 0])
         _cover_bar_x();
     }
 }

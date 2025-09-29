@@ -34,6 +34,25 @@ module cover_welding_test_cut() {
     }
 }
 
+module bridge(l, os=0.4) {
+    w=2;
+    h=1;
+    t=0.2;
+    
+    color("cyan")
+//    translate([0,0,-fix])
+    translate([-w/2,0,0]) {
+        cube([w,l,t]);
+        hull() {
+            translate([0,os,0])
+            cube([w,l-os*2,t]);
+            
+            translate([0,os+h,0])
+            cube([w,l-os*2-h*2,h]);
+        }
+    }
+}
+
 //cover_cut()
 //cover_welding_test_cut()
 //translate([0,0,40])
@@ -43,15 +62,13 @@ module cover_welding_test_cut() {
 translate([0,-cover_h,0])
 translate([cover_l,cover_h,0])
 rotate([0,0,180]) {
-    l=12;
-    w=2;
-    t=0.2;
+    l=10.5;
     cover();
     
     translate([cover_l/2,0,0])
-    translate([-w/2,-l,0])
+    translate([0,-l,0])
     translate([0,case_wall_w,0])
-    cube([w,l,t]);
+    bridge(l);
     
 }
 //print_cover();
@@ -69,14 +86,14 @@ rotate([0,0,180]) {
 //sim_case_transform()
 //sim_case_color()
 translate([0,25,0]) {
-    l=12;
+    l=11.5;
     w=2;
     t=0.2;
     case();
     
     translate([cover_l/2,0,0])
-    translate([-w/2,-l,0])
-    cube([w,l,t]);
+    translate([0,-l,0])
+    bridge(l);
 }
 
 
@@ -97,21 +114,23 @@ translate([0,25,0]) {
 
 translate([8,0,0])
 translate([cover_l,0,0]) {
-    l=6;
+    l=3.6;
     w=2;
     t=0.2;
     
     hanger_clip();
-    
-    translate([-hanger_clip_w,8+ct_slide_side/2,0])
-    translate([-l,-w/2,0])
-    cube([l,w,t]);
+   
+    translate([-0.98,0,0])
+    translate([0,8+ct_slide_side/2,0])
+    translate([-hanger_clip_w,0,0])
+    rotate([0,0,90])
+    bridge(l);
     
 }
 
 translate([-8,0,0])
 translate([0,0,0]) {
-    l=6;
+    l=3.6;
     w=2;
     t=0.2;
  
@@ -121,6 +140,12 @@ translate([0,0,0]) {
     translate([hanger_clip_w,8+ct_slide_side/2,0])
     translate([0,-w/2,0])
     cube([l,w,t]);
+    
+    translate([0.98,0,0])
+    translate([0,8+ct_slide_side/2,0])
+    translate([hanger_clip_w,0,0])
+    rotate([0,0,-90])
+    bridge(l);
     
 }
 
