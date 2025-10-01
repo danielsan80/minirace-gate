@@ -37,7 +37,7 @@ module cover_welding_test_cut() {
 module bridge(l, os=0.4) {
     w=2;
     h=1.5;
-    t=0.5;
+    t=1.5;
     
     color("cyan")
 //    translate([0,0,-fix])
