@@ -36,8 +36,8 @@ module cover_welding_test_cut() {
 
 module bridge(l, os=0.4) {
     w=2;
-    h=1;
-    t=0.2;
+    h=1.5;
+    t=0.5;
     
     color("cyan")
 //    translate([0,0,-fix])
@@ -65,7 +65,12 @@ rotate([0,0,180]) {
     l=10.5;
     cover();
     
-    translate([cover_l/2,0,0])
+    translate([side/2,0,0])
+    translate([0,-l,0])
+    translate([0,case_wall_w,0])
+    bridge(l);
+    
+    translate([cover_l-side/2,0,0])
     translate([0,-l,0])
     translate([0,case_wall_w,0])
     bridge(l);
@@ -87,11 +92,13 @@ rotate([0,0,180]) {
 //sim_case_color()
 translate([0,25,0]) {
     l=11.5;
-    w=2;
-    t=0.2;
     case();
     
-    translate([cover_l/2,0,0])
+    translate([side/2,0,0])
+    translate([0,-l,0])
+    bridge(l);
+    
+    translate([cover_l-side/2,0,0])
     translate([0,-l,0])
     bridge(l);
 }
@@ -112,40 +119,43 @@ translate([0,25,0]) {
     hanger_rod();
 //    print_hanger_rod();
 
-translate([8,0,0])
+translate([8,-4,0])
 translate([cover_l,0,0]) {
-    l=3.6;
-    w=2;
-    t=0.2;
+    l=8.1;
     
     hanger_clip();
    
-    translate([-0.98,0,0])
-    translate([0,8+ct_slide_side/2,0])
+    translate([-0.85,0,0])
+    translate([0,6.7+ct_slide_side/2,0])
     translate([-hanger_clip_w,0,0])
     rotate([0,0,90])
     bridge(l);
     
+    translate([-1.80,0,0])
+    translate([0,17.3+ct_slide_side/2,0])
+    translate([-hanger_clip_w,0,0])
+    rotate([0,0,90])
+    bridge(l-0.95);
 }
 
-translate([-8,0,0])
+translate([-8,-4,0])
 translate([0,0,0]) {
-    l=3.6;
-    w=2;
-    t=0.2;
+    l=8.1;
  
     mirror([1,0,0])
     hanger_clip();
     
-    translate([hanger_clip_w,8+ct_slide_side/2,0])
-    translate([0,-w/2,0])
-    cube([l,w,t]);
-    
-    translate([0.98,0,0])
-    translate([0,8+ct_slide_side/2,0])
+    translate([0.85,0,0])
+    translate([0,6.7+ct_slide_side/2,0])
     translate([hanger_clip_w,0,0])
     rotate([0,0,-90])
     bridge(l);
+    
+    translate([1.80,0,0])
+    translate([0,17.3+ct_slide_side/2,0])
+    translate([hanger_clip_w,0,0])
+    rotate([0,0,-90])
+    bridge(l-0.95);
     
 }
 
