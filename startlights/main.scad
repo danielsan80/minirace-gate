@@ -34,15 +34,19 @@ module cover_welding_test_cut() {
     }
 }
 
-module bridge(l, os=0.4) {
+module bridge(l, os=0.4, conn="both") {
     w=2;
     h=1.5;
-    t=1.5;
+    t=0.5;
+    tl = conn=="left"||conn=="both"?t:h;
+    tr = conn=="right"||conn=="both"?t:h;
     
     color("cyan")
 //    translate([0,0,-fix])
     translate([-w/2,0,0]) {
-        cube([w,l,t]);
+        cube([w,l/2,tl]);
+        translate([0,l/2,0])
+        cube([w,l/2,tr]);
         hull() {
             translate([0,os,0])
             cube([w,l-os*2,t]);
@@ -62,18 +66,18 @@ module bridge(l, os=0.4) {
 translate([0,-cover_h,0])
 translate([cover_l,cover_h,0])
 rotate([0,0,180]) {
-    l=10.5;
+    l=8.2;
     cover();
     
     translate([side/2,0,0])
     translate([0,-l,0])
     translate([0,case_wall_w,0])
-    bridge(l);
+    bridge(l, conn="right");
     
     translate([cover_l-side/2,0,0])
     translate([0,-l,0])
     translate([0,case_wall_w,0])
-    bridge(l);
+    bridge(l,  conn="right");
     
 }
 //print_cover();
@@ -91,37 +95,48 @@ rotate([0,0,180]) {
 //sim_case_transform()
 //sim_case_color()
 translate([0,25,0]) {
-    l=11.5;
+    l=9.2;
     case();
     
     translate([side/2,0,0])
     translate([0,-l,0])
-    bridge(l);
+    bridge(l, conn="right");
     
     translate([cover_l-side/2,0,0])
     translate([0,-l,0])
-    bridge(l);
+    bridge(l, conn="right");
 }
 
 
 
 
-//sim_case_transform() {
-//    sim_rod_transform()
-//    sim_clip_rod_transform()
-//    sim_rod_rotate()
-//    sim_rod_center()
-//    sim_rod_color()
-//    translate([0,20,0])
-    translate([hanger_rod_l/2+1.5,0,0])
-    translate([0,8,-ct_slide_side/4])
+translate([hanger_rod_l/2+1.5,0,0])
+translate([0,8,]) {
+    l = 4;
+
+    translate([0,0,-ct_slide_side/4])
     rotate([-90,0,0])
     hanger_rod();
-//    print_hanger_rod();
+    
+    translate([-l,0,0])
+    translate([-hanger_rod_l/2,0,0])
+    translate([0,ct_slide_side/2,0])
+    rotate([0,0,-90])
+    bridge(l, conn="right");
+    
+    translate([l,0,0])
+    translate([hanger_rod_l/2,0,0])
+    translate([0,ct_slide_side/2,0])
+    rotate([0,0,90])
+    bridge(l, conn="right");
+    
+}
 
-translate([8,-4,0])
+
+
+translate([13,-4,0])
 translate([cover_l,0,0]) {
-    l=8.1;
+    l=13.1;
     
     hanger_clip();
    
@@ -129,18 +144,23 @@ translate([cover_l,0,0]) {
     translate([0,6.7+ct_slide_side/2,0])
     translate([-hanger_clip_w,0,0])
     rotate([0,0,90])
-    bridge(l);
+    bridge(l, conn="left");
     
     translate([-1.80,0,0])
     translate([0,17.3+ct_slide_side/2,0])
     translate([-hanger_clip_w,0,0])
     rotate([0,0,90])
-    bridge(l-0.95);
+    bridge(l-0.95, conn="left");
+    
+    translate([-hanger_clip_w-6,0,0])
+    translate([0,5.2,0])
+    translate([0,4,0])
+    bridge(12, conn="none");
 }
 
-translate([-8,-4,0])
+translate([-13,-4,0])
 translate([0,0,0]) {
-    l=8.1;
+    l=13.1;
  
     mirror([1,0,0])
     hanger_clip();
@@ -149,13 +169,19 @@ translate([0,0,0]) {
     translate([0,6.7+ct_slide_side/2,0])
     translate([hanger_clip_w,0,0])
     rotate([0,0,-90])
-    bridge(l);
+    bridge(l, conn="left");
     
     translate([1.80,0,0])
     translate([0,17.3+ct_slide_side/2,0])
     translate([hanger_clip_w,0,0])
     rotate([0,0,-90])
-    bridge(l-0.95);
+    bridge(l-0.95, conn="left");
+    
+    
+    translate([hanger_clip_w+6,0,0])
+    translate([0,5.2,0])
+    translate([0,4,0])
+    bridge(12, conn="none");
     
 }
 

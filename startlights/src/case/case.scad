@@ -19,10 +19,33 @@ module _case_solid_x10() {
     _case_block_x10();
 }
 
+
+module _case_void_x10_lip() {
+    r = case_lip_r;
+    
+    translate([0,0,case_thick+case_base_thick-r]) {
+        rotate([-90,0,0])
+        cylinder(r=r, h=cover_h-case_wall_w*2);
+        
+        translate([cover_l-case_wall_w*2,0,0])
+        rotate([-90,0,0])
+        cylinder(r=r, h=cover_h-case_wall_w*2);
+        
+        rotate([0,90,0])
+        cylinder(r=r, h=cover_l-case_wall_w*2);
+        
+        translate([0,cover_h-case_wall_w*2,0])
+        rotate([0,90,0])
+        cylinder(r=r, h=cover_l-case_wall_w*2);
+    }
+}
+
 module _case_void_x10() {
     translate([case_wall_w, case_wall_w, case_base_thick+fix])
-    cube([cover_l-case_wall_w*2, cover_h-case_wall_w*2, a_lot]);
-    
+    difference() {
+        cube([cover_l-case_wall_w*2, cover_h-case_wall_w*2, a_lot]);
+        _case_void_x10_lip();
+    }
 }
 
 module _case_cable_connector_hole_x10() {
