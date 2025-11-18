@@ -32,9 +32,9 @@ startlight_led_jut_h = 0.5;
 led_squared_3mm_w = 2.80;
 led_squared_3mm_l = 3.15;
 led_squared_3mm_h = 2.0;
-led_play_w = 0.00;
+led_play_w = 0.05;
 led_play_l = 0.20 + 0.25;
-led_cap_play = 0.05;
+led_cap_play = 0.055;
 led_play_h = 0.2;
 
 
@@ -104,7 +104,7 @@ gate_hook_space = 3;
 gate_hook_x2_width = 54.4;
 
 ct_slide_side = 7;
-ct_slide_play = 0.07;
+ct_slide_play = 0.13;
 
 hanger_clip_w = 5;
 
@@ -119,7 +119,7 @@ hanger_rod_hook_play = 0.15;
 hanger_rod_hook_l = 6;
 hanger_rod_hook_r = 6;
 hanger_rod_hook_angle = 30;
-hanger_rod_hook_w = 2.2; // = startlight:space_x
+hanger_rod_hook_w = 2.1; // = startlight:space_x
 
 hanger_rod_margin = bar_x_offset;
 hanger_rod_l = cover_l-hanger_rod_margin*2;
