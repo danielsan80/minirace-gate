@@ -1,5 +1,6 @@
 include <../../config/parameters.scad>
-include <../../src/led/led.scad>
+use <../../src/led/led.scad>
+use <../../src/led/led_cap.scad>
 
 
 module _cowl(r = 6) {
@@ -108,7 +109,7 @@ module _cover_x1() {
                     translate([0,0,thick])
                     translate([side/2,side/2,0])
                     cylinder(r=r-t, h=depth+fix);
-                    
+
                 }
                 
                 translate([0,0,-depth])
@@ -139,22 +140,32 @@ module _cover_x1() {
 }
 
 
+module from_cover_x1_to_cover_x2_transform() {
+    translate([0, side+space_y, 0])
+    children();
+    
+    children();
+}
+
+module from_cover_x2_to_cover_x10_transform() {
+    for (j=[0:4]) {
+        translate([(side+space_x)*j, 0, 0])
+        children();
+    }
+}
 
 module _cover_x2() {
-    translate([0, side+space_y, 0])
-    _cover_x1();
-
+    from_cover_x1_to_cover_x2_transform()
     _cover_x1();
 
     translate([0, side, 0])
     _cover_bar_y();
 }
 
+
 module _cover_x10() {
-    for (j=[0:4]) {
-        translate([(side+space_x)*j, 0, 0])
-        _cover_x2();
-    }
+    from_cover_x2_to_cover_x10_transform()
+    _cover_x2();
 
     for (i=[0:1]) {
         translate([0, (side+space_y)*i+bar_x_offset, 0])
@@ -195,8 +206,8 @@ module _cover_recess() {
 }
 
 
-
 module cover() {
+    
     difference() {
         _cover_x10();
         

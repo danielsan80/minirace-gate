@@ -9,6 +9,7 @@ use <src/hanger/clip_rod_joint.scad>
 use <src/hanger/sim/hanger.scad>
 use <src/hanger/print/rod.scad>
 use <src/cover/cover.scad>
+use <src/cover/assembly/cover.scad>
 use <src/led/led_cap.scad>
 use <src/cover/sim/cover.scad>
 use <src/cover/print/cover.scad>
@@ -61,6 +62,13 @@ module bridge(l, os=0.4, conn="both") {
 //cover_welding_test_cut()
 //translate([0,0,40])
 //sim_cover_color()
+//print_cover();
+
+//led_cap_applier();
+
+translate([0,0,30])
+rotate([0,180,0])
+cover_led_caps_applier();
 
 
 translate([0,-cover_h,0])
@@ -80,11 +88,6 @@ rotate([0,0,180]) {
     bridge(l,  conn="right");
     
 }
-//print_cover();
-
-//sim_cover_led_caps();
-
-//led_cap_applier();
 
 //translate([0,0,20])
 //sim_board_zoffset_transform()
