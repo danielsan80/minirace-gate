@@ -1,0 +1,15 @@
+#!/bin/bash
+
+unlink vendor/ruler 2> /dev/null
+
+unlink vendor/car 2> /dev/null
+
+unlink vendor/startlights 2> /dev/null
+
+unlink vendor/controller-box 2> /dev/null
+
+unlink vendor/startlights 2> /dev/null
+
+rmdir vendor 2> /dev/null
+
+
