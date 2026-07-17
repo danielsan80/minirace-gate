@@ -79,7 +79,7 @@ module _cover_bar_y() {
 }
 
 
-module _cover_x1() {
+module _cover_x1(led_play_w=led_play_w) {
 
     play = 0.3;
     h = startlight_circle_estrusion;
@@ -133,7 +133,7 @@ module _cover_x1() {
 //            cylinder(d=led_cap_dome_d+led_play*2, h=led_cap_dome_h+led_play_h*2);
 
             translate([side/2,side/2,0])
-            led_void();
+            led_void(led_play_w=led_play_w);
 
         }
     }
@@ -154,9 +154,9 @@ module from_cover_x2_to_cover_x10_transform() {
     }
 }
 
-module _cover_x2() {
+module _cover_x2(led_play_w=led_play_w) {
     from_cover_x1_to_cover_x2_transform()
-    _cover_x1();
+    _cover_x1(led_play_w=led_play_w);
 
     translate([0, side, 0])
     _cover_bar_y();
@@ -173,6 +173,23 @@ module _cover_x10() {
 
         translate([0, (side+space_y)*i+side-bar_x_offset-bar_x_w, 0])
         _cover_bar_x();
+    }
+}
+
+module _cover_x10_fixed() {
+    for (j=[0,1,3,4]) {
+        translate([(side + space_x) * j, 0, 0])
+            _cover_x2();
+    }
+    translate([(side + space_x) * 2, 0, 0])
+        _cover_x2(led_play_w=led_play_w_center);
+
+    for (i=[0:1]) {
+        translate([0, (side+space_y)*i+bar_x_offset, 0])
+            _cover_bar_x();
+
+        translate([0, (side+space_y)*i+side-bar_x_offset-bar_x_w, 0])
+            _cover_bar_x();
     }
 }
 
@@ -209,8 +226,9 @@ module _cover_recess() {
 module cover() {
     
     difference() {
-        _cover_x10();
-        
+//        _cover_x10();
+        _cover_x10_fixed();
+
         _cover_welding_groove();
 
         translate([cover_l,cover_h,0])

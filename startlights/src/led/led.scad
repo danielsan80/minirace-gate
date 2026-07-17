@@ -27,7 +27,7 @@ module led_3mm_with_pin() {
     cube([led_pin_thick, led_pin_w, led_pin_h]);
 }
 
-module led_squared_3mm(void = false) {
+module led_squared_3mm(void = false, led_play_w=led_play_w) {
     pw = void?led_play_w:0;
     pl = void?led_play_l:0;
     ph = void?led_play_h:0;
@@ -45,8 +45,8 @@ module led() {
     led_squared_3mm();
 }
 
-module led_void() {
-    led_squared_3mm(void=true);
+module led_void(led_play_w=led_play_w) {
+    led_squared_3mm(void=true,led_play_w=led_play_w);
 }
 
 module led_x2_cover_transform() {
